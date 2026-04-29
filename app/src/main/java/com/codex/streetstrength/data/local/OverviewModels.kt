@@ -1,5 +1,7 @@
 package com.codex.streetstrength.data.local
 
+import com.codex.streetstrength.data.model.CategoryType
+
 data class PeriodOverviewSummary(
     val plannedDays: Int = 0,
     val trainedDays: Int = 0,
@@ -8,6 +10,18 @@ data class PeriodOverviewSummary(
     val plannedSets: Int = 0,
     val completedSets: Int = 0,
     val completedSessions: Int = 0,
+    val totalReps: Int = 0,
+    val totalHoldSec: Int = 0,
+    val totalExternalLoadKg: Double = 0.0,
+)
+
+data class ExerciseVolumeSummary(
+    val templateId: Long,
+    val exerciseName: String,
+    val categoryName: String,
+    val categoryType: CategoryType,
+    val trainedDays: Int = 0,
+    val completedSets: Int = 0,
     val totalReps: Int = 0,
     val totalHoldSec: Int = 0,
     val totalExternalLoadKg: Double = 0.0,

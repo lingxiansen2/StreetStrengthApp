@@ -4,11 +4,16 @@ import com.codex.streetstrength.data.local.DayTaskWithDetails
 import com.codex.streetstrength.data.local.PlanDayWithTasks
 import com.codex.streetstrength.data.local.SetLogEntity
 import com.codex.streetstrength.data.local.TaskSetPlanEntity
+import com.codex.streetstrength.data.model.TrainingOrderMode
 
 data class TrainingCursor(
     val task: DayTaskWithDetails,
     val setPlan: TaskSetPlanEntity,
     val isLastOverallSet: Boolean,
+    val roundIndex: Int,
+    val totalRounds: Int,
+    val positionInRound: Int,
+    val tasksInRound: Int,
 )
 
 data class TrainingProgressSnapshot(
@@ -19,6 +24,7 @@ data class TrainingProgressSnapshot(
 fun calculateTrainingProgress(
     dayPlan: PlanDayWithTasks?,
     logs: List<SetLogEntity>,
+    orderMode: TrainingOrderMode = TrainingOrderMode.CIRCUIT,
 ): TrainingProgressSnapshot {
     if (dayPlan == null) return TrainingProgressSnapshot(cursor = null, isFinished = false)
     val tasks = dayPlan.tasks
@@ -27,19 +33,25 @@ fun calculateTrainingProgress(
     if (tasks.isEmpty()) return TrainingProgressSnapshot(cursor = null, isFinished = false)
 
     val completedKeys = logs.map { "${it.taskId}:${it.setIndex}" }.toSet()
-    tasks.forEachIndexed { taskIndex, task ->
-        val nextSet = task.setPlans.firstOrNull { "${task.task.id}:${it.setIndex}" !in completedKeys }
-        if (nextSet != null) {
-            val hasRemainingAfter = tasks.drop(taskIndex).flatMapIndexed { offset, t ->
-                val source = if (offset == 0) t.setPlans.filter { it.setIndex > nextSet.setIndex } else t.setPlans
-                source.map { "${t.task.id}:${it.setIndex}" }
-            }.any { it !in completedKeys }
+    val planSequence = when (orderMode) {
+        TrainingOrderMode.CIRCUIT -> buildCircuitSequence(tasks)
+        TrainingOrderMode.SEQUENTIAL -> buildSequentialSequence(tasks)
+    }
 
+    planSequence.forEachIndexed { sequenceIndex, slot ->
+        val key = "${slot.task.task.id}:${slot.setPlan.setIndex}"
+        if (key !in completedKeys) {
+            val hasRemainingAfter = planSequence.drop(sequenceIndex + 1)
+                .any { next -> "${next.task.task.id}:${next.setPlan.setIndex}" !in completedKeys }
             return TrainingProgressSnapshot(
                 cursor = TrainingCursor(
-                    task = task,
-                    setPlan = nextSet,
+                    task = slot.task,
+                    setPlan = slot.setPlan,
                     isLastOverallSet = !hasRemainingAfter,
+                    roundIndex = slot.roundIndex,
+                    totalRounds = slot.totalRounds,
+                    positionInRound = slot.positionInRound,
+                    tasksInRound = slot.tasksInRound,
                 ),
                 isFinished = false,
             )
@@ -48,9 +60,50 @@ fun calculateTrainingProgress(
     return TrainingProgressSnapshot(cursor = null, isFinished = true)
 }
 
-private inline fun <T, R> List<T>.flatMapIndexed(transform: (Int, T) -> Iterable<R>): List<R> {
-    val result = mutableListOf<R>()
-    forEachIndexed { index, item -> result += transform(index, item) }
-    return result
+private fun buildCircuitSequence(tasks: List<DayTaskWithDetails>): List<TrainingSlot> {
+    val totalRounds = tasks.maxOf { task -> task.setPlans.maxOfOrNull { it.setIndex } ?: 0 }
+    val sequence = mutableListOf<TrainingSlot>()
+    for (round in 1..totalRounds) {
+        val roundSlots = tasks.mapNotNull { task ->
+            task.setPlans.firstOrNull { it.setIndex == round }?.let { setPlan ->
+                TrainingSlot(
+                    task = task,
+                    setPlan = setPlan,
+                    roundIndex = round,
+                    totalRounds = totalRounds,
+                )
+            }
+        }
+        roundSlots.forEachIndexed { index, slot ->
+            sequence += slot.copy(
+                positionInRound = index + 1,
+                tasksInRound = roundSlots.size,
+            )
+        }
+    }
+    return sequence
 }
 
+private fun buildSequentialSequence(tasks: List<DayTaskWithDetails>): List<TrainingSlot> {
+    return tasks.flatMapIndexed { taskIndex, task ->
+        task.setPlans.map { setPlan ->
+            TrainingSlot(
+                task = task,
+                setPlan = setPlan,
+                roundIndex = setPlan.setIndex,
+                totalRounds = task.setPlans.size,
+                positionInRound = taskIndex + 1,
+                tasksInRound = tasks.size,
+            )
+        }
+    }
+}
+
+private data class TrainingSlot(
+    val task: DayTaskWithDetails,
+    val setPlan: TaskSetPlanEntity,
+    val roundIndex: Int,
+    val totalRounds: Int,
+    val positionInRound: Int = 1,
+    val tasksInRound: Int = 1,
+)

@@ -3,6 +3,10 @@ package com.codex.streetstrength.data.model
 enum class CategoryType {
     PULL,
     PUSH,
+    CORE,
+    ARMS,
+    LEGS,
+    SKILL,
 }
 
 enum class MetricType {
@@ -35,10 +39,14 @@ enum class TimerState {
     CANCELLED,
 }
 
+enum class TrainingOrderMode {
+    CIRCUIT,
+    SEQUENTIAL,
+}
+
 enum class CalendarCompletionStatus {
     EMPTY,
     PLANNED,
     PARTIAL,
     DONE,
 }
-

@@ -3,6 +3,7 @@ package com.codex.streetstrength.ui.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.AlertDialog
@@ -32,6 +33,7 @@ fun CustomExerciseDialog(
 ) {
     var categoryType by remember { mutableStateOf(CategoryType.PULL) }
     var name by remember { mutableStateOf("") }
+    var variantName by remember { mutableStateOf("标准") }
     var supportsLoad by remember { mutableStateOf(false) }
     var metricType by remember { mutableStateOf(MetricType.REPS) }
     var cue by remember { mutableStateOf("") }
@@ -44,20 +46,26 @@ fun CustomExerciseDialog(
                 OutlinedTextField(
                     value = name,
                     onValueChange = { name = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
                     label = { Text("\u9879\u76ee\u540d\u79f0") },
                 )
+                OutlinedTextField(
+                    value = variantName,
+                    onValueChange = { variantName = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true,
+                    label = { Text("\u9ed8\u8ba4\u53d8\u5f0f\u540d\u79f0") },
+                )
                 Text("\u5206\u7c7b")
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    FilterChip(
-                        selected = categoryType == CategoryType.PULL,
-                        onClick = { categoryType = CategoryType.PULL },
-                        label = { Text(formatCategoryType(CategoryType.PULL)) },
-                    )
-                    FilterChip(
-                        selected = categoryType == CategoryType.PUSH,
-                        onClick = { categoryType = CategoryType.PUSH },
-                        label = { Text(formatCategoryType(CategoryType.PUSH)) },
-                    )
+                LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    items(CategoryType.entries) { category ->
+                        FilterChip(
+                            selected = categoryType == category,
+                            onClick = { categoryType = category },
+                            label = { Text(formatCategoryType(category)) },
+                        )
+                    }
                 }
                 Text("\u8ba1\u91cf\u65b9\u5f0f")
                 LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -77,7 +85,7 @@ fun CustomExerciseDialog(
                     }
                 }
                 Row(
-                    modifier = Modifier,
+                    modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
@@ -87,6 +95,7 @@ fun CustomExerciseDialog(
                 OutlinedTextField(
                     value = cue,
                     onValueChange = { cue = it },
+                    modifier = Modifier.fillMaxWidth(),
                     label = { Text("\u52a8\u4f5c\u63d0\u793a\u53ef\u9009") },
                 )
             }
@@ -98,13 +107,14 @@ fun CustomExerciseDialog(
                         CustomExerciseDraft(
                             categoryType = categoryType,
                             name = name.trim(),
+                            variantName = variantName.trim(),
                             supportsExternalLoad = supportsLoad,
                             defaultMetricType = metricType,
                             cue = cue.trim().ifBlank { null },
                         ),
                     )
                 },
-                enabled = name.isNotBlank(),
+                enabled = name.isNotBlank() && variantName.isNotBlank(),
             ) {
                 Text("\u4fdd\u5b58")
             }

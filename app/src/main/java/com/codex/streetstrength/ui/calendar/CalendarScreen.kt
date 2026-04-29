@@ -41,8 +41,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.codex.streetstrength.StreetStrengthApp
+import com.codex.streetstrength.debug.PlanTestingSwitch
 import com.codex.streetstrength.data.local.CalendarDaySummary
 import com.codex.streetstrength.data.local.PlanDayWithTasks
+import com.codex.streetstrength.data.model.CalendarCompletionStatus
+import com.codex.streetstrength.domain.PlanDayActionPolicy
+import com.codex.streetstrength.domain.PlanDateTiming
+import com.codex.streetstrength.domain.resolvePlanDayActionPolicy
 import com.codex.streetstrength.data.repository.TrainingRepository
 import com.codex.streetstrength.ui.formatCalendarStatus
 import com.codex.streetstrength.ui.formatMetric
@@ -149,6 +154,14 @@ fun CalendarScreen(
     val selectedTasks = uiState.selectedPlan?.tasks
         ?.sortedBy { it.task.orderInDay }
         .orEmpty()
+    val selectedStatus = selectedSummary?.completionStatus
+        ?: if (selectedTasks.isNotEmpty()) CalendarCompletionStatus.PLANNED.name else CalendarCompletionStatus.EMPTY.name
+    val actionPolicy = resolvePlanDayActionPolicy(
+        selectedDate = uiState.selectedDate,
+        hasTasks = selectedTasks.isNotEmpty(),
+        completionStatus = selectedStatus,
+        allowCompletedTodayTesting = PlanTestingSwitch.enabled,
+    )
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -223,7 +236,7 @@ fun CalendarScreen(
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                 ) {
                     Text(
-                        text = "今日计划 ${formatShortDate(uiState.selectedDate)} ${formatWeekdayCn(uiState.selectedDate)}",
+                        text = "${calendarPlanTitle(actionPolicy)} ${formatShortDate(uiState.selectedDate)} ${formatWeekdayCn(uiState.selectedDate)}",
                         style = MaterialTheme.typography.titleLarge,
                     )
                     if (selectedTasks.isEmpty()) {
@@ -254,12 +267,10 @@ fun CalendarScreen(
                         }
                     }
 
-                    selectedSummary?.completionStatus?.takeIf { it != "EMPTY" }?.let { status ->
-                        Text(
-                            text = "状态：$status",
-                            color = MaterialTheme.colorScheme.secondary,
-                        )
-                    }
+                    Text(
+                        text = "状态：${formatCalendarStatus(selectedStatus)} · ${calendarDateStateText(actionPolicy)}",
+                        color = MaterialTheme.colorScheme.secondary,
+                    )
 
                     Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                         OutlinedButton(
@@ -270,10 +281,10 @@ fun CalendarScreen(
                         }
                         Button(
                             onClick = { onStartTraining(uiState.selectedDate.toString()) },
-                            enabled = selectedTasks.isNotEmpty(),
+                            enabled = actionPolicy.canStartTraining,
                             modifier = Modifier.weight(1f),
                         ) {
-                            Text("开始训练")
+                            Text(startTrainingButtonText(actionPolicy))
                         }
                     }
                 }
@@ -357,6 +368,31 @@ private fun rememberMonthCells(month: YearMonth): List<LocalDate?> {
         current.takeIf { it < gridEnd }?.plusDays(1)
     }.takeWhile { it <= gridEnd }.toList()
     return days
+}
+
+private fun calendarPlanTitle(policy: PlanDayActionPolicy): String = when (policy.timing) {
+    PlanDateTiming.PAST -> "过期计划"
+    PlanDateTiming.TODAY -> "今日计划"
+    PlanDateTiming.FUTURE -> "未来计划"
+}
+
+private fun calendarDateStateText(policy: PlanDayActionPolicy): String = when {
+    policy.isCompletedTodayTestingAllowed -> "Debug 可再次测试"
+    policy.hasRecordedTraining -> "已有训练记录"
+    policy.timing == PlanDateTiming.PAST -> "不可开始"
+    policy.timing == PlanDateTiming.FUTURE -> "未到开始日期"
+    policy.hasTasks -> "可开始"
+    else -> "未安排"
+}
+
+private fun startTrainingButtonText(policy: PlanDayActionPolicy): String = when {
+    policy.isCompletedTodayTestingAllowed -> "Debug 再测"
+    policy.completionStatus == CalendarCompletionStatus.DONE.name -> "\u8bad\u7ec3\u5df2\u5b8c\u6210"
+    policy.completionStatus == CalendarCompletionStatus.PARTIAL.name -> "继续训练"
+    !policy.hasTasks -> "暂无计划"
+    policy.timing == PlanDateTiming.PAST -> "计划已过期"
+    policy.timing == PlanDateTiming.FUTURE -> "未到日期"
+    else -> "\u5f00\u59cb\u8bad\u7ec3"
 }
 
 @Preview(showBackground = true)

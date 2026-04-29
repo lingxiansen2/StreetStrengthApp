@@ -10,6 +10,7 @@ import com.codex.streetstrength.data.local.SetLogEntity
 import com.codex.streetstrength.data.local.TaskSetPlanEntity
 import com.codex.streetstrength.data.model.MetricType
 import com.codex.streetstrength.data.model.SourceType
+import com.codex.streetstrength.data.model.TrainingOrderMode
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -18,7 +19,7 @@ import org.junit.Test
 class TrainingProgressCalculatorTest {
 
     @Test
-    fun `returns first unfinished set in task order`() {
+    fun `returns next unfinished set in round-robin order`() {
         val snapshot = calculateTrainingProgress(
             dayPlan = samplePlan(),
             logs = listOf(
@@ -33,8 +34,37 @@ class TrainingProgressCalculatorTest {
         )
 
         assertFalse(snapshot.isFinished)
+        assertEquals(102L, snapshot.cursor?.task?.task?.id)
+        assertEquals(1, snapshot.cursor?.setPlan?.setIndex)
+        assertEquals(1, snapshot.cursor?.roundIndex)
+        assertEquals(2, snapshot.cursor?.totalRounds)
+        assertEquals(2, snapshot.cursor?.positionInRound)
+        assertEquals(2, snapshot.cursor?.tasksInRound)
+    }
+
+    @Test
+    fun `returns next unfinished set in sequential order`() {
+        val snapshot = calculateTrainingProgress(
+            dayPlan = samplePlan(),
+            logs = listOf(
+                SetLogEntity(
+                    id = 1,
+                    sessionId = 11,
+                    taskId = 101,
+                    setIndex = 1,
+                    completedAt = 1_000L,
+                ),
+            ),
+            orderMode = TrainingOrderMode.SEQUENTIAL,
+        )
+
+        assertFalse(snapshot.isFinished)
         assertEquals(101L, snapshot.cursor?.task?.task?.id)
         assertEquals(2, snapshot.cursor?.setPlan?.setIndex)
+        assertEquals(2, snapshot.cursor?.roundIndex)
+        assertEquals(2, snapshot.cursor?.totalRounds)
+        assertEquals(1, snapshot.cursor?.positionInRound)
+        assertEquals(2, snapshot.cursor?.tasksInRound)
     }
 
     @Test

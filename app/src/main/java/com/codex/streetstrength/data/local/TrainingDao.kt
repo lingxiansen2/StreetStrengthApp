@@ -16,6 +16,78 @@ interface TrainingDao {
     @Query("SELECT COUNT(*) FROM goals")
     suspend fun countGoals(): Int
 
+    @Query("SELECT * FROM goals ORDER BY id ASC")
+    suspend fun getAllGoals(): List<GoalEntity>
+
+    @Query("SELECT * FROM plan_cycles ORDER BY id ASC")
+    suspend fun getAllCycles(): List<PlanCycleEntity>
+
+    @Query("SELECT * FROM plan_weeks ORDER BY id ASC")
+    suspend fun getAllWeeks(): List<PlanWeekEntity>
+
+    @Query("SELECT * FROM plan_days ORDER BY id ASC")
+    suspend fun getAllPlanDays(): List<PlanDayEntity>
+
+    @Query("SELECT * FROM exercise_categories ORDER BY id ASC")
+    suspend fun getAllCategories(): List<ExerciseCategoryEntity>
+
+    @Query("SELECT * FROM exercise_templates ORDER BY id ASC")
+    suspend fun getAllTemplates(): List<ExerciseTemplateEntity>
+
+    @Query("SELECT * FROM exercise_variants ORDER BY id ASC")
+    suspend fun getAllVariants(): List<ExerciseVariantEntity>
+
+    @Query("SELECT * FROM day_tasks ORDER BY id ASC")
+    suspend fun getAllDayTasks(): List<DayTaskEntity>
+
+    @Query("SELECT * FROM task_set_plans ORDER BY id ASC")
+    suspend fun getAllTaskSetPlans(): List<TaskSetPlanEntity>
+
+    @Query("SELECT * FROM workout_sessions ORDER BY id ASC")
+    suspend fun getAllSessions(): List<WorkoutSessionEntity>
+
+    @Query("SELECT * FROM set_logs ORDER BY id ASC")
+    suspend fun getAllSetLogs(): List<SetLogEntity>
+
+    @Query("SELECT * FROM active_rest_timers ORDER BY id ASC")
+    suspend fun getAllRestTimers(): List<ActiveRestTimerEntity>
+
+    @Query("DELETE FROM active_rest_timers")
+    suspend fun deleteAllRestTimers()
+
+    @Query("DELETE FROM set_logs")
+    suspend fun deleteAllSetLogs()
+
+    @Query("DELETE FROM workout_sessions")
+    suspend fun deleteAllSessions()
+
+    @Query("DELETE FROM task_set_plans")
+    suspend fun deleteAllTaskSetPlans()
+
+    @Query("DELETE FROM day_tasks")
+    suspend fun deleteAllDayTasks()
+
+    @Query("DELETE FROM plan_days")
+    suspend fun deleteAllPlanDays()
+
+    @Query("DELETE FROM plan_weeks")
+    suspend fun deleteAllWeeks()
+
+    @Query("DELETE FROM plan_cycles")
+    suspend fun deleteAllCycles()
+
+    @Query("DELETE FROM goals")
+    suspend fun deleteAllGoals()
+
+    @Query("DELETE FROM exercise_variants")
+    suspend fun deleteAllVariants()
+
+    @Query("DELETE FROM exercise_templates")
+    suspend fun deleteAllTemplates()
+
+    @Query("DELETE FROM exercise_categories")
+    suspend fun deleteAllCategories()
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertGoal(goal: GoalEntity): Long
 
@@ -56,7 +128,13 @@ interface TrainingDao {
     suspend fun updateSession(session: WorkoutSessionEntity)
 
     @Update
+    suspend fun updateDayTask(task: DayTaskEntity)
+
+    @Update
     suspend fun updateRestTimer(timer: ActiveRestTimerEntity)
+
+    @Query("UPDATE plan_days SET note = :note WHERE id = :dayId")
+    suspend fun updatePlanDayNote(dayId: Long, note: String?)
 
     @Query("SELECT * FROM goals ORDER BY createdAt DESC")
     fun observeGoals(): Flow<List<GoalEntity>>
@@ -116,6 +194,31 @@ interface TrainingDao {
     )
     fun observePeriodOverview(from: String, to: String): Flow<PeriodOverviewSummary>
 
+    @Query(
+        """
+        SELECT
+            et.id AS templateId,
+            et.name AS exerciseName,
+            ec.name AS categoryName,
+            ec.type AS categoryType,
+            COUNT(DISTINCT ws.dayId) AS trainedDays,
+            COUNT(DISTINCT sl.id) AS completedSets,
+            COALESCE(SUM(sl.actualReps), 0) AS totalReps,
+            COALESCE(SUM(sl.actualHoldSec), 0) AS totalHoldSec,
+            COALESCE(SUM(sl.actualLoadKg), 0.0) AS totalExternalLoadKg
+        FROM plan_days pd
+        INNER JOIN workout_sessions ws ON ws.dayId = pd.id AND ws.status != 'ABANDONED'
+        INNER JOIN set_logs sl ON sl.sessionId = ws.id AND sl.isSkipped = 0
+        INNER JOIN day_tasks dt ON dt.id = sl.taskId
+        INNER JOIN exercise_templates et ON et.id = dt.templateId
+        INNER JOIN exercise_categories ec ON ec.id = et.categoryId
+        WHERE pd.planDate BETWEEN :from AND :to
+        GROUP BY et.id, et.name, ec.name, ec.type
+        ORDER BY completedSets DESC, totalReps DESC, totalHoldSec DESC, exerciseName ASC
+        """,
+    )
+    fun observeExerciseVolume(from: String, to: String): Flow<List<ExerciseVolumeSummary>>
+
     @Transaction
     @Query("SELECT * FROM plan_days WHERE planDate = :date LIMIT 1")
     fun observePlanDay(date: String): Flow<PlanDayWithTasks?>
@@ -133,11 +236,17 @@ interface TrainingDao {
     @Query("SELECT * FROM day_tasks WHERE dayId = :dayId ORDER BY orderInDay ASC")
     suspend fun getDayTasks(dayId: Long): List<DayTaskEntity>
 
+    @Query("SELECT * FROM day_tasks WHERE id = :taskId LIMIT 1")
+    suspend fun getDayTaskById(taskId: Long): DayTaskEntity?
+
     @Query("SELECT * FROM task_set_plans WHERE taskId = :taskId ORDER BY setIndex ASC")
     suspend fun getSetPlansForTask(taskId: Long): List<TaskSetPlanEntity>
 
     @Query("SELECT COALESCE(MAX(orderInDay), 0) FROM day_tasks WHERE dayId = :dayId")
     suspend fun getMaxTaskOrder(dayId: Long): Int
+
+    @Query("UPDATE day_tasks SET orderInDay = :orderInDay WHERE id = :taskId")
+    suspend fun updateDayTaskOrder(taskId: Long, orderInDay: Int)
 
     @Query("DELETE FROM task_set_plans WHERE taskId = :taskId")
     suspend fun deleteTaskSetPlans(taskId: Long)
@@ -157,11 +266,14 @@ interface TrainingDao {
     @Query("SELECT * FROM set_logs WHERE sessionId = :sessionId ORDER BY completedAt ASC")
     fun observeSetLogs(sessionId: Long): Flow<List<SetLogEntity>>
 
-    @Query("SELECT * FROM active_rest_timers WHERE sessionId = :sessionId AND state = 'RUNNING' ORDER BY createdAt DESC LIMIT 1")
+    @Query("SELECT * FROM active_rest_timers WHERE sessionId = :sessionId AND state IN ('RUNNING', 'FIRED') ORDER BY createdAt DESC LIMIT 1")
     fun observeActiveRestTimer(sessionId: Long): Flow<ActiveRestTimerEntity?>
 
     @Query("SELECT * FROM active_rest_timers WHERE id = :timerId LIMIT 1")
     suspend fun getRestTimer(timerId: Long): ActiveRestTimerEntity?
+
+    @Query("SELECT * FROM active_rest_timers WHERE state IN ('RUNNING', 'FIRED') ORDER BY createdAt DESC LIMIT 1")
+    suspend fun getLatestActiveRestTimer(): ActiveRestTimerEntity?
 
     @Query("SELECT * FROM set_logs WHERE sessionId = :sessionId AND taskId = :taskId AND setIndex = :setIndex LIMIT 1")
     suspend fun getSetLog(sessionId: Long, taskId: Long, setIndex: Int): SetLogEntity?
@@ -177,6 +289,12 @@ interface TrainingDao {
 
     @Query("SELECT * FROM exercise_categories WHERE type = :type LIMIT 1")
     suspend fun getCategoryByType(type: com.codex.streetstrength.data.model.CategoryType): ExerciseCategoryEntity?
+
+    @Query("SELECT * FROM exercise_templates WHERE categoryId = :categoryId AND name = :name LIMIT 1")
+    suspend fun getTemplateByCategoryAndName(categoryId: Long, name: String): ExerciseTemplateEntity?
+
+    @Query("SELECT * FROM exercise_variants WHERE templateId = :templateId AND name = :name LIMIT 1")
+    suspend fun getVariantByTemplateAndName(templateId: Long, name: String): ExerciseVariantEntity?
 
     @Query("SELECT * FROM plan_days WHERE weekId = :weekId ORDER BY planDate ASC")
     suspend fun getPlanDaysForWeek(weekId: Long): List<PlanDayEntity>

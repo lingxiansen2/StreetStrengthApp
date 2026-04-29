@@ -54,6 +54,10 @@ fun formatMetric(targetReps: Int?, targetHoldSec: Int?, fallback: String = "\u52
 fun formatCategoryType(type: CategoryType): String = when (type) {
     CategoryType.PULL -> "\u62c9\u529b"
     CategoryType.PUSH -> "\u63a8\u529b"
+    CategoryType.CORE -> "\u6838\u5fc3"
+    CategoryType.ARMS -> "\u624b\u81c2"
+    CategoryType.LEGS -> "\u817f\u90e8"
+    CategoryType.SKILL -> "\u6280\u80fd\u57fa\u7840"
 }
 
 fun formatMetricType(metricType: MetricType): String = when (metricType) {

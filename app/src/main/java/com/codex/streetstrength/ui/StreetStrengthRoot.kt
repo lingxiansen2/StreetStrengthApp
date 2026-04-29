@@ -143,6 +143,12 @@ fun StreetStrengthRoot(app: StreetStrengthApp) {
                     app = app,
                     date = date,
                     onBack = { navController.popBackStack() },
+                    onWorkoutEnded = {
+                        navController.navigate(Routes.Calendar) {
+                            launchSingleTop = true
+                            popUpTo(navController.graph.startDestinationId)
+                        }
+                    },
                 )
             }
         }

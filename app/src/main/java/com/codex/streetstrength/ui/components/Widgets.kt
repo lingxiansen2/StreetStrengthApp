@@ -6,11 +6,16 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.AssistChip
-import androidx.compose.material3.AssistChipDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material.icons.rounded.Remove
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -18,7 +23,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.codex.streetstrength.ui.formatLoadKg
 
@@ -29,6 +37,7 @@ fun ValueAdjuster(
     onDecrease: () -> Unit,
     onIncrease: () -> Unit,
     modifier: Modifier = Modifier,
+    onValueClick: (() -> Unit)? = null,
 ) {
     Surface(
         modifier = modifier.fillMaxWidth(),
@@ -42,18 +51,52 @@ fun ValueAdjuster(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            Text(label, style = MaterialTheme.typography.bodyLarge)
+            Text(
+                text = label,
+                modifier = Modifier.weight(1f),
+                style = MaterialTheme.typography.bodyLarge,
+            )
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
             ) {
-                AdjustButton(text = "−", onClick = onDecrease)
-                Text(
-                    valueText,
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold,
+                AdjustButton(
+                    icon = Icons.Rounded.Remove,
+                    contentDescription = "减少$label",
+                    onClick = onDecrease,
                 )
-                AdjustButton(text = "+", onClick = onIncrease)
+                Box(
+                    modifier = Modifier
+                        .heightIn(min = 48.dp)
+                        .widthIn(min = 84.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .then(
+                            if (onValueClick == null) {
+                                Modifier
+                            } else {
+                                Modifier
+                                    .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.62f))
+                                    .clickable(
+                                        role = Role.Button,
+                                        onClick = onValueClick,
+                                    )
+                            },
+                        )
+                        .padding(horizontal = 12.dp, vertical = 10.dp),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text(
+                        text = valueText,
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+                AdjustButton(
+                    icon = Icons.Rounded.Add,
+                    contentDescription = "增加$label",
+                    onClick = onIncrease,
+                )
             }
         }
     }
@@ -61,18 +104,26 @@ fun ValueAdjuster(
 
 @Composable
 private fun AdjustButton(
-    text: String,
+    icon: ImageVector,
+    contentDescription: String,
     onClick: () -> Unit,
 ) {
     Box(
         modifier = Modifier
+            .size(48.dp)
             .clip(CircleShape)
             .background(MaterialTheme.colorScheme.surfaceVariant)
-            .clickable(onClick = onClick)
-            .padding(horizontal = 12.dp, vertical = 6.dp),
+            .clickable(
+                role = Role.Button,
+                onClick = onClick,
+            ),
         contentAlignment = Alignment.Center,
     ) {
-        Text(text = text, style = MaterialTheme.typography.titleLarge)
+        Icon(
+            imageVector = icon,
+            contentDescription = contentDescription,
+            tint = MaterialTheme.colorScheme.onSurface,
+        )
     }
 }
 
@@ -81,15 +132,16 @@ fun LoadBadge(
     loadKg: Double,
     modifier: Modifier = Modifier,
 ) {
-    AssistChip(
-        onClick = { },
-        enabled = false,
+    Surface(
         modifier = modifier,
-        label = { Text(formatLoadKg(loadKg)) },
-        colors = AssistChipDefaults.assistChipColors(
-            disabledContainerColor = MaterialTheme.colorScheme.surfaceVariant,
-            disabledLabelColor = MaterialTheme.colorScheme.onSurface,
-        ),
-    )
+        shape = CircleShape,
+        color = MaterialTheme.colorScheme.surfaceVariant,
+    ) {
+        Text(
+            text = formatLoadKg(loadKg),
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 7.dp),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
+    }
 }
-
