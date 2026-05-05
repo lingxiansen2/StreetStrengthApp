@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="charcoal">#111315</color>
+    <color name="graphite">#171A1D</color>
+    <color name="ink">#22262B</color>
+    <color name="bone">#F6F3EC</color>
+    <color name="mist">#C9C2B6</color>
+    <color name="sand">#D5B37C</color>
+    <color name="sage">#8FA479</color>
+    <color name="ember">#CE7C5E</color>
+</resources>
+

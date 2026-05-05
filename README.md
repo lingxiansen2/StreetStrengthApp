@@ -33,8 +33,8 @@
 
 ## 版本信息
 
-- App 版本：`1.1.17`
-- `versionCode = 19`
+- App 版本：`1.1.21`
+- `versionCode = 23`
 - `compileSdk = 34`
 - `targetSdk = 34`
 - 推荐 `JDK 17`

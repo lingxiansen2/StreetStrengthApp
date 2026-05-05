@@ -1,0 +1,26 @@
+# 线程交付报告
+
+- 线程：总体设计与集成线程
+- 目标：检查 `1-训练执行与计时`、`2-计划编辑与训练编排`、`7-测试环境与质量` 后，debug 区是否具备继续调整条件
+- 修改文件：
+  - 无 App 源码修改
+- 新增文件：
+  - `work/thread-results/0-overall-design/20260429-2115-debug-area-readiness-check.md`
+- 验证命令：
+  - `scripts/gradlew-local.cmd assembleDebug`
+  - `scripts/gradlew-local.cmd testDebugUnitTest`
+  - `scripts/gradlew-local.cmd assembleDebugAndroidTest`
+  - `scripts/gradlew-local.cmd compileReleaseKotlin`
+- 验证结果：
+  - 四项均通过
+- 需要总体设计集成的点：
+  - 当前源码仍是 `1.1.17 / versionCode 19`
+  - 如果继续调整 debug 区 UI/入口，建议完成后再升到 `1.1.18`
+- 需要其他线程注意的点：
+  - `1-training-timer` 已提交 v1.1.17 回归修复报告，后台到点事件统一走 `RestTimerReceiver`
+  - `2-planner-programming` 的 debug 当天重测能力仍保留
+  - `7-quality-env` 当前本地目录没有新的详细测试报告，只能以本次总体设计复跑结果为准
+- 风险或未完成事项：
+  - 当前未完成真机或可用模拟器端到端验证
+  - debug 自测入口仍是独立 launcher Activity，可继续调整为更清晰的“开发者工具/Debug 面板”形态
+  - `RestReminderSelfTestActivity` 文案在 PowerShell 输出中显示乱码，但源码构建通过；如需优化体验，建议由 `6-ui-interaction` 和 `1-training-timer` 联合调整
