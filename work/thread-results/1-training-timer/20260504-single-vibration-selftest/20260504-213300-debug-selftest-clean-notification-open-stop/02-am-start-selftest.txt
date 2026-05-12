@@ -1,0 +1,8 @@
+﻿Starting: Intent { cmp=com.codex.streetstrength/.timer.RestReminderSelfTestActivity }
+adb.exe : Warning: Activity not started, intent has been delivered to currently running top-most instance.
+At line:2 char:565
++ ... on Save-Adb($name, [string[]]$adbArgs) { & $adb @adbArgs 2>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Warning: Activi...-most instance.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

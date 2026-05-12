@@ -1,0 +1,5 @@
+﻿--------- beginning of main
+05-05 00:02:38.822 I/RestTimerAlarmScheduler( 7021): Cancelled rest finish receiver alarm requestCode=13
+05-05 00:02:38.823 I/RestTimerAlarmScheduler( 7021): Cancelled rest finish receiver alarm requestCode=15
+05-05 00:02:38.823 I/RestTimerAlert( 7021): Canceling continuous rest-finished vibration
+05-05 00:02:38.836 I/RestTimerAlert( 7021): Canceling continuous rest-finished vibration

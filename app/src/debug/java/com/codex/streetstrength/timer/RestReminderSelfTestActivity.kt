@@ -70,19 +70,19 @@ class RestReminderSelfTestActivity : ComponentActivity() {
         setContent {
             StreetStrengthTheme {
                 var state by remember { mutableStateOf(SelfTestUiState()) }
-                var nowElapsedMs by remember { mutableLongStateOf(SystemClock.elapsedRealtime()) }
+                var nowWallClockMs by remember { mutableLongStateOf(System.currentTimeMillis()) }
 
-                LaunchedEffect(state.endElapsedRealtimeMs) {
-                    while (state.endElapsedRealtimeMs != null) {
-                        nowElapsedMs = SystemClock.elapsedRealtime()
+                LaunchedEffect(state.endAtWallClockMs) {
+                    while (state.endAtWallClockMs != null) {
+                        nowWallClockMs = System.currentTimeMillis()
                         delay(250L)
                     }
                 }
 
                 RestReminderSelfTestScreen(
                     state = state,
-                    remainingMs = state.endElapsedRealtimeMs
-                        ?.let { (it - nowElapsedMs).coerceAtLeast(0L) }
+                    remainingMs = state.endAtWallClockMs
+                        ?.let { RestTimerClock.remainingFromWallClock(it, nowWallClockMs) }
                         ?: 0L,
                     onStart = {
                         lifecycleScope.launch {
@@ -90,8 +90,8 @@ class RestReminderSelfTestActivity : ComponentActivity() {
                                 val timer = startSelfTestTimer()
                                 state = SelfTestUiState(
                                     timerId = timer.id,
-                                    endElapsedRealtimeMs = timer.endElapsedRealtimeMs,
-                                    status = "10 秒休息倒计时已启动",
+                                    endAtWallClockMs = RestTimerClock.endAtWallClockMs(timer.createdAt, timer.durationSec),
+                                    status = "$SELF_TEST_DURATION_SEC 秒休息倒计时已启动",
                                 )
                             }.onFailure { error ->
                                 state = SelfTestUiState(status = "启动失败：${error.message ?: error::class.java.simpleName}")
@@ -103,8 +103,7 @@ class RestReminderSelfTestActivity : ComponentActivity() {
                             runCatching {
                                 state.timerId?.let { cancelDebugTimer(it) }
                                 cancelSelfTestReceiverAlarm()
-                                RestTimerAlert.stop(this@RestReminderSelfTestActivity)
-                                RestTimerService.stop(this@RestReminderSelfTestActivity)
+                                RestTimerController.stopRestAlert(this@RestReminderSelfTestActivity, state.timerId)
                                 state = SelfTestUiState(status = "提醒和震动已关闭")
                             }.onFailure { error ->
                                 state = state.copy(status = "关闭失败：${error.message ?: error::class.java.simpleName}")
@@ -129,10 +128,15 @@ class RestReminderSelfTestActivity : ComponentActivity() {
 
     private suspend fun startSelfTestTimer(): ActiveRestTimerEntity {
         cancelSelfTestReceiverAlarm()
-        RestTimerAlert.stop(this)
+        RestTimerController.stopRestAlert(this)
 
         val timer = createDebugTimer(durationSec = SELF_TEST_DURATION_SEC)
-        RestTimerService.start(this, timer.id, timer.endElapsedRealtimeMs)
+        RestTimerService.start(
+            context = this,
+            timerId = timer.id,
+            endElapsedMs = timer.endElapsedRealtimeMs,
+            endAtWallClockMs = RestTimerClock.endAtWallClockMs(timer.createdAt, timer.durationSec),
+        )
         return timer
     }
 
@@ -322,12 +326,12 @@ private fun RestReminderSelfTestScreen(
             verticalArrangement = Arrangement.spacedBy(18.dp),
         ) {
             Text(
-                text = "休息提醒自测",
+                text = "真机后台休息提醒自测",
                 style = MaterialTheme.typography.headlineLarge,
                 fontWeight = FontWeight.Bold,
             )
             Text(
-                text = "10 秒倒计时会启动正式休息计时服务，并由正式接收器发出休息结束提醒。",
+                text = "10 秒倒计时会启动正式休息计时服务。启动后切到后台或锁屏，到点应由正式接收器发出提醒和震动。",
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Surface(
@@ -340,7 +344,7 @@ private fun RestReminderSelfTestScreen(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     Text(
-                        text = if (state.endElapsedRealtimeMs == null) "--:--" else formatRestClock(remainingMs),
+                        text = if (state.endAtWallClockMs == null) "--:--" else formatRestClock(remainingMs),
                         style = MaterialTheme.typography.displaySmall,
                         fontWeight = FontWeight.Bold,
                     )
@@ -377,6 +381,6 @@ private fun RestReminderSelfTestScreen(
 
 private data class SelfTestUiState(
     val timerId: Long? = null,
-    val endElapsedRealtimeMs: Long? = null,
+    val endAtWallClockMs: Long? = null,
     val status: String = "未启动",
 )

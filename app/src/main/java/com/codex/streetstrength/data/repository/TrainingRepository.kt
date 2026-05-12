@@ -489,6 +489,8 @@ class TrainingRepository(
 
     fun observeActiveRestTimer(sessionId: Long): Flow<ActiveRestTimerEntity?> = dao.observeActiveRestTimer(sessionId)
 
+    fun observeLatestActiveRestTimer(): Flow<ActiveRestTimerEntity?> = dao.observeLatestActiveRestTimer()
+
     suspend fun exportBackupJson(appVersion: String): String {
         val preferences = preferencesRepository.preferencesFlow.first()
         return database.withTransaction {
@@ -1472,7 +1474,10 @@ class TrainingRepository(
         }
     }
 
-    suspend fun completeSet(input: SetCompletionInput): ActiveRestTimerEntity? {
+    suspend fun completeSet(
+        input: SetCompletionInput,
+        onRestTimerCreated: (ActiveRestTimerEntity) -> Unit = {},
+    ): ActiveRestTimerEntity? {
         return database.withTransaction {
             val existing = dao.getSetLog(input.sessionId, input.taskId, input.setIndex)
             if (existing == null) {
@@ -1505,7 +1510,7 @@ class TrainingRepository(
                     createdAt = System.currentTimeMillis(),
                 )
                 val timerId = dao.insertRestTimer(timer)
-                timer.copy(id = timerId)
+                timer.copy(id = timerId).also(onRestTimerCreated)
             }
         }
     }
@@ -1546,6 +1551,21 @@ class TrainingRepository(
             dao.getRestTimer(timerId)?.let { timer ->
                 dao.updateRestTimer(timer.copy(state = TimerState.FIRED))
             }
+        }
+    }
+
+    suspend fun markRestTimerFiredIfRunning(timerId: Long): Boolean {
+        return database.withTransaction {
+            val timer = dao.getRestTimer(timerId) ?: return@withTransaction false
+            if (timer.state != TimerState.RUNNING) return@withTransaction false
+            dao.updateRestTimer(timer.copy(state = TimerState.FIRED))
+            true
+        }
+    }
+
+    suspend fun getRestTimer(timerId: Long): ActiveRestTimerEntity? {
+        return database.withTransaction {
+            dao.getRestTimer(timerId)
         }
     }
 

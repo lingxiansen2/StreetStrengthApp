@@ -1,0 +1,8 @@
+﻿--------- beginning of main
+05-04 22:39:59.121 I/RestTimerAlert(18475): Canceling continuous rest-finished vibration
+05-04 22:39:59.177 I/RestTimerAlarmScheduler(18475): Scheduling rest finish receiver alarm for timer 100 at 1777905614125
+05-04 22:39:59.179 I/RestTimerAlarmScheduler(18475): Scheduled rest finish receiver alarm for timer 100 at 1777905614125
+05-04 22:39:59.180 I/RestTimerAlarmScheduler(18475): Cancelled rest finish receiver alarm
+05-04 22:39:59.181 I/RestTimerAlarmScheduler(18475): Scheduling rest finish receiver alarm for timer 100 at 1777905614125
+05-04 22:39:59.186 I/RestTimerAlarmScheduler(18475): Scheduled rest finish receiver alarm for timer 100 at 1777905614125
+05-04 22:39:59.203 I/RestTimerAlert(18475): Canceling continuous rest-finished vibration

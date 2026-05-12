@@ -1,0 +1,8 @@
+﻿
+com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest:.
+
+Time: 148.39
+
+OK (1 test)
+
+

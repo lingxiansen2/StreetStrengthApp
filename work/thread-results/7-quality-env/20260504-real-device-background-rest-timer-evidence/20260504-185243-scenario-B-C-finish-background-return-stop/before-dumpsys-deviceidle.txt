@@ -1,0 +1,349 @@
+﻿  Flags:
+    com.android.server.deviceidle.use_cpu_time_for_temp_allowlist=true
+    com.android.server.deviceidle.remove_idle_location=true
+
+  Settings:
+    flex_time_short=+1m0s0ms
+    light_after_inactive_to=+1m0s0ms
+    light_idle_to=+5m0s0ms
+    light_idle_to_initial_flex=+1m0s0ms
+    light_max_idle_to_flex=+15m0s0ms
+    light_idle_factor=2.0
+    light_idle_increase_linearly=true
+    light_idle_linear_increase_factor_ms=300000
+    light_idle_flex_linear_increase_factor_ms=60000
+    light_max_idle_to=+30m0s0ms
+    light_idle_maintenance_min_budget=+1m0s0ms
+    light_idle_maintenance_max_budget=+5m0s0ms
+    min_light_maintenance_time=+5s0ms
+    min_deep_maintenance_time=+30s0ms
+    inactive_to=+1m0s0ms
+    sensing_to=+15s0ms
+    locating_to=+15s0ms
+    location_accuracy=20.0m
+    motion_inactive_to=+30s0ms
+    motion_inactive_to_flex=+1m0s0ms
+    idle_after_inactive_to=+1m0s0ms
+    idle_pending_to=+5m0s0ms
+    max_idle_pending_to=+10m0s0ms
+    idle_pending_factor=2.0
+    quick_doze_delay_to=+1m0s0ms
+    idle_to=+1h0m0s0ms
+    max_idle_to=+6h0m0s0ms
+    idle_factor=2.0
+    min_time_to_alarm=+1h0m0s0ms
+    max_temp_app_allowlist_duration_ms=+5m0s0ms
+    mms_temp_app_allowlist_duration_ms=+1m0s0ms
+    sms_temp_app_allowlist_duration_ms=+20s0ms
+    notification_allowlist_duration_ms=+30s0ms
+    wait_for_unlock=true
+    use_window_alarms=true
+    use_mode_manager=false
+  Idling history:
+         normal: -3d4h37m30s544ms (unlocked)
+     light-idle: -2d22h21m14s558ms
+      deep-idle: -2d22h19m2s529ms
+         normal: -2d22h18m28s627ms (unlocked)
+     light-idle: -2d22h10m8s544ms
+         normal: -2d22h9m26s941ms (unlocked)
+     light-idle: -2d21h20m39s995ms
+         normal: -2d21h17m28s510ms (unlocked)
+     light-idle: -2d21h8m51s610ms
+    light-maint: -2d21h2m51s455ms
+     light-idle: -2d21h2m46s408ms
+         normal: -2d20h57m47s970ms (unlocked)
+     light-idle: -2d20h54m4s81ms
+         normal: -2d20h51m24s674ms (unlocked)
+     light-idle: -2d17h47m12s723ms
+         normal: -2d17h47m6s275ms (screen)
+     light-idle: -2d11h10m19s709ms
+    light-maint: -2d11h4m17s913ms
+     light-idle: -2d11h4m12s895ms
+         normal: -2d11h3m48s257ms (unlocked)
+     light-idle: -2d10h38m16s921ms
+    light-maint: -2d10h32m15s909ms
+     light-idle: -2d10h32m10s875ms
+    light-maint: -2d10h20m10s847ms
+     light-idle: -2d10h20m5s822ms
+      deep-idle: -2d10h19m19s898ms
+         normal: -2d10h8m6s609ms (unlocked)
+     light-idle: -2d10h1m28s33ms
+      deep-idle: -2d9h59m16s859ms
+         normal: -2d9h57m57s227ms (screen)
+     light-idle: -2d9h51m42s641ms
+         normal: -2d9h49m36s457ms (unlocked)
+     light-idle: -2d9h47m10s1ms
+      deep-idle: -2d9h44m59s887ms
+         normal: -2d9h36m57s806ms (screen)
+     light-idle: -2d9h34m49s682ms
+    light-maint: -2d9h28m47s986ms
+     light-idle: -2d9h28m42s945ms
+      deep-idle: -2d9h28m28s963ms
+         normal: -2d9h26m12s751ms (unlocked)
+     light-idle: -2d9h23m59s748ms
+         normal: -2d9h23m50s480ms (unlocked)
+     light-idle: -2d9h16m5s12ms
+      deep-idle: -2d9h13m53s880ms
+         normal: -2d9h12m54s912ms (unlocked)
+     light-idle: -2d4h48m9s124ms
+      deep-idle: -2d4h45m59s27ms
+         normal: -2d4h43m42s829ms (motion)
+     light-idle: -1d21h18m57s396ms
+         normal: -1d21h17m15s269ms (unlocked)
+     light-idle: -1d11h36m56s695ms
+      deep-idle: -1d11h34m45s635ms
+     deep-maint: -1d10h34m44s765ms
+      deep-idle: -1d10h34m14s707ms
+         normal: -1d9h21m57s341ms (unlocked)
+     light-idle: -1d7h38m21s24ms
+         normal: -1d7h34m41s98ms (unlocked)
+     light-idle: -1d2h14m26s975ms
+         normal: -1d2h13m19s608ms (unlocked)
+     light-idle: -1d2h6m10s878ms
+         normal: -1d2h6m5s396ms (unlocked)
+     light-idle: -1d2h1m57s319ms
+         normal: -1d1h58m54s851ms (unlocked)
+     light-idle: -1d1h56m26s723ms
+         normal: -1d1h52m19s940ms (unlocked)
+     light-idle: -1d1h47m44s673ms
+         normal: -1d1h45m35s761ms (unlocked)
+     light-idle: -1d1h41m12s552ms
+    light-maint: -1d1h35m12s535ms
+     light-idle: -1d1h35m7s494ms
+      deep-idle: -1d1h34m26s689ms
+         normal: -1d1h29m32s563ms (unlocked)
+     light-idle: -1d1h20m40s938ms
+         normal: -1d1h19m39s424ms (unlocked)
+     light-idle: -1d1h15m58s34ms
+         normal: -1d1h13m15s145ms (screen)
+     light-idle: -1d0h39m40s927ms
+         normal: -1d0h39m6s381ms (unlocked)
+     light-idle: -23h56m14s482ms
+         normal: -23h56m9s792ms (unlocked)
+     light-idle: -23h53m15s187ms
+         normal: -23h52m45s354ms (screen)
+     light-idle: -23h40m9s957ms
+    light-maint: -23h34m9s951ms
+     light-idle: -23h34m4s936ms
+         normal: -23h32m2s950ms (screen)
+     light-idle: -23h27m38s140ms
+         normal: -23h26m26s879ms (unlocked)
+     light-idle: -21h21m3s170ms
+         normal: -21h20m39s858ms (unlocked)
+     light-idle: -5h51m52s490ms
+      deep-idle: -5h49m42s395ms
+         normal: -5h39m54s39ms (unlocked)
+     light-idle: -4h2m25s746ms
+      deep-idle: -4h0m14s728ms
+         normal: -3h50m0s536ms (unlocked)
+     light-idle: -1h10m12s0ms
+         normal: -1h8m3s465ms (unlocked)
+     light-idle: -26m41s461ms
+         normal: -25m44s323ms (unlocked)
+  Whitelist (except idle) system apps:
+    com.android.providers.calendar
+    com.android.providers.downloads
+    com.qualcomm.qti.telephonyservice
+    com.android.vending
+    com.android.mms
+    com.qualcomm.qcrilmsgtunnel
+    com.android.rkpdapp
+    com.android.cellbroadcastreceiver
+    com.google.android.gms
+    com.android.proxyhandler
+    com.qualcomm.qti.workloadclassifier
+    com.android.cellbroadcastreceiver.module
+    com.qualcomm.location
+    com.android.shell
+    com.qualcomm.atfwd
+    com.android.providers.contacts
+    com.android.devicelockcontroller
+  Whitelist system apps:
+    com.android.providers.calendar
+    com.android.providers.downloads
+    com.qualcomm.qti.telephonyservice
+    com.android.mms
+    com.qualcomm.qcrilmsgtunnel
+    com.android.rkpdapp
+    com.android.cellbroadcastreceiver
+    com.google.android.gms
+    com.qualcomm.qti.workloadclassifier
+    com.android.cellbroadcastreceiver.module
+    com.qualcomm.location
+    com.android.shell
+    com.qualcomm.atfwd
+    com.android.devicelockcontroller
+  Whitelist user apps:
+    com.coloros.backuprestore
+    com.heytap.pictorial
+    com.heytap.cloud
+    com.heytap.health
+    com.oplus.ota
+    com.oplus.sau
+    com.heytap.market
+    com.oplus.romupdate
+    com.coloros.oshare
+    com.tencent.mm
+    com.oplus.upgradeguide
+    com.coloros.familyguard
+    com.coloros.activation
+    com.microsoft.emmx
+    com.nearme.gamecenter
+    com.google.android.gsf
+    com.tencent.mobileqq
+    com.coloros.alarmclock
+    com.oplus.owork
+    com.coloros.findmyphone
+    com.heytap.mcs
+    com.jingdong.app.mall
+    com.heytap.browser
+    com.coloros.sharescreen
+    com.heytap.accessory
+    com.android.email
+    com.oplus.cast
+    com.oplus.ocar
+    com.heytap.themestore
+    com.taobao.taobao
+    com.oplus.linker
+    com.coloros.remoteguardservice
+  Whitelist (except idle) all app ids:
+    1000
+    1001
+    2000
+    10061
+    10063
+    10065
+    10070
+    10094
+    10105
+    10106
+    10108
+    10120
+    10121
+    10123
+    10127
+    10128
+    10140
+    10158
+    10161
+    10178
+    10185
+    10188
+    10190
+    10194
+    10203
+    10217
+    10223
+    10240
+    10258
+    10259
+    10264
+    10273
+    10289
+    10291
+    10296
+    10297
+    10298
+    10300
+    10304
+    10305
+    10311
+    10332
+    10336
+    10339
+    10345
+    10346
+  Whitelist user app ids:
+    1000
+    10094
+    10105
+    10106
+    10108
+    10121
+    10123
+    10127
+    10128
+    10158
+    10161
+    10178
+    10185
+    10188
+    10190
+    10194
+    10217
+    10240
+    10259
+    10296
+    10297
+    10298
+    10300
+    10304
+    10305
+    10311
+    10332
+    10336
+    10339
+    10345
+    10346
+  Whitelist all app ids:
+    1000
+    1001
+    2000
+    10061
+    10063
+    10094
+    10105
+    10106
+    10108
+    10120
+    10121
+    10123
+    10127
+    10128
+    10140
+    10158
+    10161
+    10178
+    10185
+    10188
+    10190
+    10194
+    10203
+    10217
+    10223
+    10240
+    10258
+    10259
+    10273
+    10289
+    10291
+    10296
+    10297
+    10298
+    10300
+    10304
+    10305
+    10311
+    10332
+    10336
+    10339
+    10345
+    10346
+  mLightEnabled=true  mDeepEnabled=true
+  mForceIdle=false
+  mUseMotionSensor=true mMotionSensor={Sensor name="sns_smd  Wakeup", vendor="QTI", version=1, type=17, maxRange=1.0, resolution=1.0, power=0.025, minDelay=-1}
+  mScreenOn=true
+  mScreenLocked=false
+  mNetworkConnected=true
+  mCharging=true
+  activeEmergencyCall=false
+  mMotionActive=false
+  mNotMoving=true
+  mMotionListener.activatedTimeElapsed=2130985291
+  mLastMotionEventElapsed=2128494100
+  0 stationary listeners registered
+  Location prefetching disabled
+  mState=ACTIVE mLightState=ACTIVE
+  mInactiveTimeout=+1m0s0ms
+  mNextLightIdleDelay=+5m0s0ms (flex=+1m0s0ms)
+  mCurLightIdleBudget=+1m0s0ms

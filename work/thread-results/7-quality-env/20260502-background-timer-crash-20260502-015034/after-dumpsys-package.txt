@@ -1,0 +1,141 @@
+﻿Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        d1d58ba com.codex.streetstrength/.timer.RestReminderSelfTestActivity filter 63a36b
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.LAUNCHER"
+        5f95ec8 com.codex.streetstrength/.MainActivity filter cbe7b61
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.LAUNCHER"
+
+Receiver Resolver Table:
+  Non-Data Actions:
+      androidx.profileinstaller.action.SAVE_PROFILE:
+        4b84686 com.codex.streetstrength/androidx.profileinstaller.ProfileInstallReceiver filter 866c9d
+          Action: "androidx.profileinstaller.action.SAVE_PROFILE"
+      androidx.profileinstaller.action.INSTALL_PROFILE:
+        4b84686 com.codex.streetstrength/androidx.profileinstaller.ProfileInstallReceiver filter 9970b47
+          Action: "androidx.profileinstaller.action.INSTALL_PROFILE"
+      androidx.profileinstaller.action.SKIP_FILE:
+        4b84686 com.codex.streetstrength/androidx.profileinstaller.ProfileInstallReceiver filter aa99f74
+          Action: "androidx.profileinstaller.action.SKIP_FILE"
+      androidx.profileinstaller.action.BENCHMARK_OPERATION:
+        4b84686 com.codex.streetstrength/androidx.profileinstaller.ProfileInstallReceiver filter cc24512
+          Action: "androidx.profileinstaller.action.BENCHMARK_OPERATION"
+
+Domain verification status:
+
+Permissions:
+  Permission [com.codex.streetstrength.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION] (c8fa9ce):
+    sourcePackage=com.codex.streetstrength
+    uid=10192 gids=[] type=0 prot=signature
+    perm=PermissionInfo{23c40ef com.codex.streetstrength.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION}
+    flags=0x0
+
+Registered ContentProviders:
+  com.codex.streetstrength/androidx.startup.InitializationProvider:
+    Provider{74aa7fc com.codex.streetstrength/androidx.startup.InitializationProvider}
+
+ContentProvider Authorities:
+  [com.codex.streetstrength.androidx-startup]:
+    Provider{74aa7fc com.codex.streetstrength/androidx.startup.InitializationProvider}
+      applicationInfo=ApplicationInfo{94da com.codex.streetstrength}
+
+Key Set Manager:
+  [com.codex.streetstrength]
+      Signing KeySets: 56
+
+Packages:
+  Package [com.codex.streetstrength] (ab7239a):
+    appId=10192
+    pkg=Package{32f7e01 com.codex.streetstrength}
+    codePath=/data/app/~~v7d9-ZHEb3IJa1qfUxYCPw==/com.codex.streetstrength--CN5s6z9q7zAqaP_XFo3vw==
+    resourcePath=/data/app/~~v7d9-ZHEb3IJa1qfUxYCPw==/com.codex.streetstrength--CN5s6z9q7zAqaP_XFo3vw==
+    legacyNativeLibraryDir=/data/app/~~v7d9-ZHEb3IJa1qfUxYCPw==/com.codex.streetstrength--CN5s6z9q7zAqaP_XFo3vw==/lib
+    extractNativeLibs=false
+    primaryCpuAbi=x86_64
+    secondaryCpuAbi=null
+    cpuAbiOverride=null
+    versionCode=19 minSdk=26 targetSdk=34
+    minExtensionVersions=[]
+    versionName=1.1.17
+    usesNonSdkApi=false
+    splits=[base]
+    apkSigningVersion=2
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PARTIALLY_DIRECT_BOOT_AWARE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    dataDir=/data/user/0/com.codex.streetstrength
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2026-05-01 17:54:07
+    lastUpdateTime=2026-04-29 13:08:40
+    installerPackageName=null
+    installerPackageUid=-1
+    initiatingPackageName=com.android.shell
+    originatingPackageName=null
+    packageSource=1
+    appMetadataFilePath=null
+    signatures=PackageSignatures{e13a08 version:2, signatures:[f0fe09ac], past signatures:[]}
+    installPermissionsFixed=true
+    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    privatePkgFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PARTIALLY_DIRECT_BOOT_AWARE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    apexModuleName=null
+    declared permissions:
+      com.codex.streetstrength.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature
+    requested permissions:
+      android.permission.FOREGROUND_SERVICE
+      android.permission.FOREGROUND_SERVICE_SPECIAL_USE
+      android.permission.POST_NOTIFICATIONS
+      android.permission.VIBRATE
+      android.permission.SCHEDULE_EXACT_ALARM
+      android.permission.USE_EXACT_ALARM
+      com.codex.streetstrength.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+    install permissions:
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.FOREGROUND_SERVICE_SPECIAL_USE: granted=true
+      com.codex.streetstrength.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.USE_EXACT_ALARM: granted=true
+      android.permission.SCHEDULE_EXACT_ALARM: granted=false
+      android.permission.VIBRATE: granted=true
+    User 0: ceDataInode=319923 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+      installReason=0
+      firstInstallTime=2026-04-29 13:08:31
+      uninstallReason=0
+      overlay paths:
+        /product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
+        /data/resource-cache/com.android.systemui-neutral-t0Rr.frro
+        /data/resource-cache/com.android.systemui-accent-cWhp.frro
+        /data/resource-cache/com.android.systemui-dynamic-20JP.frro
+      legacy overlay paths:
+        /product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
+      runtime permissions:
+        android.permission.POST_NOTIFICATIONS: granted=true, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+
+Queries:
+  system apps queryable: false
+  queries via forceQueryable:
+  queries via package name:
+    com.codex.streetstrength:
+      com.codex.streetstrength.test
+    com.codex.streetstrength.test:
+      com.codex.streetstrength
+  queries via component:
+    com.google.android.settings.intelligence:
+      com.codex.streetstrength
+  queryable via interaction:
+    User 0:
+      [com.android.keychain,com.android.location.fused,com.android.dynsystem,com.android.emulator.multidisplay,com.android.inputdevices,com.android.server.telecom,com.android.providers.settings,android,com.android.settings,com.android.wallpaperbackup,com.android.localtransport]:
+        com.codex.streetstrength
+      [com.google.android.gsf,com.google.android.gms]:
+        com.codex.streetstrength
+  queryable via uses-library:
+
+Dexopt state:
+  [com.codex.streetstrength]
+    path: /data/app/~~v7d9-ZHEb3IJa1qfUxYCPw==/com.codex.streetstrength--CN5s6z9q7zAqaP_XFo3vw==/base.apk
+      x86_64: [status=run-from-apk] [reason=unknown] [primary-abi]
+        [location is error]
+
+Compiler stats:
+  [com.codex.streetstrength]
+    (No recorded stats)

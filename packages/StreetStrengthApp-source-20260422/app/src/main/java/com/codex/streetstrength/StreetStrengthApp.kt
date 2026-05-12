@@ -56,6 +56,12 @@ class StreetStrengthApp : Application() {
             .getOrNull() ?: return
         when {
             timer.state == TimerState.RUNNING && timer.endElapsedRealtimeMs > SystemClock.elapsedRealtime() -> {
+                Log.i(
+                    TAG,
+                    "Restoring running rest timer source=restore timerId=${timer.id} " +
+                        "session=${timer.sessionId} task=${timer.taskId} createdAt=${timer.createdAt} " +
+                        "endElapsedRealtimeMs=${timer.endElapsedRealtimeMs}",
+                )
                 RestTimerService.start(
                     context = applicationContext,
                     timerId = timer.id,
@@ -65,9 +71,18 @@ class StreetStrengthApp : Application() {
             }
 
             timer.state == TimerState.RUNNING -> {
+                Log.i(
+                    TAG,
+                    "Dispatching expired rest timer source=restore timerId=${timer.id} " +
+                        "session=${timer.sessionId} task=${timer.taskId} createdAt=${timer.createdAt} " +
+                        "endElapsedRealtimeMs=${timer.endElapsedRealtimeMs}",
+                )
                 val dispatched = RestTimerAlarmScheduler.dispatchFinish(applicationContext, timer.id)
                 if (!dispatched) {
-                    trainingRepository.markRestTimerFired(timer.id)
+                    val serviceStarted = RestTimerService.startFinishFromAlarm(applicationContext, timer.id)
+                    if (!serviceStarted) {
+                        Log.w(TAG, "Failed to dispatch expired restored rest timer timerId=${timer.id}")
+                    }
                 }
             }
         }
@@ -82,8 +97,13 @@ class StreetStrengthApp : Application() {
                 timer.state == TimerState.RUNNING && timer.endElapsedRealtimeMs > SystemClock.elapsedRealtime() -> {
                     val key = timer.id to timer.endElapsedRealtimeMs
                     if (scheduledTimer != key) {
-                        Log.i(TAG, "Scheduling persisted rest timer ${timer.id} from app watchdog")
-                        RestTimerAlarmScheduler.schedule(
+                        Log.i(
+                            TAG,
+                            "Starting persisted rest timer source=watchdog timerId=${timer.id} " +
+                                "session=${timer.sessionId} task=${timer.taskId} createdAt=${timer.createdAt} " +
+                                "endElapsedRealtimeMs=${timer.endElapsedRealtimeMs}",
+                        )
+                        RestTimerService.start(
                             context = applicationContext,
                             timerId = timer.id,
                             endElapsedMs = timer.endElapsedRealtimeMs,
@@ -93,8 +113,19 @@ class StreetStrengthApp : Application() {
                     }
                 }
                 timer.state == TimerState.RUNNING && expiredTimersDispatched.add(timer.id) -> {
-                    Log.i(TAG, "Dispatching expired persisted rest timer ${timer.id} from app watchdog")
-                    RestTimerAlarmScheduler.dispatchFinish(applicationContext, timer.id)
+                    Log.i(
+                        TAG,
+                        "Dispatching expired persisted rest timer source=watchdog timerId=${timer.id} " +
+                            "session=${timer.sessionId} task=${timer.taskId} createdAt=${timer.createdAt} " +
+                            "endElapsedRealtimeMs=${timer.endElapsedRealtimeMs}",
+                    )
+                    val dispatched = RestTimerAlarmScheduler.dispatchFinish(applicationContext, timer.id)
+                    if (!dispatched) {
+                        val serviceStarted = RestTimerService.startFinishFromAlarm(applicationContext, timer.id)
+                        if (!serviceStarted) {
+                            Log.w(TAG, "Failed to dispatch expired persisted rest timer timerId=${timer.id}")
+                        }
+                    }
                     scheduledTimer = null
                 }
                 timer.state == TimerState.FIRED -> {

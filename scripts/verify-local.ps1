@@ -10,6 +10,8 @@ param(
     [int]$EmulatorPort = 5584,
     [int]$EmulatorBootTimeoutSec = 240,
     [string]$AvdName = "StreetStrengthApi34",
+    [switch]$ColdBootEmulator,
+    [switch]$WipeEmulatorData,
     [string]$DeviceSerial,
     [string]$InstrumentationClass = "com.codex.streetstrength.timer.RestTimerReceiverInstrumentedTest"
 )
@@ -19,6 +21,7 @@ $ErrorActionPreference = "Stop"
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $gradleScript = Join-Path $PSScriptRoot "gradlew-local.ps1"
+$emulatorStartScript = Join-Path $PSScriptRoot "start-emulator-local.ps1"
 $adb = Join-Path $repoRoot ".local-tools\android-sdk\platform-tools\adb.exe"
 $emulator = Join-Path $repoRoot ".local-tools\android-sdk\emulator\emulator.exe"
 $powershellExe = Join-Path $env:SystemRoot "System32\WindowsPowerShell\v1.0\powershell.exe"
@@ -90,14 +93,20 @@ function Wait-ForEmulatorBoot {
     )
 
     Write-Host "==> Waiting for $Serial"
-    Invoke-Adb -AdbArgs @("-s", $Serial, "wait-for-device")
-
     $deadline = (Get-Date).AddSeconds($TimeoutSec)
     while ((Get-Date) -lt $deadline) {
-        $bootCompleted = (& $adb "-s" $Serial "shell" "getprop" "sys.boot_completed" | Out-String).Trim()
-        if ($LASTEXITCODE -eq 0 -and $bootCompleted -eq "1") {
-            Write-Host "==> $Serial boot_completed=1"
-            return
+        $state = Get-AdbDeviceState -Serial $Serial
+        if ($state -eq "device") {
+            $bootCompleted = (& $adb "-s" $Serial "shell" "getprop" "sys.boot_completed" | Out-String).Trim()
+            if ($LASTEXITCODE -eq 0 -and $bootCompleted -eq "1") {
+                Write-Host "==> $Serial boot_completed=1"
+                return
+            }
+            Write-Host "==> $Serial state=device boot_completed=$bootCompleted"
+        } elseif ([string]::IsNullOrWhiteSpace($state)) {
+            Write-Host "==> $Serial not listed yet"
+        } else {
+            Write-Host "==> $Serial state=$state"
         }
         Start-Sleep -Seconds 2
     }
@@ -128,76 +137,83 @@ function Start-LocalEmulator {
         Start-Sleep -Seconds 10
     }
 
-    Start-Sleep -Seconds 5
-    Write-Host "==> Starting AVD $Name on $serial"
-    $stamp = Get-Date -Format "yyyyMMdd-HHmmss"
-    $stdoutLog = Join-Path $emulatorLogDir "emulator-$Port-$stamp.out.log"
-    $stderrLog = Join-Path $emulatorLogDir "emulator-$Port-$stamp.err.log"
-    $process = Start-Process `
-        -FilePath $emulator `
-        -ArgumentList @(
-            "-avd", $Name,
-            "-port", "$Port",
-            "-no-window",
-            "-no-audio",
-            "-no-boot-anim",
-            "-gpu", "swiftshader_indirect",
-            "-no-snapshot-save"
-        ) `
-        -WindowStyle Hidden `
-        -RedirectStandardOutput $stdoutLog `
-        -RedirectStandardError $stderrLog `
-        -PassThru
+    if (-not (Test-Path $emulatorStartScript)) {
+        throw "Missing emulator start script: $emulatorStartScript"
+    }
 
     Start-Sleep -Seconds 5
-    if ($process.HasExited) {
-        throw "Emulator exited early with code $($process.ExitCode)."
+    Write-Host "==> Starting AVD $Name on $serial"
+    $startArgs = @("-NoProfile", "-ExecutionPolicy", "Bypass", "-File", $emulatorStartScript, "-AvdName", $Name, "-EmulatorPort", "$Port")
+    if ($ColdBootEmulator) {
+        $startArgs += "-ColdBootEmulator"
+    }
+    if ($WipeEmulatorData) {
+        $startArgs += "-WipeEmulatorData"
+    }
+    $helperOutput = & $powershellExe @startArgs 2>&1
+    $helperExitCode = $LASTEXITCODE
+    $helperOutput | ForEach-Object { Write-Host $_ }
+    if ($helperExitCode -ne 0) {
+        throw "Failed to start emulator helper with exit code $helperExitCode."
     }
 
     try {
         Wait-ForEmulatorBoot -Serial $serial -TimeoutSec $EmulatorBootTimeoutSec
     } catch {
-        Write-Host "==> Emulator logs: $stdoutLog ; $stderrLog"
-        & $adb "-s" $serial "emu" "kill" | Out-Null
+        try {
+            $emulatorProcesses = Get-CimInstance Win32_Process | Where-Object {
+                $_.Name -in @("emulator.exe", "qemu-system-x86_64.exe", "qemu-system-x86_64-headless.exe") -and
+                $_.CommandLine -match [regex]::Escape($Name) -and
+                $_.CommandLine -match [regex]::Escape("$Port")
+            }
+            foreach ($emulatorProcess in $emulatorProcesses) {
+                Stop-Process -Id $emulatorProcess.ProcessId -Force
+            }
+        } catch {
+            Write-Host "==> Could not enumerate emulator process for cleanup: $($_.Exception.Message)"
+        }
         throw
     }
     return $serial
 }
 
-Write-Host "StreetStrength local verification"
-Write-Host "Project: $projectRoot"
-Invoke-Gradle -Tasks @("--status")
-if (-not $NoClean) {
-    if ($StopDaemons) {
-        Invoke-Gradle -Tasks @("--stop")
-        Start-Sleep -Seconds 2
-    }
-    Invoke-Gradle -Tasks @("clean") -NoDaemon:$NoDaemon
-}
-Invoke-Gradle -Tasks @("assembleDebug") -NoDaemon:$NoDaemon
-if (-not $SkipUnitTest) {
-    Invoke-Gradle -Tasks @("testDebugUnitTest") -NoDaemon:$NoDaemon
-}
+$startedEmulator = $false
+try {
+    Write-Host "StreetStrength local verification"
+    Write-Host "Project: $projectRoot"
 
-if ($AndroidTest) {
-    $startedEmulator = $false
-    if ($StartEmulator) {
+    if ($AndroidTest -and $StartEmulator) {
         if ([string]::IsNullOrWhiteSpace($DeviceSerial)) {
             $DeviceSerial = "emulator-$EmulatorPort"
         }
         $DeviceSerial = Start-LocalEmulator -Name $AvdName -Port $EmulatorPort
         $startedEmulator = $true
-    } elseif ([string]::IsNullOrWhiteSpace($DeviceSerial)) {
-        throw "Android instrumentation requires -DeviceSerial, for example: -DeviceSerial emulator-5554"
-    }
-    if ($DeviceSerial -notlike "emulator-*") {
-        throw "Refusing to run Android instrumentation on non-emulator device: $DeviceSerial"
-    }
-    if (-not (Test-Path $adb)) {
-        throw "Missing adb: $adb"
     }
 
-    try {
+    Invoke-Gradle -Tasks @("--status")
+    if (-not $NoClean) {
+        if ($StopDaemons) {
+            Invoke-Gradle -Tasks @("--stop")
+            Start-Sleep -Seconds 2
+        }
+        Invoke-Gradle -Tasks @("clean") -NoDaemon:$NoDaemon
+    }
+    Invoke-Gradle -Tasks @("assembleDebug") -NoDaemon:$NoDaemon
+    if (-not $SkipUnitTest) {
+        Invoke-Gradle -Tasks @("testDebugUnitTest") -NoDaemon:$NoDaemon
+    }
+
+    if ($AndroidTest) {
+        if ([string]::IsNullOrWhiteSpace($DeviceSerial)) {
+            throw "Android instrumentation requires -DeviceSerial, for example: -DeviceSerial emulator-5554"
+        }
+        if ($DeviceSerial -notlike "emulator-*") {
+            throw "Refusing to run Android instrumentation on non-emulator device: $DeviceSerial"
+        }
+        if (-not (Test-Path $adb)) {
+            throw "Missing adb: $adb"
+        }
+
         Write-Host "==> Checking device $DeviceSerial"
         Invoke-Adb -AdbArgs @("-s", $DeviceSerial, "get-state")
 
@@ -224,10 +240,19 @@ if ($AndroidTest) {
 
         Write-Host "==> Running instrumentation on $DeviceSerial"
         Invoke-Adb -AdbArgs $instrumentArgs
-    } finally {
-        if ($startedEmulator -and -not $KeepEmulator) {
-            Write-Host "==> Stopping $DeviceSerial"
+    }
+} finally {
+    if ($startedEmulator -and -not $KeepEmulator) {
+        Write-Host "==> Stopping $DeviceSerial"
+        if ((Get-AdbDeviceState -Serial $DeviceSerial) -eq "device") {
             & $adb "-s" $DeviceSerial "emu" "kill" | Out-Null
+            for ($i = 0; $i -lt 30; $i++) {
+                if ([string]::IsNullOrWhiteSpace((Get-AdbDeviceState -Serial $DeviceSerial))) {
+                    Write-Host "==> $DeviceSerial removed"
+                    break
+                }
+                Start-Sleep -Seconds 2
+            }
         }
     }
 }

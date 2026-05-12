@@ -1,0 +1,38 @@
+﻿---- TIME 2026/5/4 21:35:44 ----
+ACTIVITY MANAGER SERVICES (dumpsys activity services)
+  User 0 active services:
+  * ServiceRecord{1e71df3 u0 com.codex.streetstrength/.timer.RestTimerService c:com.codex.streetstrength}
+    intent={act=com.codex.streetstrength.timer.START cmp=com.codex.streetstrength/.timer.RestTimerService mCallingUid=10421}
+    packageName=com.codex.streetstrength
+    processName=com.codex.streetstrength
+    targetSdkVersion=34
+    baseDir=/data/app/~~DCmBzSWm0B9WthH6kWpb4A==/com.codex.streetstrength-yvIhCOXz63cF5WCv0dL3oA==/base.apk
+    dataDir=/data/user/0/com.codex.streetstrength
+    app=ProcessRecord{4eb95cb 25119:com.codex.streetstrength/u0a421}
+    useNewWiuLogic_forCapabilities()=false
+    useNewWiuLogic_forStart()=false
+    useNewBfslLogic()=false
+    mAllowWiu_noBinding=PROC_STATE_TOP
+    mAllowWiu_inBindService=DENIED
+    mAllowWiu_byBindings=DENIED
+    getFgsAllowWiu_legacy=PROC_STATE_TOP
+    getFgsAllowWiu_new=PROC_STATE_TOP
+    getFgsAllowWiu_forStart=PROC_STATE_TOP
+    getFgsAllowWiu_forCapabilities=PROC_STATE_TOP
+    allowUiJobScheduling=true
+    recentCallingPackage=com.codex.streetstrength
+    recentCallingUid=10421
+    mAllowStart_noBinding=PROC_STATE_TOP
+    mAllowStart_inBindService=DENIED
+    mAllowStart_byBindings=DENIED
+    getFgsAllowStart_legacy=PROC_STATE_TOP
+    getFgsAllowStart_new=PROC_STATE_TOP
+    getFgsAllowStart=PROC_STATE_TOP
+    startForegroundCount=1
+    infoAllowStartForeground=[callingPackage: com.codex.streetstrength; callingUid: 10421; uidState: TOP ; uidBFSL: [BFSL]; intent: Intent { act=com.codex.streetstrength.timer.START xflg=0x4 cmp=com.codex.streetstrength/.timer.RestTimerService (has extras) mCallingUid=10421 }; code:PROC_STATE_TOP; tempAllowListReason:<null>; allowWiu:12; targetSdkVersion:34; callerTargetSdkVersion:34; startForegroundCount:0; bindFromPackage:null: isBindService:false]
+    isForeground=true foregroundId=401 types=0x40000000 foregroundNoti=Notification(channel=rest_running shortcut=null contentView=null vibrate=null sound=null defaults=0 flags=ONGOING_EVENT|ONLY_ALERT_ONCE|NO_CLEAR|FOREGROUND_SERVICE color=0x00000000 vis=PRIVATE)
+    createTime=-38s907ms startingBgTimeout=--
+    lastActivity=-38s906ms restartTime=-38s906ms createdFromFg=true
+    startRequested=true delayedStop=false stopIfKilled=false callStart=true lastStartId=1
+ startCommandResult=1
+    restartReschedulingCount=0, RestartSceneMask=0, Flag = 0x0

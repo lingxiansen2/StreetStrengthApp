@@ -1,0 +1,7 @@
+﻿adb.exe : Can't find service: vibrator
+At line:2 char:559
++ ... on Save-Adb($name, [string[]]$adbArgs) { & $adb @adbArgs 2>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Can't find service: vibrator:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

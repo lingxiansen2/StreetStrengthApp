@@ -1,0 +1,3 @@
+﻿---- TIME 2026/5/4 21:40:04 ----
+ACTIVITY MANAGER SERVICES (dumpsys activity services)
+  (nothing)

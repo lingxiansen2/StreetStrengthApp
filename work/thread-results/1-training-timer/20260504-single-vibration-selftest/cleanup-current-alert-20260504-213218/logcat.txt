@@ -1,0 +1,913 @@
+﻿--------- beginning of main
+05-04 21:32:20.357 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 1099
+05-04 21:32:20.358 D/QmiClient( 2621): enter -mServiceType 4 onQmiServiceEventCallback msgId 1099
+05-04 21:32:20.358 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=1099
+05-04 21:32:20.358 D/QmiVsClientEvent( 2621): QosPeriodReportInd MSG IND data_len 2052
+05-04 21:32:20.358 D/QmiVsClientEvent( 2621): qmiVsClientNotifyQosPeriodReportIndEvent - RADIO_EVENT_QOS_PERIOD_REPORT_NOTIFY_IND
+05-04 21:32:20.358 D/VsProxy ( 2621): handleMessage msg is 2420
+05-04 21:32:20.358 D/VsProxy ( 2621): handleQosPeriodReportInd for instance 0 data_len 155
+05-04 21:32:20.359 D/SubsysRadioIndication[0](30487): radioQosPeriodReportInd result [8, -75, -105, -31, -111, 6, 26, 6, 8, -15, -110, -31, -111, 6, 34, 12, 8, -16, -76, -32, -111, 6, 16, 4, 24, 1, 32, 1, 58, 61, 8, -120, -113, -31, -111, 6, 16, 5, 24, -64, -92, 38, 32, -123, 6, 40, -107, -1, -1, -1, -1, -1, -1, -1, -1, 1, 48, -10, -1, -1, -1, -1, -1, -1, -1, -1, 1, 56, 10, 64, -107, -1, -1, -1, -1, -1, -1, -1, -1, 1, 72, -113, -1, -1, -1, -1, -1, -1, -1, -1, 1, 66, 31, 8, -120, -65, -32, -111, 6, 16, 5, 24, 1, 34, 19, 8, -64, -92, 38, 16, -123, 6, 24, 78, 32, 13, 40, -122, -31, -33, -59, 117, 48, 2, 90, 0, 98, 10, 8, -127, -75, -32, -111, 6, 16, 3, 24, 5, 122, 15, 8, -106, -74, -32, -111, 6, 16, -82, 1, 24, -1, 1, 32, -128, 10]
+05-04 21:32:20.361 D/NetworkService[0](30487): handleMessage what:1005
+05-04 21:32:20.361 D/RadioAtomTracker(30487): parseQosPeriodData ModemQos:CellularQosInfo5{5G, 627264/773, EndcState=1, Band=78, DLBW=13, Rsrp=-107, Rsrq=-10, Snr=10, SvcStatus=3, ULPDCPNumDataPdu=-1, ULPDCPNumDropPdu=-1, ULPDCPTput=-1, ULRLCNumDataPdu=-1, ULRLCNumRetxPdu=-1, ULGrant=-1, ULBSR=-1, ULBler=-1, DLPDCPNumDataPdu=0, DLPDCPTput=0, DLRLCNumDataPdu=0, DLRLCNumRetxPdu=0, DLRLCNumDropPdu=0, DLMACPaddingBytes=0, DLPdcpNumMissToUppPdu=0, DLBler=0, RlfCount=0, CellChangeCount=0, IsRedirectionOccur=0, IsDualSimConflict=0, Latency=0, Sub1RrcState=1, Sub2RrcState=1, RachCount=0, CalcPower=174, Mtpl=255, PathLoss=1280, CellLoad=0}
+05-04 21:32:20.363 D/NetworkService[0](30487): EVENT_REG_QOS_PERIOD_REPORT_IND_CHANGED ENTER
+05-04 21:32:20.363 D/AtomModemKpiInfo(30487): handleMessage what:1001
+05-04 21:32:20.363 D/AtomModemKpiInfo(30487): analyseQosInfo success
+05-04 21:32:20.453 D/aidl_vibrator( 3399): Vibrator off
+05-04 21:32:20.457 D/aidl_vibrator( 3399): Notifying on complete
+05-04 21:32:20.469 I/[UAH_CLIENT]( 3496): UahEventAcquire, cmdid:2, pkg:none, identity:com.android.server.wm
+--------- beginning of system
+05-04 21:32:20.470 W/ActivityTaskManager( 3496): callingPackage for (uid=2000, pid=26200) has no WPC
+05-04 21:32:20.472 D/WindowManager( 3496): NFW_setClientVisible:ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity clientVisible:true
+05-04 21:32:20.472 V/GrammaticalInflectionUtils( 3496): AttributionSource: android.content.AttributionSource@fd95dfb6 does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+05-04 21:32:20.473 D/OplusCompatModeManagerService( 3496): getRequestedConfigurationOrientation  res:0,req:-1,config.old:0,config.new:0,ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t-1}
+05-04 21:32:20.473 D/OplusCompatModeManagerService( 3496):  onPreActivityRecordConfigurationChanged {0.0 ?mcc??mnc ?localeList ?layoutDir ?swdp ?wdp ?hdp ?density ?lsize ?long ?ldr ?wideColorGamut ?orien ?uimode ?night ?touch ?keyb/?/? ?nav/? winConfig={ mBounds=Rect(0, 0 - 0, 0) mAppBounds=null mMaxBounds=Rect(0, 0 - 0, 0) mDisplayRotation=undefined mWindowingMode=undefined mActivityType=undefined mAlwaysOnTop=undefined mRotation=undefined} ?fontWeightAdjustmentmThemeChanged= 0, mThemeChangedFlags= 0, mFlipFont= 0, mScenario= -1, mAccessibleChanged= 0, mUxIconConfig= 0, mMaterialColor= ffffffffffffffff, mUserId= -1, mFontUserId= -1, mFontVariationSettings= ffffffff, mFoldingAngle = -1.0, mIconPackName= , mDarkModeBackgroundMaxL= -1.0, mDarkModeDialogBgMaxL= -1.0, mDarkModeForegroundMinL= -1.0, mOplusConfigType= 0, mOplusChangedConfigs= 0, OpSans= -1, mBurmeseFontFlag= -1, mFlag= 0, mExtraFlag= 0, mFlexibleActivitySuitable= -1, mPuttDisplayFlag= -1}
+05-04 21:32:20.473 D/OplusCompatModeManagerService( 3496):  disable:true,valid:false,computeReq:0,isGameRatio:false
+05-04 21:32:20.473 D/OplusCompatModeManagerService( 3496):  getOverrideMinAspectRatioForCompatMode: 0.0 getRawOverrideMinAspectRatioForCompatMode: 0.0
+05-04 21:32:20.473 D/OplusCompatModeManagerService( 3496):  ar : ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t-1} displayId:-1 inCompatMode: false
+05-04 21:32:20.473 D/OplusCompatModeManagerService( 3496): isDefaultDisplay true oldRect: Rect(0, 0 - 0, 0) newRect Rect(0, 0 - 0, 0)
+05-04 21:32:20.473 D/OplusCompatModeManagerService( 3496): reloadCompactRatio mParWorldContainer.isEnabledParallelWindow(pkg):false,mParWorldContainer.isDisabledCompactWindow:false,isUIAutoLayout:false, isFullOrientation: false
+05-04 21:32:20.474 D/FlexibleTaskController( 3496): isSupportFlexibleWindow target = com.codex.streetstrength/.MainActivity callPkg = FlexibleTaskController support = true ,caller = 3496
+05-04 21:32:20.474 D/ActivityStarterExtImpl( 3496): do not intercept for realCallingAppIsSystemApp or CallingAppIsSystemApp
+05-04 21:32:20.474 E/QosSceneRecognizer[ActivityStartScene]( 3496): notifyActivityStart get launchedFromUid failed through AppManager! launchedFromPackage: com.android.shell, pkg: com.codex.streetstrength
+05-04 21:32:20.475 D/FlexibleWindowManagerService( 3496): isIgnoreAppearedAcrossTask:false
+05-04 21:32:20.476 D/ActivityStarterExtImpl( 3496): setForceUpdateWindow, targetTask = Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength} r = ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t-1} notFinish =false
+05-04 21:32:20.476 D/FlexibleWindowManagerService( 3496): isIgnoreAppearedAcrossTask:false
+05-04 21:32:20.477 D/FlexibleTaskController( 3496): findSourceTaskForFreeForm: sourceRecord = null ,realCallingPid:26200 ,launchFromZoomMode:false ,prevTopTask:Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength}
+05-04 21:32:20.477 D/FlexibleTaskController( 3496): findSourceTaskForFreeForm: the caller is not a flexible freeform window application and does not have a zoom windowMode startup parameter
+05-04 21:32:20.477 D/FlexibleTaskController( 3496): adjustOptionsForFlexibleTask not allow options follow process task's options, reason:9 ,reusedOptions:null
+05-04 21:32:20.477 I/TaskFragmentExtImpl( 3496): reset pause in recents anim for mTaskFragment: Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength}
+05-04 21:32:20.477 D/FlexibleTaskController( 3496): isSupportFlexibleWindow target = com.codex.streetstrength/.MainActivity callPkg = FlexibleTaskController support = true ,caller = 3496
+05-04 21:32:20.477 D/FlexibleTaskController( 3496): shouldKeepFlexibleTask flexibleTask not active.
+05-04 21:32:20.477 D/ActivityStarterExtImpl( 3496): isLaunchingRootActivity = false
+05-04 21:32:20.478 D/ActivityStarterExtImpl( 3496): resume targetTask isVisibleRequested is true or in SkipCheckedList, need resume:targetTask=Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength}
+05-04 21:32:20.478 I/OPM     ( 3496): handleActivityStart : ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t-1}
+05-04 21:32:20.478 D/OplusCompatModeManagerService( 3496): getRequestedConfigurationOrientation  res:0,req:-1,config.old:0,config.new:1,ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}
+05-04 21:32:20.479 D/OplusCompatModeManagerService( 3496):  onPreActivityRecordConfigurationChanged {1.0 ??mcc??mnc [zh_CN] ldltr sw360dp w360dp h792dp 480dpi nrml long hdr widecg port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2376) mAppBounds=Rect(0, 0 - 1080, 2376) mMaxBounds=Rect(0, 0 - 1080, 2376) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0} s.40574 fontWeightAdjustment=0mThemeChanged= 8, mThemeChangedFlags= 15d200000011, mFlipFont= 0, mScenario= 0, mAccessibleChanged= -1, mUxIconConfig= 1e177015e00020, mMaterialColor= 0, mUserId= 0, mFontUserId= 0, mFontVariationSettings= 1226, mFoldingAngle = -1.0, mIconPackName= , mDarkModeBackgroundMaxL= 0.0, mDarkModeDialogBgMaxL= 27.0, mDarkModeForegroundMinL= 100.0, mOplusConfigType= 1, mOplusChangedConfigs= 0, OpSans= -1, mBurmeseFontFlag= 2, mFlag= 0, mExtraFlag= 0, mFlexibleActivitySuitable= -1, mPuttDisplayFlag= -1}
+05-04 21:32:20.479 D/OplusCompatModeManagerService( 3496):  disable:true,valid:false,computeReq:0,isGameRatio:false
+05-04 21:32:20.479 D/OplusCompatModeManagerService( 3496):  getOverrideMinAspectRatioForCompatMode: 0.0 getRawOverrideMinAspectRatioForCompatMode: 0.0
+05-04 21:32:20.479 D/OplusCompatModeManagerService( 3496):  ar : ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} displayId:0 inCompatMode: false
+05-04 21:32:20.479 D/OplusCompatModeManagerService( 3496): isDefaultDisplay true oldRect: Rect(0, 0 - 0, 0) newRect Rect(0, 0 - 1080, 2376)
+05-04 21:32:20.479 D/OplusCompatModeManagerService( 3496): reloadCompactRatio mParWorldContainer.isEnabledParallelWindow(pkg):false,mParWorldContainer.isDisabledCompactWindow:false,isUIAutoLayout:false, isFullOrientation: false
+05-04 21:32:20.481 I/[UAH_CLIENT]( 2074): UahPlatformResAcquire
+05-04 21:32:20.481 I/[UAH_CLIENT]( 2074): UahEventAcquire, cmdid:-3, pkg:2238 11820, identity:qcom-perfd
+05-04 21:32:20.481 D/SecondaryPageStartupPolicy( 3496): checkSecondaryPageStartupStatus not support sourcePackage=com.android.shell
+05-04 21:32:20.481 D/OplusStartingWindowManager( 3496): we don't revise window flags for third app
+05-04 21:32:20.481 D/ActivityTaskManager( 3496): validateStartingWindowTheme:  Pkg=com.codex.streetstrength, Translucent=false, Floating=false, ShowWallpaper=false, Disable=false, LaunchSource=4, Prev=null, LaunchedFromPackage=com.android.shell
+05-04 21:32:20.481 D/ActivityTaskManager( 3496): addStartingWindow for ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}, mainWin=null, state=INITIALIZING, isKeyguardLocked=false, isKeyguardGoingAway=false
+05-04 21:32:20.481 D/ActivityTaskManager( 3496): getStartingWindowType: , newTask=false, taskSwitch=false, processRunning=true, allowTaskSnapshot=true, activityCreated=false, activityAllDrawn=false, snapshot exist: false
+05-04 21:32:20.481 D/ActivityRecordExtImpl( 3496): handleStartingWindowForCompactWindow origin type:0, adjustType : 0
+05-04 21:32:20.482 E/ANDR-PERF-RESOURCEQS( 2074): ANDR-PERF-RESOURCEQS: AddAndApply() 125: Resource with major=16, minor=0 not supported
+05-04 21:32:20.482 D/OplusWindowAnimationManager( 3496): applyNoAnimationForResumed resumed: ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946}
+05-04 21:32:20.483 D/ActivityTrigger( 3496): ActivityTrigger activityPauseTrigger 
+05-04 21:32:20.486 I/ActivityTaskManager( 3496): START u0 {flg=0x10000000 xflg=0x5 cmp=com.codex.streetstrength/.MainActivity (has extras) mCallingUid=2000} with LAUNCH_MULTIPLE from uid 2000 (BAL_ALLOW_PERMISSION (START_ACTIVITIES_FROM_BACKGROUND permission granted)) result code=0
+05-04 21:32:20.486 V/WindowManagerShell( 8145): Transition requested (#23042): android.os.BinderProxy@15b0a3e TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=6946 effectiveUid=10421 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.codex.streetstrength/.timer.RestReminderSelfTestActivity mCallingUid=2000 } baseActivity=ComponentInfo{com.codex.streetstrength/com.codex.streetstrength.timer.RestReminderSelfTestActivity} topActivity=ComponentInfo{com.codex.streetstrength/com.codex.streetstrength.MainActivity} origActivity=null realActivity=ComponentInfo{com.codex.streetstrength/com.codex.streetstrength.timer.RestReminderSelfTestActivity}
+05-04 21:32:20.486 V/WindowManagerShell( 8145):  numActivities=3 lastActiveTime=2142161021 supportsSplitScreenMultiWindow=true supportsMultiWindow=true supportsPocketStudioMultiWindow=true isInFlexibleEmbedded = false uid = 10421 pid = 0 resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@ad6709f} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 0 - 0, 0)
+05-04 21:32:20.486 V/WindowManagerShell( 8145):  topActivityInfo=ActivityInfo{d9895ec com.codex.streetstrength.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isTopActivityNoDisplay=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=false lastNonFullscreenBounds=Rect(276, 684 - 804, 1764) capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=-9 topActivityRequestOpenInBrowserEducationTimestamp=0
+05-04 21:32:20.486 V/WindowManagerShell( 8145):  appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityInOplusCompatMode=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 120 - 1080, 2328) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive}} topActivityMainWindowFrame=null topActivityLetterboxInsets=Rect(0, 0 - 0, 0)
+05-04 21:32:20.486 V/WindowManagerShell( 8145):  mOplusExtraBundle = Bundle[mParcelledData.dataSize=1552]}, pipChange = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 23042 }
+05-04 21:32:20.486 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.486 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:20.486 D/ShellSplitScreen( 8145): logExit: no-op, mLoggerSessionId is null
+05-04 21:32:20.489 D/RefreshRate( 3496): boostRefreshId choose max:currentRefreshRate:120.00001 targetRefreshRate:60.0 mCurrentPickRate:120.00001
+05-04 21:32:20.489 D/RefreshRate( 3496): Trigger app switch boost, ar=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946},currDisplayRate=120.00001,boostId=3
+05-04 21:32:20.489 D/RefreshRate( 3496): setDisplayConfigSpecs complete: targetMode={id=1, width=1264, height=2780, fps=120.00001, vsync=120.00001, synthetic=false, alternativeRefreshRates=[60.000004, 90.0], supportedHdrTypes=[1, 2, 3, 4]},srcMode={id=1, width=1264, height=2780, fps=120.00001, vsync=120.00001, synthetic=false, alternativeRefreshRates=[60.000004, 90.0], supportedHdrTypes=[1, 2, 3, 4]},sfModId=0,rate=120.00001
+05-04 21:32:20.489 D/RefreshRate( 3496): startAppSwitchBoost targetMode={id=1, width=1264, height=2780, fps=120.00001, vsync=120.00001, synthetic=false, alternativeRefreshRates=[60.000004, 90.0], supportedHdrTypes=[1, 2, 3, 4]} record=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}: votes=PRIORITY_START_ANIMATION_BOOST -> Vote{mRefreshRate=120.0, mMinRefreshRate=120.0, mRequestSource=null};PRIORITY_WINDOW_REQUEST -> Vote{mRefreshRate=120.0, mMinRefreshRate=120.0, mRequestSource=null};
+05-04 21:32:20.489 D/RefreshRate( 3496): do setDisplayConfigSpecs  
+05-04 21:32:20.489 I/ActivityTaskManager( 3496): The Process com.codex.streetstrength Already Exists in BG. So sending its PID: 25119
+05-04 21:32:20.489 D/SurfaceFlinger( 2238): VRR [SurfaceFlinger] setDesiredDisplayModeSpecs, from process 3496, 0, 0, primaryRanges = [ 120.000008, 120.000008, 120.000008, 120.000008 ], appRequestRanges = [ 120.000008, 120.000008, 120.000008 120.000008 ]
+05-04 21:32:20.490 D/ActivityTaskManager( 3496): setAppVisibility(Token{11d92c0 ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}}, visible=true):  visible=false mVisibleRequested=false
+05-04 21:32:20.490 D/DisplayModeDirector( 3496): setAppRequest displayId : 0  modeId: 1  requestedRefreshRate: 120.00001  requestedMinRefreshRateRange: 120.00001  requestedMaxRefreshRateRange: 120.00001
+05-04 21:32:20.490 D/ActivityTaskManager( 3496): setVisibility(Token{11d92c0 ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}}, visible=true) defer commitVisibility for transition collecting
+05-04 21:32:20.490 D/ActivityTaskManager( 3496): setAppVisibility(Token{1ad2cc0 ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946}}, visible=false):  visible=true mVisibleRequested=true
+05-04 21:32:20.490 D/ActivityTaskManager( 3496): setVisibility(Token{1ad2cc0 ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946}}, visible=false) defer commitVisibility for transition collecting
+05-04 21:32:20.490 E/ANDR-PERF-LM( 2074): MetaMeter: handleAsync() 166: AdaptLaunch Invalid Async
+05-04 21:32:20.491 D/FlexibleTaskController( 3496): isFullToFlexibleAnimating: false
+05-04 21:32:20.491 D/WindowManager( 3496): rotation(ROTATION_0) no changed  displayId = 0, lastOrientation = -1
+05-04 21:32:20.491 I/TaskOrganizerController( 3496): onTaskInfoChanged taskid 6946 config { mBounds=Rect(0, 0 - 1080, 2376) mAppBounds=Rect(0, 0 - 1080, 2376) mMaxBounds=Rect(0, 0 - 1080, 2376) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0}
+05-04 21:32:20.491 D/OplusFlexibleDragToSplitAnimController( 3496): visibleFlexibleTaskInfos delete:6946
+05-04 21:32:20.491 E/FlexibleWindowManagerService( 3496): notifyTaskObserverToAttachController not need to notify!
+05-04 21:32:20.491 I/FlexibleWindowManagerService( 3496): onFlexibleWindowTaskInfoChanged, return for cur task not embedded
+05-04 21:32:20.491 D/ActivityTaskManager( 3496): setAppVisibility(Token{11d92c0 ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}}, visible=true):  visible=false mVisibleRequested=true
+05-04 21:32:20.491 D/ActivityTaskManager( 3496): setVisibility(Token{11d92c0 ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}}, visible=true) defer commitVisibility for transition collecting
+05-04 21:32:20.491 D/OplusDexOptimizeManager( 3496): androidPackage inappropriate state!
+05-04 21:32:20.492 D/OplusFeatureColorMode( 3496): ColorMode getColorMode =0
+05-04 21:32:20.492 D/ColorDisplayServiceExtImpl( 3496): getWCGVersion1App, packageName=com.codex.streetstrength, sSupportWCG1 = true, sSupportWCG3 = false, nRet = 0
+05-04 21:32:20.492 D/ShellTaskOrganizerExt( 8145): visibleFlexibleTaskInfos delete:6946
+05-04 21:32:20.492 D/ShellTaskOrganizerExt( 8145): isOnCanvas size:0
+05-04 21:32:20.492 D/ShellTaskOrganizerExt( 8145): isOnThreeFlexibleCanvas size:0
+05-04 21:32:20.492 D/ColorModeChangeItem(25119): preExecute mColorMode=0
+05-04 21:32:20.492 D/ActivityTaskManager( 3496): NFW_setLastResumedActivityUncheckLocked:true r:ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} currentFocus:Window{243d95 u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}
+05-04 21:32:20.492 D/WindowManager( 3496): NFW_findFocusedWindowIfNeeded:null mCurrentFocus:Window{243d95 u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}
+05-04 21:32:20.493 V/WindowManager( 3496): Changing focus from Window{243d95 u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} to null,diplayid=0
+05-04 21:32:20.493 I/OPM     ( 3496): handlePackageLaunched pkg: com.codex.streetstrength, uid: 10421, pid: 25119
+05-04 21:32:20.495 D/DisplayModeDirector( 3496): setAppRequest displayId : 0  modeId: 1  requestedRefreshRate: 0.0  requestedMinRefreshRateRange: 0.0  requestedMaxRefreshRateRange: 120.00001
+05-04 21:32:20.495 D/OplusAppSwitchRuleInfo( 3496): generateActivityEnterInfo - launch_source_type =  , launch_source_traceid = 
+05-04 21:32:20.495 D/VRR [OPlusRefreshRateService]( 3496):  setDirectorStates [flag: 1, state: 1, directorStateOff: 1]
+05-04 21:32:20.496 D/OplusAppSwitchRuleInfo( 3496): generateActivityEnterInfo - launch_source_type =  , launch_source_traceid = 
+05-04 21:32:20.496 I/[UAH_CLIENT]( 3496): UahEventAcquire, cmdid:2, pkg:none, identity:OplusActivityManagerServiceEnhance
+05-04 21:32:20.496 D/OplusAppSwitchRuleInfo( 3496): generateActivityEnterInfo - launch_source_type =  , launch_source_traceid = 
+05-04 21:32:20.496 W/SurfaceFlingerPuller( 3496): Failed to pull atom 150134 from surfaceflinger. Success is 0, binder status is EX_NONE
+05-04 21:32:20.499 D/BackgroundInstallControlService( 3496): Package event received: 0
+05-04 21:32:20.499 D/VRR [RefreshRateDirector]( 2238): updateState mState = 0
+05-04 21:32:20.500 E/statsd  ( 1928): Stats puller failed for tag: 150134 at 2142161027811067
+05-04 21:32:20.500 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.500 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:20.500 D/SurfaceComposerClient( 3496): Transaction::apply InputWindowCommands.focusRequests timestamp=1613282844794736, windowName=<null>
+05-04 21:32:20.501 D/ResourcesManagerExtImpl(25119): applyConfigurationToAppResourcesLocked app.getDisplayId() return callback.displayId:0
+05-04 21:32:20.502 E/statsd  ( 1928): Stats puller failed for tag: 150134 at 2142161039888775
+05-04 21:32:20.502 D/FlexibleTaskController( 3496): not in list
+05-04 21:32:20.503 D/BackgroundInstallControlService( 3496): Package event received: 0
+05-04 21:32:20.503 I/OplusPerfCollect( 2238): OplusPerfCollect onPullAtom
+05-04 21:32:20.504 I/OplusPerfCollect( 2238): OplusPerfCollect OplusVrrInfoRecord clear
+05-04 21:32:20.504 E/OplusPredictiveBackController(25119):  NoSuchMethodException 
+05-04 21:32:20.504 D/OplusPredictiveBackController(25119): initPredictiveBackConfig for com.codex.streetstrength.MainActivity@3772850 initPredictiveBackConfig mShouldInterceptKeyEvent false
+05-04 21:32:20.504 D/WindowOnBackDispatcher(25119):  predictive settings is disabled for com.codex.streetstrength
+05-04 21:32:20.504 I/statsd  ( 1928): An anomaly (104240000001) (42)0x10000->10421[I] (42)0x20000->com.codex.streetstrength[S] (42)0x30000->.MainActivity[S]  has occurred! Informing subscribers.
+05-04 21:32:20.505 I/VibratorManagerServiceExtImpl( 3496): cancelVibrate uid=10421, pid=25119, usageFilter=-1, token=268230509
+05-04 21:32:20.505 I/OplusCpuLimitManager( 3496): OplusCpuHighLoad: request instant cpu load
+05-04 21:32:20.507 W/ProcessStats( 3496): Tracking association SourceState{f66342d com.oplus.securitypermission/99901000 Service #1552448} whose proc state 8 is better than process ProcessState{a0c602e com.oplus.securitypermission/1000 pkg=com.oplus.securitypermission} proc state 15 (4 skipped)
+05-04 21:32:20.507 W/ForegroundServiceTypeLoggerModule( 3496): FGS stop call for: 10421 has no types!
+05-04 21:32:20.508 I/SystemUi--QuickSettings( 8145): OplusFgsManagerController-->onForegroundStateChanged: com.codex.streetstrength 0 false 1
+05-04 21:32:20.508 I/SystemUi--QuickSettings( 8145): OplusFgsManagerController-->onForegroundStateChanged numPackagesAfter: 0
+05-04 21:32:20.508 I/[UAH_CLIENT]( 2074): UahRelease, handle:1355927
+05-04 21:32:20.508 I/SystemUi--QuickSettings( 8145): OplusSeparateQSPrivacyManager-->onNumberOfPackagesChanged numPackages 0
+05-04 21:32:20.509 I/ConferenceScene(30487): onForegroundServiceStateChanged 25119 10421 0 fg_stateMachinesuid is null
+05-04 21:32:20.510 W/OplusNavigationBarUtil( 3496): color navigation bar util isn't init.
+05-04 21:32:20.510 D/SurfaceFlinger( 2238): updateWinowInfo=1, setFocusedWindow timestamp=1613282844794736, windowName=<null>
+05-04 21:32:20.510 I/InputDispatcher( 3496): updateFocusedWindow,  on display 0, reason: NO_WINDOW, result:   FocusedWindows: <none>
+05-04 21:32:20.511 I/InputDispatcher( 3496): NFW_setFocusedWindow, <null> on display 0, same as the previous:1
+05-04 21:32:20.511 D/InputDispatcher( 3496): setFocusedWindow <null> on display 0 ignored, reason: already focused
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): write /dev/memcg/memory.force_shrink_file failed
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): java.io.IOException: write failed: EBUSY (Device or resource busy)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at libcore.io.IoBridge.write(IoBridge.java:651)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at java.io.FileOutputStream.write(FileOutputStream.java:436)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:233)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:309)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.implFlush(StreamEncoder.java:313)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.flush(StreamEncoder.java:153)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at java.io.OutputStreamWriter.flush(OutputStreamWriter.java:248)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at com.android.server.oplus.osense.utils.OsenseCommonUtils.writeFile(OsenseCommonUtils.java:154)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction.doGlobalShrink(OplusOsenseCompressAction.java:1887)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction.-$$Nest$mdoGlobalShrink(Unknown Source:0)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction$CompressHandler.handleMessage(OplusOsenseCompressAction.java:1335)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at android.os.Handler.dispatchMessage(Handler.java:115)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at android.os.Looper.loopOnce(Looper.java:302)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at android.os.Looper.loop(Looper.java:412)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at android.os.HandlerThread.run(HandlerThread.java:85)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): Caused by: android.system.ErrnoException: write failed: EBUSY (Device or resource busy)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at libcore.io.Linux.writeBytes(Native Method)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at libcore.io.Linux.write(Linux.java:336)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at libcore.io.ForwardingOs.write(ForwardingOs.java:948)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at libcore.io.BlockGuardOs.write(BlockGuardOs.java:448)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	at libcore.io.IoBridge.write(IoBridge.java:646)
+05-04 21:32:20.512 E/OsenseCommonUtils( 3496): 	... 14 more
+05-04 21:32:20.512 I/OplusCpuLimitManager( 3496): OplusCpuHighLoad: release instant cpu load
+05-04 21:32:20.513 D/ActivityThread(25119): ComponentInfo{com.codex.streetstrength/com.codex.streetstrength.MainActivity} checkFinished=false 2
+05-04 21:32:20.513 D/ResourcesManagerExtImpl(25119): applyConfigurationToAppResourcesLocked app.getDisplayId() return callback.displayId:0
+05-04 21:32:20.514 D/NotificationService--OplusBreathLights( 3496):  updateLightsStateLocked 
+05-04 21:32:20.514 D/NotificationService--OplusBreathLights( 3496):  scheduleLightsOffTimeoutLocked 
+05-04 21:32:20.514 D/WindowManager(25119): Add to mViews: com.android.internal.policy.DecorView{ba4f667 I.E...... R.....ID 0,0-0,0 alpha=1.0 viewInfo = }[MainActivity],pkg= com.codex.streetstrength
+05-04 21:32:20.514 D/skia    (25119): setRusSupported enable 1
+05-04 21:32:20.516 D/NotificationGroupType( 3496): maybeUngroupOplus:after all cleared
+05-04 21:32:20.516 I/WindowManager( 3496): addWindow: New client android.os.BinderProxy@b950569 : window=Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}
+05-04 21:32:20.517 D/ViewRootImplExtImpl(25119): onDisplayChanged -1 for VRI android.view.ViewRootImpl@7e502b2
+05-04 21:32:20.517 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.517 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:20.518 D/VRI[MainActivity](25119): onFocusEvent false
+05-04 21:32:20.518 D/ResourcesManagerExtImpl(25119): applyConfigurationToAppResourcesLocked app.getDisplayId() return callback.displayId:0
+05-04 21:32:20.518 I/SystemUi--Notification( 8145): OplusLiveAlertNotificationsRepository-->removeLiveAlert: 0|com.codex.streetstrength|401|null|10421
+05-04 21:32:20.518 I/PluginSeedling--Track( 8145): RequestHandler-->notificationRemoved 0|com.codex.streetstrength|401|null|10421
+05-04 21:32:20.519 I/VibratorManagerServiceExtImpl( 3496): cancelVibrate uid=10421, pid=25119, usageFilter=-1, token=247226718
+05-04 21:32:20.519 I/SystemUi--Notification( 8145): OplusLiveAlertNotificationsRepository-->onRankingApplied
+05-04 21:32:20.519 D/aidl_vibrator( 3399): Vibrator off
+05-04 21:32:20.526 I/resRelease( 3496): policy type is 1
+05-04 21:32:20.528 E/OplusBracketLog(25119): [OplusViewMirrorManager] updateHostViewRootIfNeeded, not support android.view.ViewRootImpl@7e502b2
+05-04 21:32:20.529 E/LockScreenNotificationDispatcherImp( 8145): updateNotificationListOnKg size:0
+05-04 21:32:20.534 I/SystemUi--Notification( 8145): NotificationStackScrollLayoutExtImpl-->bind scrollGridCount 3 o.visibleChildrenCount 2 o.childCount 6
+05-04 21:32:20.535 I/SystemUi--Notification( 8145): SeparatePanelAnimation-->updateVisibleChildCount change, currentChildCount: 4 totalCount 3
+05-04 21:32:20.535 I/SystemUi--Notification( 8145): LockScreenNotificationDispatcherImp-->updateNotificationListOnKg resultCode: 0
+05-04 21:32:20.536 I/SystemUi--Statusbar( 8145): NotifIconContainerViewBinder-->Icons().visibility: 0, notificationsNum: 1, maxIconSize: 999, prevIcons.size: 2, icons.width: 96
+05-04 21:32:20.536 E/[OPLUS_AFS_CONFIG]( 8145): Failed to open AFS config file: /proc/oplus_afs_config/afs_config
+05-04 21:32:20.536 E/AFS_CONFIG( 8145): Failed to get scene config
+05-04 21:32:20.536 E/OplusAfsManager( 8145): afsConfigSceneConfigGet sceneType is null
+05-04 21:32:20.536 I/SystemUi--Common( 8145): AnimAfsManager-->enableAnimationCtrl key:45 enable:false, result: 0
+05-04 21:32:20.536 E/IJankManager( 8145): latencySceneEnd unknown scene 45 mScene:-1
+05-04 21:32:20.539 D/WindowOnBackDispatcher(25119):  predictive settings is disabled for com.codex.streetstrength
+05-04 21:32:20.539 D/WindowOnBackDispatcher(25119):  predictive settings is disabled for com.codex.streetstrength
+05-04 21:32:20.539 D/CoreBackPreview( 3496): Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@b9f171c, mPriority=0, mIsAnimationCallback=false, mOverrideBehavior=0}
+05-04 21:32:20.662 D/ViewRootImplExtImpl(25119): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=0, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2376), relayoutAsync=false, flags=0, newFlags=1245708288, title=com.codex.streetstrength/com.codex.streetstrength.MainActivity
+05-04 21:32:20.663 V/WindowManager( 3496): Relayout Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}: viewVisibility=0, oldvis=4, req=1080x2376 , apr = 8, vsysui=LIGHT_STATUS_BAR LIGHT_NAVIGATION_BAR, x=0, y=0
+05-04 21:32:20.663 I/WindowManager( 3496): Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} state from NO_SURFACE to DRAW_PENDING; reason: resetDrawState
+05-04 21:32:20.664 I/TaskOrganizerController( 3496): onTaskInfoChanged taskid 6946 config { mBounds=Rect(0, 0 - 1080, 2376) mAppBounds=Rect(0, 0 - 1080, 2376) mMaxBounds=Rect(0, 0 - 1080, 2376) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mActivityType=standard mAlwaysOnTop=undefined mRotation=ROTATION_0}
+05-04 21:32:20.664 D/OplusFlexibleDragToSplitAnimController( 3496): visibleFlexibleTaskInfos delete:6946
+05-04 21:32:20.664 E/FlexibleWindowManagerService( 3496): notifyTaskObserverToAttachController not need to notify!
+05-04 21:32:20.664 I/FlexibleWindowManagerService( 3496): onFlexibleWindowTaskInfoChanged, return for cur task not embedded
+05-04 21:32:20.665 D/WindowManager( 3496): NFW_findFocusedWindowIfNeeded:Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} mCurrentFocus:null
+05-04 21:32:20.665 D/ShellTaskOrganizerExt( 8145): visibleFlexibleTaskInfos delete:6946
+05-04 21:32:20.665 D/ShellTaskOrganizerExt( 8145): isOnCanvas size:0
+05-04 21:32:20.665 D/WindowManager( 3496): attachImeScreenshotOnTargetIfNeeded, mImeHiding = false, requestedVisibleTypes = -9
+05-04 21:32:20.665 D/ShellTaskOrganizerExt( 8145): isOnThreeFlexibleCanvas size:0
+05-04 21:32:20.665 V/WindowManager( 3496): Changing focus from null to Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity},diplayid=0
+05-04 21:32:20.667 D/Theia.NoFocusWindow( 3496): FocusWindowErrorScene cancelCheckFreezeScreen
+05-04 21:32:20.667 W/TheiaWindowMonitor( 3496): [check] focusedWindow is null or enable is false
+05-04 21:32:20.669 D/VRI[MainActivity](25119): relayoutWindow result, sizeChanged:true, surfaceControlChanged:true, transformHintChanged:false, mSurfaceSize:Point(1080, 2376), mLastSurfaceSize:Point(0, 0), mWidth:-1, mHeight:-1, requestedWidth:1080, requestedHeight:2376, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:true, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2376] display=[0,0][1080,2376] parentFrame=[0,0][0,0]}, relayoutAsync:false, mSyncSeqId:0
+05-04 21:32:20.669 W/VRI[MainActivity](25119): updateBlastSurfaceIfNeeded, surfaceSize:Point(1080, 2376), lastSurfaceSize:Point(0, 0), format:-1, blastBufferQueue:null
+05-04 21:32:20.669 D/BufferQueueConsumer(25119): [](id:621f00000002,api:0,p:-1,c:25119) connect: controlledByApp=false
+05-04 21:32:20.669 D/BufferQueueConsumer(25119): [VRI[MainActivity]#2(BLAST Consumer)2](id:621f00000002,api:0,p:-1,c:25119) setMaxAcquiredBufferCount: 2
+05-04 21:32:20.669 I/BpBinder( 2238): onLastStrongRef automatically unlinking death recipients: 
+05-04 21:32:20.670 D/HWUI    (25119): createSurface new attribs array
+05-04 21:32:20.670 D/libEGL  (25119): this is from skia gles
+05-04 21:32:20.670 D/BufferQueueProducer(25119): [VRI[MainActivity]#2(BLAST Consumer)2](id:621f00000002,api:1,p:25119,c:25119) connect: api=1 producerControlledByApp=true
+05-04 21:32:20.683 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.683 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:20.684 D/SurfaceComposerClient( 3496): Transaction::apply InputWindowCommands.focusRequests timestamp=1613283017035933, windowName=e4f7bee com.codex.streetstrength/com.codex.streetstrength.MainActivity
+05-04 21:32:20.695 D/SurfaceFlinger( 2238): updateWinowInfo=1, setFocusedWindow timestamp=1613283017035933, windowName=e4f7bee com.codex.streetstrength/com.codex.streetstrength.MainActivity
+05-04 21:32:20.696 I/InputDispatcher( 3496): NFW_setFocusedWindow, e4f7bee com.codex.streetstrength/com.codex.streetstrength.MainActivity on display 0, same as the previous:0
+05-04 21:32:20.700 I/SurfaceControl(25119):  setExtendedRangeBrightness sc=Surface(name=com.codex.streetstrength/com.codex.streetstrength.MainActivity)/@0x4481a0f,currentBufferRatio=1.0,desiredRatio=1.0
+05-04 21:32:20.716 D/BLASTBufferQueue(25119): [VRI[MainActivity]#2](f:0,a:1) acquireNextBufferLocked size=1080x2376 mFrameNumber=1 applyTransaction=true mTimestamp=1613283064943850(auto) mPendingTransactions.size=0 graphicBufferId=107885283508235 transform=0
+05-04 21:32:20.716 D/VRI[MainActivity](25119): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true syncBuffer=false
+05-04 21:32:20.716 D/VRI[MainActivity](25119): draw finished. seqId=0
+05-04 21:32:20.717 D/WindowManager( 3496): onSyncFinishedDrawing: Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}
+05-04 21:32:20.717 I/WindowManager( 3496): finishDrawing skipLayout:false,syncSeqId=0,mPrepareSyncSeqId=0 Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} com.android.server.wm.WindowManagerService.finishDrawingWindow:3217 com.android.server.wm.Session.finishDrawing:399 android.view.IWindowSession$Stub.onTransact:793 
+05-04 21:32:20.717 I/WindowManager( 3496): Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} state from DRAW_PENDING to COMMIT_DRAW_PENDING; reason: finishDrawingLocked
+05-04 21:32:20.718 I/WindowManager( 3496): Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} state from COMMIT_DRAW_PENDING to READY_TO_SHOW; reason: commitFinishDrawingLocked
+05-04 21:32:20.718 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.718 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} mStartingData=null mStartingSurface=null
+05-04 21:32:20.718 I/OPM     ( 3496): handleNotifyLaunchTime : com.codex.streetstrength, :229
+05-04 21:32:20.719 D/ActivityTaskManager( 3496): commitVisibility: ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}: visible=true visibleRequested=true, isInTransition=true 
+05-04 21:32:20.719 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.719 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} mStartingData=null mStartingSurface=null
+05-04 21:32:20.719 I/WindowManager( 3496): Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} state from READY_TO_SHOW to HAS_DRAWN; reason: performShowLocked
+05-04 21:32:20.719 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.719 E/OplusAppQuickStart_AppQuickStartController( 3496): not start from launcher transition:23042
+05-04 21:32:20.720 D/Transition( 3496): collectOrderChanges onTopTasksEnd: [Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength}], reportedOnTop:null, mOnTopTasksStart: [Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength}], TDA child: [Task{735b81c #6894 type=standard A=10346:com.tencent.mobileqq}, Task{1991a6 #6897 type=standard A=10120:com.android.mms}, Task{df5b8f #3 type=undefined}, Task{441fe54 #6895 type=standard A=10151:com.oplus.camera nonResizable}, Task{fe7c9f0 #6920 type=standard A=10319:com.coloros.weather2 nonResizable}, Task{cf1191e #6879 type=standard A=10380:android.task.qqmusic}, Task{a90f070 #6923 type=standard A=10102:android.task.contacts}, Task{5e93031 #6927 type=standard A=10354:com.dianping.v1}, Task{e005fdb #6938 type=standard A=10352:com.xiaoben.zakj}, Task{fc01102 #6943 type=standard A=10359:com.cnsj.ys.hykb}, Task{5818ec4 #6859 type=standard A=10327:com.dragon.read}, Task{17e118f #6916 type=standard A=10331:com.ss.android.ugc.aweme}, Task{46ec576 #1 type=home}, Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength}]
+05-04 21:32:20.720 D/OplusFlexibleActivityTransitionManager( 3496): fixTransitType type result:1, targets: [ChangeInfo{529a823 container=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}, ChangeInfo{2097120 container=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}]
+05-04 21:32:20.721 D/OplusTransitionAnimationManager( 3496): activityRecordCount1fullScreenArBeHindStartingWindow null
+05-04 21:32:20.721 D/OplusTransitionAnimationManager( 3496): activityRecordCount1fullScreenArBeHindStartingWindow null
+05-04 21:32:20.721 D/QuickBackInputPolicy( 3496): resetInputInterceptState for remoteTransition: false
+05-04 21:32:20.721 D/OplusTransitionController( 3496): onTransactionReady, transition: 23042, info: {id=23042 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{m=OPEN f=FILLS_TASK leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0xe08bc9e sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=-1->0 r=-1->0:-1 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}},{m=TO_BACK f=FILLS_TASK leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x364a37f sb=Rect(0, 0 - 1080, 2376) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=0 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}}] 
+05-04 21:32:20.721 D/OplusTransitionController( 3496): extendInfo=[
+05-04 21:32:20.721 D/OplusTransitionController( 3496):  OplusTransitionExtendedInfo{mTmpFinishT=null, mInOplusCompatMode=false, mIsProcessRunning=false, mHasMismatchBoundsTarget=false, mRecentsController=null, mRemoteTransition=null, mIsTranslucentActivityToHome=false, mAvoidInterceptKeyEventToHome=false, mIsFromHome=false, mParentLeash=null, mBackAnimClosingLeash=null, mIsOplusAnimRes=false, mKeepBgForContinuous=false, mIsBalAllow=true, mTaskNotInRecent=false, mIsPredictiveBackAnim=false, mIsMergedWithPredictive=false, mIsLaunchFromSpruce=false, mIsLaunchFromDrive=false, mGlobalSearchPageSwitch=false, mNeedNoAlphaGlobalSearchScene=false, mAssistScreenShowing=false, mSwipeUpBrowserScreenShowing=false, mUserIdTransition=-1
+05-04 21:32:20.721 D/OplusTransitionController( 3496): , mInRemoteScene=false, mInPreReady=false, mPreStart=false, mToken=null, mAbortByRemoteFromHome=false, mShellApplyToken=null, mRequestTransitionTaskId=6946, mAbortTransitionOnShell=0, mStartFromShortcut=false, mRemovedTaskId=-1, mTransitionInterruptType=0, mMergeSecondTaskId=-1, mTaskIdStartFromRecents=0, mTransitionId=23042, mCanUseSpringSlideAnim=false, mTransitionLaunchFrom=0, mFoldChangeType=-1, mAnimStartingPosition=[0, 0, 0, 0], mIsOpeningStkDialogActivity=false, mSecondaryHomeToFrontWhenUnFolding=false, mIsNeedApplyStartTForEmbedded=false
+05-04 21:32:20.721 D/OplusTransitionController( 3496): , mNeedCanvasExitAnim=false, mMergeSecondTaskAnimation=false, mIsLaunchUnityStart=false, mIsLaunchFromAssistantByDefault=false, mSkipRemoteTransitionfalse, mIsStartFromKeyguard=false flags=0x0, mWCT=null, mIsOpenMergeToInValidPredictive=false, mPromoteTaskWhenKeyguard-1, mRootLayerZOrderArray={}}]}, targets : [ChangeInfo{529a823 container=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}, ChangeInfo{2097120 container=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}], participants: {ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946}, ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}}
+05-04 21:32:20.722 I/Quality-ScreenOnOffLogProcessor(31343): withInScreenOnOffRange mIsScreenOn:true refTime:1777901540485 mRecentScreenOnTime:1777900268232 mRecentScreenOffTime:1777900194867
+05-04 21:32:20.723 I/Quality ( 3496): LaunchTime2.0: com.codex.streetstrength/.MainActivity 2 236 com.android.shell -1 -1
+05-04 21:32:20.723 V/WindowManagerShell( 8145): onTransitionReady(transaction=15015209447649)
+05-04 21:32:20.723 I/ActivityTaskManager( 3496): Displayed com.codex.streetstrength/.MainActivity for user 0: +250ms
+05-04 21:32:20.724 V/WindowManagerShell( 8145): onTransitionReady (#23042) android.os.BinderProxy@15b0a3e: {id=23042 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+05-04 21:32:20.724 V/WindowManagerShell( 8145):         {m=OPEN f=FILLS_TASK leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0x8f98c4a sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=-1->0 r=-1->0:-1 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}},
+05-04 21:32:20.724 V/WindowManagerShell( 8145):         {m=TO_BACK f=FILLS_TASK leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x63b77bb sb=Rect(0, 0 - 1080, 2376) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=0 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}}
+05-04 21:32:20.724 V/WindowManagerShell( 8145):     ] 
+05-04 21:32:20.724 V/WindowManagerShell( 8145): extendInfo=[
+05-04 21:32:20.724 V/WindowManagerShell( 8145):  OplusTransitionExtendedInfo{mTmpFinishT=null, mInOplusCompatMode=false, mIsProcessRunning=false, mHasMismatchBoundsTarget=false, mRecentsController=null, mRemoteTransition=null, mIsTranslucentActivityToHome=false, mAvoidInterceptKeyEventToHome=false, mIsFromHome=false, mParentLeash=null, mBackAnimClosingLeash=null, mIsOplusAnimRes=false, mKeepBgForContinuous=false, mIsBalAllow=true, mTaskNotInRecent=false, mIsPredictiveBackAnim=false, mIsMergedWithPredictive=false, mIsLaunchFromSpruce=false, mIsLaunchFromDrive=false, mGlobalSearchPageSwitch=false, mNeedNoAlphaGlobalSearchScene=false, mAssistScreenShowing=false, mSwipeUpBrowserScreenShowing=false, mUserIdTransition=-1
+05-04 21:32:20.724 V/WindowManagerShell( 8145): , mInRemoteScene=false, mInPreReady=false, mPreStart=false, mToken=null, mAbortByRemoteFromHome=false, mShellApplyToken=null, mRequestTransitionTaskId=6946, mAbortTransitionOnShell=0, mStartFromShortcut=false, mRemovedTaskId=-1, mTransitionInterruptType=0, mMergeSecondTaskId=-1, mTaskIdStartFromRecents=0, mTransitionId=23042, mCanUseSpringSlideAnim=false, mTransitionLaunchFrom=0, mFoldChangeType=-1, mAnimStartingPosition=[0, 0, 0, 0], mIsOpeningStkDialogActivity=false, mSecondaryHomeToFrontWhenUnFolding=false, mIsNeedApplyStartTForEmbedded=false
+05-04 21:32:20.724 V/WindowManagerShell( 8145): , mNeedCanvasExitAnim=false, mMergeSecondTaskAnimation=false, mIsLaunchUnityStart=false, mIsLaunchFromAssistantByDefault=false, mSkipRemoteTransitionfalse, mIsStartFromKeyguard=false flags=0x0, mWCT=null, mIsOpenMergeToInValidPredictive=false, mPromoteTaskWhenKeyguard-1, mRootLayerZOrderArray={}}]}
+05-04 21:32:20.724 D/OplusShellTransition( 8145): dispatchReady, active:(#23042) android.os.BinderProxy@15b0a3e@0, isSync=false, track:com.android.wm.shell.transition.Transitions$Track@f5b157b
+05-04 21:32:20.724 D/OplusShellTransition( 8145): Abort transition (#23042) android.os.BinderProxy@15b0a3e@0 WMCore requested. reason: 0; abortTransition: false
+05-04 21:32:20.724 V/WindowManagerShell( 8145): Playing animation for (#23042) android.os.BinderProxy@15b0a3e@0
+05-04 21:32:20.724 V/ShellRecents( 8145): RecentsTransitionHandler.startAnimation: no controller found
+05-04 21:32:20.725 V/WindowManagerShell( 8145): start OnePuttTransition animation, info = {id=23042 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{m=OPEN f=FILLS_TASK leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0x8f98c4a sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=-1->0 r=-1->0:-1 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}},{m=TO_BACK f=FILLS_TASK leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x63b77bb sb=Rect(0, 0 - 1080, 2376) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=0 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}}] 
+05-04 21:32:20.725 V/WindowManagerShell( 8145): extendInfo=[
+05-04 21:32:20.725 V/WindowManagerShell( 8145):  OplusTransitionExtendedInfo{mTmpFinishT=null, mInOplusCompatMode=false, mIsProcessRunning=false, mHasMismatchBoundsTarget=false, mRecentsController=null, mRemoteTransition=null, mIsTranslucentActivityToHome=false, mAvoidInterceptKeyEventToHome=false, mIsFromHome=false, mParentLeash=null, mBackAnimClosingLeash=null, mIsOplusAnimRes=false, mKeepBgForContinuous=false, mIsBalAllow=true, mTaskNotInRecent=false, mIsPredictiveBackAnim=false, mIsMergedWithPredictive=false, mIsLaunchFromSpruce=false, mIsLaunchFromDrive=false, mGlobalSearchPageSwitch=false, mNeedNoAlphaGlobalSearchScene=false, mAssistScreenShowing=false, mSwipeUpBrowserScreenShowing=false, mUserIdTransition=-1
+05-04 21:32:20.725 V/WindowManagerShell( 8145): , mInRemoteScene=false, mInPreReady=false, mPreStart=false, mToken=null, mAbortByRemoteFromHome=false, mShellApplyToken=null, mRequestTransitionTaskId=6946, mAbortTransitionOnShell=0, mStartFromShortcut=false, mRemovedTaskId=-1, mTransitionInterruptType=0, mMergeSecondTaskId=-1, mTaskIdStartFromRecents=0, mTransitionId=23042, mCanUseSpringSlideAnim=false, mTransitionLaunchFrom=0, mFoldChangeType=-1, mAnimStartingPosition=[0, 0, 0, 0], mIsOpeningStkDialogActivity=false, mSecondaryHomeToFrontWhenUnFolding=false, mIsNeedApplyStartTForEmbedded=false
+05-04 21:32:20.725 V/WindowManagerShell( 8145): , mNeedCanvasExitAnim=false, mMergeSecondTaskAnimation=false, mIsLaunchUnityStart=false, mIsLaunchFromAssistantByDefault=false, mSkipRemoteTransitionfalse, mIsStartFromKeyguard=false flags=0x0, mWCT=null, mIsOpenMergeToInValidPredictive=false, mPromoteTaskWhenKeyguard-1, mRootLayerZOrderArray={}}]}
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145):  performAnimation transition:android.os.BinderProxy@15b0a3e ,info:{id=23042 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{m=OPEN f=FILLS_TASK leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0x8f98c4a sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=-1->0 r=-1->0:-1 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}},{m=TO_BACK f=FILLS_TASK leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x63b77bb sb=Rect(0, 0 - 1080, 2376) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=0 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}}] 
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145): extendInfo=[
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145):  OplusTransitionExtendedInfo{mTmpFinishT=null, mInOplusCompatMode=false, mIsProcessRunning=false, mHasMismatchBoundsTarget=false, mRecentsController=null, mRemoteTransition=null, mIsTranslucentActivityToHome=false, mAvoidInterceptKeyEventToHome=false, mIsFromHome=false, mParentLeash=null, mBackAnimClosingLeash=null, mIsOplusAnimRes=false, mKeepBgForContinuous=false, mIsBalAllow=true, mTaskNotInRecent=false, mIsPredictiveBackAnim=false, mIsMergedWithPredictive=false, mIsLaunchFromSpruce=false, mIsLaunchFromDrive=false, mGlobalSearchPageSwitch=false, mNeedNoAlphaGlobalSearchScene=false, mAssistScreenShowing=false, mSwipeUpBrowserScreenShowing=false, mUserIdTransition=-1
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145): , mInRemoteScene=false, mInPreReady=false, mPreStart=false, mToken=null, mAbortByRemoteFromHome=false, mShellApplyToken=null, mRequestTransitionTaskId=6946, mAbortTransitionOnShell=0, mStartFromShortcut=false, mRemovedTaskId=-1, mTransitionInterruptType=0, mMergeSecondTaskId=-1, mTaskIdStartFromRecents=0, mTransitionId=23042, mCanUseSpringSlideAnim=false, mTransitionLaunchFrom=0, mFoldChangeType=-1, mAnimStartingPosition=[0, 0, 0, 0], mIsOpeningStkDialogActivity=false, mSecondaryHomeToFrontWhenUnFolding=false, mIsNeedApplyStartTForEmbedded=false
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145): , mNeedCanvasExitAnim=false, mMergeSecondTaskAnimation=false, mIsLaunchUnityStart=false, mIsLaunchFromAssistantByDefault=false, mSkipRemoteTransitionfalse, mIsStartFromKeyguard=false flags=0x0, mWCT=null, mIsOpenMergeToInValidPredictive=false, mPromoteTaskWhenKeyguard-1, mRootLayerZOrderArray={}}]}
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145):  no need handler this transitionInfo: {id=23042 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{m=OPEN f=FILLS_TASK leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0x8f98c4a sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=-1->0 r=-1->0:-1 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}},{m=TO_BACK f=FILLS_TASK leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x63b77bb sb=Rect(0, 0 - 1080, 2376) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=0 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}}] 
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145): extendInfo=[
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145):  OplusTransitionExtendedInfo{mTmpFinishT=null, mInOplusCompatMode=false, mIsProcessRunning=false, mHasMismatchBoundsTarget=false, mRecentsController=null, mRemoteTransition=null, mIsTranslucentActivityToHome=false, mAvoidInterceptKeyEventToHome=false, mIsFromHome=false, mParentLeash=null, mBackAnimClosingLeash=null, mIsOplusAnimRes=false, mKeepBgForContinuous=false, mIsBalAllow=true, mTaskNotInRecent=false, mIsPredictiveBackAnim=false, mIsMergedWithPredictive=false, mIsLaunchFromSpruce=false, mIsLaunchFromDrive=false, mGlobalSearchPageSwitch=false, mNeedNoAlphaGlobalSearchScene=false, mAssistScreenShowing=false, mSwipeUpBrowserScreenShowing=false, mUserIdTransition=-1
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145): , mInRemoteScene=false, mInPreReady=false, mPreStart=false, mToken=null, mAbortByRemoteFromHome=false, mShellApplyToken=null, mRequestTransitionTaskId=6946, mAbortTransitionOnShell=0, mStartFromShortcut=false, mRemovedTaskId=-1, mTransitionInterruptType=0, mMergeSecondTaskId=-1, mTaskIdStartFromRecents=0, mTransitionId=23042, mCanUseSpringSlideAnim=false, mTransitionLaunchFrom=0, mFoldChangeType=-1, mAnimStartingPosition=[0, 0, 0, 0], mIsOpeningStkDialogActivity=false, mSecondaryHomeToFrontWhenUnFolding=false, mIsNeedApplyStartTForEmbedded=false
+05-04 21:32:20.725 D/FlexibleTaskTransitionHandler( 8145): , mNeedCanvasExitAnim=false, mMergeSecondTaskAnimation=false, mIsLaunchUnityStart=false, mIsLaunchFromAssistantByDefault=false, mSkipRemoteTransitionfalse, mIsStartFromKeyguard=false flags=0x0, mWCT=null, mIsOpenMergeToInValidPredictive=false, mPromoteTaskWhenKeyguard-1, mRootLayerZOrderArray={}}]}
+05-04 21:32:20.725 V/WindowManagerShell( 8145): Transition doesn't have explicit remote, search filters for match for {id=23042 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{m=OPEN f=FILLS_TASK leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0x8f98c4a sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=-1->0 r=-1->0:-1 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}},{m=TO_BACK f=FILLS_TASK leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x63b77bb sb=Rect(0, 0 - 1080, 2376) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=0 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}}] 
+05-04 21:32:20.725 V/WindowManagerShell( 8145): extendInfo=[
+05-04 21:32:20.725 V/WindowManagerShell( 8145):  OplusTransitionExtendedInfo{mTmpFinishT=null, mInOplusCompatMode=false, mIsProcessRunning=false, mHasMismatchBoundsTarget=false, mRecentsController=null, mRemoteTransition=null, mIsTranslucentActivityToHome=false, mAvoidInterceptKeyEventToHome=false, mIsFromHome=false, mParentLeash=null, mBackAnimClosingLeash=null, mIsOplusAnimRes=false, mKeepBgForContinuous=false, mIsBalAllow=true, mTaskNotInRecent=false, mIsPredictiveBackAnim=false, mIsMergedWithPredictive=false, mIsLaunchFromSpruce=false, mIsLaunchFromDrive=false, mGlobalSearchPageSwitch=false, mNeedNoAlphaGlobalSearchScene=false, mAssistScreenShowing=false, mSwipeUpBrowserScreenShowing=false, mUserIdTransition=-1
+05-04 21:32:20.725 V/WindowManagerShell( 8145): , mInRemoteScene=false, mInPreReady=false, mPreStart=false, mToken=null, mAbortByRemoteFromHome=false, mShellApplyToken=null, mRequestTransitionTaskId=6946, mAbortTransitionOnShell=0, mStartFromShortcut=false, mRemovedTaskId=-1, mTransitionInterruptType=0, mMergeSecondTaskId=-1, mTaskIdStartFromRecents=0, mTransitionId=23042, mCanUseSpringSlideAnim=false, mTransitionLaunchFrom=0, mFoldChangeType=-1, mAnimStartingPosition=[0, 0, 0, 0], mIsOpeningStkDialogActivity=false, mSecondaryHomeToFrontWhenUnFolding=false, mIsNeedApplyStartTForEmbedded=false
+05-04 21:32:20.725 V/WindowManagerShell( 8145): , mNeedCanvasExitAnim=false, mMergeSecondTaskAnimation=false, mIsLaunchUnityStart=false, mIsLaunchFromAssistantByDefault=false, mSkipRemoteTransitionfalse, mIsStartFromKeyguard=false flags=0x0, mWCT=null, mIsOpenMergeToInValidPredictive=false, mPromoteTaskWhenKeyguard-1, mRootLayerZOrderArray={}}]}
+05-04 21:32:20.725 V/WindowManagerShell( 8145):  Checking filter Pair{{types=[] flags=0x0] notFlags=0x100 checks=[{atype=home independent=true modes=[OPEN,TO_FRONT] flags=NONE mustBeTask=false order=TOP topActivity=ComponentInfo{com.android.launcher/com.android.launcher.Launcher} launchCookie=null windowingMode=undefined},{atype=standard independent=true modes=[CLOSE,TO_BACK] flags=NONE mustBeTask=false order=ANY topActivity=null launchCookie=null windowingMode=undefined}]} RemoteTransition { remoteTransition = android.window.IRemoteTransition$Stub$Proxy@fff767b, appThread = android.app.IApplicationThread$Stub$Proxy@4011c98, debugName = QuickstepLaunchHome }}
+05-04 21:32:20.725 V/WindowManagerShell( 8145):  Delegate animation for (#23042) to null
+05-04 21:32:20.725 V/WindowManagerShell( 8145): start default transition animation, info = {id=23042 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{m=OPEN f=FILLS_TASK leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0x8f98c4a sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=-1->0 r=-1->0:-1 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}},{m=TO_BACK f=FILLS_TASK leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x63b77bb sb=Rect(0, 0 - 1080, 2376) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=0 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}}] 
+05-04 21:32:20.725 V/WindowManagerShell( 8145): extendInfo=[
+05-04 21:32:20.725 V/WindowManagerShell( 8145):  OplusTransitionExtendedInfo{mTmpFinishT=null, mInOplusCompatMode=false, mIsProcessRunning=false, mHasMismatchBoundsTarget=false, mRecentsController=null, mRemoteTransition=null, mIsTranslucentActivityToHome=false, mAvoidInterceptKeyEventToHome=false, mIsFromHome=false, mParentLeash=null, mBackAnimClosingLeash=null, mIsOplusAnimRes=false, mKeepBgForContinuous=false, mIsBalAllow=true, mTaskNotInRecent=false, mIsPredictiveBackAnim=false, mIsMergedWithPredictive=false, mIsLaunchFromSpruce=false, mIsLaunchFromDrive=false, mGlobalSearchPageSwitch=false, mNeedNoAlphaGlobalSearchScene=false, mAssistScreenShowing=false, mSwipeUpBrowserScreenShowing=false, mUserIdTransition=-1
+05-04 21:32:20.725 V/WindowManagerShell( 8145): , mInRemoteScene=false, mInPreReady=false, mPreStart=false, mToken=null, mAbortByRemoteFromHome=false, mShellApplyToken=null, mRequestTransitionTaskId=6946, mAbortTransitionOnShell=0, mStartFromShortcut=false, mRemovedTaskId=-1, mTransitionInterruptType=0, mMergeSecondTaskId=-1, mTaskIdStartFromRecents=0, mTransitionId=23042, mCanUseSpringSlideAnim=false, mTransitionLaunchFrom=0, mFoldChangeType=-1, mAnimStartingPosition=[0, 0, 0, 0], mIsOpeningStkDialogActivity=false, mSecondaryHomeToFrontWhenUnFolding=false, mIsNeedApplyStartTForEmbedded=false
+05-04 21:32:20.725 V/WindowManagerShell( 8145): , mNeedCanvasExitAnim=false, mMergeSecondTaskAnimation=false, mIsLaunchUnityStart=false, mIsLaunchFromAssistantByDefault=false, mSkipRemoteTransitionfalse, mIsStartFromKeyguard=false flags=0x0, mWCT=null, mIsOpenMergeToInValidPredictive=false, mPromoteTaskWhenKeyguard-1, mRootLayerZOrderArray={}}]}
+05-04 21:32:20.725 D/FSS_OplusFoldSwitchStateObserver( 8145): cancelAnimationIfNeedWhenFolding: foldChangeType = -1
+05-04 21:32:20.725 D/OplusShellTransition( 8145): getPlatformAnimation platformLevel 3 LEVEL_LOW 1 needAnimForLowEndDevice false
+05-04 21:32:20.725 D/OplusShellTransition( 8145): load oplus transition, type: 1, isTask: false , wallpaperTransit: 0
+05-04 21:32:20.731 V/WindowManager( 3496): Sent Transition (#23042) createdAt=05-04 21:32:20.475 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=6946 effectiveUid=10421 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=com.codex.streetstrength/.timer.RestReminderSelfTestActivity mCallingUid=2000 } baseActivity=ComponentInfo{com.codex.streetstrength/com.codex.streetstrength.timer.RestReminderSelfTestActivity} topActivity=ComponentInfo{com.codex.streetstrength/com.codex.streetstrength.MainActivity} origActivity=null realActivity=ComponentInfo{com.codex.streetstrength/com.codex.streetstrength.timer.RestReminderSelfTestActivity}
+05-04 21:32:20.731 V/WindowManager( 3496):  numActivities=3 lastActiveTime=2142161021 supportsSplitScreenMultiWindow=true supportsMultiWindow=true supportsPocketStudioMultiWindow=true isInFlexibleEmbedded = false uid = 10421 pid = 0 resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{9ff8684 Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=Rect(0, 0 - 0, 0)
+05-04 21:32:20.731 V/WindowManager( 3496):  topActivityInfo=ActivityInfo{429f89b com.codex.streetstrength.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=true isVisible=true isVisibleRequested=true isTopActivityNoDisplay=false isSleeping=false locusId=null displayAreaFeatureId=1 isTopActivityTransparent=false isActivityStackTransparent=false lastNonFullscreenBounds=Rect(276, 684 - 804, 1764) capturedLink=null capturedLinkTimestamp=0 requestedVisibleTypes=-9 topActivityRequestOpenInBrowserEducationTimestamp=0
+05-04 21:32:20.731 V/WindowManager( 3496):  appCompatTaskInfo=AppCompatTaskInfo { topActivityInSizeCompat=false topActivityInOplusCompatMode=false eligibleForLetterboxEducation= false isLetterboxEducationEnabled= false isLetterboxDoubleTapEnabled= false eligibleForUserAspectRatioButton= false topActivityBoundsLetterboxed= false isFromLetterboxDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 topActivityAppBounds=Rect(0, 120 - 1080, 2328) isUserFullscreenOverrideEnabled=false isSystemFullscreenOverrideEnabled=false hasMinAspectRatioOverride=false topActivityLetterboxBounds=null cameraCompatTaskInfo=CameraCompatTaskInfo { freeformCameraCompatMode=inactive}} topActivityMainWindowFrame=null topActivityLetterboxInsets=Rect(0, 0 - 0, 0)
+05-04 21:32:20.731 V/WindowManager( 3496):  mOplusExtraBundle = Bundle[{androidx.flexible.taskFrame=Rect(0, 0 - 0, 0), topOpaqueSystemBarsAppearance=8, androidx.flexible.Alpha=1.0, androidx.activity.task.attach.blur=0, androidx.activity.LaunchInsensible=0, androidx.activity.LaunchCornerRadius=0, key_flexible_task_state=0, topActivitySupportAppInnerSplit=false, key_flexible_task_animating_type=-1, key_flexible_task_root_activity_processname=com.codex.streetstrength, androidx.activity.LaunchScenario=0, is_oplus_clone_task=false, flexible_super_mini_state=false, topRunningActivityHash=229424626, androidx.activity.LaunchScale=1.0, androidx.activity.LaunchShadowRadius=0, is_transient_hide_for_task_info=false, key_flexible_task_root_activity_pid=25119, key_flexible_task_root_activity_uid=10421}]}, pipChange = null, remoteTransition = null, displayChange = null, flags = 0, debugId = 23042 }
+05-04 21:32:20.731 V/WindowManager( 3496):     startWCT=WindowContainerTransaction { changes= {} hops= [] errorCallbackToken=null taskFragmentOrganizer=null }
+05-04 21:32:20.732 V/WindowManager( 3496):     info={id=23042 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[
+05-04 21:32:20.732 V/WindowManager( 3496):         {m=OPEN f=FILLS_TASK leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0xe08bc9e sb=Rect(0, 0 - 0, 0) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=-1->0 r=-1->0:-1 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}},
+05-04 21:32:20.732 V/WindowManager( 3496):         {m=TO_BACK f=FILLS_TASK leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x364a37f sb=Rect(0, 0 - 1080, 2376) eb=Rect(0, 0 - 1080, 2376) epz=Point(1080, 2376) d=0 bc=fffef7ff component=com.codex.streetstrength/.MainActivity opt={t=FROM_STYLE mUserId=0}}
+05-04 21:32:20.732 V/WindowManager( 3496):     ] 
+05-04 21:32:20.732 V/WindowManager( 3496): extendInfo=[
+05-04 21:32:20.732 V/WindowManager( 3496):  OplusTransitionExtendedInfo{mTmpFinishT=null, mInOplusCompatMode=false, mIsProcessRunning=false, mHasMismatchBoundsTarget=false, mRecentsController=null, mRemoteTransition=null, mIsTranslucentActivityToHome=false, mAvoidInterceptKeyEventToHome=false, mIsFromHome=false, mParentLeash=null, mBackAnimClosingLeash=null, mIsOplusAnimRes=false, mKeepBgForContinuous=false, mIsBalAllow=true, mTaskNotInRecent=false, mIsPredictiveBackAnim=false, mIsMergedWithPredictive=false, mIsLaunchFromSpruce=false, mIsLaunchFromDrive=false, mGlobalSearchPageSwitch=false, mNeedNoAlphaGlobalSearchScene=false, mAssistScreenShowing=false, mSwipeUpBrowserScreenShowing=false, mUserIdTransition=-1
+05-04 21:32:20.732 V/WindowManager( 3496): , mInRemoteScene=false, mInPreReady=false, mPreStart=false, mToken=null, mAbortByRemoteFromHome=false, mShellApplyToken=null, mRequestTransitionTaskId=6946, mAbortTransitionOnShell=0, mStartFromShortcut=false, mRemovedTaskId=-1, mTransitionInterruptType=0, mMergeSecondTaskId=-1, mTaskIdStartFromRecents=0, mTransitionId=23042, mCanUseSpringSlideAnim=false, mTransitionLaunchFrom=0, mFoldChangeType=-1, mAnimStartingPosition=[0, 0, 0, 0], mIsOpeningStkDialogActivity=false, mSecondaryHomeToFrontWhenUnFolding=false, mIsNeedApplyStartTForEmbedded=false
+05-04 21:32:20.732 V/WindowManager( 3496): , mNeedCanvasExitAnim=false, mMergeSecondTaskAnimation=false, mIsLaunchUnityStart=false, mIsLaunchFromAssistantByDefault=false, mSkipRemoteTransitionfalse, mIsStartFromKeyguard=false flags=0x0, mWCT=null, mIsOpenMergeToInValidPredictive=false, mPromoteTaskWhenKeyguard-1, mRootLayerZOrderArray={}}]}
+05-04 21:32:20.733 D/OplusShellTransition( 8145): default transition handler transfer value refresh rate rect:Rect(0, 0 - 1080, 2376)
+05-04 21:32:20.733 D/OplusShellTransition( 8145): startAnimation transitionToken=android.os.BinderProxy@15b0a3e
+05-04 21:32:20.733 D/AdfrV32FrameRateUtils( 8145): getAnimationVelocityCalculator, leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x63b77bb, transaction=android.view.SurfaceControl$Transaction@9bc5cea, typeId=20101, typeEnable=false
+05-04 21:32:20.733 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.733 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:20.733 D/OplusShellTransition( 8145): getPlatformAnimation platformLevel 3 LEVEL_LOW 1 needAnimForLowEndDevice false
+05-04 21:32:20.733 D/OplusShellTransition( 8145): load oplus transition, type: 1, isTask: false , wallpaperTransit: 0
+05-04 21:32:20.733 D/OplusShellTransition( 8145): default transition handler transfer value refresh rate rect:Rect(0, 0 - 1080, 2376)
+05-04 21:32:20.733 D/OplusShellTransition( 8145): startAnimation transitionToken=android.os.BinderProxy@15b0a3e
+05-04 21:32:20.733 D/AdfrV32FrameRateUtils( 8145): getAnimationVelocityCalculator, leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0x8f98c4a, transaction=android.view.SurfaceControl$Transaction@9bc5cea, typeId=20101, typeEnable=false
+05-04 21:32:20.734 D/OplusShellTransition( 8145): addBackgroundColorOnTask, , isTaskLevelTransition = false, hasBgAlready = false
+05-04 21:32:20.735 V/WindowManagerShell( 8145):  animated by com.android.wm.shell.transition.DefaultTransitionHandler@77b5db6
+05-04 21:32:20.735 D/OplusShellTransition( 8145): dispatchTransition, animated mHandler: com.android.wm.shell.transition.DefaultTransitionHandler@77b5db6
+05-04 21:32:20.735 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.736 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.742 I/BLASTSyncEngine( 3496): onCommitted syncId: 23042, timeout: false ran: false
+05-04 21:32:20.743 I/InputDispatcher( 3496): updateFocusedWindow, e4f7bee com.codex.streetstrength/com.codex.streetstrength.MainActivity on display 0, reason: Window became focusable. Previous reason: NOT_VISIBLE, result:   FocusedWindows:
+05-04 21:32:20.743 I/InputDispatcher( 3496):     displayId=0, name='e4f7bee com.codex.streetstrength/com.codex.streetstrength.MainActivity'
+05-04 21:32:20.744 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.745 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.749 D/VRI[MainActivity](25119): onFocusEvent true
+05-04 21:32:20.749 W/VRI[MainActivity](25119): handleResized, msg:, frameChanged:false, configChanged:false, displayChanged:false, attachedFrameChanged:false, compatScaleChanged:false, pendingDragResizing=false
+05-04 21:32:20.758 D/BatteryChargeControl( 2185): bcc get no support from charging protocol
+05-04 21:32:20.761 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.761 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.778 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.778 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.791 D/VRI[MainActivity](25119): Received frameCommittedCallback lastAttemptedDrawFrameNum=3 didProduceBuffer=true syncBuffer=false
+05-04 21:32:20.792 D/VRI[MainActivity](25119): draw finished. seqId=0
+05-04 21:32:20.794 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.795 D/InputMethodManagerService( 3496): isSecurity: attribute.packageName = com.codex.streetstrength mCurMethodId = com.sohu.inputmethod.sogouoem/.SogouIME isSecurity = false ( enable = true needShow = false inBlackList = false isExist = true )
+05-04 21:32:20.795 I/ImeTracker( 3496): com.codex.streetstrength:dd9410b2: onRequestHide at ORIGIN_SERVER reason HIDE_UNSPECIFIED_WINDOW fromUser false
+05-04 21:32:20.796 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.799 D/NewImeInputFunction(17214): screenType:0, baseWidth:360, width:1080
+05-04 21:32:20.799 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.799 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.799 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.799 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:60.0
+05-04 21:32:20.799 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.799 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.799 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:36.0
+05-04 21:32:20.799 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.799 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.799 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:45.0
+05-04 21:32:20.799 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:90.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:84.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.800 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:390.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:36.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:24.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:42.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:84.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:42.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:81.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:33.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:36.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:84.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:390.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:36.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.800 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:42.0
+05-04 21:32:20.800 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.801 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.801 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:24.0
+05-04 21:32:20.801 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.801 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.801 D/adjustSize(17214): scaleElementSize baseHeight:135, originSize:72.0
+05-04 21:32:20.801 D/adjustSize(17214): scaleElementSize heightScale:1.0666667
+05-04 21:32:20.801 D/adjustSize(17214): scaleLayoutSize keyboardWidth:1080.0, keyboardWidthBase:1080, keyboardAdjustScale:1.0
+05-04 21:32:20.804 D/InsetsController(25119): hide(ime(), fromIme=false)
+05-04 21:32:20.804 I/ImeTracker(25119): com.codex.streetstrength:dd9410b2: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+05-04 21:32:20.804 I/ImeTracker( 3496): system_server:a8c0cc09: onRequestHide at ORIGIN_SERVER reason IME_REQUESTED_CHANGED_LISTENER fromUser false
+05-04 21:32:20.804 D/OppoLogUtils(17214): isDebug: false  DEBUG： false  isChanged: false
+05-04 21:32:20.805 I/ImeTracker( 3496): system_server:a8c0cc09: onCancelled at PHASE_SERVER_SHOULD_HIDE
+05-04 21:32:20.811 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.811 I/Osense-BaseDecisionMaker( 3496): notifySceneToAthenaPolicy: SCENE_ACTIVITY_IDLE, bundle: Bundle[{scene=SCENE_ACTIVITY_IDLE}]
+05-04 21:32:20.811 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.812 D/AiMessage(17214): Parent onLayout
+05-04 21:32:20.816 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:20.817 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:20.828 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.828 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.844 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.845 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.861 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.861 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.878 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.879 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.894 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.895 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.912 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.912 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.928 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.928 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.944 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.945 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.960 V/AlarmManager( 3496): sending alarm Alarm{a378405 type 1 origWhen 1777901540959 whenElapsed 2142161498 android} uid 1000 whenElapsed 2142161498 windowLength 0 maxWhenElapsed 2142161498 repeatInterval 0 action null component null tag StorgaeBandInfoAlarmTag flags 0x9 procName system_server
+05-04 21:32:20.961 D/OplusProxyWakeLock( 3496): acquireProxyWakeLock, prevent uid: 10336 tag:*alar...   WorkSource{1000 chains=WorkChain{(10336), (1000, JobScheduler)}}/WorkChain{(10336), (1000, JobScheduler)}
+05-04 21:32:20.961 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.963 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.963 E/OplusStorageUFSBandwidth( 3496): storage_io_metrics_path is /proc/oplus_storage/io_metrics/forever/
+05-04 21:32:20.965 E/OplusStorageUFSBandwidth( 3496): Bandwidth - Read: 0.50 MB/s, Write: 0.50 MB/s
+05-04 21:32:20.965 E/OplusStorageUFSBandwidth( 3496): Task time: 2ms
+05-04 21:32:20.966 E/OplusStorageUFSBandwidth( 3496): Alarm set to trigger in 10 seconds
+05-04 21:32:20.977 D/CommonApp-252-10421(30487): transport layer data is invalid
+05-04 21:32:20.978 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.980 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.980 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:20.981 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:20.981 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:20.995 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:20.996 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.011 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.012 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.028 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.029 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.044 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.045 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.061 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.062 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.079 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.080 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.094 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.095 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.112 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.113 D/AdfrV32FrameRateUtils( 8145): set frameRate in trantion end, leash=Surface(name=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946})/@0x63b77bb, transaction=android.view.SurfaceControl$Transaction@9bc5cea, precisionType=2, typeId=20101, typeEnable=false
+05-04 21:32:21.114 D/AdfrV32FrameRateUtils( 8145): animationVelocityCalculator: nullbounds: 0 0 1080 2376
+05-04 21:32:21.115 D/AdfrV32FrameRateUtils( 8145): set frameRate in trantion end, leash=Surface(name=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946})/@0x8f98c4a, transaction=android.view.SurfaceControl$Transaction@9bc5cea, precisionType=2, typeId=20101, typeEnable=false
+05-04 21:32:21.115 D/OplusShellTransition( 8145): DefaultTransitionHandler#onAnimFinish=> transition=android.os.BinderProxy@15b0a3e, backAnimContinue=false
+05-04 21:32:21.115 V/WindowManagerShell( 8145): Transition animation finished (aborted=false), notifying core (#23042) android.os.BinderProxy@15b0a3e@0
+05-04 21:32:21.115 D/SplitScreen-->AppLockManager( 8145): setStartFromSafeControl mStartFromSafeControl=false
+05-04 21:32:21.116 D/ShellTaskOrganizerExt( 8145): adjust change for exiting mini task: -1
+05-04 21:32:21.118 D/Transition( 3496): finishTransition ar ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946}, isVisibleRequested=false, state=PAUSED, visibleAtTransitionEndTokens={ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}}, this=TransitionRecord{f363e8b id=23042 track=0 type=OPEN flags=0x0 state=2 c=[
+05-04 21:32:21.118 D/Transition( 3496):    ChangeInfo{2097120 container=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}
+05-04 21:32:21.118 D/Transition( 3496):    ChangeInfo{ba92b68 container=Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength} flags=0x0}
+05-04 21:32:21.118 D/Transition( 3496):    ChangeInfo{cb15b81 container=Display{#0 state=ON size=1080x2376 ROTATION_0} flags=0x0}
+05-04 21:32:21.118 D/Transition( 3496):    ChangeInfo{529a823 container=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}
+05-04 21:32:21.118 D/Transition( 3496):    ChangeInfo{82b7426 container=DefaultTaskDisplayArea@253704472 flags=0x0}
+05-04 21:32:21.118 D/Transition( 3496): ]
+05-04 21:32:21.118 D/Transition( 3496): }
+05-04 21:32:21.119 D/ActivityTaskManager( 3496): commitVisibility: ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946}: visible=false visibleRequested=false, isInTransition=false 
+05-04 21:32:21.119 D/WindowManager( 3496): NFW_setClientVisible:ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946} clientVisible:false
+05-04 21:32:21.120 I/WindowManager( 3496): Window{243d95 u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} state from HAS_DRAWN to DRAW_PENDING; reason: resetDrawState
+05-04 21:32:21.120 D/Transition( 3496): finishTransition ar ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}, isVisibleRequested=true, state=RESUMED, visibleAtTransitionEndTokens={ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}}, this=TransitionRecord{f363e8b id=23042 track=0 type=OPEN flags=0x0 state=2 c=[
+05-04 21:32:21.120 D/Transition( 3496):    ChangeInfo{2097120 container=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}
+05-04 21:32:21.120 D/Transition( 3496):    ChangeInfo{ba92b68 container=Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength} flags=0x0}
+05-04 21:32:21.120 D/Transition( 3496):    ChangeInfo{cb15b81 container=Display{#0 state=ON size=1080x2376 ROTATION_0} flags=0x0}
+05-04 21:32:21.120 D/Transition( 3496):    ChangeInfo{529a823 container=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}
+05-04 21:32:21.120 D/Transition( 3496):    ChangeInfo{82b7426 container=DefaultTaskDisplayArea@253704472 flags=0x0}
+05-04 21:32:21.120 D/Transition( 3496): ]
+05-04 21:32:21.120 D/Transition( 3496): }
+05-04 21:32:21.120 I/OplusAppSwitchManagerService( 3496):  handleAppVisible , r = ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946}
+05-04 21:32:21.120 D/VRI[MainActivity](25119): dispatchAppVisibility visible:false mUpcomingWindowFocus:false
+05-04 21:32:21.120 D/OplusTransitionController( 3496): finishTransition, transition: TransitionRecord{f363e8b id=23042 track=0 type=OPEN flags=0x0 state=4 c=[
+05-04 21:32:21.120 D/OplusTransitionController( 3496):    ChangeInfo{2097120 container=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}
+05-04 21:32:21.120 D/OplusTransitionController( 3496):    ChangeInfo{ba92b68 container=Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength} flags=0x0}
+05-04 21:32:21.120 D/OplusTransitionController( 3496):    ChangeInfo{cb15b81 container=Display{#0 state=ON size=1080x2376 ROTATION_0} flags=0x0}
+05-04 21:32:21.120 D/OplusTransitionController( 3496):    ChangeInfo{529a823 container=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}
+05-04 21:32:21.120 D/OplusTransitionController( 3496):    ChangeInfo{82b7426 container=DefaultTaskDisplayArea@253704472 flags=0x0}
+05-04 21:32:21.120 D/OplusTransitionController( 3496): ]
+05-04 21:32:21.120 D/OplusTransitionController( 3496): }
+05-04 21:32:21.120 D/VRI[MainActivity](25119): visibilityChanged oldVisibility=true newVisibility=false
+05-04 21:32:21.121 D/FlexibleTaskTransitionController( 3496):  finishTransition pendingRecentToFlexibleTask:null,isRotationTransition:false ,pendingRecentToFlexible:null ,transition:TransitionRecord{f363e8b id=23042 track=0 type=OPEN flags=0x0 state=4 c=[
+05-04 21:32:21.121 D/FlexibleTaskTransitionController( 3496):    ChangeInfo{2097120 container=ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}
+05-04 21:32:21.121 D/FlexibleTaskTransitionController( 3496):    ChangeInfo{ba92b68 container=Task{6d2e1b6 #6946 type=standard A=10421:com.codex.streetstrength} flags=0x0}
+05-04 21:32:21.121 D/FlexibleTaskTransitionController( 3496):    ChangeInfo{cb15b81 container=Display{#0 state=ON size=1080x2376 ROTATION_0} flags=0x0}
+05-04 21:32:21.121 D/FlexibleTaskTransitionController( 3496):    ChangeInfo{529a823 container=ActivityRecord{229424626 u0 com.codex.streetstrength/.MainActivity t6946} flags=0x0}
+05-04 21:32:21.121 D/FlexibleTaskTransitionController( 3496):    ChangeInfo{82b7426 container=DefaultTaskDisplayArea@253704472 flags=0x0}
+05-04 21:32:21.121 D/FlexibleTaskTransitionController( 3496): ]
+05-04 21:32:21.121 D/FlexibleTaskTransitionController( 3496): }
+05-04 21:32:21.122 D/TransitionControllerExtImpl( 3496): NFW_send RECOMPUTE_FOCUS in finishTransition
+05-04 21:32:21.122 D/ShellTaskOrganizer( 8145): onTransitionFinish, isRecent:false
+05-04 21:32:21.122 V/WindowManagerShell( 8145): Track 0 became idle
+05-04 21:32:21.122 V/WindowManagerShell( 8145): All active transition animations finished
+05-04 21:32:21.124 D/VRR [OPlusRefreshRateService]( 3496):  setDirectorStates [flag: 1, state: 0, directorStateOff: 0]
+05-04 21:32:21.125 D/VRR [RefreshRateDirector]( 2238): updateState mState = 1
+05-04 21:32:21.126 D/Transition( 3496): finishTransaction-onCommitted syncId=23042
+05-04 21:32:21.127 D/WindowManager( 3496): NFW_findFocusedWindowIfNeeded:Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} mCurrentFocus:Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}
+05-04 21:32:21.129 D/HWUI    (25119): RenderProxy::destroy: this=0xb40000790b795700, mContext=0xb400007837aaeb80
+05-04 21:32:21.129 D/HWUI    (25119): SkiaOpenGLPipeline::setSurface: this=0xb40000783787d3c0, surface=NULL
+05-04 21:32:21.130 D/BufferQueueProducer(25119): [VRI[MainActivity]#1(BLAST Consumer)1](id:621f00000001,api:1,p:25119,c:25119) disconnect: api 1
+05-04 21:32:21.131 D/ViewRootImplExtImpl(25119): wrapConfigInfoIntoFlags rotation=0, smallestScreenWidthDp=360, residentWS=false, scenario=0, bounds=Rect(0, 0 - 1080, 2376), relayoutAsync=false, flags=0, newFlags=1245719808, title=com.codex.streetstrength/com.codex.streetstrength.MainActivity
+05-04 21:32:21.131 V/WindowManager( 3496): Relayout Window{243d95 u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}: viewVisibility=8, oldvis=0, req=1080x2376 , apr = 8, vsysui=LIGHT_STATUS_BAR LIGHT_NAVIGATION_BAR
+05-04 21:32:21.133 D/WindowManager( 3496): NFW_findFocusedWindowIfNeeded:Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} mCurrentFocus:Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}
+05-04 21:32:21.134 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:21.134 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:21.136 D/VRI[MainActivity](25119): relayoutWindow result, sizeChanged:false, surfaceControlChanged:true, transformHintChanged:false, mSurfaceSize:Point(1080, 2376), mLastSurfaceSize:Point(1080, 2376), mWidth:1080, mHeight:2376, requestedWidth:1080, requestedHeight:2376, transformHint:0, installOrientation:0, displayRotation:0, isSurfaceValid:false, attr.flag:-2122252032, tmpFrames:ClientWindowFrames{frame=[0,0][1080,2376] display=[0,0][1080,2376] parentFrame=[0,0][0,0]}, relayoutAsync:false, mSyncSeqId:0
+05-04 21:32:21.136 D/BLASTBufferQueue(25119): [VRI[MainActivity]#1](f:0,a:1) destructor()
+05-04 21:32:21.136 D/BufferQueueConsumer(25119): [VRI[MainActivity]#1(BLAST Consumer)1](id:621f00000001,api:0,p:-1,c:25119) disconnect
+05-04 21:32:21.138 D/VRI[MainActivity](25119): setWindowStopped stopped:true
+05-04 21:32:21.138 I/Quality-ScreenOnOffLogProcessor(31343): withInScreenOnOffRange mIsScreenOn:true refTime:1777901540583 mRecentScreenOnTime:1777900268232 mRecentScreenOffTime:1777900194867
+05-04 21:32:21.145 I/WindowManager( 3496): Window{243d95 u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} state from DRAW_PENDING to NO_SURFACE; reason: destroySurface
+05-04 21:32:21.146 D/OplusStartingWindowManager( 3496): skip remove starting window for activity = ActivityRecord{28290727 u0 com.codex.streetstrength/.MainActivity t6946} ,ar != topActivityContainsStartingWindow on activityStopped
+05-04 21:32:21.147 D/BackgroundInstallControlService( 3496): Package event received: 0
+05-04 21:32:21.150 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:21.150 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:21.151 I/OplusCpuLimitManager( 3496): OplusCpuHighLoad: request instant cpu load
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): write /dev/memcg/memory.force_shrink_file failed
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): java.io.IOException: write failed: EBUSY (Device or resource busy)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at libcore.io.IoBridge.write(IoBridge.java:651)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at java.io.FileOutputStream.write(FileOutputStream.java:436)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:233)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:309)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.implFlush(StreamEncoder.java:313)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.flush(StreamEncoder.java:153)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at java.io.OutputStreamWriter.flush(OutputStreamWriter.java:248)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at com.android.server.oplus.osense.utils.OsenseCommonUtils.writeFile(OsenseCommonUtils.java:154)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction.doGlobalShrink(OplusOsenseCompressAction.java:1887)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction.-$$Nest$mdoGlobalShrink(Unknown Source:0)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction$CompressHandler.handleMessage(OplusOsenseCompressAction.java:1335)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at android.os.Handler.dispatchMessage(Handler.java:115)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at android.os.Looper.loopOnce(Looper.java:302)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at android.os.Looper.loop(Looper.java:412)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at android.os.HandlerThread.run(HandlerThread.java:85)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): Caused by: android.system.ErrnoException: write failed: EBUSY (Device or resource busy)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at libcore.io.Linux.writeBytes(Native Method)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at libcore.io.Linux.write(Linux.java:336)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at libcore.io.ForwardingOs.write(ForwardingOs.java:948)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at libcore.io.BlockGuardOs.write(BlockGuardOs.java:448)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	at libcore.io.IoBridge.write(IoBridge.java:646)
+05-04 21:32:21.153 E/OsenseCommonUtils( 3496): 	... 14 more
+05-04 21:32:21.153 I/OplusCpuLimitManager( 3496): OplusCpuHighLoad: release instant cpu load
+05-04 21:32:21.247 I/SDM     ( 2056): DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+05-04 21:32:21.374 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 1099
+05-04 21:32:21.375 D/QmiClient( 2621): enter -mServiceType 4 onQmiServiceEventCallback msgId 1099
+05-04 21:32:21.375 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=1099
+05-04 21:32:21.375 D/QmiVsClientEvent( 2621): QosPeriodReportInd MSG IND data_len 2052
+05-04 21:32:21.375 D/QmiVsClientEvent( 2621): qmiVsClientNotifyQosPeriodReportIndEvent - RADIO_EVENT_QOS_PERIOD_REPORT_NOTIFY_IND
+05-04 21:32:21.375 D/VsProxy ( 2621): handleMessage msg is 2420
+05-04 21:32:21.376 D/VsProxy ( 2621): handleQosPeriodReportInd for instance 0 data_len 155
+05-04 21:32:21.377 D/SubsysRadioIndication[0](30487): radioQosPeriodReportInd result [8, -82, -97, -31, -111, 6, 26, 6, 8, -7, -99, -31, -111, 6, 34, 12, 8, -16, -76, -32, -111, 6, 16, 4, 24, 1, 32, 1, 58, 61, 8, -120, -113, -31, -111, 6, 16, 5, 24, -64, -92, 38, 32, -123, 6, 40, -107, -1, -1, -1, -1, -1, -1, -1, -1, 1, 48, -10, -1, -1, -1, -1, -1, -1, -1, -1, 1, 56, 10, 64, -107, -1, -1, -1, -1, -1, -1, -1, -1, 1, 72, -113, -1, -1, -1, -1, -1, -1, -1, -1, 1, 66, 31, 8, -120, -65, -32, -111, 6, 16, 5, 24, 1, 34, 19, 8, -64, -92, 38, 16, -123, 6, 24, 78, 32, 13, 40, -122, -31, -33, -59, 117, 48, 2, 90, 0, 98, 10, 8, -127, -75, -32, -111, 6, 16, 3, 24, 5, 122, 15, 8, -106, -74, -32, -111, 6, 16, -82, 1, 24, -1, 1, 32, -128, 10]
+05-04 21:32:21.377 D/NetworkService[0](30487): handleMessage what:1005
+05-04 21:32:21.378 D/RadioAtomTracker(30487): parseQosPeriodData ModemQos:CellularQosInfo5{5G, 627264/773, EndcState=1, Band=78, DLBW=13, Rsrp=-107, Rsrq=-10, Snr=10, SvcStatus=3, ULPDCPNumDataPdu=-1, ULPDCPNumDropPdu=-1, ULPDCPTput=-1, ULRLCNumDataPdu=-1, ULRLCNumRetxPdu=-1, ULGrant=-1, ULBSR=-1, ULBler=-1, DLPDCPNumDataPdu=0, DLPDCPTput=0, DLRLCNumDataPdu=0, DLRLCNumRetxPdu=0, DLRLCNumDropPdu=0, DLMACPaddingBytes=0, DLPdcpNumMissToUppPdu=0, DLBler=0, RlfCount=0, CellChangeCount=0, IsRedirectionOccur=0, IsDualSimConflict=0, Latency=0, Sub1RrcState=1, Sub2RrcState=1, RachCount=0, CalcPower=174, Mtpl=255, PathLoss=1280, CellLoad=0}
+05-04 21:32:21.378 D/NetworkService[0](30487): EVENT_REG_QOS_PERIOD_REPORT_IND_CHANGED ENTER
+05-04 21:32:21.378 D/AtomModemKpiInfo(30487): handleMessage what:1001
+05-04 21:32:21.378 D/AtomModemKpiInfo(30487): analyseQosInfo success
+05-04 21:32:21.437 D/AppSenseConfig(30487): getIgnoreAppList: [com.android.launcher, com.android.contacts, com.oplus.wirelesssettings, com.coloros.alarmclock, com.coloros.calculator, com.coloros.calendar, com.coloros.phonemanager, com.android.settings, com.android.phone, com.oplus.nas, com.oplus.nhs, com.oplus.appdetail, com.android.permissioncontroller, com.oplus.pscanvas, com.oplus.autotest.test.ctp, com.android.systemui, com.android.systemui.overlay.fingerprint.anim.fy, com.android.systemui.overlay.fingerprint.anim.qy, com.android.systemui.overlay.fingerprint.anim.sw, com.android.systemui.overlay.fingerprint.anim.xw, com.android.systemui.overlay.fingerprint.anim.ccyh, com.android.systemui.overlay.fingerprint.anim.halo, com.android.systemui.overlay.fingerprint.anim.jslz, com.android.systemui.overlay.fingerprint.anim.none, com.android.systemui.overlay.fingerprint.anim.xklc]
+05-04 21:32:21.438 D/AppSenseConfig(30487): getIgnoreAppList: [com.android.launcher, com.android.contacts, com.oplus.wirelesssettings, com.coloros.alarmclock, com.coloros.calculator, com.coloros.calendar, com.coloros.phonemanager, com.android.settings, com.android.phone, com.oplus.nas, com.oplus.nhs, com.oplus.appdetail, com.android.permissioncontroller, com.oplus.pscanvas, com.oplus.autotest.test.ctp, com.android.systemui, com.android.systemui.overlay.fingerprint.anim.fy, com.android.systemui.overlay.fingerprint.anim.qy, com.android.systemui.overlay.fingerprint.anim.sw, com.android.systemui.overlay.fingerprint.anim.xw, com.android.systemui.overlay.fingerprint.anim.ccyh, com.android.systemui.overlay.fingerprint.anim.halo, com.android.systemui.overlay.fingerprint.anim.jslz, com.android.systemui.overlay.fingerprint.anim.none, com.android.systemui.overlay.fingerprint.anim.xklc]
+05-04 21:32:21.439 D/ActivityAdapter(30487): taskChange: pre: 1, cur: 1, changed:false
+05-04 21:32:21.458 V/Codec2-DumpInput( 2077): [processLoop:L697][c2.qti.hevc.decoder_41]QueueRead[0] empty, waiting buffer.
+05-04 21:32:21.531 E/ANDR-PERF-LM( 2074): VmRssMeter:: start() 359: Could not find pid, can not collect vmrss data
+05-04 21:32:21.531 E/ANDR-PERF-LM( 2074): AdaptiveLaunch: writeToDataBase() 64: Meter aborted or could not get meter data for this run
+05-04 21:32:21.532 E/ANDR-PERF-LM( 2074): VmRssMeter:: start() 359: Could not find pid, can not collect vmrss data
+05-04 21:32:21.556 D/vendor.oplus.hardware.charger-V10-service( 2185): ret_value:130, read content:,377,371,4347,4347,-1888,76,78,1,9,0,1872,4774,78,1,4455,2200,2000,0,7,7500,7,0,1,0,2,0,0,0,1,5795,94,9645,3970,5290,0,0,0,0,0,75
+05-04 21:32:21.556 D/vendor.oplus.hardware.charger-V10-service( 2185): gmtime: 2026-05-04-21-32-21
+05-04 21:32:21.557 D/vendor.oplus.hardware.charger-V10-service( 2185): usb_online:1, ac_online:-2147483648, wireless_online:-2147483648
+05-04 21:32:21.564 D/RadioProxyJ[1](30487): startChannelMonitoring update mLatestRequestId:-1
+05-04 21:32:21.632 I/[UAH_CLIENT]( 2074): UahPlatformResAcquire
+05-04 21:32:21.633 I/[UAH_CLIENT]( 2074): UahEventAcquire, cmdid:-3, pkg:2238 11821, identity:qcom-perfd
+05-04 21:32:21.636 E/ANDR-PERF-RESOURCEQS( 2074): ANDR-PERF-RESOURCEQS: AddAndApply() 125: Resource with major=16, minor=0 not supported
+05-04 21:32:21.664 I/[UAH_CLIENT]( 2074): UahRelease, handle:1355931
+05-04 21:32:21.720 D/OplusScrollToTopManager(25119): com.codex.streetstrength/com.codex.streetstrength.MainActivity,This com.android.internal.policy.DecorView{84a4729 I.E...... R.....ID 0,0-1080,2376 aid=1 alpha=1.0 viewInfo = }[MainActivity] change focus to false
+05-04 21:32:21.759 D/BatteryChargeControl( 2185): bcc get no support from charging protocol
+05-04 21:32:21.793 D/OplusScrollToTopManager(25119): com.codex.streetstrength/com.codex.streetstrength.MainActivity,This com.android.internal.policy.DecorView{ba4f667 V.E...... R....... 0,0-1080,2376 aid=2 alpha=1.0 viewInfo = }[MainActivity] change focus to true
+05-04 21:32:22.001 D/CommonApp-252-10421(30487): transport layer data is invalid
+05-04 21:32:22.003 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:22.003 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:22.003 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:22.016 E/PerformanceService( 2173): storage_feature: open /sys/devices/platform/soc/112b0000.ufshci//virtualtlcbuff fail
+05-04 21:32:22.243 W/OPLUS_LOG_LOAD(32036): ==LOGS PROG INFO, prog(com.oplus.camera) ==
+05-04 21:32:22.243 I/APS_ALOG(32036): flushRoutine g_immediateFlush=0 g_pendingCount=0 g_oobCount=0
+05-04 21:32:22.343 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 276
+05-04 21:32:22.343 D/QmiClient( 2621): enter -mServiceType 1 onQmiServiceEventCallback msgId 276
+05-04 21:32:22.343 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=276
+05-04 21:32:22.343 D/QmiNasClientEvent( 2621): qmiNasClientAccessBarringStatusEvent - RADIO_EVENT_NAS_ACCESS_BARRING_STATUS_IND
+05-04 21:32:22.344 D/QmiClient( 3518): qmiServiceEventCallback recv msg id 276
+05-04 21:32:22.344 D/QmiClient( 3518): enter -mServiceType 1 onQmiServiceEventCallback msgId 276
+05-04 21:32:22.344 D/QmiClient( 3518): onQmiServiceEventCallback - enter. msgId=276
+05-04 21:32:22.344 D/QmiNasClientEvent( 3518): qmiNasClientAccessBarringStatusEvent - RADIO_EVENT_NAS_ACCESS_BARRING_STATUS_IND
+05-04 21:32:22.344 D/NasProxy( 2621): handleMessage msg is 2104
+05-04 21:32:22.345 D/NasProxy( 3518): handleMessage msg is 2104
+05-04 21:32:22.346 D/SubsysRadioIndication[1](30487): radioNasAccessBarringStatusInd, NasAccessBarringStatusType: radioIf:12, dataBarringStatus:0, dataBarringTime:0, voiceBarringStatus:0, voiceBarringTime:0, videoBarringStatus:0, videoBarringTime:0
+05-04 21:32:22.346 D/SubsysRadioIndication[1](30487): notify enter
+05-04 21:32:22.346 D/SubsysRadioIndication[0](30487): radioNasAccessBarringStatusInd, NasAccessBarringStatusType: radioIf:12, dataBarringStatus:0, dataBarringTime:0, voiceBarringStatus:0, voiceBarringTime:0, videoBarringStatus:0, videoBarringTime:0
+05-04 21:32:22.346 D/SubsysRadioIndication[0](30487): notify enter
+05-04 21:32:22.371 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 1100
+05-04 21:32:22.371 D/QmiClient( 2621): enter -mServiceType 4 onQmiServiceEventCallback msgId 1100
+05-04 21:32:22.371 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=1100
+05-04 21:32:22.371 D/QmiVsClientEvent( 2621): QosEventReportInd MSG IND
+05-04 21:32:22.371 D/QmiVsClientEvent( 2621): qmiVsClientNotifyQosEventReportIndEvent - RADIO_EVENT_QOS_EVENT_REPORT_NOTIFY_IND
+05-04 21:32:22.371 D/VsProxy ( 2621): handleMessage msg is 2421
+05-04 21:32:22.372 D/VsProxy ( 2621): handleQosEventReportInd for instance 0
+05-04 21:32:22.372 D/SubsysRadioIndication[0](30487): radioQosEventReportInd
+05-04 21:32:22.372 D/NetworkService[0](30487): handleMessage what:1007
+05-04 21:32:22.373 D/RadioAtomTracker(30487): parseQosEventData plmnid=1175652
+05-04 21:32:22.375 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 1099
+05-04 21:32:22.375 D/QmiClient( 2621): enter -mServiceType 4 onQmiServiceEventCallback msgId 1099
+05-04 21:32:22.375 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=1099
+05-04 21:32:22.375 D/QmiVsClientEvent( 2621): QosPeriodReportInd MSG IND data_len 2052
+05-04 21:32:22.375 D/QmiVsClientEvent( 2621): qmiVsClientNotifyQosPeriodReportIndEvent - RADIO_EVENT_QOS_PERIOD_REPORT_NOTIFY_IND
+05-04 21:32:22.376 D/VsProxy ( 2621): handleMessage msg is 2420
+05-04 21:32:22.376 D/VsProxy ( 2621): handleQosPeriodReportInd for instance 0 data_len 155
+05-04 21:32:22.376 D/SubsysRadioIndication[0](30487): radioQosPeriodReportInd result [8, -105, -89, -31, -111, 6, 26, 6, 8, -14, -90, -31, -111, 6, 34, 12, 8, -16, -76, -32, -111, 6, 16, 4, 24, 1, 32, 1, 58, 61, 8, -120, -93, -31, -111, 6, 16, 5, 24, -64, -92, 38, 32, -123, 6, 40, -106, -1, -1, -1, -1, -1, -1, -1, -1, 1, 48, -10, -1, -1, -1, -1, -1, -1, -1, -1, 1, 56, 9, 64, -106, -1, -1, -1, -1, -1, -1, -1, -1, 1, 72, -117, -1, -1, -1, -1, -1, -1, -1, -1, 1, 66, 31, 8, -120, -65, -32, -111, 6, 16, 5, 24, 1, 34, 19, 8, -64, -92, 38, 16, -123, 6, 24, 78, 32, 13, 40, -122, -31, -33, -59, 117, 48, 2, 90, 0, 98, 10, 8, -127, -75, -32, -111, 6, 16, 3, 24, 5, 122, 15, 8, -106, -74, -32, -111, 6, 16, -82, 1, 24, -1, 1, 32, -128, 10]
+05-04 21:32:22.377 D/NetworkService[0](30487): handleMessage what:1005
+05-04 21:32:22.377 D/RadioAtomTracker(30487): parseQosPeriodData ModemQos:CellularQosInfo5{5G, 627264/773, EndcState=1, Band=78, DLBW=13, Rsrp=-106, Rsrq=-10, Snr=9, SvcStatus=3, ULPDCPNumDataPdu=-1, ULPDCPNumDropPdu=-1, ULPDCPTput=-1, ULRLCNumDataPdu=-1, ULRLCNumRetxPdu=-1, ULGrant=-1, ULBSR=-1, ULBler=-1, DLPDCPNumDataPdu=0, DLPDCPTput=0, DLRLCNumDataPdu=0, DLRLCNumRetxPdu=0, DLRLCNumDropPdu=0, DLMACPaddingBytes=0, DLPdcpNumMissToUppPdu=0, DLBler=0, RlfCount=0, CellChangeCount=0, IsRedirectionOccur=0, IsDualSimConflict=0, Latency=0, Sub1RrcState=1, Sub2RrcState=1, RachCount=0, CalcPower=174, Mtpl=255, PathLoss=1280, CellLoad=0}
+05-04 21:32:22.378 D/NetworkService[0](30487): EVENT_REG_QOS_PERIOD_REPORT_IND_CHANGED ENTER
+05-04 21:32:22.378 D/AtomModemKpiInfo(30487): handleMessage what:1001
+05-04 21:32:22.378 D/AtomModemKpiInfo(30487): analyseQosInfo success
+05-04 21:32:22.471 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 47
+05-04 21:32:22.472 D/QmiClient( 2621): enter -mServiceType 10 onQmiServiceEventCallback msgId 47
+05-04 21:32:22.472 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=47
+05-04 21:32:22.473 D/OttProxy( 2621): handleMessage msg is 3001
+05-04 21:32:22.480 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 47
+05-04 21:32:22.480 D/QmiClient( 2621): enter -mServiceType 10 onQmiServiceEventCallback msgId 47
+05-04 21:32:22.480 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=47
+05-04 21:32:22.484 D/OttProxy( 2621): handleMessage msg is 3001
+05-04 21:32:22.489 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 1100
+05-04 21:32:22.489 D/SubsysRadioIndication[0](30487): radioLinkLatencyInfoInd
+05-04 21:32:22.489 D/QmiClient( 2621): enter -mServiceType 4 onQmiServiceEventCallback msgId 1100
+05-04 21:32:22.489 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=1100
+05-04 21:32:22.489 D/SubsysRadioIndication[0](30487): notify enter
+05-04 21:32:22.489 D/QmiVsClientEvent( 2621): QosEventReportInd MSG IND
+05-04 21:32:22.489 D/QmiVsClientEvent( 2621): qmiVsClientNotifyQosEventReportIndEvent - RADIO_EVENT_QOS_EVENT_REPORT_NOTIFY_IND
+05-04 21:32:22.489 D/VsProxy ( 2621): handleMessage msg is 2421
+05-04 21:32:22.489 D/VsProxy ( 2621): handleQosEventReportInd for instance 0
+05-04 21:32:22.489 D/SubsysRadioIndication[0](30487): radioLinkLatencyInfoInd
+05-04 21:32:22.489 D/SubsysRadioIndication[0](30487): notify enter
+05-04 21:32:22.490 D/SubsysRadioIndication[0](30487): radioQosEventReportInd
+05-04 21:32:22.490 D/NetworkService[0](30487): handleMessage what:1008
+05-04 21:32:22.490 D/NetworkService[0](30487): EVENT_REG_LINK_LATENCY_INFO_CHANGE ulLatency:30246
+05-04 21:32:22.490 D/NetworkService[0](30487): handleMessage what:1008
+05-04 21:32:22.490 D/NetworkService[0](30487): EVENT_REG_LINK_LATENCY_INFO_CHANGE ulLatency:38246
+05-04 21:32:22.490 D/NetworkService[0](30487): handleMessage what:1007
+05-04 21:32:22.490 D/RadioAtomTracker(30487): parseQosEventData plmnid=1175652
+05-04 21:32:22.507 D/Tile.OplusCellularTile( 8145): refreshState: tile not listening, ignore
+05-04 21:32:22.509 I/SystemUi--Statusbar( 8145): MobileConnectionRepositoryImpl-->subId:5 isSoftSimCard:false slotId:0
+05-04 21:32:22.676 D/vendor.oplus.hardware.charger-V10-service( 2185): getChargerControl:
+05-04 21:32:22.760 D/BatteryChargeControl( 2185): bcc get no support from charging protocol
+05-04 21:32:22.860 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 47
+05-04 21:32:22.860 D/QmiClient( 2621): enter -mServiceType 10 onQmiServiceEventCallback msgId 47
+05-04 21:32:22.860 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=47
+05-04 21:32:22.860 D/OttProxy( 2621): handleMessage msg is 3001
+05-04 21:32:22.861 D/SubsysRadioIndication[0](30487): radioLinkLatencyInfoInd
+05-04 21:32:22.861 D/SubsysRadioIndication[0](30487): notify enter
+05-04 21:32:22.862 D/NetworkService[0](30487): handleMessage what:1008
+05-04 21:32:22.862 D/NetworkService[0](30487): EVENT_REG_LINK_LATENCY_INFO_CHANGE ulLatency:30246
+05-04 21:32:22.892 D/Tile.OplusCellularTile( 8145): refreshState: tile not listening, ignore
+05-04 21:32:22.893 I/SystemUi--Statusbar( 8145): MobileConnectionRepositoryImpl-->subId:5 isSoftSimCard:false slotId:0
+05-04 21:32:22.916 I/[UAH_CLIENT]( 2074): UahPlatformResAcquire
+05-04 21:32:22.917 I/[UAH_CLIENT]( 2074): UahEventAcquire, cmdid:-3, pkg:2238 11818, identity:qcom-perfd
+05-04 21:32:22.920 E/ANDR-PERF-RESOURCEQS( 2074): ANDR-PERF-RESOURCEQS: AddAndApply() 125: Resource with major=16, minor=0 not supported
+05-04 21:32:22.938 I/SystemUi--Statusbar( 8145): OplusNetworkSpeedControllExImpl-->updateNetworkSpeed: isConnected:true,isSwitchOn:true,isSuspend:false,isPause:false
+05-04 21:32:22.942 I/SystemUi--Statusbar( 8145): OplusNetworkSpeedControllExImpl-->getTotalByte: totalRxBytes:110332050383,totalTxBytes:15882334777,loopbackTxBytes:8293617362,loopbackRxBytes:8293617362 ,totalBytes:109627150436
+05-04 21:32:22.947 I/[UAH_CLIENT]( 2074): UahRelease, handle:1355932
+05-04 21:32:22.962 E/NetlinkEvent( 1799): NetlinkEvent::FindParam(): Parameter 'INTERFACE' not found
+05-04 21:32:22.963 E/NetlinkEvent( 1799): NetlinkEvent::FindParam(): Parameter 'STATE' not found
+05-04 21:32:22.963 E/NetlinkEvent( 1799): NetlinkEvent::FindParam(): Parameter 'TIME_NS' not found
+05-04 21:32:22.963 E/NetlinkEvent( 1799): NetlinkEvent::FindParam(): Parameter 'UID' not found
+05-04 21:32:22.965 V/AlarmManager( 3496): sending alarm Alarm{44f32d6 type 1 origWhen 1777901542965 whenElapsed 2142163503 android} uid 1000 whenElapsed 2142163503 windowLength 0 maxWhenElapsed 2142163503 repeatInterval 0 action null component null tag StorgaeBandInfoAlarmTag flags 0x9 procName system_server
+05-04 21:32:22.966 D/OplusProxyWakeLock( 3496): acquireProxyWakeLock, prevent uid: 10336 tag:*alar...   WorkSource{1000 chains=WorkChain{(10336), (1000, JobScheduler)}}/WorkChain{(10336), (1000, JobScheduler)}
+05-04 21:32:22.967 E/OplusStorageUFSBandwidth( 3496): storage_io_metrics_path is /proc/oplus_storage/io_metrics/forever/
+05-04 21:32:22.968 E/OplusStorageUFSBandwidth( 3496): Bandwidth - Read: 0.00 MB/s, Write: 0.00 MB/s
+05-04 21:32:22.968 E/OplusStorageUFSBandwidth( 3496): Task time: 1ms
+05-04 21:32:22.971 E/OplusStorageUFSBandwidth( 3496): Alarm set to trigger in 10 seconds
+05-04 21:32:23.026 D/CommonApp-252-10421(30487): transport layer data is invalid
+05-04 21:32:23.029 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:23.029 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:23.029 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:23.044 I/SDM     ( 2056): DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+05-04 21:32:23.091 D/ShellSubscriberWorkerThread(31343): the first 8 bytes empty, and RestData length > 8 
+05-04 21:32:23.153 I/sensors-hal( 2034): qsh_conn_event_cb:762, event[0] msg_id=1025, ts=41129627746960, sensor_type = pedometer_minute  Wakeup
+05-04 21:32:23.154 E/sensors-hal( 2034): handle_sns_client_event:95, pedometer_minute: report_ts=35413,counter=93346.000000 move_status =[SNS_CMC_STATIONARY] time_gap = 0 run_counter=21478.000000 walk_counter=22685.000000
+05-04 21:32:23.156 I/OplusCpuLimitManager( 3496): OplusCpuHighLoad: request instant cpu load
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): write /dev/memcg/memory.force_shrink_file failed
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): java.io.IOException: write failed: EBUSY (Device or resource busy)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at libcore.io.IoBridge.write(IoBridge.java:651)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at java.io.FileOutputStream.write(FileOutputStream.java:436)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:233)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:309)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.implFlush(StreamEncoder.java:313)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.flush(StreamEncoder.java:153)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at java.io.OutputStreamWriter.flush(OutputStreamWriter.java:248)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at com.android.server.oplus.osense.utils.OsenseCommonUtils.writeFile(OsenseCommonUtils.java:154)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction.doGlobalShrink(OplusOsenseCompressAction.java:1887)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction.-$$Nest$mdoGlobalShrink(Unknown Source:0)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction$CompressHandler.handleMessage(OplusOsenseCompressAction.java:1335)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at android.os.Handler.dispatchMessage(Handler.java:115)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at android.os.Looper.loopOnce(Looper.java:302)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at android.os.Looper.loop(Looper.java:412)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at android.os.HandlerThread.run(HandlerThread.java:85)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): Caused by: android.system.ErrnoException: write failed: EBUSY (Device or resource busy)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at libcore.io.Linux.writeBytes(Native Method)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at libcore.io.Linux.write(Linux.java:336)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at libcore.io.ForwardingOs.write(ForwardingOs.java:948)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at libcore.io.BlockGuardOs.write(BlockGuardOs.java:448)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	at libcore.io.IoBridge.write(IoBridge.java:646)
+05-04 21:32:23.160 E/OsenseCommonUtils( 3496): 	... 14 more
+05-04 21:32:23.161 I/OplusCpuLimitManager( 3496): OplusCpuHighLoad: release instant cpu load
+05-04 21:32:23.162 I/StepApp_StepDataPreHandler(30464): (main)onSensorChanged raw data: step=93346.0 state=3.0 minuteDelta=0.0 timestamp=2142163690359734 steprun=21478.0 stepwalk=22685.0 formatted data: step=93346 state=3 timestamp=2142163690359734 time=1777901543152 steprun=21478 stepwalk=22685
+05-04 21:32:23.165 I/StepApp_StepDataSaver(30464): (O_dfd_455)getNewFixedOffsetStep type is STEP
+05-04 21:32:23.165 I/StepApp_StepDataSaver(30464): (O_dfd_455)isRebootCountStep:false	 lastRealTimeStamp = 1777901460000	 bootTimestamp = 1775759379462	 mLastModifiedMinuteTime = 2026-05-04-21-31
+05-04 21:32:23.165 I/StepApp_StepDataSaver(30464): (O_dfd_455)calOffSet:sensorStep = 93346	 lastModifiedStep = 93346	 offSet = 0
+05-04 21:32:23.165 I/StepApp_StepDataSaver(30464): (O_dfd_455)getNewFixedOffsetStep type is RUN
+05-04 21:32:23.165 I/StepApp_StepDataSaver(30464): (O_dfd_455)isRebootCountStep:false	 lastRealTimeStamp = 1777901460000	 bootTimestamp = 1775759379461	 mLastModifiedMinuteTime = 2026-05-04-21-31
+05-04 21:32:23.165 I/StepApp_StepDataSaver(30464): (O_dfd_455)calOffSet:sensorStep = 21478	 lastModifiedStep = 21478	 offSet = 0
+05-04 21:32:23.165 I/StepApp_StepDataSaver(30464): (O_dfd_455)getNewFixedOffsetStep type is WALK
+05-04 21:32:23.166 I/StepApp_StepDataSaver(30464): (O_dfd_455)isRebootCountStep:false	 lastRealTimeStamp = 1777901460000	 bootTimestamp = 1775759379462	 mLastModifiedMinuteTime = 2026-05-04-21-31
+05-04 21:32:23.166 I/StepApp_StepDataSaver(30464): (O_dfd_455)calOffSet:sensorStep = 22685	 lastModifiedStep = 22685	 offSet = 0
+05-04 21:32:23.375 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 1099
+05-04 21:32:23.376 D/QmiClient( 2621): enter -mServiceType 4 onQmiServiceEventCallback msgId 1099
+05-04 21:32:23.376 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=1099
+05-04 21:32:23.376 D/QmiVsClientEvent( 2621): QosPeriodReportInd MSG IND data_len 2052
+05-04 21:32:23.376 D/QmiVsClientEvent( 2621): qmiVsClientNotifyQosPeriodReportIndEvent - RADIO_EVENT_QOS_PERIOD_REPORT_NOTIFY_IND
+05-04 21:32:23.376 D/VsProxy ( 2621): handleMessage msg is 2420
+05-04 21:32:23.376 D/VsProxy ( 2621): handleQosPeriodReportInd for instance 0 data_len 219
+05-04 21:32:23.377 D/SubsysRadioIndication[0](30487): radioQosPeriodReportInd result [8, -1, -82, -31, -111, 6, 18, 18, 8, -88, -82, -31, -111, 6, 16, 3, 32, -112, 1, 40, 9, 56, -123, 3, 72, 33, 26, 14, 8, -38, -82, -31, -111, 6, 16, 3, 32, 1, 40, 2, 56, 80, 34, 12, 8, -63, -89, -31, -111, 6, 16, 4, 24, 3, 32, 1, 58, 83, 8, -8, -82, -31, -111, 6, 16, 5, 24, -64, -92, 38, 32, -123, 6, 40, -103, -1, -1, -1, -1, -1, -1, -1, -1, 1, 48, -10, -1, -1, -1, -1, -1, -1, -1, -1, 1, 56, 7, 64, -108, -1, -1, -1, -1, -1, -1, -1, -1, 1, 72, -102, -1, -1, -1, -1, -1, -1, -1, -1, 1, 80, -114, -1, -1, -1, -1, -1, -1, -1, -1, 1, 88, -115, -1, -1, -1, -1, -1, -1, -1, -1, 1, 66, 31, 8, -125, -85, -31, -111, 6, 16, 5, 24, 2, 34, 19, 8, -64, -92, 38, 16, -123, 6, 24, 78, 32, 13, 40, -122, -31, -33, -59, 117, 48, 2, 90, 14, 8, -49, -89, -31, -111, 6, 16, 5, 24, 1, 32, 1, 40, 1, 98, 10, 8, -127, -75, -32, -111, 6, 16, 3, 24, 5, 122, 15, 8, -17, -83, -31, -111, 6, 16, -48, 1, 24, -1, 1, 32, -20, 9]
+05-04 21:32:23.378 D/NetworkService[0](30487): handleMessage what:1005
+05-04 21:32:23.378 D/RadioAtomTracker(30487): parseQosPeriodData ModemQos:CellularQosInfo5{5G, 627264/773, EndcState=2, Band=78, DLBW=13, Rsrp=-103, Rsrq=-10, Snr=7, SvcStatus=3, ULPDCPNumDataPdu=3, ULPDCPNumDropPdu=0, ULPDCPTput=144, ULRLCNumDataPdu=9, ULRLCNumRetxPdu=0, ULGrant=389, ULBSR=0, ULBler=33, DLPDCPNumDataPdu=2, DLPDCPTput=80, DLRLCNumDataPdu=3, DLRLCNumRetxPdu=0, DLRLCNumDropPdu=1, DLMACPaddingBytes=0, DLPdcpNumMissToUppPdu=0, DLBler=0, RlfCount=0, CellChangeCount=0, IsRedirectionOccur=0, IsDualSimConflict=0, Latency=30, Sub1RrcState=3, Sub2RrcState=1, RachCount=1, CalcPower=208, Mtpl=255, PathLoss=1260, CellLoad=0}
+05-04 21:32:23.378 D/NetworkService[0](30487): tryReportModemUlTPutGuarantee: clear calculator
+05-04 21:32:23.379 D/NetworkService[0](30487): EVENT_REG_QOS_PERIOD_REPORT_IND_CHANGED ENTER
+05-04 21:32:23.379 D/AtomModemKpiInfo(30487): handleMessage what:1001
+05-04 21:32:23.379 D/AtomModemKpiInfo(30487): analyseQosInfo success
+05-04 21:32:23.431 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 1110
+05-04 21:32:23.432 D/QmiClient( 2621): enter -mServiceType 4 onQmiServiceEventCallback msgId 1110
+05-04 21:32:23.432 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=1110
+05-04 21:32:23.432 D/QmiVsClientEvent( 2621): qmiVsClientNotifyNrcaInfoChangeEvent - RADIO_EVENT_NRCA_INFO_IND
+05-04 21:32:23.432 D/VsProxy ( 2621): handleMessage msg is 2429
+05-04 21:32:23.432 D/VsProxy ( 2621): handleNrcaInfoChangeInd for instance 0
+05-04 21:32:23.432 D/VendorService( 2621): NrcaInfoChangeInd numCarriers 1
+05-04 21:32:23.434 D/SubsysRadioIndication[0](30487): radioNrcaInfoChangeInd nrcaInfo.numCarriers: 1
+05-04 21:32:23.438 W/Settings( 8223): Setting airplane_mode_on has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+05-04 21:32:23.470 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 47
+05-04 21:32:23.470 D/QmiClient( 2621): enter -mServiceType 10 onQmiServiceEventCallback msgId 47
+05-04 21:32:23.470 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=47
+05-04 21:32:23.471 D/OttProxy( 2621): handleMessage msg is 3001
+05-04 21:32:23.472 D/SubsysRadioIndication[0](30487): radioLinkLatencyInfoInd
+05-04 21:32:23.472 D/SubsysRadioIndication[0](30487): notify enter
+05-04 21:32:23.472 D/NetworkService[0](30487): handleMessage what:1008
+05-04 21:32:23.472 D/NetworkService[0](30487): EVENT_REG_LINK_LATENCY_INFO_CHANGE ulLatency:58771
+05-04 21:32:23.489 E/TaskPersister( 3496): File error accessing recents directory (directory doesn't exist?).
+05-04 21:32:23.703 I/[UAH_CLIENT]( 2074): UahPlatformResAcquire
+05-04 21:32:23.703 I/[UAH_CLIENT]( 2074): UahEventAcquire, cmdid:-3, pkg:2238 11819, identity:qcom-perfd
+05-04 21:32:23.707 E/ANDR-PERF-RESOURCEQS( 2074): ANDR-PERF-RESOURCEQS: AddAndApply() 125: Resource with major=16, minor=0 not supported
+05-04 21:32:23.734 I/[UAH_CLIENT]( 2074): UahRelease, handle:1355933
+05-04 21:32:23.761 D/BatteryChargeControl( 2185): bcc get no support from charging protocol
+05-04 21:32:23.896 I/OplusHansManager ( 3496): uid=10427, pkg=com.dailyissues.homelanderparallax cannot transition from R to M, importance=floatWindow
+05-04 21:32:23.899 I/OplusHansManager ( 3496): uid=10326, pkg=com.sohu.inputmethod.sogouoem cannot transition from R to M, importance=input
+05-04 21:32:23.899 I/OplusHansManager ( 3496): uid=10428, pkg=com.dailyissues.wallpaper.wallpaper_1_43410508 cannot transition from R to M, importance=floatWindow
+05-04 21:32:24.038 D/osense.compress( 3496): com.coloros.shortcuts do shrink, target ratio = 45, final ratio = 90, cur ratio = 0
+05-04 21:32:24.049 D/CommonApp-252-10421(30487): transport layer data is invalid
+05-04 21:32:24.050 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:24.051 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:24.051 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:24.196 I/StepApp_StepProvider(30464): (binder:30464_2)call:package=com.oplus.metis	method=method_call_by_assistantscreen_and_health_from_table_day_step_data	arg=	extras=Bundle[mParcelledData.dataSize=296]	pid=30464
+05-04 21:32:24.197 I/StepApp_StepProvider(30464): (binder:30464_2)parserQueryData:queryData=QueryData(uri=content://com.oplus.healthservice.stepprovider/day_statistic, projection=null, selection=day_date=?, selectionArgs=[2026-05-04], sortOrder=null, startPos=null)
+05-04 21:32:24.199 I/StepApp_StepProvider(30464): (binder:30464_2)resultListString :[{"date":"2026-05-04","offset":2746,"offsetRun":486,"offsetWalk":1683,"step":93346,"stepRun":21478,"stepWalk":22685,"timestamp":0}]
+05-04 21:32:24.289 I/sensors-hal( 2034): handle_sns_client_event:102, device_orient_event: ts=2142164826947108, type=1,count = 21187
+05-04 21:32:24.302 I/RotationButtonController( 8145): onRotationProposal(rotation=1)
+05-04 21:32:24.317 D/WindowManager( 8145): Add to mViews: android.widget.FrameLayout{3f140d4 V.E...... ......ID 0,0-216,216 alpha=1.0 viewInfo = },pkg= null
+05-04 21:32:24.318 D/skia    ( 8145): setRusSupported enable 1
+05-04 21:32:24.320 D/KEYLOG_PhoneWindowManagerExtImpl( 3496): checkAddPermission: com.oplus.permission.safe.WINDOW OKAY packageName = com.android.systemui
+05-04 21:32:24.322 I/[UAH_CLIENT]( 2074): UahPlatformResAcquire
+05-04 21:32:24.322 I/[UAH_CLIENT]( 2074): UahEventAcquire, cmdid:-3, pkg:2238 11820, identity:qcom-perfd
+05-04 21:32:24.324 E/ANDR-PERF-RESOURCEQS( 2074): ANDR-PERF-RESOURCEQS: AddAndApply() 125: Resource with major=16, minor=0 not supported
+05-04 21:32:24.327 I/WindowManager( 3496): addWindow: New client android.os.BinderProxy@a02c329 : window=Window{a56cc4f u0 FloatingRotationButton}
+05-04 21:32:24.331 D/ViewRootImplExtImpl( 8145): onDisplayChanged -1 for VRI android.view.ViewRootImpl@cfd6086
+05-04 21:32:24.331 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:24.332 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:24.333 E/OplusBracketLog( 8145): [OplusViewMirrorManager] updateHostViewRootIfNeeded, not support android.view.ViewRootImpl@cfd6086
+05-04 21:32:24.336 V/WindowManager( 3496): Relayout Window{a56cc4f u0 FloatingRotationButton}: viewVisibility=0, oldvis=0, req=216x216 , apr = 0, vsysui=, x=0, y=216
+05-04 21:32:24.336 I/WindowManager( 3496): Window{a56cc4f u0 FloatingRotationButton} state from NO_SURFACE to DRAW_PENDING; reason: resetDrawState
+05-04 21:32:24.343 D/WindowManager( 3496): NFW_findFocusedWindowIfNeeded:Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity} mCurrentFocus:Window{e4f7bee u0 com.codex.streetstrength/com.codex.streetstrength.MainActivity}
+05-04 21:32:24.345 D/BufferQueueConsumer( 8145): [](id:1fd10000caee,api:0,p:-1,c:8145) connect: controlledByApp=false
+05-04 21:32:24.345 D/BufferQueueConsumer( 8145): [VRI[FloatingRotationButton]#51950(BLAST Consumer)51950](id:1fd10000caee,api:0,p:-1,c:8145) setMaxAcquiredBufferCount: 2
+05-04 21:32:24.348 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:24.348 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:24.350 D/HWUI    ( 8145): createSurface new attribs array
+05-04 21:32:24.350 D/libEGL  ( 8145): this is from skia gles
+05-04 21:32:24.350 D/BufferQueueProducer( 8145): [VRI[FloatingRotationButton]#51950(BLAST Consumer)51950](id:1fd10000caee,api:1,p:8145,c:8145) connect: api=1 producerControlledByApp=true
+05-04 21:32:24.351 I/[UAH_CLIENT]( 2074): UahRelease, handle:1355934
+05-04 21:32:24.353 I/SurfaceControl( 8145):  setExtendedRangeBrightness sc=Surface(name=FloatingRotationButton)/@0x8ef1d47,currentBufferRatio=1.0,desiredRatio=1.0
+05-04 21:32:24.359 D/BLASTBufferQueue( 8145): [VRI[FloatingRotationButton]#51950](f:0,a:1) acquireNextBufferLocked size=216x216 mFrameNumber=1 applyTransaction=true mTimestamp=1613286708099890(auto) mPendingTransactions.size=0 graphicBufferId=34982509246290 transform=0
+05-04 21:32:24.360 D/VRI[FloatingRotationButton]( 8145): Received frameCommittedCallback lastAttemptedDrawFrameNum=1 didProduceBuffer=true syncBuffer=false
+05-04 21:32:24.360 D/VRI[FloatingRotationButton]( 8145): draw finished. seqId=0
+05-04 21:32:24.361 I/WindowManager( 3496): Window{a56cc4f u0 FloatingRotationButton} state from DRAW_PENDING to COMMIT_DRAW_PENDING; reason: finishDrawingLocked
+05-04 21:32:24.363 I/WindowManager( 3496): Window{a56cc4f u0 FloatingRotationButton} state from COMMIT_DRAW_PENDING to READY_TO_SHOW; reason: commitFinishDrawingLocked
+05-04 21:32:24.364 I/WindowManager( 3496): Window{a56cc4f u0 FloatingRotationButton} state from READY_TO_SHOW to HAS_DRAWN; reason: performShowLocked
+05-04 21:32:24.365 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:24.365 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:24.368 D/VRI[FloatingRotationButton]( 8145): Received frameCommittedCallback lastAttemptedDrawFrameNum=2 didProduceBuffer=true syncBuffer=false
+05-04 21:32:24.368 D/VRI[FloatingRotationButton]( 8145): draw finished. seqId=0
+05-04 21:32:24.375 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 1099
+05-04 21:32:24.375 D/QmiClient( 2621): enter -mServiceType 4 onQmiServiceEventCallback msgId 1099
+05-04 21:32:24.376 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=1099
+05-04 21:32:24.376 D/QmiVsClientEvent( 2621): QosPeriodReportInd MSG IND data_len 2052
+05-04 21:32:24.376 D/QmiVsClientEvent( 2621): qmiVsClientNotifyQosPeriodReportIndEvent - RADIO_EVENT_QOS_PERIOD_REPORT_NOTIFY_IND
+05-04 21:32:24.376 D/VsProxy ( 2621): handleMessage msg is 2420
+05-04 21:32:24.376 D/VsProxy ( 2621): handleQosPeriodReportInd for instance 0 data_len 168
+05-04 21:32:24.377 D/SubsysRadioIndication[0](30487): radioQosPeriodReportInd result [8, -25, -74, -31, -111, 6, 18, 9, 8, -76, -74, -31, -111, 6, 56, -123, 2, 26, 8, 8, -76, -74, -31, -111, 6, 72, 1, 34, 12, 8, -63, -89, -31, -111, 6, 16, 4, 24, 3, 32, 1, 58, 61, 8, -23, -75, -31, -111, 6, 16, 5, 24, -64, -92, 38, 32, -123, 6, 40, -102, -1, -1, -1, -1, -1, -1, -1, -1, 1, 48, -10, -1, -1, -1, -1, -1, -1, -1, -1, 1, 56, 5, 64, -108, -1, -1, -1, -1, -1, -1, -1, -1, 1, 72, -101, -1, -1, -1, -1, -1, -1, -1, -1, 1, 66, 31, 8, -125, -85, -31, -111, 6, 16, 5, 24, 1, 34, 19, 8, -64, -92, 38, 16, -123, 6, 24, 78, 32, 13, 40, -122, -31, -33, -59, 117, 48, 2, 90, 0, 98, 10, 8, -127, -75, -32, -111, 6, 16, 3, 24, 5, 122, 15, 8, -32, -76, -31, -111, 6, 16, -80, 1, 24, -114, 2, 32, -10, 9]
+05-04 21:32:24.377 D/NetworkService[0](30487): handleMessage what:1005
+05-04 21:32:24.378 D/RadioAtomTracker(30487): parseQosPeriodData ModemQos:CellularQosInfo5{5G, 627264/773, EndcState=1, Band=78, DLBW=13, Rsrp=-102, Rsrq=-10, Snr=5, SvcStatus=3, ULPDCPNumDataPdu=0, ULPDCPNumDropPdu=0, ULPDCPTput=0, ULRLCNumDataPdu=0, ULRLCNumRetxPdu=0, ULGrant=261, ULBSR=0, ULBler=0, DLPDCPNumDataPdu=0, DLPDCPTput=0, DLRLCNumDataPdu=0, DLRLCNumRetxPdu=0, DLRLCNumDropPdu=0, DLMACPaddingBytes=0, DLPdcpNumMissToUppPdu=0, DLBler=1, RlfCount=0, CellChangeCount=0, IsRedirectionOccur=0, IsDualSimConflict=0, Latency=58, Sub1RrcState=3, Sub2RrcState=1, RachCount=0, CalcPower=176, Mtpl=270, PathLoss=1270, CellLoad=0}
+05-04 21:32:24.378 D/NetworkService[0](30487): EVENT_REG_QOS_PERIOD_REPORT_IND_CHANGED ENTER
+05-04 21:32:24.378 D/AtomModemKpiInfo(30487): handleMessage what:1001
+05-04 21:32:24.378 D/AtomModemKpiInfo(30487): analyseQosInfo success
+05-04 21:32:24.381 D/CoreBackPreview( 3496):  return markWindowHasDrawn mComposed: false  mWaitTransition: false
+05-04 21:32:24.381 D/ActivityTaskManager( 3496): Clearing startingData for activity=ActivityRecord{100515645 u0 com.android.launcher/.Launcher t2} mStartingData=null mStartingSurface=null
+05-04 21:32:24.397 D/Tile.OplusCellularTile( 8145): refreshState: tile not listening, ignore
+05-04 21:32:24.399 I/SystemUi--Statusbar( 8145): MobileConnectionRepositoryImpl-->subId:5 isSoftSimCard:false slotId:0
+05-04 21:32:24.470 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 47
+05-04 21:32:24.470 D/QmiClient( 2621): enter -mServiceType 10 onQmiServiceEventCallback msgId 47
+05-04 21:32:24.470 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=47
+05-04 21:32:24.471 D/OttProxy( 2621): handleMessage msg is 3001
+05-04 21:32:24.472 D/SubsysRadioIndication[0](30487): radioLinkLatencyInfoInd
+05-04 21:32:24.472 D/SubsysRadioIndication[0](30487): notify enter
+05-04 21:32:24.473 D/NetworkService[0](30487): handleMessage what:1008
+05-04 21:32:24.473 D/NetworkService[0](30487): EVENT_REG_LINK_LATENCY_INFO_CHANGE ulLatency:-1
+05-04 21:32:24.762 D/BatteryChargeControl( 2185): bcc get no support from charging protocol
+05-04 21:32:24.969 V/AlarmManager( 3496): sending alarm Alarm{15dde6b type 1 origWhen 1777901544968 whenElapsed 2142165506 android} uid 1000 whenElapsed 2142165506 windowLength 0 maxWhenElapsed 2142165506 repeatInterval 0 action null component null tag StorgaeBandInfoAlarmTag flags 0x9 procName system_server
+05-04 21:32:24.970 D/OplusProxyWakeLock( 3496): acquireProxyWakeLock, prevent uid: 10336 tag:*alar...   WorkSource{1000 chains=WorkChain{(10336), (1000, JobScheduler)}}/WorkChain{(10336), (1000, JobScheduler)}
+05-04 21:32:24.971 E/OplusStorageUFSBandwidth( 3496): storage_io_metrics_path is /proc/oplus_storage/io_metrics/forever/
+05-04 21:32:24.974 E/OplusStorageUFSBandwidth( 3496): Bandwidth - Read: 0.00 MB/s, Write: 0.00 MB/s
+05-04 21:32:24.974 E/OplusStorageUFSBandwidth( 3496): Task time: 3ms
+05-04 21:32:24.976 E/OplusStorageUFSBandwidth( 3496): Alarm set to trigger in 10 seconds
+05-04 21:32:25.072 D/CommonApp-252-10421(30487): transport layer data is invalid
+05-04 21:32:25.075 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:25.076 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:25.076 D/ScorePolicy(30487): handleScoreChanged: []
+05-04 21:32:25.158 I/OplusCpuLimitManager( 3496): OplusCpuHighLoad: request instant cpu load
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): write /dev/memcg/memory.force_shrink_file failed
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): java.io.IOException: write failed: EBUSY (Device or resource busy)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at libcore.io.IoBridge.write(IoBridge.java:651)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at java.io.FileOutputStream.write(FileOutputStream.java:436)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:233)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:309)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.implFlush(StreamEncoder.java:313)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at sun.nio.cs.StreamEncoder.flush(StreamEncoder.java:153)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at java.io.OutputStreamWriter.flush(OutputStreamWriter.java:248)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at com.android.server.oplus.osense.utils.OsenseCommonUtils.writeFile(OsenseCommonUtils.java:154)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction.doGlobalShrink(OplusOsenseCompressAction.java:1887)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction.-$$Nest$mdoGlobalShrink(Unknown Source:0)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at com.android.server.am.OplusOsenseCompressAction$CompressHandler.handleMessage(OplusOsenseCompressAction.java:1335)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at android.os.Handler.dispatchMessage(Handler.java:115)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at android.os.Looper.loopOnce(Looper.java:302)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at android.os.Looper.loop(Looper.java:412)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at android.os.HandlerThread.run(HandlerThread.java:85)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): Caused by: android.system.ErrnoException: write failed: EBUSY (Device or resource busy)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at libcore.io.Linux.writeBytes(Native Method)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at libcore.io.Linux.write(Linux.java:336)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at libcore.io.ForwardingOs.write(ForwardingOs.java:948)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at libcore.io.BlockGuardOs.write(BlockGuardOs.java:448)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	at libcore.io.IoBridge.write(IoBridge.java:646)
+05-04 21:32:25.168 E/OsenseCommonUtils( 3496): 	... 14 more
+05-04 21:32:25.169 I/OplusCpuLimitManager( 3496): OplusCpuHighLoad: release instant cpu load
+05-04 21:32:25.376 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 1099
+05-04 21:32:25.376 D/QmiClient( 2621): enter -mServiceType 4 onQmiServiceEventCallback msgId 1099
+05-04 21:32:25.376 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=1099
+05-04 21:32:25.376 D/QmiVsClientEvent( 2621): QosPeriodReportInd MSG IND data_len 2052
+05-04 21:32:25.376 D/QmiVsClientEvent( 2621): qmiVsClientNotifyQosPeriodReportIndEvent - RADIO_EVENT_QOS_PERIOD_REPORT_NOTIFY_IND
+05-04 21:32:25.377 D/VsProxy ( 2621): handleMessage msg is 2420
+05-04 21:32:25.377 D/VsProxy ( 2621): handleQosPeriodReportInd for instance 0 data_len 166
+05-04 21:32:25.378 D/SubsysRadioIndication[0](30487): radioQosPeriodReportInd result [8, -48, -66, -31, -111, 6, 18, 9, 8, -68, -66, -31, -111, 6, 56, -7, 1, 26, 6, 8, -68, -66, -31, -111, 6, 34, 12, 8, -63, -89, -31, -111, 6, 16, 4, 24, 3, 32, 1, 58, 61, 8, -54, -66, -31, -111, 6, 16, 5, 24, -64, -92, 38, 32, -123, 6, 40, -108, -1, -1, -1, -1, -1, -1, -1, -1, 1, 48, -10, -1, -1, -1, -1, -1, -1, -1, -1, 1, 56, 9, 64, -116, -1, -1, -1, -1, -1, -1, -1, -1, 1, 72, -109, -1, -1, -1, -1, -1, -1, -1, -1, 1, 66, 31, 8, -125, -85, -31, -111, 6, 16, 5, 24, 1, 34, 19, 8, -64, -92, 38, 16, -123, 6, 24, 78, 32, 13, 40, -122, -31, -33, -59, 117, 48, 2, 90, 0, 98, 10, 8, -127, -75, -32, -111, 6, 16, 3, 24, 5, 122, 15, 8, -104, -68, -31, -111, 6, 16, -66, 1, 24, -114, 2, 32, -108, 10]
+05-04 21:32:25.380 D/NetworkService[0](30487): handleMessage what:1005
+05-04 21:32:25.382 D/RadioAtomTracker(30487): parseQosPeriodData ModemQos:CellularQosInfo5{5G, 627264/773, EndcState=1, Band=78, DLBW=13, Rsrp=-108, Rsrq=-10, Snr=9, SvcStatus=3, ULPDCPNumDataPdu=0, ULPDCPNumDropPdu=0, ULPDCPTput=0, ULRLCNumDataPdu=0, ULRLCNumRetxPdu=0, ULGrant=249, ULBSR=0, ULBler=0, DLPDCPNumDataPdu=0, DLPDCPTput=0, DLRLCNumDataPdu=0, DLRLCNumRetxPdu=0, DLRLCNumDropPdu=0, DLMACPaddingBytes=0, DLPdcpNumMissToUppPdu=0, DLBler=0, RlfCount=0, CellChangeCount=0, IsRedirectionOccur=0, IsDualSimConflict=0, Latency=0, Sub1RrcState=3, Sub2RrcState=1, RachCount=0, CalcPower=190, Mtpl=270, PathLoss=1300, CellLoad=0}
+05-04 21:32:25.382 D/NetworkService[0](30487): EVENT_REG_QOS_PERIOD_REPORT_IND_CHANGED ENTER
+05-04 21:32:25.383 D/AtomModemKpiInfo(30487): handleMessage what:1001
+05-04 21:32:25.383 D/AtomModemKpiInfo(30487): analyseQosInfo success
+05-04 21:32:25.470 D/QmiClient( 2621): qmiServiceEventCallback recv msg id 47
+05-04 21:32:25.470 D/QmiClient( 2621): enter -mServiceType 10 onQmiServiceEventCallback msgId 47
+05-04 21:32:25.470 D/QmiClient( 2621): onQmiServiceEventCallback - enter. msgId=47
+05-04 21:32:25.470 D/OttProxy( 2621): handleMessage msg is 3001
+05-04 21:32:25.471 D/SubsysRadioIndication[0](30487): radioLinkLatencyInfoInd
+05-04 21:32:25.472 D/SubsysRadioIndication[0](30487): notify enter
+05-04 21:32:25.472 D/NetworkService[0](30487): handleMessage what:1008
+05-04 21:32:25.472 D/NetworkService[0](30487): EVENT_REG_LINK_LATENCY_INFO_CHANGE ulLatency:-1
+05-04 21:32:25.582 D/OplusCellularNetworkConfig( 8223): getDnsQueryPriority value=http://www.sina.com.cn/generate_204
+05-04 21:32:25.582 D/NetworkService[0](30487): getActiveNetworks networkList size:1
+05-04 21:32:25.582 D/SubsysThreadPool(30487): execute task

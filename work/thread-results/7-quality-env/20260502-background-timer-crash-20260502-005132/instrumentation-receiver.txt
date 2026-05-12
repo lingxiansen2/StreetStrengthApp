@@ -1,0 +1,8 @@
+﻿
+com.codex.streetstrength.timer.RestTimerReceiverInstrumentedTest:.
+
+Time: 5.521
+
+OK (1 test)
+
+

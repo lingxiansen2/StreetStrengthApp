@@ -1,0 +1,37 @@
+﻿--------- beginning of main
+05-08 19:00:33.633  9753  9753 I RestTimerAlert: Marked rest alert stopped for timer 33
+05-08 19:00:33.633  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+--------- beginning of system
+05-08 19:00:33.633  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=250106963
+05-08 19:00:33.634  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=250106963
+05-08 19:00:33.649  9753  9753 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.STOP startId=1
+05-08 19:00:33.649  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 19:00:33.650  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=257629416
+05-08 19:00:33.650  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=257629416
+05-08 19:00:33.660  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 19:00:33.661  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=257629416
+05-08 19:00:33.661  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=257629416
+05-08 19:00:33.677  9753  9753 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.START startId=1
+05-08 19:00:33.677  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 19:00:33.677  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=36741206
+05-08 19:00:33.678  3496  8679 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=36741206
+05-08 19:00:33.679  9753  9753 I RestTimerService: Acquired rest timer wake lock for 69958ms
+05-08 19:00:33.679  9753  9753 I RestTimerService: Starting rest timer 34 remaining=9958ms
+05-08 19:00:33.682  9753  9753 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.START startId=2
+05-08 19:00:33.683  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 19:00:33.683  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=36741206
+05-08 19:00:33.683  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=36741206
+05-08 19:00:33.685  9753  9753 I RestTimerService: Acquired rest timer wake lock for 69952ms
+05-08 19:00:33.685  9753  9753 I RestTimerService: Starting rest timer 34 remaining=9952ms
+05-08 19:00:44.137  9753  9936 I RestTimerService: Countdown fallback dispatching rest finish for timer 34
+05-08 19:00:44.152  9753  9753 I RestTimerReceiver: Received rest finish alarm for timer 34
+05-08 19:00:44.182  3496  8586 W ActivityManager: Permission Denial: getTopApplicationInfo from pid=9753, uid=10429 requires oplus.permission.OPLUS_COMPONENT_SAFE
+05-08 19:00:44.183  9753  9914 I RestTimerAlert: Starting continuous rest-finished vibration
+05-08 19:00:44.184  3496  8586 I VibratorManagerServiceExtImpl: vibrate is uid=10429, pid=9753, opPkg=com.codex.streetstrength, effect=Mono{mEffect=Composed{segments=[Step{amplitude=0.0, frequencyHz=0.0, duration=0}, Step{amplitude=-1.0, frequencyHz=0.0, duration=220}, Step{amplitude=0.0, frequencyHz=0.0, duration=140}, Step{amplitude=-1.0, frequencyHz=0.0, duration=320}, Step{amplitude=0.0, frequencyHz=0.0, duration=180}, Step{amplitude=-1.0, frequencyHz=0.0, duration=540}], repeat=0}}, attributes=VibrationAttributes{mUsage=ALARM, mAudioUsage= USAGE_UNKNOWN, mFlags=0}, reason=null, token=250106963
+05-08 19:00:44.192  9753  9753 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.FINISH startId=3
+05-08 19:00:44.193  9753  9914 I RestTimerService: Started rest finish service for timer 34 from alarm
+05-08 19:00:44.201  9753  9753 I RestTimerAlert: Restarting continuous rest-finished vibration
+05-08 19:00:44.201  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 19:00:44.201  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=36741206
+05-08 19:00:44.202  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=36741206
+05-08 19:00:44.202  3496  8586 I VibratorManagerServiceExtImpl: vibrate is uid=10429, pid=9753, opPkg=com.codex.streetstrength, effect=Mono{mEffect=Composed{segments=[Step{amplitude=0.0, frequencyHz=0.0, duration=0}, Step{amplitude=-1.0, frequencyHz=0.0, duration=220}, Step{amplitude=0.0, frequencyHz=0.0, duration=140}, Step{amplitude=-1.0, frequencyHz=0.0, duration=320}, Step{amplitude=0.0, frequencyHz=0.0, duration=180}, Step{amplitude=-1.0, frequencyHz=0.0, duration=540}], repeat=0}}, attributes=VibrationAttributes{mUsage=ALARM, mAudioUsage= USAGE_UNKNOWN, mFlags=0}, reason=null, token=36741206

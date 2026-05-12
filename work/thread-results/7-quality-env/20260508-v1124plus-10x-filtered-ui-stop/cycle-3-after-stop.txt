@@ -1,0 +1,81 @@
+﻿--------- beginning of system
+05-08 18:59:30.908  3496  7996 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=62912835
+05-08 18:59:30.909  3496  3658 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=62912835
+05-08 18:59:30.917  3496  3658 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=101316908
+05-08 18:59:30.918  3496  3658 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=101316908
+05-08 18:59:30.922  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=101316908
+05-08 18:59:30.922  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=101316908
+05-08 18:59:30.954  3496  3658 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=147701217
+05-08 18:59:30.954  3496  3658 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=147701217
+05-08 18:59:30.960  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=147701217
+05-08 18:59:30.961  3496  8586 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=147701217
+05-08 18:59:33.157  3496  8715 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@5d90896
+05-08 18:59:33.197  3496  8715 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@d0361ed
+05-08 18:59:33.350  3496  3644 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@829cbf2
+05-08 18:59:33.369  3496  8586 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@49377d8
+05-08 18:59:33.371  3496  3644 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.oplus.aiwriter/.entrance.AIKitEntryService
+05-08 18:59:33.371  3496  3644 E ActivityManager: FGS logic changed: [WIU changed] [BFSL changed] Orig WIU:PROC_STATE_PERSISTENT New WIU:DENIED Orig BFSL:PROC_STATE_PERSISTENT New BFSL:DENIED cmp: {com.oplus.aiwriter/com.oplus.aiwriter.entrance.AIKitEntryService} sdk: 35
+05-08 18:59:33.371  3496  3644 W ActivityManager: Background started FGS: Disallowed [callingPackage: com.oplus.aiwriter; callingUid: 10398; uidState: IMPF; uidBFSL: n/a; intent: Intent { act=oplus.exsystemservice.service.action.APP_SWITCH_NOTIFY id=com.ss.android.ugc.aweme.main.MainActivity pkg=com.oplus.aiwriter mCallingUid=1000 }; code:DENIED; tempAllowListReason:<null>; allowWiu:-1; targetSdkVersion:35; callerTargetSdkVersion:35; startForegroundCount:0; bindFromPackage:null: isBindService:false]
+05-08 18:59:33.371  3496  3644 W ActivityManager: Service.startForeground() not allowed due to mAllowStartForeground false: service com.oplus.aiwriter/.entrance.AIKitEntryService
+05-08 18:59:33.651  3496  8390 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@e8e4e6
+05-08 18:59:33.657  3496  8588 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@2a054d4
+05-08 18:59:33.682  3496  8721 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@31168ed
+05-08 18:59:33.697  3496  8572 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@45bc8a5
+05-08 18:59:33.884  3496  8715 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@329f3eb
+05-08 18:59:33.895  3496  8721 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@13b5792
+05-08 18:59:33.909  3496  8715 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@711e78c
+05-08 18:59:33.938  3496  8572 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@a2ceb89
+05-08 18:59:33.944  3496  3644 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@84867a8
+05-08 18:59:34.038  3496  8390 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@5a02b61
+05-08 18:59:34.046  3496  8572 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@4093512
+05-08 18:59:34.375  3496  8390 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@aeca5fe
+05-08 18:59:35.544  3496  8588 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@92ac168
+05-08 18:59:35.566  3496  8586 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@28dfa26
+05-08 18:59:35.614  3496  8588 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@8e25580
+05-08 18:59:35.634  3496  8586 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@b52c60a
+05-08 18:59:35.645  3496  8390 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@4db84f1
+05-08 18:59:35.660  3496  8390 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@75f38d6
+05-08 18:59:35.673  3496  8390 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@2609757
+05-08 18:59:35.779  3496  7995 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@9e693e0
+05-08 18:59:36.070  3496  3644 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@2930ed7
+05-08 18:59:36.088  3496  3644 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@18fc173
+05-08 18:59:36.344  3496  8588 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.mdocstore.service.MDOC_STORE xflg=0x4 pkg=com.google.android.gms mCallingUid=10259 } U=0: not found
+05-08 18:59:36.344  3496  8588 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@f05a4a
+05-08 18:59:36.348  3496  8588 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.mdocstore.service.MDOC_STORE xflg=0x4 pkg=com.google.android.gms mCallingUid=10259 } U=0: not found
+05-08 18:59:36.349  3496  8588 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@2e1484
+05-08 18:59:39.867  3496  8572 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@3592a5c
+--------- beginning of main
+05-08 18:59:40.919  9753  9753 I RestTimerReceiver: Received rest finish alarm for timer 31
+05-08 18:59:40.949  3496  8644 W ActivityManager: Permission Denial: getTopApplicationInfo from pid=9753, uid=10429 requires oplus.permission.OPLUS_COMPONENT_SAFE
+05-08 18:59:40.949  9753  9936 I RestTimerAlert: Starting continuous rest-finished vibration
+05-08 18:59:40.950  3496  8644 I VibratorManagerServiceExtImpl: vibrate is uid=10429, pid=9753, opPkg=com.codex.streetstrength, effect=Mono{mEffect=Composed{segments=[Step{amplitude=0.0, frequencyHz=0.0, duration=0}, Step{amplitude=-1.0, frequencyHz=0.0, duration=220}, Step{amplitude=0.0, frequencyHz=0.0, duration=140}, Step{amplitude=-1.0, frequencyHz=0.0, duration=320}, Step{amplitude=0.0, frequencyHz=0.0, duration=180}, Step{amplitude=-1.0, frequencyHz=0.0, duration=540}], repeat=0}}, attributes=VibrationAttributes{mUsage=ALARM, mAudioUsage= USAGE_UNKNOWN, mFlags=0}, reason=null, token=250106963
+05-08 18:59:40.952  9753  9936 I RestTimerService: Started rest finish service for timer 31 from alarm
+05-08 18:59:40.954  9753  9753 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.FINISH startId=3
+05-08 18:59:40.960  9753  9753 I RestTimerAlert: Restarting continuous rest-finished vibration
+05-08 18:59:40.960  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 18:59:40.960  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=231694736
+05-08 18:59:40.961  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=231694736
+05-08 18:59:40.961  3496  8390 I VibratorManagerServiceExtImpl: vibrate is uid=10429, pid=9753, opPkg=com.codex.streetstrength, effect=Mono{mEffect=Composed{segments=[Step{amplitude=0.0, frequencyHz=0.0, duration=0}, Step{amplitude=-1.0, frequencyHz=0.0, duration=220}, Step{amplitude=0.0, frequencyHz=0.0, duration=140}, Step{amplitude=-1.0, frequencyHz=0.0, duration=320}, Step{amplitude=0.0, frequencyHz=0.0, duration=180}, Step{amplitude=-1.0, frequencyHz=0.0, duration=540}], repeat=0}}, attributes=VibrationAttributes{mUsage=ALARM, mAudioUsage= USAGE_UNKNOWN, mFlags=0}, reason=null, token=231694736
+05-08 18:59:40.962  9753  9753 I RestTimerReceiver: Received rest finish alarm for timer 31
+05-08 18:59:40.973  3496  8644 W ActivityManager: Permission Denial: getTopApplicationInfo from pid=9753, uid=10429 requires oplus.permission.OPLUS_COMPONENT_SAFE
+05-08 18:59:40.974  9753  9909 I RestTimerAlert: Restarting continuous rest-finished vibration
+05-08 18:59:40.974  9753  9909 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 18:59:40.974  3496  8644 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=250106963
+05-08 18:59:40.975  3496  8644 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=250106963
+05-08 18:59:40.975  3496  8644 I VibratorManagerServiceExtImpl: vibrate is uid=10429, pid=9753, opPkg=com.codex.streetstrength, effect=Mono{mEffect=Composed{segments=[Step{amplitude=0.0, frequencyHz=0.0, duration=0}, Step{amplitude=-1.0, frequencyHz=0.0, duration=220}, Step{amplitude=0.0, frequencyHz=0.0, duration=140}, Step{amplitude=-1.0, frequencyHz=0.0, duration=320}, Step{amplitude=0.0, frequencyHz=0.0, duration=180}, Step{amplitude=-1.0, frequencyHz=0.0, duration=540}], repeat=0}}, attributes=VibrationAttributes{mUsage=ALARM, mAudioUsage= USAGE_UNKNOWN, mFlags=0}, reason=null, token=250106963
+05-08 18:59:40.977  9753  9909 I RestTimerService: Started rest finish service for timer 31 from alarm
+05-08 18:59:40.979  9753  9753 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.FINISH startId=4
+05-08 18:59:45.918  3496  3786 W ActivityManager: pid 3496 system sent binder code 1013 with flags 0 to frozen apps and got error -2
+05-08 18:59:45.918  3496  6954 W ActivityManager: pid 25637 received async transactions while frozen
+05-08 18:59:45.918  3496  6954 W ActivityManager: pid 28473 received async transactions while frozen
+05-08 18:59:46.312  9753  9753 I RestTimerAlert: Marked rest alert stopped for timer 31
+05-08 18:59:46.312  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 18:59:46.312  3496  7995 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=250106963
+05-08 18:59:46.312  3496  7995 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=250106963
+05-08 18:59:46.315  9753  9753 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.STOP startId=5
+05-08 18:59:46.315  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 18:59:46.316  3496  7995 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=231694736
+05-08 18:59:46.316  3496  7995 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=231694736
+05-08 18:59:46.331  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 18:59:46.331  3496  8679 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=231694736
+05-08 18:59:46.332  3496  8679 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=231694736

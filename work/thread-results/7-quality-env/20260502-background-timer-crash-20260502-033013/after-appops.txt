@@ -1,0 +1,4 @@
+﻿VIBRATE: allow; time=+25s688ms ago; duration=+552ms
+SYSTEM_ALERT_WINDOW: default; rejectTime=+27s224ms ago
+START_FOREGROUND: allow; time=+6s244ms ago (running)
+NO_ISOLATED_STORAGE: deny

@@ -1,0 +1,3 @@
+﻿SYSTEM_ALERT_WINDOW: default; rejectTime=+19s794ms ago
+START_FOREGROUND: allow; time=+772ms ago; duration=+38ms
+NO_ISOLATED_STORAGE: deny

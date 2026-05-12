@@ -33,8 +33,8 @@
 
 ## 版本信息
 
-- App 版本：`1.1.21`
-- `versionCode = 23`
+- App 版本：`1.1.25`
+- `versionCode = 27`
 - `compileSdk = 34`
 - `targetSdk = 34`
 - 推荐 `JDK 17`
@@ -76,6 +76,13 @@ Windows:
 ```powershell
 .\gradlew.bat assembleDebug
 .\gradlew.bat testDebugUnitTest
+```
+
+如果本机没有全局配置 `JAVA_HOME` / Android SDK，也可以直接使用项目内本地工具链：
+
+```powershell
+.\scripts\gradlew-local.cmd assembleDebug
+.\scripts\gradlew-local.cmd testDebugUnitTest
 ```
 
 macOS / Linux:

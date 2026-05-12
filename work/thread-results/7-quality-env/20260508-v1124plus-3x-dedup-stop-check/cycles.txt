@@ -1,0 +1,6 @@
+cycle 1 start 19:04:27
+cycle 1 stop 19:04:48
+cycle 2 start 19:04:48
+cycle 2 stop 19:05:09
+cycle 3 start 19:05:09
+cycle 3 stop 19:05:30

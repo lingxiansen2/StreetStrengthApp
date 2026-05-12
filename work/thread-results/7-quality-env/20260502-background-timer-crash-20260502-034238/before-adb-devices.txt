@@ -1,0 +1,4 @@
+﻿List of devices attached
+97257126520013         device product:sprdtrum model:sprdisk device:spxxxx transport_id:1
+emulator-5584          device product:sdk_gphone64_x86_64 model:sdk_gphone64_x86_64 device:emu64xa transport_id:20
+

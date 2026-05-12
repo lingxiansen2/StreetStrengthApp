@@ -103,7 +103,7 @@ class RestReminderSelfTestActivity : ComponentActivity() {
                             runCatching {
                                 state.timerId?.let { cancelDebugTimer(it) }
                                 cancelSelfTestReceiverAlarm()
-                                RestTimerController.stopRestAlert(this@RestReminderSelfTestActivity)
+                                RestTimerController.stopRestAlert(this@RestReminderSelfTestActivity, state.timerId)
                                 state = SelfTestUiState(status = "提醒和震动已关闭")
                             }.onFailure { error ->
                                 state = state.copy(status = "关闭失败：${error.message ?: error::class.java.simpleName}")

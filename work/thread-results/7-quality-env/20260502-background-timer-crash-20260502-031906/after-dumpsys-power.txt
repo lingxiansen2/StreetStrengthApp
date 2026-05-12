@@ -1,0 +1,1081 @@
+﻿POWER MANAGER (dumpsys power)
+
+Power Manager State:
+  Settings power_manager_constants:
+    no_cached_wake_locks=true
+  mDirty=0x0
+  mWakefulness=Awake
+  mWakefulnessChanging=false
+  mIsPowered=true
+  mPlugType=1
+  mBatteryLevel=100
+  mDreamsBatteryLevelDrain=0
+  mDockState=0
+  mStayOn=true
+  mProximityPositive=false
+  mBootCompleted=true
+  mSystemReady=true
+  mEnhancedDischargeTimeElapsed=0
+  mLastEnhancedDischargeTimeUpdatedElapsed=0
+  mEnhancedDischargePredictionIsPersonalized=false
+  mHalAutoSuspendModeEnabled=false
+  mHalInteractiveModeEnabled=true
+  mWakeLockSummary=0x1
+  mNotifyLongScheduled=+8s683ms
+  mNotifyLongDispatched=-19s605ms
+  mNotifyLongNextCheck=+8s683ms
+  mRequestWaitForNegativeProximity=false
+  mInterceptedPowerKeyForProximity=false
+  mSandmanScheduled=false
+  mBatteryLevelLow=false
+  mLightDeviceIdleMode=false
+  mDeviceIdleMode=false
+  mDeviceIdleWhitelist=[2000, 10086, 10088, 10092, 10128, 10166, 10181]
+  mDeviceIdleTempWhitelist=[1000, 10118, 10132]
+  mLowPowerStandbyActive=false
+  mLastWakeTime=0 (567256 ms ago)
+  mLastSleepTime=0 (567256 ms ago)
+  mLastSleepReason=application
+  mLastGlobalWakeTimeRealtime=0 (567256 ms ago)
+  mLastGlobalSleepTimeRealtime=0 (567256 ms ago)
+  mLastInteractivePowerHintTime=552311 (14945 ms ago)
+  mLastScreenBrightnessBoostTime=0 (567256 ms ago)
+  mScreenBrightnessBoostInProgress=false
+  mHoldingWakeLockSuspendBlocker=true
+  mHoldingDisplaySuspendBlocker=true
+  mLastFlipTime=0
+  mIsFaceDown=false
+
+Settings and Configuration:
+  mDecoupleHalAutoSuspendModeFromDisplayConfig=false
+  mDecoupleHalInteractiveModeFromDisplayConfig=false
+  mWakeUpWhenPluggedOrUnpluggedConfig=false
+  mWakeUpWhenPluggedOrUnpluggedInTheaterModeConfig=false
+  mTheaterModeEnabled=false
+  mKeepDreamingWhenUnplugging=false
+  mSuspendWhenScreenOffDueToProximityConfig=false
+  mDreamsSupportedConfig=true
+  mDreamsEnabledByDefaultConfig=true
+  mDreamsActivatedOnSleepByDefaultConfig=false
+  mDreamsActivatedOnDockByDefaultConfig=true
+  mDreamsEnabledOnBatteryConfig=false
+  mDreamsBatteryLevelMinimumWhenPoweredConfig=-1
+  mDreamsBatteryLevelMinimumWhenNotPoweredConfig=15
+  mDreamsBatteryLevelDrainCutoffConfig=5
+  mDreamsEnabledSetting=true
+  mDreamsActivateOnSleepSetting=false
+  mDreamsActivateOnDockSetting=true
+  mDozeAfterScreenOff=true
+  mMinimumScreenOffTimeoutConfig=10000
+  mMaximumScreenDimDurationConfig=7000
+  mMaximumScreenDimRatioConfig=0.20000005
+  mAttentiveTimeoutConfig=-1
+  mAttentiveTimeoutSetting=-1
+  mAttentiveWarningDurationConfig=30000
+  mScreenOffTimeoutSetting=2147483647
+  mSleepTimeoutSetting=-1
+  mMaximumScreenOffTimeoutFromDeviceAdmin=9223372036854775807 (enforced=false)
+  mStayOnWhilePluggedInSetting=1
+  mScreenBrightnessOverrideFromWindowManager=NaN
+  mUserActivityTimeoutOverrideFromWindowManager=-1
+  mUserInactiveOverrideFromWindowManager=false
+  mDozeScreenStateOverrideFromDreamManager=0
+  mDrawWakeLockOverrideFromSidekick=false
+  mDozeScreenBrightnessOverrideFromDreamManager=-1
+  mScreenBrightnessMinimum=0.035433073
+  mScreenBrightnessMaximum=1.0
+  mScreenBrightnessDefault=0.39763778
+  mDoubleTapWakeEnabled=false
+  mForegroundProfile=0
+  mUserId=0
+
+Attentive timeout: -1 ms
+Sleep timeout: -1 ms
+Screen off timeout: 2147483647 ms
+Screen dim duration: 7000 ms
+
+UID states (changing=false changed=false):
+  UID 1000:   ACTIVE  count=1 state=0
+  UID 1001:   ACTIVE  count=1 state=0
+  UID 1002:   ACTIVE  count=0 state=0
+  UID 1068:   ACTIVE  count=0 state=0
+  UID 1073:   ACTIVE  count=0 state=0
+  UID 2000: INACTIVE  count=0 state=19
+  UID u0a83: INACTIVE  count=0 state=19
+  UID u0a86: INACTIVE  count=0 state=19
+  UID u0a87: INACTIVE  count=0 state=19
+  UID u0a88: INACTIVE  count=0 state=19
+  UID u0a93: INACTIVE  count=0 state=19
+  UID u0a99: INACTIVE  count=0 state=19
+  UID u0a103: INACTIVE  count=0 state=19
+  UID u0a106: INACTIVE  count=0 state=19
+  UID u0a116: INACTIVE  count=0 state=19
+  UID u0a117: INACTIVE  count=0 state=19
+  UID u0a118:   ACTIVE  count=0 state=19
+  UID u0a119:   ACTIVE  count=0 state=19
+  UID u0a121: INACTIVE  count=0 state=19
+  UID u0a123: INACTIVE  count=0 state=19
+  UID u0a124: INACTIVE  count=0 state=19
+  UID u0a125: INACTIVE  count=0 state=19
+  UID u0a127:   ACTIVE  count=0 state=5
+  UID u0a128:   ACTIVE  count=3 state=3
+  UID u0a129: INACTIVE  count=0 state=19
+  UID u0a130: INACTIVE  count=0 state=8
+  UID u0a131:   ACTIVE  count=0 state=5
+  UID u0a132:   ACTIVE  count=0 state=3
+  UID u0a138: INACTIVE  count=0 state=19
+  UID u0a139:   ACTIVE  count=0 state=19
+  UID u0a142:   ACTIVE  count=0 state=7
+  UID u0a145: INACTIVE  count=0 state=19
+  UID u0a147:   ACTIVE  count=0 state=19
+  UID u0a149: INACTIVE  count=0 state=19
+  UID u0a150: INACTIVE  count=0 state=19
+  UID u0a153: INACTIVE  count=0 state=19
+  UID u0a155:   ACTIVE  count=0 state=19
+  UID u0a156:   ACTIVE  count=0 state=19
+  UID u0a162: INACTIVE  count=0 state=19
+  UID u0a166: INACTIVE  count=0 state=19
+  UID u0a168:   ACTIVE  count=0 state=0
+  UID u0a169:   ACTIVE  count=0 state=2
+  UID u0a170:   ACTIVE  count=0 state=5
+  UID u0a178: INACTIVE  count=0 state=19
+  UID u0a181:   ACTIVE  count=0 state=19
+  UID u0a182:   ACTIVE  count=0 state=0
+  UID u0a189: INACTIVE  count=0 state=19
+  UID u0a191: INACTIVE  count=0 state=19
+
+Looper state:
+  Looper (PowerManagerService, tid 48) {698a338}
+    Message 0: { when=+8s665ms what=4 target=android.os.Handler }
+    Message 1: { when=+24d20h25m16s64ms what=1 target=android.os.Handler }
+    (Total messages: 2, polling=true, quitting=false)
+
+Wake Locks: size=5
+  PARTIAL_WAKE_LOCK              '*telephony-radio*' ACQ=-29s906ms (uid=1001 pid=2366 ws=WorkSource{1001 com.android.phone})
+  PARTIAL_WAKE_LOCK              '*job*/com.google.android.dialer/com.android.voicemail.impl.scheduling.TaskSchedulerJobService#200' ACQ=-51s335ms (uid=1000 pid=569 ws=WorkSource{10130 com.google.android.dialer})
+  PARTIAL_WAKE_LOCK              'GCM_CONN_ALARM' ACQ=-3s36ms (uid=10128 pid=6038 ws=WorkSource{ chains=WorkChain{(10128, gcm)}})
+  PARTIAL_WAKE_LOCK              'GCM_WORK' ACQ=-581ms (uid=10128 pid=6038 ws=WorkSource{ chains=WorkChain{(10128, gcm)}})
+  PARTIAL_WAKE_LOCK              'NlpWakeLock' ACQ=-204ms (uid=10128 pid=6038 ws=WorkSource{ chains=WorkChain{(10128, location_base)}})
+
+Suspend Blockers: size=5
+  PowerManagerService.Booting: ref count=0 []
+  PowerManagerService.WakeLocks: ref count=1 [unknown: (05-01 19:21:58.222)]
+  PowerManagerService.Display: ref count=1 [holding display: (05-01 19:20:42.403)]
+  PowerManagerService.Broadcasts: ref count=0 []
+  PowerManagerService.WirelessChargerDetector: ref count=0 []
+
+Display Power: com.android.server.power.PowerManagerService$1@608bf11
+
+Battery saving stats:
+  Battery Saver is currently: OFF
+    Times full enabled: 0
+    Times adaptive enabled: 0
+  
+  Drain stats:
+                     Battery saver OFF                          ON
+  NonDoze NonIntr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+             Intr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+  Deep    NonIntr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+             Intr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+  Light   NonIntr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+             Intr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+
+Battery saver policy (*NOTE* they only apply when battery saver is ON):
+  Settings: battery_saver_constants
+    value: 
+  Settings: (overlay)
+    value: 
+  DeviceConfig: battery_saver
+    location_mode: 
+  mAccessibilityEnabled=false
+  mAutomotiveProjectionActive=false
+  mPolicyLevel=0
+  
+  Policy 'default full'
+    advertise_is_enabled=true
+    disable_vibration=true
+    disable_animation=false
+    defer_full_backup=true
+    defer_keyvalue_backup=true
+    enable_firewall=true
+    enable_datasaver=false
+    disable_launch_boost=true
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=0.5
+    location_mode=3
+    force_all_apps_standby=true
+    force_background_check=true
+    disable_optional_sensors=true
+    disable_aod=true
+    soundtrigger_mode=1
+    enable_quick_doze=true
+    enable_night_mode=true
+  
+  Policy 'current full'
+    advertise_is_enabled=true
+    disable_vibration=true
+    disable_animation=false
+    defer_full_backup=true
+    defer_keyvalue_backup=true
+    enable_firewall=true
+    enable_datasaver=false
+    disable_launch_boost=true
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=0.5
+    location_mode=3
+    force_all_apps_standby=true
+    force_background_check=true
+    disable_optional_sensors=true
+    disable_aod=true
+    soundtrigger_mode=1
+    enable_quick_doze=true
+    enable_night_mode=true
+  
+  Policy 'default adaptive'
+    advertise_is_enabled=false
+    disable_vibration=false
+    disable_animation=false
+    defer_full_backup=false
+    defer_keyvalue_backup=false
+    enable_firewall=false
+    enable_datasaver=false
+    disable_launch_boost=false
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=1.0
+    location_mode=0
+    force_all_apps_standby=false
+    force_background_check=false
+    disable_optional_sensors=false
+    disable_aod=false
+    soundtrigger_mode=0
+    enable_quick_doze=false
+    enable_night_mode=false
+  
+  Policy 'current adaptive'
+    advertise_is_enabled=false
+    disable_vibration=false
+    disable_animation=false
+    defer_full_backup=false
+    defer_keyvalue_backup=false
+    enable_firewall=false
+    enable_datasaver=false
+    disable_launch_boost=false
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=1.0
+    location_mode=0
+    force_all_apps_standby=false
+    force_background_check=false
+    disable_optional_sensors=false
+    disable_aod=false
+    soundtrigger_mode=0
+    enable_quick_doze=false
+    enable_night_mode=false
+  
+  Policy 'effective'
+    advertise_is_enabled=false
+    disable_vibration=false
+    disable_animation=false
+    defer_full_backup=false
+    defer_keyvalue_backup=false
+    enable_firewall=false
+    enable_datasaver=false
+    disable_launch_boost=false
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=1.0
+    location_mode=0
+    force_all_apps_standby=false
+    force_background_check=false
+    disable_optional_sensors=false
+    disable_aod=false
+    soundtrigger_mode=0
+    enable_quick_doze=false
+    enable_night_mode=false
+
+Battery saver state machine:
+  Enabled=false
+    full=false
+    adaptive=false
+  mState=1
+  mLastChangedIntReason=0
+  mLastChangedStrReason=null
+  mBootCompleted=true
+  mSettingsLoaded=true
+  mBatteryStatusSet=true
+  mIsPowered=true
+  mBatteryLevel=100
+  mIsBatteryLevelLow=false
+  mSettingAutomaticBatterySaver=0
+  mSettingBatterySaverEnabled=false
+  mSettingBatterySaverEnabledSticky=false
+  mSettingBatterySaverStickyAutoDisableEnabled=true
+  mSettingBatterySaverStickyAutoDisableThreshold=90
+  mSettingBatterySaverTriggerThreshold=0
+  mBatterySaverStickyBehaviourDisabled=false
+  mDynamicPowerSavingsDefaultDisableThreshold=80
+  mDynamicPowerSavingsDisableThreshold=80
+  mDynamicPowerSavingsEnableBatterySaver=false
+  mLastAdaptiveBatterySaverChangedExternallyElapsed=0
+AttentionDetector:
+ mIsSettingEnabled=false
+ mMaxExtensionMillis=900000
+ mPreDimCheckDurationMillis=2000
+ mEffectivePostDimTimeout=0
+ mLastUserActivityTime(excludingAttention)=552311
+ mAttentionServiceSupported=false
+ mRequested=false
+
+Profile power states: size=0
+Display Group User Activity:
+  displayGroupId=0
+  userActivitySummary=0x1
+  lastUserActivityTime=206691 (360590 ms ago)
+  lastUserActivityTimeNoChangeLights=552311 (14970 ms ago)
+  mWakeLockSummary=0x1
+
+Wireless Charger Detector State:
+  mGravitySensor={Sensor name="Gravity Sensor", vendor="AOSP", version=3, type=9, maxRange=19.6133, resolution=2.480159E-4, power=12.7, minDelay=10000}
+  mPoweredWirelessly=false
+  mAtRest=false
+  mRestX=0.0, mRestY=0.0, mRestZ=0.0
+  mDetectionInProgress=false
+  mDetectionStartTime=0 (never)
+  mMustUpdateRestPosition=false
+  mTotalSamples=0
+  mMovingSamples=0
+  mFirstSampleX=0.0, mFirstSampleY=0.0, mFirstSampleZ=0.0
+  mLastSampleX=0.0, mLastSampleY=0.0, mLastSampleZ=0.0
+Wake Lock Log
+  05-01 19:21:27.511 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:21:27.698 - 1000 - REL NetworkStats
+  05-01 19:21:27.729 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:21:27.979 - 1000 - REL NetworkStats
+  05-01 19:21:30.272 - 1000 - ACQ GnssVisibilityControl (partial)
+  05-01 19:21:30.953 - 1000 - REL GnssVisibilityControl
+  05-01 19:21:32.245 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:21:32.568 - 1000 - REL NetworkStats
+  05-01 19:21:32.912 - 1000 - ACQ WiredAccessoryManager (partial)
+  05-01 19:21:32.946 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:21:33.482 - 1000 - REL NetworkStats
+  05-01 19:21:33.982 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:21:34.122 - 1000 - REL NetworkStats
+  05-01 19:21:35.527 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:21:35.631 - 1000 - REL NetworkStats
+  05-01 19:21:35.713 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:21:35.852 - 1000 - REL NetworkStats
+  05-01 19:21:35.909 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:21:36.013 - 1000 - REL NetworkStats
+  05-01 19:21:55.469 - 1000 - REL WiredAccessoryManager
+  05-01 19:21:56.556 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:21:56.840 - 1000 - REL NetworkStats
+  05-01 19:21:58.245 - 1000 - ACQ WindowManager/displayId:0 (screen-bright,on-after-release)
+  05-01 19:21:58.729 - 10168 - ACQ SysUI:BroadcastSender (partial)
+  05-01 19:21:58.752 - 10168 - REL SysUI:BroadcastSender
+  05-01 19:21:59.016 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.034 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.034 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.143 - 1001 - ACQ RILJ_ACK_WL (partial)
+  05-01 19:21:59.155 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.157 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.183 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.249 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.257 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.258 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.268 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.269 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.271 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.396 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.560 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.561 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.616 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.616 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.622 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.734 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.737 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.737 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.851 - 1001 - REL *telephony-radio*
+  05-01 19:21:59.851 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:21:59.854 - 1001 - REL *telephony-radio*
+  05-01 19:22:00.016 - 1000 - ACQ *alarm* (partial)
+  05-01 19:22:01.211 - 1001 - ACQ GsmInboundSmsHandler (partial)
+  05-01 19:22:01.339 - 1073 - ACQ GsmCellBroadcastHandler (partial)
+  05-01 19:22:01.456 - 1001 - ACQ CdmaInboundSmsHandler (partial)
+  05-01 19:22:01.511 - 1073 - ACQ CellBroadcastHandler (partial)
+  05-01 19:22:01.522 - 1073 - ACQ CdmaServiceCategoryProgramHandler (partial)
+  05-01 19:22:02.168 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:22:02.180 - 1001 - REL *telephony-radio*
+  05-01 19:22:02.180 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:22:02.818 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:22:03.260 - 1002 - REL bluetooth_timer
+  05-01 19:22:04.552 - 1073 - REL CdmaServiceCategoryProgramHandler
+  05-01 19:22:04.561 - 1073 - REL CellBroadcastHandler
+  05-01 19:22:04.618 - 1073 - REL GsmCellBroadcastHandler
+  05-01 19:22:05.358 - 1000 - REL *alarm*
+  05-01 19:22:13.059 - 1000 - ACQ *job*/a/c.a.s.n.NotificationHistoryJobService#237039804 (partial)
+  05-01 19:22:13.206 - 1000 - ACQ *job*/a/c.a.s.n.NotificationHistoryJobService#237039804 (partial)
+  05-01 19:22:13.588 - 1000 - REL *job*/a/c.a.s.n.NotificationHistoryJobService#237039804
+  05-01 19:22:13.642 - 1001 - REL RILJ_ACK_WL
+  05-01 19:22:15.530 - 1000 - REL WindowManager/displayId:0
+  05-01 19:22:15.834 - 1000 - ACQ WindowManager/displayId:0 (screen-bright,on-after-release)
+  05-01 19:22:16.486 - 1001 - ACQ RILJ_ACK_WL (partial)
+  05-01 19:22:17.036 - 1000 - REL *job*/a/c.a.s.n.NotificationHistoryJobService#237039804
+  05-01 19:22:19.536 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:22:20.074 - 1000 - REL NetworkStats
+  05-01 19:22:20.113 - 1000 - REL WindowManager/displayId:0
+  05-01 19:22:20.966 - 1000 - ACQ *alarm* (partial)
+  05-01 19:22:21.049 - 1000 - ACQ WindowManager/displayId:0 (screen-bright,on-after-release)
+  05-01 19:22:21.472 - 1000 - REL *alarm*
+  05-01 19:22:24.872 - 1000 - ACQ *alarm* (partial)
+  05-01 19:22:25.061 - 1000 - REL *alarm*
+  05-01 19:22:26.752 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:22:26.866 - 1000 - REL NetworkStats
+  05-01 19:22:27.219 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:22:27.508 - 10168 - ACQ AmbientIndication (partial)
+  05-01 19:22:27.767 - 1000 - REL NetworkStats
+  05-01 19:22:28.355 - 1000 - ACQ NetworkTimeUpdateService (partial)
+  05-01 19:22:29.880 - 1000 - REL NetworkTimeUpdateService
+  05-01 19:22:29.905 - 1000 - ACQ time_detector (partial)
+  05-01 19:22:33.206 - 1000 - REL time_detector
+  05-01 19:22:33.300 - 1000 - ACQ *alarm* (partial)
+  05-01 19:22:34.520 - 1000 - ACQ *job*/c.g.a.p.m.m/c.a.p.m.MediaService#-300 (partial)
+  05-01 19:22:34.532 - 1000 - ACQ *job*/c.g.a.p.m.m/c.a.p.m.MediaService#-300 (partial)
+  05-01 19:22:34.621 - 1000 - REL *job*/c.g.a.p.m.m/c.a.p.m.MediaService#-300
+  05-01 19:22:35.546 - 1000 - ACQ NtpTimeHelper (partial)
+  05-01 19:22:35.628 - 1000 - ACQ *location*:GnssLocationProvider (partial)
+  05-01 19:22:35.650 - 1000 - REL NtpTimeHelper
+  05-01 19:22:35.818 - 1000 - ACQ *location*:PsdsDownload (partial)
+  05-01 19:22:35.927 - 1000 - REL *location*:GnssLocationProvider
+  05-01 19:22:36.091 - 1000 - REL *location*:PsdsDownload
+  05-01 19:22:36.746 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.e.s.EchoJobService#310487677 (partial)
+  05-01 19:22:36.755 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.e.s.EchoJobService#310487677 (partial)
+  05-01 19:22:36.844 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.e.s.EchoJobService#310487677
+  05-01 19:22:37.766 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.e.n.s.i.NotificationJobService#738561924 (partial)
+  05-01 19:22:37.778 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.e.n.s.i.NotificationJobService#738561924 (partial)
+  05-01 19:22:38.088 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.e.n.s.i.NotificationJobService#738561924
+  05-01 19:22:44.690 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:22:44.964 - 1000 - REL NetworkStats
+  05-01 19:22:45.130 - 1000 - ACQ *launch* (partial)
+  05-01 19:22:50.896 - 1000 - REL WindowManager/displayId:0
+  05-01 19:22:51.120 - 10168 - ACQ SysUI:BroadcastSender (partial)
+  05-01 19:22:53.379 - 10168 - REL SysUI:BroadcastSender
+  05-01 19:22:53.385 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#178 (partial)
+  05-01 19:22:53.398 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#178 (partial)
+  05-01 19:22:53.514 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#178
+  05-01 19:22:54.432 - 1000 - ACQ SyncLoopWakeLock (partial)
+  05-01 19:22:55.137 - 1000 - REL *launch*
+  05-01 19:22:57.073 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.AiAiPersistentDownloadJobService#16400 (partial)
+  05-01 19:22:57.075 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.AiAiPersistentDownloadJobService#16400 (partial)
+  05-01 19:22:57.963 - 1001 - REL GsmInboundSmsHandler
+  05-01 19:22:58.022 - 1001 - REL CdmaInboundSmsHandler
+  05-01 19:22:58.409 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.AiAiPersistentDownloadJobService#16400
+  05-01 19:22:58.945 - 1001 - REL RILJ_ACK_WL
+  05-01 19:22:59.012 - 1001 - REL *telephony-radio*
+  05-01 19:23:00.760 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#179 (partial)
+  05-01 19:23:00.804 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#179 (partial)
+  05-01 19:23:01.751 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#179
+  05-01 19:23:03.695 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.c.b.s.AiAiExampleStoreTtlService#249456912 (partial)
+  05-01 19:23:03.703 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.c.b.s.AiAiExampleStoreTtlService#249456912 (partial)
+  05-01 19:23:04.354 - 1041 - ACQ AudioMix (partial)
+  05-01 19:23:04.458 - 1041 - ACQ AudioMix (partial)
+  05-01 19:23:05.620 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.c.b.s.AiAiExampleStoreTtlService#249456912
+  05-01 19:23:07.332 - 1041 - REL AudioMix
+  05-01 19:23:07.348 - 1041 - REL AudioMix
+  05-01 19:23:08.332 - 1000 - REL SyncLoopWakeLock
+  05-01 19:23:12.698 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:23:12.731 - 1001 - REL *telephony-radio*
+  05-01 19:23:12.732 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 19:23:12.813 - 1001 - ACQ RILJ_ACK_WL (partial)
+  05-01 19:23:13.076 - 1000 - REL *alarm*
+  05-01 19:23:15.806 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.e.s.EchoJobService#310487677
+  05-01 19:23:20.827 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.n.e.s.ScheduledTaskService#1010999 (partial)
+  05-01 19:23:20.895 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.n.e.s.ScheduledTaskService#1010999 (partial)
+  05-01 19:23:21.391 - 1000 - REL *job*/c.g.a.c/c.g.a.l.n.e.s.ScheduledTaskService#1010999
+  05-01 19:23:21.630 - 1000 - REL *job*/c.g.a.p.m.m/c.a.p.m.MediaService#-300
+  05-01 19:23:23.504 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.e.n.s.i.NotificationJobService#738561924
+  05-01 19:23:24.670 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#178 (partial)
+  05-01 19:23:24.674 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#178 (partial)
+  05-01 19:23:24.838 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#178
+  05-01 19:23:26.810 - 10168 - REL AmbientIndication
+  05-01 19:23:31.586 - 1001 - ACQ GsmInboundSmsHandler (partial)
+  05-01 19:23:31.687 - 1073 - ACQ GsmCellBroadcastHandler (partial)
+  05-01 19:23:31.796 - 1001 - ACQ CdmaInboundSmsHandler (partial)
+  05-01 19:23:31.930 - 1073 - ACQ CellBroadcastHandler (partial)
+  05-01 19:23:32.015 - 1073 - ACQ CdmaServiceCategoryProgramHandler (partial)
+  05-01 19:23:35.252 - 1073 - REL CdmaServiceCategoryProgramHandler
+  05-01 19:23:35.846 - 1073 - REL CellBroadcastHandler
+  05-01 19:23:35.879 - 1073 - REL GsmCellBroadcastHandler
+  05-01 19:23:44.452 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.AiAiPersistentDownloadJobService#16400
+  05-01 19:23:46.184 - 1000 - ACQ *job*/c.g.a.p.g/c.g.a.a.a.c.a.f.LauncherIconStateVerificationService#234835806 (partial)
+  05-01 19:23:46.242 - 1000 - ACQ *job*/c.g.a.p.g/c.g.a.a.a.c.a.f.LauncherIconStateVerificationService#234835806 (partial)
+  05-01 19:23:47.500 - 1000 - REL *job*/c.g.a.p.g/c.g.a.a.a.c.a.f.LauncherIconStateVerificationService#234835806
+  05-01 19:23:47.546 - 1000 - REL *job*/c.g.a.c/c.g.a.l.n.e.s.ScheduledTaskService#1010999
+  05-01 19:23:50.185 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#181 (partial)
+  05-01 19:23:50.189 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#181 (partial)
+  05-01 19:23:50.724 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#181
+  05-01 19:23:51.169 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#178
+  05-01 19:23:51.499 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#180 (partial)
+  05-01 19:23:51.563 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#180 (partial)
+  05-01 19:23:51.794 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#180
+  05-01 19:23:52.217 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#178
+  05-01 19:23:52.954 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.AiAiPersistentDownloadJobService#16400 (partial)
+  05-01 19:23:52.957 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.AiAiPersistentDownloadJobService#16400 (partial)
+  05-01 19:23:53.120 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.AiAiPersistentDownloadJobService#16400
+  05-01 19:23:53.196 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#179
+  05-01 19:23:53.389 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.f.e.s.EkhoTtlService#485394179 (partial)
+  05-01 19:23:53.393 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.f.e.s.EkhoTtlService#485394179 (partial)
+  05-01 19:23:53.540 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.f.e.s.EkhoTtlService#485394179
+  05-01 19:23:54.306 - 1000 - ACQ *job*/c.g.a.g/a.w.i.b.s.SystemJobService#51 (partial)
+  05-01 19:23:54.308 - 1000 - ACQ *job*/c.g.a.g/a.w.i.b.s.SystemJobService#51 (partial)
+  05-01 19:23:55.104 - 1000 - REL *job*/c.g.a.g/a.w.i.b.s.SystemJobService#51
+  05-01 19:23:56.449 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.c.b.s.AiAiExampleStoreTtlService#249456912
+  05-01 19:23:56.859 - 1000 - ACQ *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#117 (partial)
+  05-01 19:23:56.880 - 1000 - ACQ *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#117 (partial)
+  05-01 19:23:57.216 - 1000 - REL *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#117
+  05-01 19:24:00.304 - 1000 - ACQ *alarm* (partial)
+  05-01 19:24:01.453 - 10131 - ACQ bugle_datamodel_executor_wakelock (partial)
+  05-01 19:24:05.470 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#181
+  05-01 19:24:06.099 - 10128 - ACQ CMWakeLock (partial)
+  05-01 19:24:06.853 - 1000 - ACQ *job*/c.g.a.c/a.w.i.b.s.SystemJobService#100075 (partial)
+  05-01 19:24:06.924 - 1000 - ACQ *job*/c.g.a.c/a.w.i.b.s.SystemJobService#100075 (partial)
+  05-01 19:24:07.496 - 1000 - REL *job*/c.g.a.c/a.w.i.b.s.SystemJobService#100075
+  05-01 19:24:07.611 - 1000 - REL *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#117
+  05-01 19:24:08.763 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#183 (partial)
+  05-01 19:24:08.809 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#183 (partial)
+  05-01 19:24:09.169 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#183
+  05-01 19:24:09.859 - 10132 - ACQ WorkManager:TikTokListenableWorker startWork -> com.google.apps.tiktok.sync.impl.workmanager.SyncWorker startWork() -> com.google.apps.tiktok.sync.impl.workmanager.SyncWorker startWork() -> NoAccountWorkerFactory startWork() (partial)
+  05-01 19:24:10.399 - 1001 - REL RILJ_ACK_WL
+  05-01 19:24:10.577 - 10132 - ACQ WorkManager:TikTokListenableWorker startWork -> com.google.apps.tiktok.sync.impl.workmanager.SyncWorker startWork() -> com.google.apps.tiktok.sync.impl.workmanager.SyncWorker startWork() -> NoAccountWorkerFactory startWork() (partial)
+  05-01 19:24:11.275 - 1000 - REL *job*/c.g.a.p.g/c.g.a.a.a.c.a.f.LauncherIconStateVerificationService#234835806
+  05-01 19:24:11.608 - 1000 - REL *alarm*
+  05-01 19:24:11.976 - 10132 - REL WorkManager:TikTokListenableWorker startWork -> com.google.apps.tiktok.sync.impl.workmanager.SyncWorker startWork() -> com.google.apps.tiktok.sync.impl.workmanager.SyncWorker startWork() -> NoAccountWorkerFactory startWork()
+  05-01 19:24:15.763 - 1001 - ACQ RILJ_ACK_WL (partial)
+  05-01 19:24:16.135 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#187 (partial)
+  05-01 19:24:16.146 - 1000 - ACQ *job*/c.g.a.a/a.w.i.b.s.SystemJobService#187 (partial)
+  05-01 19:24:16.580 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#187
+  05-01 19:24:16.639 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.f.e.s.EkhoTtlService#485394179
+  05-01 19:24:18.094 - 1000 - REL *job*/c.g.a.g/a.w.i.b.s.SystemJobService#51
+  05-01 19:24:19.215 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#180
+  05-01 19:24:19.559 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#183
+  05-01 19:24:20.945 - 10128 - REL CMWakeLock
+  05-01 19:24:23.093 - 1000 - REL *job*/c.g.a.a/a.w.i.b.s.SystemJobService#187
+  05-01 19:24:24.251 - 10132 - REL WorkManager:TikTokListenableWorker startWork -> com.google.apps.tiktok.sync.impl.workmanager.SyncWorker startWork() -> com.google.apps.tiktok.sync.impl.workmanager.SyncWorker startWork() -> NoAccountWorkerFactory startWork()
+  05-01 19:24:25.259 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.AiAiPersistentDownloadJobService#16400
+  05-01 19:24:25.491 - 10131 - REL bugle_datamodel_executor_wakelock
+  05-01 19:24:30.106 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.a.s.ActionRankingDataTtlService#284347269 (partial)
+  05-01 19:24:30.172 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.a.s.ActionRankingDataTtlService#284347269 (partial)
+  05-01 19:24:30.446 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.a.s.ActionRankingDataTtlService#284347269
+  05-01 19:24:30.463 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.PeriodicCleanupService#272538963 (partial)
+  05-01 19:24:30.524 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.PeriodicCleanupService#272538963 (partial)
+  05-01 19:24:30.824 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.PeriodicCleanupService#272538963
+  05-01 19:24:30.831 - 1000 - ACQ *job*/c.g.a.a.m/c.g.a.i.m.PeriodicMetricsJobService#30000 (partial)
+  05-01 19:24:30.849 - 1000 - ACQ *job*/c.g.a.a.m/c.g.a.i.m.PeriodicMetricsJobService#30000 (partial)
+  05-01 19:24:31.166 - 1000 - REL *job*/c.g.a.a.m/c.g.a.i.m.PeriodicMetricsJobService#30000
+  05-01 19:24:31.355 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:24:31.987 - 1002 - REL bluetooth_timer
+  05-01 19:24:32.224 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.a.s.ActionRankingDataTtlService#284347269
+  05-01 19:24:33.080 - 10128 - ACQ CMWakeLock (partial)
+  05-01 19:24:33.501 - 1000 - REL *job*/c.g.a.a.m/c.g.a.i.m.PeriodicMetricsJobService#30000
+  05-01 19:24:33.631 - 1001 - REL GsmInboundSmsHandler
+  05-01 19:24:33.659 - 1001 - REL CdmaInboundSmsHandler
+  05-01 19:24:34.742 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.c.s.i.PeriodicCleanupService#272538963
+  05-01 19:24:38.296 - 1001 - REL RILJ_ACK_WL
+  05-01 19:24:39.898 - 10128 - REL CMWakeLock
+  05-01 19:24:47.985 - 1000 - ACQ *alarm* (partial)
+  05-01 19:24:48.542 - 10153 - ACQ com.google.android.deskclock:AlarmAsyncTask (partial)
+  05-01 19:24:48.617 - 10153 - ACQ com.google.android.deskclock:AlarmAsyncTask (partial)
+  05-01 19:24:49.546 - 10153 - REL com.google.android.deskclock:AlarmAsyncTask
+  05-01 19:24:50.035 - 10153 - REL com.google.android.deskclock:AlarmAsyncTask
+  05-01 19:24:51.313 - 10153 - ACQ com.google.android.deskclock:AlarmAsyncTask (partial)
+  05-01 19:24:51.436 - 10153 - ACQ com.google.android.deskclock:AlarmAsyncTask (partial)
+  05-01 19:24:51.444 - 10153 - REL com.google.android.deskclock:AlarmAsyncTask
+  05-01 19:24:51.520 - 10153 - REL com.google.android.deskclock:AlarmAsyncTask
+  05-01 19:24:53.363 - 1000 - REL *alarm*
+  05-01 19:24:54.788 - 1001 - ACQ RILJ_ACK_WL (partial)
+  05-01 19:24:58.235 - 10128 - ACQ NlpWakeLock (partial)
+  05-01 19:24:58.648 - 1001 - ACQ NitzSignalInputFilterPredicateFactory (partial)
+  05-01 19:24:58.663 - 1001 - REL NitzSignalInputFilterPredicateFactory
+  05-01 19:24:58.920 - 1000 - ACQ time_detector (partial)
+  05-01 19:24:58.921 - 1000 - REL time_detector
+  05-01 19:24:59.636 - 1001 - REL RILJ_ACK_WL
+  05-01 19:25:00.447 - 1000 - ACQ *launch* (partial)
+  05-01 19:25:01.112 - 1000 - ACQ *alarm* (partial)
+  05-01 19:25:01.604 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:25:02.167 - 1000 - REL NetworkStats
+  05-01 19:25:03.399 - 1000 - REL *alarm*
+  05-01 19:25:04.987 - 1041 - ACQ AudioMix (partial)
+  05-01 19:25:05.150 - 1041 - ACQ AudioMix (partial)
+  05-01 19:25:07.847 - 1041 - REL AudioMix
+  05-01 19:25:07.853 - 1041 - REL AudioMix
+  05-01 19:25:08.220 - 10128 - ACQ Wakeful StateMachine: GeofencerStateMachine (partial)
+  05-01 19:25:09.912 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.e.s.EchoJobService#310487677 (partial)
+  05-01 19:25:10.203 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.e.s.EchoJobService#310487677 (partial)
+  05-01 19:25:10.451 - 1000 - REL *launch*
+  05-01 19:25:11.564 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.e.s.EchoJobService#310487677
+  05-01 19:25:11.570 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.e.n.s.i.NotificationJobService#738561924 (partial)
+  05-01 19:25:11.591 - 1000 - ACQ *job*/c.g.a.a/c.g.a.a.m.a.e.n.s.i.NotificationJobService#738561924 (partial)
+  05-01 19:25:13.763 - 10128 - REL NlpWakeLock
+  05-01 19:25:13.853 - 10128 - REL Wakeful StateMachine: GeofencerStateMachine
+  05-01 19:25:14.420 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.e.n.s.i.NotificationJobService#738561924
+  05-01 19:25:15.198 - 1000 - ACQ *job*/c.g.a.a.y.m/a.w.i.b.s.SystemJobService#48 (partial)
+  05-01 19:25:15.208 - 1000 - ACQ *job*/c.g.a.a.y.m/a.w.i.b.s.SystemJobService#48 (partial)
+  05-01 19:25:15.477 - 1000 - REL *job*/c.g.a.a.y.m/a.w.i.b.s.SystemJobService#48
+  05-01 19:25:15.876 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.e.n.s.i.NotificationJobService#738561924
+  05-01 19:25:16.802 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:25:17.273 - 1002 - REL bluetooth_timer
+  05-01 19:25:17.562 - 1000 - REL *job*/c.g.a.a/c.g.a.a.m.a.e.s.EchoJobService#310487677
+  05-01 19:25:22.302 - 1000 - ACQ *job*/c.g.a.d/c.a.v.i.RefreshActivationStateJobService#207 (partial)
+  05-01 19:25:22.310 - 1000 - ACQ *job*/c.g.a.d/c.a.v.i.RefreshActivationStateJobService#207 (partial)
+  05-01 19:25:22.724 - 1000 - REL *job*/c.g.a.d/c.a.v.i.RefreshActivationStateJobService#207
+  05-01 19:25:25.502 - 1000 - ACQ *job*/c.g.a.p.m.m/c.a.p.m.MediaService#-300 (partial)
+  05-01 19:25:25.515 - 1000 - ACQ *job*/c.g.a.p.m.m/c.a.p.m.MediaService#-300 (partial)
+  05-01 19:25:25.565 - 1000 - REL *job*/c.g.a.p.m.m/c.a.p.m.MediaService#-300
+  05-01 19:25:27.820 - 1000 - REL *job*/c.g.a.d/c.a.v.i.RefreshActivationStateJobService#207
+  05-01 19:25:29.396 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:25:29.903 - 1000 - REL NetworkStats
+  05-01 19:25:30.848 - 1000 - REL *job*/c.g.a.p.m.m/c.a.p.m.MediaService#-300
+  05-01 19:25:31.808 - 1000 - ACQ ConnectivityService (partial)
+  05-01 19:25:35.883 - 1000 - ACQ *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706 (partial)
+  05-01 19:25:35.886 - 1000 - ACQ *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706 (partial)
+  05-01 19:25:36.706 - 1000 - REL *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706
+  05-01 19:25:36.865 - 1000 - REL *job*/c.g.a.a.y.m/a.w.i.b.s.SystemJobService#48
+  05-01 19:25:39.508 - 1000 - ACQ *job*/c.g.a.d/c.a.v.i.s.TaskSchedulerJobService#200 (partial)
+  05-01 19:25:39.523 - 1000 - ACQ *job*/c.g.a.d/c.a.v.i.s.TaskSchedulerJobService#200 (partial)
+  05-01 19:25:40.146 - 1000 - REL *job*/c.g.a.d/c.a.v.i.s.TaskSchedulerJobService#200
+  05-01 19:25:40.272 - 10128 - ACQ *gms_scheduler*:internal (partial)
+  05-01 19:25:41.137 - 1000 - REL *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706
+  05-01 19:25:42.401 - 10128 - ACQ *gms_scheduler*/c.g.a.g/.c.EventLogService (partial)
+  05-01 19:25:43.712 - 10128 - ACQ *gms_scheduler*/c.g.a.g/.i.i.OneoffRebuildIndexService (partial)
+  05-01 19:25:44.788 - 1041 - ACQ AudioMix (partial)
+  05-01 19:25:44.790 - 1041 - ACQ AudioMix (partial)
+  05-01 19:25:47.561 - 1041 - REL AudioMix
+  05-01 19:25:47.938 - 1041 - REL AudioMix
+  05-01 19:25:49.059 - 10128 - REL *gms_scheduler*:internal
+  05-01 19:25:50.187 - 10128 - ACQ Icing (partial)
+  05-01 19:25:51.856 - 1000 - ACQ *alarm* (partial)
+  05-01 19:25:51.863 - 1041 - ACQ AudioMix (partial)
+  05-01 19:25:51.866 - 1041 - ACQ AudioMix (partial)
+  05-01 19:25:51.934 - 1000 - REL *alarm*
+  05-01 19:25:52.619 - 10128 - REL *gms_scheduler*/c.g.a.g/.c.EventLogService
+  05-01 19:25:52.631 - 10128 - REL *gms_scheduler*/c.g.a.g/.i.i.OneoffRebuildIndexService
+  05-01 19:25:53.898 - 1000 - ACQ *job*/c.g.a.d/a.w.i.b.s.SystemJobService#124 (partial)
+  05-01 19:25:53.919 - 1000 - ACQ *job*/c.g.a.d/a.w.i.b.s.SystemJobService#124 (partial)
+  05-01 19:25:54.710 - 1000 - REL *job*/c.g.a.d/a.w.i.b.s.SystemJobService#124
+  05-01 19:25:54.896 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:25:54.977 - 1041 - REL AudioMix
+  05-01 19:25:54.978 - 1041 - REL AudioMix
+  05-01 19:25:55.025 - 10131 - ACQ bugle_datamodel_executor_wakelock (partial)
+  05-01 19:25:55.360 - 1000 - ACQ *alarm* (partial)
+  05-01 19:25:55.373 - 1000 - REL *alarm*
+  05-01 19:25:55.490 - 1000 - REL NetworkStats
+  05-01 19:25:55.675 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:25:55.901 - 1000 - REL NetworkStats
+  05-01 19:25:56.752 - 1000 - ACQ NetworkTimeUpdateService (partial)
+  05-01 19:25:57.357 - 1000 - ACQ time_detector (partial)
+  05-01 19:25:57.372 - 1000 - REL time_detector
+  05-01 19:25:58.006 - 10153 - ACQ com.google.android.deskclock:AlarmAsyncTask (partial)
+  05-01 19:25:58.020 - 10088 - ACQ CalendarReceiver_Provider (partial)
+  05-01 19:25:58.424 - 1000 - REL NetworkTimeUpdateService
+  05-01 19:25:58.714 - 1000 - ACQ *job*/c.g.a.d/c.a.d.i.IndexingJobService#4369 (partial)
+  05-01 19:25:58.734 - 1000 - ACQ *job*/c.g.a.d/c.a.d.i.IndexingJobService#4369 (partial)
+  05-01 19:25:59.622 - 1000 - REL ConnectivityService
+  05-01 19:25:59.878 - 1000 - REL *job*/c.g.a.d/c.a.d.i.IndexingJobService#4369
+  05-01 19:25:59.967 - 10153 - REL com.google.android.deskclock:AlarmAsyncTask
+  05-01 19:26:00.185 - 1000 - ACQ *job*/c.g.a.y/a.w.i.b.s.SystemJobService#77 (partial)
+  05-01 19:26:00.187 - 1000 - ACQ *job*/c.g.a.y/a.w.i.b.s.SystemJobService#77 (partial)
+  05-01 19:26:00.267 - 1000 - ACQ *alarm* (partial)
+  05-01 19:26:00.312 - 10088 - REL CalendarReceiver_Provider
+  05-01 19:26:01.253 - 1000 - REL *job*/c.g.a.y/a.w.i.b.s.SystemJobService#77
+  05-01 19:26:02.295 - 1000 - REL *alarm*
+  05-01 19:26:03.180 - 1000 - ACQ *job*/c.g.a.d/a.w.i.b.s.SystemJobService#126 (partial)
+  05-01 19:26:03.227 - 1000 - ACQ *job*/c.g.a.d/a.w.i.b.s.SystemJobService#126 (partial)
+  05-01 19:26:03.694 - 1000 - REL *job*/c.g.a.d/a.w.i.b.s.SystemJobService#126
+  05-01 19:26:03.894 - 1000 - REL *job*/c.g.a.y/a.w.i.b.s.SystemJobService#77
+  05-01 19:26:04.055 - 10128 - REL Icing
+  05-01 19:26:04.299 - 10128 - ACQ Icing (partial)
+  05-01 19:26:05.004 - 1000 - ACQ *alarm* (partial)
+  05-01 19:26:06.174 - 1000 - ACQ *job*/c.g.a.a.y.m/a.w.i.b.s.SystemJobService#47 (partial)
+  05-01 19:26:06.229 - 1000 - ACQ *job*/c.g.a.a.y.m/a.w.i.b.s.SystemJobService#47 (partial)
+  05-01 19:26:06.888 - 1000 - REL *job*/c.g.a.a.y.m/a.w.i.b.s.SystemJobService#47
+  05-01 19:26:07.701 - 1000 - ACQ WindowManager/displayId:0 (screen-bright,on-after-release)
+  05-01 19:26:10.050 - 1000 - REL *job*/c.g.a.a.y.m/a.w.i.b.s.SystemJobService#47
+  05-01 19:26:11.330 - 1000 - ACQ *job*/c.g.a.d/a.w.i.b.s.SystemJobService#129 (partial)
+  05-01 19:26:11.334 - 1000 - ACQ *job*/c.g.a.d/a.w.i.b.s.SystemJobService#129 (partial)
+  05-01 19:26:11.416 - 1000 - REL *job*/c.g.a.d/a.w.i.b.s.SystemJobService#129
+  05-01 19:26:12.358 - 1000 - ACQ *launch* (partial)
+  05-01 19:26:14.416 - 1000 - REL *launch*
+  05-01 19:26:15.779 - 10131 - REL bugle_datamodel_executor_wakelock
+  05-01 19:26:17.507 - 10128 - ACQ wake:com.google.android.gms/.chimera.GmsIntentOperationService - 913 (partial)
+  05-01 19:26:19.628 - 1000 - REL *job*/c.g.a.d/a.w.i.b.s.SystemJobService#126
+  05-01 19:26:19.829 - 1000 - REL WindowManager/displayId:0
+  05-01 19:26:20.138 - 10128 - REL Icing
+  05-01 19:26:20.849 - 1000 - ACQ *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705 (partial)
+  05-01 19:26:20.866 - 1000 - ACQ *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705 (partial)
+  05-01 19:26:21.157 - 1000 - REL *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705
+  05-01 19:26:21.245 - 1000 - REL *job*/c.g.a.d/c.a.d.i.IndexingJobService#4369
+  05-01 19:26:21.817 - 1000 - ACQ *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707 (partial)
+  05-01 19:26:21.827 - 1000 - ACQ *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707 (partial)
+  05-01 19:26:22.058 - 1000 - REL *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707
+  05-01 19:26:22.148 - 1000 - REL *job*/c.g.a.d/a.w.i.b.s.SystemJobService#129
+  05-01 19:26:22.187 - 1000 - ACQ *job*/c.g.a.d/c.a.v.i.StatusCheckJobService#201 (partial)
+  05-01 19:26:22.189 - 1000 - ACQ *job*/c.g.a.d/c.a.v.i.StatusCheckJobService#201 (partial)
+  05-01 19:26:22.390 - 10128 - ACQ Wakeful StateMachine: GeofencerStateMachine (partial)
+  05-01 19:26:22.411 - 1000 - REL *job*/c.g.a.d/c.a.v.i.StatusCheckJobService#201
+  05-01 19:26:22.467 - 1000 - REL *job*/c.g.a.d/a.w.i.b.s.SystemJobService#124
+  05-01 19:26:22.993 - 10128 - ACQ GCoreFlp (partial)
+  05-01 19:26:23.292 - 1000 - ACQ *job*/c.g.a.r/a.w.i.b.s.SystemJobService#21 (partial)
+  05-01 19:26:23.316 - 1000 - ACQ *job*/c.g.a.r/a.w.i.b.s.SystemJobService#21 (partial)
+  05-01 19:26:23.632 - 1000 - REL *job*/c.g.a.r/a.w.i.b.s.SystemJobService#21
+  05-01 19:26:24.145 - 1000 - REL *job*/c.g.a.r/a.w.i.b.s.SystemJobService#21
+  05-01 19:26:24.302 - 10128 - ACQ Checkin Service (partial)
+  05-01 19:26:24.406 - 1000 - REL *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707
+  05-01 19:26:25.757 - 10128 - REL Wakeful StateMachine: GeofencerStateMachine
+  05-01 19:26:25.771 - 10128 - REL GCoreFlp
+  05-01 19:26:26.419 - 1000 - REL *job*/c.g.a.d/c.a.v.i.StatusCheckJobService#201
+  05-01 19:26:26.709 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:26:26.795 - 10128 - REL Checkin Service
+  05-01 19:26:26.883 - 1002 - REL bluetooth_timer
+  05-01 19:26:26.888 - 10128 - REL wake:com.google.android.gms/.chimera.GmsIntentOperationService - 913
+  05-01 19:26:27.914 - 1000 - ACQ *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728 (partial)
+  05-01 19:26:27.929 - 1000 - ACQ *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728 (partial)
+  05-01 19:26:28.091 - 1000 - REL *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728
+  05-01 19:26:32.038 - 1000 - REL *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728
+  05-01 19:26:32.699 - 1000 - ACQ *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728 (partial)
+  05-01 19:26:32.702 - 1000 - ACQ *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728 (partial)
+  05-01 19:26:32.847 - 1000 - REL *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728
+  05-01 19:26:33.951 - 1000 - REL *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728
+  05-01 19:26:36.531 - 1000 - REL *job*/c.g.a.d/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705
+  05-01 19:26:36.977 - 1000 - ACQ GnssVisibilityControl (partial)
+  05-01 19:26:37.039 - 1000 - REL GnssVisibilityControl
+  05-01 19:26:38.589 - 1000 - ACQ *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1070 (partial)
+  05-01 19:26:38.693 - 1000 - ACQ *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1070 (partial)
+  05-01 19:26:39.024 - 1000 - REL *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1070
+  05-01 19:26:47.107 - 1000 - ACQ *job*/c.g.a.p/.PhenotypeJobService#1 (partial)
+  05-01 19:26:47.184 - 1000 - ACQ *job*/c.g.a.p/.PhenotypeJobService#1 (partial)
+  05-01 19:26:47.409 - 1000 - REL *job*/c.g.a.p/.PhenotypeJobService#1
+  05-01 19:26:49.884 - 1041 - ACQ AudioMix (partial)
+  05-01 19:26:49.909 - 1041 - ACQ AudioMix (partial)
+  05-01 19:26:51.252 - 1000 - ACQ *job*/c.a.i/.f.FcmRegistrationService#2 (partial)
+  05-01 19:26:51.277 - 1000 - ACQ *job*/c.a.i/.f.FcmRegistrationService#2 (partial)
+  05-01 19:26:52.158 - 1000 - REL *job*/c.a.i/.f.FcmRegistrationService#2
+  05-01 19:26:52.620 - 1000 - REL *job*/c.a.i/.f.FcmRegistrationService#2
+  05-01 19:26:52.694 - 10128 - ACQ CMWakeLock (partial)
+  05-01 19:26:52.847 - 1041 - REL AudioMix
+  05-01 19:26:52.853 - 1041 - REL AudioMix
+  05-01 19:26:55.714 - 1000 - ACQ *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705 (partial)
+  05-01 19:26:55.748 - 1000 - ACQ *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705 (partial)
+  05-01 19:26:56.690 - 1000 - REL *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705
+  05-01 19:26:56.780 - 1000 - REL *job*/c.g.a.p/.PhenotypeJobService#1
+  05-01 19:26:57.068 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:26:57.353 - 1000 - REL NetworkStats
+  05-01 19:26:58.805 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:26:58.872 - 1000 - ACQ *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707 (partial)
+  05-01 19:26:58.873 - 1000 - ACQ *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707 (partial)
+  05-01 19:26:59.113 - 1000 - REL NetworkStats
+  05-01 19:27:00.086 - 1000 - REL *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707
+  05-01 19:27:00.452 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:27:00.717 - 1000 - REL NetworkStats
+  05-01 19:27:02.004 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:27:02.079 - 1000 - ACQ *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706 (partial)
+  05-01 19:27:02.082 - 1000 - ACQ *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706 (partial)
+  05-01 19:27:02.365 - 1000 - REL NetworkStats
+  05-01 19:27:03.280 - 10131 - ACQ bugle_datamodel_executor_wakelock (partial)
+  05-01 19:27:04.006 - 1000 - REL *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706
+  05-01 19:27:04.122 - 1000 - REL *job*/c.g.a.d/c.a.v.i.s.TaskSchedulerJobService#200
+  05-01 19:27:04.279 - 1000 - ACQ NetworkStats (partial)
+  05-01 19:27:04.455 - 1000 - REL NetworkStats
+  05-01 19:27:07.452 - 1000 - ACQ *job*/c.g.a.p/.PhenotypeJobService#2 (partial)
+  05-01 19:27:07.459 - 1000 - ACQ *job*/c.g.a.p/.PhenotypeJobService#2 (partial)
+  05-01 19:27:08.332 - 1000 - REL *job*/c.g.a.p/.PhenotypeJobService#2
+  05-01 19:27:10.778 - 1000 - REL *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706
+  05-01 19:27:12.177 - 1000 - ACQ *vibrator* (partial)
+  05-01 19:27:12.577 - 1000 - REL *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707
+  05-01 19:27:13.676 - 1000 - REL *vibrator*
+  05-01 19:27:13.727 - 1000 - ACQ *vibrator* (partial)
+  05-01 19:27:13.846 - 10128 - ACQ Wakeful StateMachine: GeofencerStateMachine (partial)
+  05-01 19:27:13.940 - 10131 - REL bugle_datamodel_executor_wakelock
+  05-01 19:27:16.105 - 1000 - REL *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1070
+  05-01 19:27:17.636 - 1000 - REL *job*/c.g.a.p/.PhenotypeJobService#2
+  05-01 19:27:18.255 - 10128 - ACQ GCoreFlp (partial)
+  05-01 19:27:21.084 - 10128 - REL GCoreFlp
+  05-01 19:27:21.518 - 10128 - REL Wakeful StateMachine: GeofencerStateMachine
+  05-01 19:27:22.226 - 10168 - ACQ AmbientIndication (partial)
+  05-01 19:27:22.540 - 10128 - REL CMWakeLock
+  05-01 19:27:22.866 - 1000 - REL *vibrator*
+  05-01 19:27:22.868 - 1000 - ACQ *vibrator* (partial)
+  05-01 19:27:24.176 - 10168 - REL AmbientIndication
+  05-01 19:27:25.203 - 10128 - ACQ CMWakeLock (partial)
+  05-01 19:27:25.413 - 10128 - REL CMWakeLock
+  05-01 19:27:25.769 - 1000 - REL *vibrator*
+  05-01 19:27:25.773 - 1000 - ACQ *vibrator* (partial)
+  05-01 19:27:27.571 - 1000 - ACQ *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#119 (partial)
+  05-01 19:27:27.573 - 1000 - ACQ *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#119 (partial)
+  05-01 19:27:27.602 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:27:27.905 - 1002 - REL bluetooth_timer
+  05-01 19:27:28.329 - 1000 - REL *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#119
+  05-01 19:27:29.702 - 10128 - ACQ CMWakeLock (partial)
+  05-01 19:27:29.720 - 10128 - ACQ NlpWakeLock (partial)
+  05-01 19:27:30.775 - 1000 - REL *job*/c.g.a.c/a.w.i.b.s.SystemJobService#100075
+  05-01 19:27:31.614 - 1000 - ACQ *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#121 (partial)
+  05-01 19:27:31.695 - 1000 - ACQ *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#121 (partial)
+  05-01 19:27:31.916 - 1000 - REL *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#121
+  05-01 19:27:32.930 - 1000 - ACQ *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#122 (partial)
+  05-01 19:27:32.931 - 1000 - ACQ *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#122 (partial)
+  05-01 19:27:33.264 - 1000 - REL *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#122
+  05-01 19:27:34.102 - 1000 - REL *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#122
+  05-01 19:27:34.583 - 1000 - REL *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#121
+  05-01 19:27:35.679 - 10168 - ACQ SysUI:BroadcastSender (partial)
+  05-01 19:27:35.908 - 10168 - REL SysUI:BroadcastSender
+  05-01 19:27:35.988 - 10168 - ACQ SysUI:BroadcastSender (partial)
+  05-01 19:27:36.026 - 10168 - ACQ SysUI:BroadcastSender (partial)
+  05-01 19:27:36.853 - 10168 - REL SysUI:BroadcastSender
+  05-01 19:27:37.254 - 10168 - REL SysUI:BroadcastSender
+  05-01 19:27:38.577 - 10128 - REL NlpWakeLock
+  05-01 19:27:38.635 - 10128 - REL CMWakeLock
+  05-01 19:27:39.953 - 1000 - ACQ *location*:PsdsDownload (partial)
+  05-01 19:27:40.020 - 1000 - REL *location*:PsdsDownload
+  05-01 19:27:42.468 - 1000 - ACQ *job*/c.g.a.g/.j.ProviderCreatedJob$ProviderCreatedJobService#2000015 (partial)
+  05-01 19:27:42.516 - 1000 - ACQ *job*/c.g.a.g/.j.ProviderCreatedJob$ProviderCreatedJobService#2000015 (partial)
+  05-01 19:27:43.087 - 1000 - REL *job*/c.g.a.g/.j.ProviderCreatedJob$ProviderCreatedJobService#2000015
+  05-01 19:27:43.938 - 1000 - ACQ *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005 (partial)
+  05-01 19:27:43.998 - 1000 - ACQ *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005 (partial)
+  05-01 19:27:44.189 - 1000 - REL *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005
+  05-01 19:27:44.408 - 1000 - REL *job*/c.g.a.a.w/a.w.i.b.s.SystemJobService#119
+  05-01 19:27:44.787 - 1000 - REL *job*/c.g.a.g/.j.ProviderCreatedJob$ProviderCreatedJobService#2000015
+  05-01 19:27:45.771 - 1000 - ACQ *job*/c.g.a.g/.j.ProviderCreatedJob$ProviderCreatedJobService#2000015 (partial)
+  05-01 19:27:45.778 - 1000 - ACQ *job*/c.g.a.g/.j.ProviderCreatedJob$ProviderCreatedJobService#2000015 (partial)
+  05-01 19:27:45.940 - 1000 - REL *job*/c.g.a.g/.j.ProviderCreatedJob$ProviderCreatedJobService#2000015
+  05-01 19:27:46.279 - 1000 - REL *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005
+  05-01 19:27:47.379 - 1000 - ACQ *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005 (partial)
+  05-01 19:27:47.381 - 1000 - ACQ *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005 (partial)
+  05-01 19:27:47.429 - 1000 - REL *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005
+  05-01 19:27:47.471 - 1000 - REL *job*/c.g.a.g/.j.ProviderCreatedJob$ProviderCreatedJobService#2000015
+  05-01 19:27:49.747 - 1000 - REL *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005
+  05-01 19:27:50.575 - 10128 - ACQ CMWakeLock (partial)
+  05-01 19:27:52.719 - 1000 - ACQ *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005 (partial)
+  05-01 19:27:52.743 - 1000 - ACQ *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005 (partial)
+  05-01 19:27:52.998 - 1000 - REL *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005
+  05-01 19:27:54.073 - 1000 - ACQ *job*/c.g.a.d/c.a.v.i.s.TaskSchedulerJobService#200 (partial)
+  05-01 19:27:54.075 - 1000 - ACQ *job*/c.g.a.d/c.a.v.i.s.TaskSchedulerJobService#200 (partial)
+  05-01 19:27:54.262 - 1000 - REL *job*/c.g.a.d/c.a.v.i.s.TaskSchedulerJobService#200
+  05-01 19:27:54.385 - 1000 - ACQ *job*/c.a.p.c/.CalendarProviderJobService#134271818 (partial)
+  05-01 19:27:54.399 - 1000 - ACQ *job*/c.a.p.c/.CalendarProviderJobService#134271818 (partial)
+  05-01 19:27:54.703 - 1000 - REL *job*/c.a.p.c/.CalendarProviderJobService#134271818
+  05-01 19:27:54.719 - 1000 - REL *job*/c.g.a.a.m/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705
+  05-01 19:27:55.623 - 10168 - ACQ SysUI:BroadcastSender (partial)
+  05-01 19:27:55.705 - 10168 - ACQ SysUI:BroadcastSender (partial)
+  05-01 19:27:55.934 - 1000 - ACQ *job*/c.g.a.g/.j.GoogleMailWidgetAndShortcutSwitchJob$GoogleMailWidgetAndShortcutSwitchJobService#2000018 (partial)
+  05-01 19:27:55.935 - 1000 - ACQ *job*/c.g.a.g/.j.GoogleMailWidgetAndShortcutSwitchJob$GoogleMailWidgetAndShortcutSwitchJobService#2000018 (partial)
+  05-01 19:27:55.978 - 1000 - REL *job*/c.g.a.g/.j.GoogleMailWidgetAndShortcutSwitchJob$GoogleMailWidgetAndShortcutSwitchJobService#2000018
+  05-01 19:27:56.040 - 10128 - REL CMWakeLock
+  05-01 19:27:56.044 - 10168 - REL SysUI:BroadcastSender
+  05-01 19:27:56.136 - 10168 - ACQ SysUI:BroadcastSender (partial)
+  05-01 19:27:56.215 - 10168 - REL SysUI:BroadcastSender
+  05-01 19:27:56.484 - 10168 - REL SysUI:BroadcastSender
+  05-01 19:27:58.023 - 1000 - ACQ *job*/c.g.a.g/a.w.i.b.s.SystemJobService#555000013 (partial)
+  05-01 19:27:58.028 - 1000 - ACQ *job*/c.g.a.g/a.w.i.b.s.SystemJobService#555000013 (partial)
+  05-01 19:27:58.385 - 1000 - REL *job*/c.g.a.g/a.w.i.b.s.SystemJobService#555000013
+  05-01 19:27:59.214 - 1000 - ACQ *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#105 (partial)
+  05-01 19:27:59.256 - 1000 - ACQ *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#105 (partial)
+  05-01 19:28:00.436 - 1000 - REL *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#105
+  05-01 19:28:00.471 - 1000 - ACQ *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#102 (partial)
+  05-01 19:28:00.509 - 1000 - ACQ *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#102 (partial)
+  05-01 19:28:00.974 - 1000 - REL *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#102
+  05-01 19:28:01.487 - 10131 - ACQ SingleRegistrationCapabilityReceiver Receive broadcast -> vendor_ims_call -> WorkQueueImpl#queueWorkItemAndReturnFuture -> vendor_ims_call (partial)
+  05-01 19:28:02.028 - 1000 - REL *job*/c.a.p.c/.CalendarProviderJobService#134271818
+  05-01 19:28:02.166 - 10128 - ACQ GCoreFlp (partial)
+  05-01 19:28:02.327 - 1000 - REL *job*/c.g.a.g/c.a.m.w.NotifyDatasetChangedJob$NotifyDatasetChangedJobService#2000005
+  05-01 19:28:02.379 - 10131 - REL SingleRegistrationCapabilityReceiver Receive broadcast -> vendor_ims_call -> WorkQueueImpl#queueWorkItemAndReturnFuture -> vendor_ims_call
+  05-01 19:28:02.712 - 1000 - ACQ *job*/c.g.a.g/c.a.e.j.BootCompletedJob$BootCompletedJobService#2000021 (partial)
+  05-01 19:28:02.715 - 1000 - ACQ *job*/c.g.a.g/c.a.e.j.BootCompletedJob$BootCompletedJobService#2000021 (partial)
+  05-01 19:28:02.923 - 1000 - REL *job*/c.g.a.g/c.a.e.j.BootCompletedJob$BootCompletedJobService#2000021
+  05-01 19:28:03.015 - 10131 - ACQ PhoneBootAndPackageReplacedReceiver Receive broadcast -> ReceiverDoInBackground -> refresh_incoming_message_notifications -> WorkQueueImpl#queueWorkItemAndReturnFuture -> refresh_incoming_message_notifications (partial)
+  05-01 19:28:03.187 - 1000 - REL *alarm*
+  05-01 19:28:03.224 - 1000 - REL *job*/c.g.a.g/.j.GoogleMailWidgetAndShortcutSwitchJob$GoogleMailWidgetAndShortcutSwitchJobService#2000018
+  05-01 19:28:03.365 - 1000 - ACQ *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1072 (partial)
+  05-01 19:28:03.368 - 1000 - ACQ *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1072 (partial)
+  05-01 19:28:03.519 - 1000 - REL *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1072
+  05-01 19:28:03.778 - 10128 - ACQ Wakeful StateMachine: GeofencerStateMachine (partial)
+  05-01 19:28:04.179 - 10131 - ACQ bugle_datamodel_executor_wakelock (partial)
+  05-01 19:28:04.232 - 10131 - REL bugle_datamodel_executor_wakelock
+  05-01 19:28:04.297 - 10168 - ACQ RingtonePlayer (partial)
+  05-01 19:28:04.311 - 1000 - REL *job*/c.g.a.g/c.a.e.j.BootCompletedJob$BootCompletedJobService#2000021
+  05-01 19:28:04.646 - 1041 - ACQ AudioMix (partial)
+  05-01 19:28:04.654 - 1041 - ACQ AudioMix (partial)
+  05-01 19:28:04.789 - 1000 - ACQ *alarm* (partial)
+  05-01 19:28:04.844 - 10128 - REL GCoreFlp
+  05-01 19:28:04.880 - 10131 - REL PhoneBootAndPackageReplacedReceiver Receive broadcast -> ReceiverDoInBackground -> refresh_incoming_message_notifications -> WorkQueueImpl#queueWorkItemAndReturnFuture -> refresh_incoming_message_notifications
+  05-01 19:28:05.130 - 1000 - ACQ *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1073 (partial)
+  05-01 19:28:05.140 - 1000 - ACQ *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1073 (partial)
+  05-01 19:28:05.193 - 10131 - ACQ bugle_datamodel_executor_wakelock (partial)
+  05-01 19:28:05.297 - 10131 - REL bugle_datamodel_executor_wakelock
+  05-01 19:28:05.377 - 10128 - ACQ CMWakeLock (partial)
+  05-01 19:28:05.508 - 10128 - REL CMWakeLock
+  05-01 19:28:05.778 - 1000 - REL *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1073
+  05-01 19:28:06.032 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-353 (partial)
+  05-01 19:28:06.040 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-353 (partial)
+  05-01 19:28:06.240 - 10168 - REL RingtonePlayer
+  05-01 19:28:06.321 - 10128 - REL Wakeful StateMachine: GeofencerStateMachine
+  05-01 19:28:06.533 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-353
+  05-01 19:28:06.596 - 10147 - ACQ ChimeBroadcastReceiver (partial)
+  05-01 19:28:06.626 - 1000 - REL *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#105
+  05-01 19:28:06.831 - 10128 - ACQ GOOGLE_C2DM (partial)
+  05-01 19:28:06.836 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:28:07.030 - 1002 - REL bluetooth_timer
+  05-01 19:28:07.338 - 10128 - REL GOOGLE_C2DM
+  05-01 19:28:07.675 - 1041 - REL AudioMix
+  05-01 19:28:07.680 - 1041 - REL AudioMix
+  05-01 19:28:08.064 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705 (partial)
+  05-01 19:28:08.077 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705 (partial)
+  05-01 19:28:08.938 - 10156 - ACQ ChimeExecutorApi::com.google.android.contacts (partial)
+  05-01 19:28:09.637 - 1000 - REL *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705
+  05-01 19:28:09.987 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-237 (partial)
+  05-01 19:28:09.990 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-237 (partial)
+  05-01 19:28:10.021 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-237
+  05-01 19:28:10.094 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-369 (partial)
+  05-01 19:28:10.102 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-369 (partial)
+  05-01 19:28:10.137 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-369
+  05-01 19:28:10.700 - 10128 - ACQ GCM_CONN_ALARM (partial)
+  05-01 19:28:10.723 - 10128 - ACQ GCM_WORK (partial)
+  05-01 19:28:10.736 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:28:10.890 - 1000 - REL *alarm*
+  05-01 19:28:10.960 - 10128 - REL GCM_WORK
+  05-01 19:28:10.965 - 1000 - REL *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#102
+  05-01 19:28:10.976 - 1002 - REL bluetooth_timer
+  05-01 19:28:11.186 - 10128 - REL GCM_CONN_ALARM
+  05-01 19:28:11.479 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707 (partial)
+  05-01 19:28:11.501 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707 (partial)
+  05-01 19:28:11.578 - 1000 - REL *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707
+  05-01 19:28:11.702 - 10156 - REL ChimeExecutorApi::com.google.android.contacts
+  05-01 19:28:11.935 - 10147 - REL ChimeBroadcastReceiver
+  05-01 19:28:12.428 - 10131 - ACQ PhoneBootAndPackageReplacedReceiver Receive broadcast -> ReceiverDoInBackground -> expire_wap_push_si_message -> WorkQueueImpl#queueWorkItemAndReturnFuture -> expire_wap_push_si_message (partial)
+  05-01 19:28:13.669 - 1000 - REL *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1073
+  05-01 19:28:14.281 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.n.e.s.ScheduledTaskService#1010999 (partial)
+  05-01 19:28:14.348 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.n.e.s.ScheduledTaskService#1010999 (partial)
+  05-01 19:28:14.429 - 1000 - REL *job*/c.g.a.g/c.g.a.l.n.e.s.ScheduledTaskService#1010999
+  05-01 19:28:14.584 - 1000 - ACQ *launch* (partial)
+  05-01 19:28:14.994 - 1000 - ACQ *job*/c.g.a.g/a.w.i.b.s.SystemJobService#74 (partial)
+  05-01 19:28:15.008 - 1000 - ACQ *job*/c.g.a.g/a.w.i.b.s.SystemJobService#74 (partial)
+  05-01 19:28:15.231 - 1000 - ACQ WindowManager/displayId:0 (screen-bright,on-after-release)
+  05-01 19:28:15.254 - 1000 - REL *launch*
+  05-01 19:28:15.833 - 1000 - REL *vibrator*
+  05-01 19:28:16.384 - 1000 - REL *job*/c.g.a.g/a.w.i.b.s.SystemJobService#74
+  05-01 19:28:16.522 - 10131 - REL PhoneBootAndPackageReplacedReceiver Receive broadcast -> ReceiverDoInBackground -> expire_wap_push_si_message -> WorkQueueImpl#queueWorkItemAndReturnFuture -> expire_wap_push_si_message
+  05-01 19:28:16.895 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-141 (partial)
+  05-01 19:28:16.897 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-141 (partial)
+  05-01 19:28:17.545 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-141
+  05-01 19:28:17.847 - 1000 - REL *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1072
+  05-01 19:28:18.351 - 1000 - ACQ *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1074 (partial)
+  05-01 19:28:18.356 - 1000 - ACQ *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1074 (partial)
+  05-01 19:28:18.794 - 1000 - REL *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1074
+  05-01 19:28:19.431 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-1000044 (partial)
+  05-01 19:28:19.554 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-1000044 (partial)
+  05-01 19:28:19.661 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-1000044
+  05-01 19:28:19.988 - 1000 - REL *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707
+  05-01 19:28:20.774 - 1000 - ACQ *alarm* (partial)
+  05-01 19:28:21.194 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-191 (partial)
+  05-01 19:28:21.195 - 1000 - ACQ *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-191 (partial)
+  05-01 19:28:21.496 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-191
+  05-01 19:28:21.900 - 1000 - REL *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705
+  05-01 19:28:22.038 - 10128 - ACQ CMWakeLock (partial)
+  05-01 19:28:22.623 - 1000 - ACQ *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728 (partial)
+  05-01 19:28:22.633 - 1000 - ACQ *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728 (partial)
+  05-01 19:28:22.827 - 1000 - REL *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728
+  05-01 19:28:22.879 - 1000 - REL *job*/c.g.a.a.m/a.w.i.b.s.SystemJobService#1074
+  05-01 19:28:23.028 - 10128 - ACQ Icing (partial)
+  05-01 19:28:23.273 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707 (partial)
+  05-01 19:28:23.275 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707 (partial)
+  05-01 19:28:23.290 - 10132 - ACQ ChimeBroadcastReceiver (partial)
+  05-01 19:28:23.375 - 1000 - REL *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707
+  05-01 19:28:24.020 - 1000 - REL *job*/c.g.a.g/a.w.i.b.s.SystemJobService#74
+  05-01 19:28:24.279 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.n.e.s.ScheduledTaskService#2000010999 (partial)
+  05-01 19:28:24.283 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.n.e.s.ScheduledTaskService#2000010999 (partial)
+  05-01 19:28:24.366 - 1000 - REL *job*/c.g.a.g/c.g.a.l.n.e.s.ScheduledTaskService#2000010999
+  05-01 19:28:24.371 - 1000 - REL *job*/c.g.a.g/c.g.a.l.n.e.s.ScheduledTaskService#1010999
+  05-01 19:28:24.379 - 1000 - REL *alarm*
+  05-01 19:28:24.485 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706 (partial)
+  05-01 19:28:24.491 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706 (partial)
+  05-01 19:28:24.607 - 1000 - REL *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706
+  05-01 19:28:24.930 - 10132 - REL ChimeBroadcastReceiver
+  05-01 19:28:25.826 - 10128 - REL Icing
+  05-01 19:28:25.990 - 10128 - REL CMWakeLock
+  05-01 19:28:26.202 - 1000 - REL *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857707
+  05-01 19:28:27.408 - 1000 - ACQ *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#124 (partial)
+  05-01 19:28:27.455 - 1000 - ACQ *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#124 (partial)
+  05-01 19:28:28.201 - 1000 - REL *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#124
+  05-01 19:28:28.481 - 1000 - REL *job*/c.g.a.g/a.w.i.b.s.SystemJobService#555000013
+  05-01 19:28:28.923 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706 (partial)
+  05-01 19:28:28.936 - 1000 - ACQ *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706 (partial)
+  05-01 19:28:29.212 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:28:29.396 - 1002 - REL bluetooth_timer
+  05-01 19:28:29.544 - 1000 - REL *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706
+  05-01 19:28:29.587 - 1000 - REL *job*/c.g.a.g/c.g.a.l.n.e.s.ScheduledTaskService#2000010999
+  05-01 19:28:30.060 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705 (partial)
+  05-01 19:28:30.088 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705 (partial)
+  05-01 19:28:30.242 - 1000 - REL *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705
+  05-01 19:28:30.287 - 1000 - REL *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706
+  05-01 19:28:30.446 - 1000 - REL WindowManager/displayId:0
+  05-01 19:28:30.743 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.n.e.s.ScheduledTaskService#1010999 (partial)
+  05-01 19:28:30.749 - 1000 - ACQ *job*/c.g.a.c/c.g.a.l.n.e.s.ScheduledTaskService#1010999 (partial)
+  05-01 19:28:31.230 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:28:31.254 - 1000 - REL *job*/c.g.a.c/c.g.a.l.n.e.s.ScheduledTaskService#1010999
+  05-01 19:28:31.283 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-369
+  05-01 19:28:31.396 - 1002 - REL bluetooth_timer
+  05-01 19:28:31.854 - 10131 - ACQ bugle_datamodel_executor_wakelock (partial)
+  05-01 19:28:32.367 - 1000 - ACQ *launch* (partial)
+  05-01 19:28:33.090 - 10128 - ACQ GCoreFlp (partial)
+  05-01 19:28:33.106 - 10128 - ACQ CMWakeLock (partial)
+  05-01 19:28:33.302 - 10131 - REL bugle_datamodel_executor_wakelock
+  05-01 19:28:33.442 - 10128 - ACQ Wakeful StateMachine: GeofencerStateMachine (partial)
+  05-01 19:28:33.738 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-1000044
+  05-01 19:28:34.258 - 1000 - REL *launch*
+  05-01 19:28:34.936 - 1000 - ACQ *alarm* (partial)
+  05-01 19:28:35.284 - 1000 - REL *job*/c.g.a.g/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857706
+  05-01 19:28:35.540 - 1000 - REL *job*/c.g.a.c/c.g.a.l.n.e.s.ScheduledTaskService#1010999
+  05-01 19:28:36.012 - 1000 - REL *job*/c.g.a.a.m/.s.d.a.e.ActionJobService#124
+  05-01 19:28:36.056 - 10128 - REL GCoreFlp
+  05-01 19:28:36.932 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-141
+  05-01 19:28:37.262 - 1000 - REL *job*/c.g.a.s.i/.m.r.i.RoutinesJobIntentService#1728
+  05-01 19:28:38.089 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-237
+  05-01 19:28:39.119 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-191
+  05-01 19:28:40.083 - 1000 - REL *alarm*
+  05-01 19:28:40.533 - 1000 - REL *job*/c.g.a.g/c.g.a.a.g.t.BackgroundTasksJobService#-353
+  05-01 19:28:40.676 - 10128 - REL Wakeful StateMachine: GeofencerStateMachine
+  05-01 19:28:40.958 - 10128 - REL CMWakeLock
+  05-01 19:28:41.394 - 10128 - ACQ GOOGLE_C2DM (partial)
+  05-01 19:28:41.779 - 10128 - REL GOOGLE_C2DM
+  05-01 19:28:42.374 - 10128 - ACQ GCM_CONN_ALARM (partial)
+  05-01 19:28:42.383 - 10128 - ACQ GCM_WORK (partial)
+  05-01 19:28:42.512 - 1000 - REL *job*/c.g.a.c/c.g.a.l.i.g.g.i.j.i.GrowthKitJobService#1573857705
+  05-01 19:28:42.573 - 10128 - REL GCM_WORK
+  05-01 19:28:44.609 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 19:28:44.829 - 10128 - ACQ GCM_WORK (partial)
+  05-01 19:28:44.867 - 1002 - REL bluetooth_timer
+  05-01 19:28:45.207 - 10128 - ACQ NlpWakeLock (partial)
+  -
+  Events: 705, Time-Resets: 348
+  Buffer, Bytes used: 4897
+FaceDownDetector:
+  mFaceDown=false
+  mActive=true
+  mLastFlipTime=0
+  mSensorMaxLatencyMicros=2000000
+  mUserInteractionBackoffMillis=60000
+  mPreviousResultTime=0
+  mPreviousResultType=1
+  mMillisSaved=0
+  mZAccelerationThreshold=-9.5
+  mAccelerationThreshold=0.2
+  mTimeThreshold=PT1S
+AmbientDisplaySuppressionController:
+ ambientDisplaySuppressed=false
+ mSuppressionTokens={}
+
+Low Power Standby Controller:
+  mIsActive=false
+  mIsEnabled=false
+  mSupportedConfig=false
+  mEnabledByDefaultConfig=false
+  mStandbyTimeoutConfig=0
+  mEnableCustomPolicy=false
+  Allowed UIDs=[]
+  
+  UID allowed reasons:

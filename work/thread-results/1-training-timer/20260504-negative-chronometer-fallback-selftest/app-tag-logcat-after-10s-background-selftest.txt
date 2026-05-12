@@ -1,0 +1,17 @@
+﻿--------- beginning of main
+05-04 22:44:13.635 I/RestTimerAlert(20502): Canceling continuous rest-finished vibration
+05-04 22:44:13.649 I/RestTimerAlarmScheduler(20502): Scheduling rest finish receiver alarm for timer 101 elapsed=2146484177 wall=1777905863638
+05-04 22:44:13.650 I/RestTimerAlarmScheduler(20502): Scheduling rest finish receiver alarm for timer 101 elapsed=2146484177 wall=1777905863638
+05-04 22:44:13.652 I/RestTimerAlarmScheduler(20502): Scheduled exact elapsed rest finish alarm for timer 101
+05-04 22:44:13.652 I/RestTimerAlarmScheduler(20502): Scheduled exact elapsed rest finish alarm for timer 101
+05-04 22:44:13.653 I/RestTimerAlarmScheduler(20502): Scheduled alarm clock backup rest finish alarm for timer 101
+05-04 22:44:13.653 I/RestTimerAlarmScheduler(20502): Scheduled rest finish receiver alarm for timer 101
+05-04 22:44:13.657 I/RestTimerAlarmScheduler(20502): Scheduled alarm clock backup rest finish alarm for timer 101
+05-04 22:44:13.657 I/RestTimerAlarmScheduler(20502): Scheduled rest finish receiver alarm for timer 101
+05-04 22:44:13.677 I/RestTimerAlert(20502): Canceling continuous rest-finished vibration
+05-04 22:44:24.141 I/RestTimerService(20502): Countdown fallback dispatching rest finish for timer 101
+05-04 22:44:24.151 I/RestTimerAlarmScheduler(20502): Dispatched rest finish through receiver for timer 101
+05-04 22:44:24.169 I/RestTimerReceiver(20502): Received rest finish alarm for timer 101
+05-04 22:44:24.173 I/RestTimerAlarmScheduler(20502): Cancelled rest finish receiver alarm requestCode=13
+05-04 22:44:24.178 I/RestTimerAlarmScheduler(20502): Cancelled rest finish receiver alarm requestCode=15
+05-04 22:44:24.202 I/RestTimerAlert(20502): Starting continuous rest-finished vibration

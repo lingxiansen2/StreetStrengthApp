@@ -1,0 +1,4 @@
+﻿List of devices attached
+97257126520013         device product:sprdtrum model:sprdisk device:spxxxx transport_id:1
+bbc478f4               device product:PKG110 model:PKG110 device:OP5D2BL1 transport_id:2
+

@@ -1,0 +1,2 @@
+﻿Starting AVD StreetStrengthApi34 on emulator-5584
+Emulator process id: 30048

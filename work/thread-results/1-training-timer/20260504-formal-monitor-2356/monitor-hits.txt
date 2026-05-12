@@ -1,0 +1,30 @@
+﻿--- 23:55:57 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+--- 23:56:02 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+--- 23:56:07 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+--- 23:56:12 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+--- 23:56:18 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+--- 23:56:23 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+--- 23:56:28 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+--- 23:56:33 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+--- 23:56:38 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+--- 23:56:44 ---
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110

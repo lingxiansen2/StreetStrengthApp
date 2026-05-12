@@ -1,0 +1,29 @@
+﻿--------- beginning of main
+05-05 00:02:30.214 I/RestTimerAlarmScheduler( 7021): Dispatched rest finish through receiver for timer 110
+05-05 00:02:30.218 I/StreetStrengthApp( 7021): Dispatching expired persisted rest timer 110 from app watchdog
+05-05 00:02:30.220 I/RestTimerAlarmScheduler( 7021): Dispatched rest finish through receiver for timer 110
+05-05 00:02:30.290 I/RestTimerReceiver( 7021): Received rest finish alarm for timer 110
+05-05 00:02:30.291 I/RestTimerAlarmScheduler( 7021): Cancelled rest finish receiver alarm requestCode=13
+05-05 00:02:30.323 I/RestTimerService( 7021): Started rest finish service for timer 110 from alarm
+05-05 00:02:30.327 I/RestTimerService( 7021): onStartCommand action=com.codex.streetstrength.timer.FINISH startId=1
+05-05 00:02:30.333 I/RestTimerAlert( 7021): Starting continuous rest-finished vibration
+05-05 00:02:30.337 I/RestTimerReceiver( 7021): Received rest finish alarm for timer 110
+05-05 00:02:30.343 I/RestTimerService( 7021): Started rest finish service for timer 110 from alarm
+05-05 00:02:30.344 I/RestTimerService( 7021): onStartCommand action=com.codex.streetstrength.timer.FINISH startId=2
+05-05 00:02:31.763 I/RestTimerAlert( 7021): Canceling continuous rest-finished vibration
+05-05 00:02:31.771 I/RestTimerAlert( 7021): Canceling continuous rest-finished vibration
+05-05 00:02:31.775 I/RestTimerAlarmScheduler( 7021): Scheduling rest finish receiver alarm for timer 111 elapsed=2151182303 wall=1777910561765
+05-05 00:02:31.776 I/StreetStrengthApp( 7021): Scheduling persisted rest timer 111 from app watchdog
+05-05 00:02:31.777 I/RestTimerAlarmScheduler( 7021): Scheduled exact elapsed rest finish alarm for timer 111
+05-05 00:02:31.777 I/RestTimerAlarmScheduler( 7021): Cancelled rest finish receiver alarm requestCode=13
+05-05 00:02:31.778 I/RestTimerAlarmScheduler( 7021): Scheduled alarm clock backup rest finish alarm for timer 111
+05-05 00:02:31.778 I/RestTimerAlarmScheduler( 7021): Scheduled rest finish receiver alarm for timer 111
+05-05 00:02:31.780 I/RestTimerAlarmScheduler( 7021): Cancelled rest finish receiver alarm requestCode=15
+05-05 00:02:31.781 I/RestTimerAlarmScheduler( 7021): Scheduling rest finish receiver alarm for timer 111 elapsed=2151182303 wall=1777910561765
+05-05 00:02:31.781 I/RestTimerAlarmScheduler( 7021): Scheduled exact elapsed rest finish alarm for timer 111
+05-05 00:02:31.789 I/RestTimerAlarmScheduler( 7021): Scheduled alarm clock backup rest finish alarm for timer 111
+05-05 00:02:31.789 I/RestTimerAlarmScheduler( 7021): Scheduled rest finish receiver alarm for timer 111
+05-05 00:02:31.796 I/RestTimerService( 7021): onStartCommand action=com.codex.streetstrength.timer.START startId=1
+05-05 00:02:31.796 I/RestTimerAlert( 7021): Canceling continuous rest-finished vibration
+05-05 00:02:31.797 I/RestTimerService( 7021): Acquired rest timer wake lock for 69968ms
+05-05 00:02:31.797 I/RestTimerService( 7021): Starting rest timer 111 remaining=9968ms

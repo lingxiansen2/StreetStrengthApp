@@ -6,13 +6,7 @@
             android:name=".timer.RestReminderSelfTestActivity"
             android:exported="true"
             android:label="休息提醒自测"
-            android:theme="@style/Theme.StreetStrength">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.StreetStrength" />
     </application>
 
 </manifest>

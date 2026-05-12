@@ -11,7 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.LaunchedEffect
 import androidx.core.content.ContextCompat
-import com.codex.streetstrength.timer.RestTimerAlert
+import com.codex.streetstrength.timer.RestTimerController
 import com.codex.streetstrength.timer.RestTimerService
 import com.codex.streetstrength.ui.StreetStrengthRoot
 import com.codex.streetstrength.ui.theme.StreetStrengthTheme
@@ -52,9 +52,9 @@ class MainActivity : ComponentActivity() {
 
     private fun handleLaunchIntent(intent: Intent?) {
         if (RestTimerService.shouldStopAlertFromIntent(intent)) {
-            RestTimerAlert.stop(this)
-            RestTimerService.stop(this)
+            RestTimerController.stopRestAlert(this, RestTimerService.stopAlertTimerIdFromIntent(intent))
             intent?.removeExtra(RestTimerService.EXTRA_STOP_ALERT)
+            intent?.removeExtra(RestTimerService.EXTRA_TIMER_ID)
         }
     }
 }

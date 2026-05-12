@@ -52,8 +52,9 @@ class MainActivity : ComponentActivity() {
 
     private fun handleLaunchIntent(intent: Intent?) {
         if (RestTimerService.shouldStopAlertFromIntent(intent)) {
-            RestTimerController.stopRestAlert(this)
+            RestTimerController.stopRestAlert(this, RestTimerService.stopAlertTimerIdFromIntent(intent))
             intent?.removeExtra(RestTimerService.EXTRA_STOP_ALERT)
+            intent?.removeExtra(RestTimerService.EXTRA_TIMER_ID)
         }
     }
 }

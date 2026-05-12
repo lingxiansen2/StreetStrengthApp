@@ -1,0 +1,166 @@
+﻿  Settings:
+    flex_time_short=+1m0s0ms
+    light_after_inactive_to=+4m0s0ms
+    light_idle_to=+5m0s0ms
+    light_idle_to_initial_flex=+1m0s0ms
+    light_max_idle_to_flex=+15m0s0ms
+    light_idle_factor=2.0
+    light_max_idle_to=+15m0s0ms
+    light_idle_maintenance_min_budget=+1m0s0ms
+    light_idle_maintenance_max_budget=+5m0s0ms
+    min_light_maintenance_time=+5s0ms
+    min_deep_maintenance_time=+30s0ms
+    inactive_to=+30m0s0ms
+    sensing_to=+4m0s0ms
+    locating_to=+30s0ms
+    location_accuracy=20.0m
+    motion_inactive_to=+10m0s0ms
+    motion_inactive_to_flex=+1m0s0ms
+    idle_after_inactive_to=+30m0s0ms
+    idle_pending_to=+5m0s0ms
+    max_idle_pending_to=+10m0s0ms
+    idle_pending_factor=2.0
+    quick_doze_delay_to=+1m0s0ms
+    idle_to=+1h0m0s0ms
+    max_idle_to=+6h0m0s0ms
+    idle_factor=2.0
+    min_time_to_alarm=+1h0m0s0ms
+    max_temp_app_allowlist_duration_ms=+5m0s0ms
+    mms_temp_app_allowlist_duration_ms=+1m0s0ms
+    sms_temp_app_allowlist_duration_ms=+20s0ms
+    notification_allowlist_duration_ms=+30s0ms
+    wait_for_unlock=true
+    pre_idle_factor_long=1.67
+    pre_idle_factor_short=0.33
+    use_window_alarms=true
+  Whitelist (except idle) system apps:
+    com.android.providers.calendar
+    com.android.providers.downloads
+    com.android.vending
+    com.android.cellbroadcastreceiver
+    com.google.android.gms
+    com.android.proxyhandler
+    com.android.imsserviceentitlement
+    com.android.shell
+    com.android.emergency
+    com.google.android.cellbroadcastreceiver
+    com.android.providers.contacts
+  Whitelist system apps:
+    com.android.providers.calendar
+    com.android.providers.downloads
+    com.android.cellbroadcastreceiver
+    com.google.android.gms
+    com.android.shell
+    com.android.emergency
+    com.google.android.cellbroadcastreceiver
+  Whitelist (except idle) all app ids:
+    2000
+    10083
+    10086
+    10088
+    10092
+    10094
+    10117
+    10128
+    10134
+    10166
+    10181
+  Whitelist all app ids:
+    2000
+    10086
+    10088
+    10092
+    10128
+    10166
+    10181
+  Temp whitelist schedule:
+    UID=1000: +15s494ms - bb3961a android.bluetooth.adapter.action.LOCAL_NAME_CHANGED/u-1
+    UID=1001: +13s658ms - aed021b android.intent.action.LOCKED_BOOT_COMPLETED/u0
+    UID=2000: +15s765ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10086: +14s805ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10088: +15s387ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10093: +16s782ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10099: +15s74ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10116: +8s515ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10117: +14s410ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10118: +17s941ms - 3ae301f Intent { flg=0x10 cmp=com.google.android.settings.intelligence/.modules.routines.impl.WifiBroadcastReceiver (has extras) }/u0
+    UID=10119: +18s211ms - aed021b android.intent.action.LOCKED_BOOT_COMPLETED/u0
+    UID=10123: +17s685ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10124: +17s524ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10125: +12s262ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10127: +15s986ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10128: +16s201ms - 319da42 android.intent.action.TIME_SET/u-1
+    UID=10129: +16s441ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10130: +14s119ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10131: +15s115ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10132: +18s639ms - MediaSessionRecord:android.support.v4.media.session.command.GET_EXTRA_BINDER
+    UID=10139: +18s297ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10142: +16s474ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10145: +13s911ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10147: +17s750ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10149: +17s817ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10153: +15s984ms - 319da42 android.intent.action.TIME_SET/u-1
+    UID=10155: +15s696ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10156: +17s640ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10162: +15s527ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10168: +13s759ms - 4176416 android.bluetooth.adapter.action.STATE_CHANGED/u-1
+    UID=10178: +16s234ms - aed021b android.intent.action.LOCKED_BOOT_COMPLETED/u0
+    UID=10181: +14s538ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10182: +17s668ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10184: +17s828ms - 319da42 android.intent.action.TIME_SET/u-1
+    UID=10191: +17s856ms - 101058a android.intent.action.BOOT_COMPLETED/u0
+    UID=10192: +9s257ms - 25304d9 com.codex.streetstrength.timer.FINISH/u0
+  Temp whitelist app ids:
+    1000
+    1001
+    2000
+    10086
+    10088
+    10093
+    10099
+    10116
+    10117
+    10118
+    10119
+    10123
+    10124
+    10125
+    10127
+    10128
+    10129
+    10130
+    10131
+    10132
+    10139
+    10142
+    10145
+    10147
+    10149
+    10153
+    10155
+    10156
+    10162
+    10168
+    10178
+    10181
+    10182
+    10184
+    10191
+    10192
+  mLightEnabled=true  mDeepEnabled=true
+  mForceIdle=false
+  mUseMotionSensor=true mMotionSensor=null
+  mScreenOn=true
+  mScreenLocked=false
+  mNetworkConnected=true
+  mCharging=true
+  activeEmergencyCall=false
+  mMotionActive=false
+  mNotMoving=false
+  mMotionListener.activatedTimeElapsed=0
+  mLastMotionEventElapsed=0
+  3 stationary listeners registered
+  mLocating=false mHasGps=false mHasFused=false mLocated=false
+  mState=ACTIVE mLightState=ACTIVE
+  mInactiveTimeout=+30m0s0ms
+  mJobsActive=true

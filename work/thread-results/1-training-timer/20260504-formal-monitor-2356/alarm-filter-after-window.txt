@@ -1,0 +1,152 @@
+﻿
+      Force all apps standby for small battery device: false
+      Plugged In: true
+>     Active uids: [u0a88 u0a93 u0a94 u0a104 u0a112 u0a117 u0a120 u0a122 u0a123 u0a135 u0a140 u0a155 u0a156 u0a177 u0a1
+97 u0a204 u0a206 u0a208 u0a212 u0a218 u0a223 u0a224 u0a245 u0a247 u0a249 u0a256 u0a259 u0a270 u0a284 u0a289 u0a326 u0a3
+46 u0a380 u0a421 u0a427 u0a428 u999a259 u999a284]
+      Except-idle + user exemption list appids: [1000, 1001, 2000, 10061, 10063, 10065, 10070, 10094, 10105, 10106, 101
+08, 10120, 10121, 10123, 10127, 10128, 10140, 10158, 10161, 10178, 10185, 10188, 10190, 10194, 10203, 10217, 10223, 102
+40, 10258, 10259, 10264, 10273, 10289, 10291, 10296, 10297, 10298, 10300, 10304, 10305, 10311, 10332, 10336, 10339, 103
+45, 10346]
+      User exemption list appids: [1000, 10094, 10105, 10106, 10108, 10121, 10123, 10127, 10128, 10158, 10161, 10178, 1
+0185, 10188, 10190, 10194, 10217, 10240, 10259, 10296, 10297, 10298, 10300, 10304, 10305, 10311, 10332, 10336, 10339, 1
+0345, 10346]
+      Temp exemption list appids: []
+      Exempted bucket packages:
+    App ids requesting SCHEDULE_EXACT_ALARM: {1000, 1001, 2000, 10094, 10100, 10104, 10108, 10110, 10120, 10121, 10124,
+ 10134, 10136, 10146, 10159, 10160, 10163, 10170, 10187, 10188, 10190, 10195, 10198, 10203, 10217, 10240, 10243, 10245,
+ 10247, 10298, 10301, 10302, 10303, 10304, 10305, 10308, 10309, 10310, 10313, 10316, 10318, 10322, 10326, 10332, 10336,
+ 10340, 10343, 10344, 10346, 10348, 10350, 10352, 10355, 10358, 10360, 10361, 10367, 10375, 10378, 10380, 10381, 10385,
+ 10387, 10390, 10395, 10397, 10419, 10421, 10424}
+    
+>   Last OP_SCHEDULE_EXACT_ALARM: [1000:allow, 1001:default, 2000:default, u0a94:default, u0a100:default, u0a104:defaul
+t, u0a108:default, u0a110:default, u0a120:default, u0a121:default, u0a124:default, u0a134:default, u0a136:default, u0a1
+46:default, u0a159:default, u0a160:default, u0a163:default, u0a170:default, u0a187:default, u0a188:default, u0a190:defa
+ult, u0a195:default, u0a198:default, u0a203:default, u0a217:default, u0a240:default, u0a243:default, u0a245:default, u0
+a247:default, u0a298:default, u0a301:default, u0a302:default, u0a303:default, u0a304:default, u0a305:default, u0a308:de
+fault, u0a309:default, u0a310:default, u0a313:default, u0a316:default, u0a318:default, u0a322:default, u0a326:default, 
+u0a332:default, u0a336:default, u0a340:default, u0a343:default, u0a344:default, u0a346:default, u0a348:default, u0a350:
+default, u0a352:default, u0a355:default, u0a358:default, u0a360:default, u0a361:default, u0a367:default, u0a375:default
+, u0a378:default, u0a380:default, u0a381:default, u0a385:default, u0a387:default, u0a390:default, u0a395:default, u0a39
+7:default, u0a421:allow, u999s1000:allow, u999a332:default]
+    
+    Next alarm clock information: 
+      user:0 pendingSend:false time:1777910216353 = 2026-05-04 23:56:56.353 = -1m17s99ms
+    
+        whenElapsed=+2d23h56m10s776ms maxWhenElapsed=+2d23h56m10s776ms
+        operation=PendingIntent{55ce1ee: PendingIntentRecord{ea6015 com.tencent.qqmusic broadcastIntent}}
+>     ELAPSED_WAKEUP #168: Alarm{176e68f type 2 origWhen 2150836891 whenElapsed 2410036891 com.codex.streetstrength} ui
+d 10421 whenElapsed 2410036891 windowLength 134976 maxWhenElapsed 2410036891 repeatInterval 0 action com.codex.streetst
+rength.timer.FINISH component ComponentInfo{com.codex.streetstrength/com.codex.streetstrength.timer.RestTimerReceiver} 
+flags 0x4 procName com.codex.streetstrength
+>       tag=*walarm*:com.codex.streetstrength.timer.FINISH
+        type=ELAPSED_WAKEUP origWhen=-1m17s100ms window=+2m14s976ms exactAllowReason=policy_permission repeatInterval=0
+ count=0 flags=0x4
+        policyWhenElapsed: requester=-1m17s100ms app_standby=-4m17s68ms device_idle=-- battery_saver=-4m17s68ms adjustm
+ent=+2d23h58m42s900ms
+        whenElapsed=+2d23h58m42s900ms maxWhenElapsed=+2d23h58m42s900ms
+>       operation=PendingIntent{b79ed1c: PendingIntentRecord{8d0ad25 com.codex.streetstrength broadcastIntent}}
+        idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlist
+ReasonCode=302, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, 
+android:broadcast.temporaryAppAllowlistType=0, android:broadcast.flags=8}]
+>     RTC_WAKEUP #169: Alarm{5392efa type 0 origWhen 1777910216353 whenElapsed 2410036891 com.codex.streetstrength} uid
+ 10421 whenElapsed 2410036891 windowLength 0 maxWhenElapsed 2410036891 repeatInterval 0 action com.codex.streetstrength
+.timer.FINISH component ComponentInfo{com.codex.streetstrength/com.codex.streetstrength.timer.RestTimerReceiver} flags 
+0x9 procName com.codex.streetstrength
+>       tag=*walarm*:com.codex.streetstrength.timer.FINISH
+        type=RTC_WAKEUP origWhen=2026-05-04 23:56:56.353 window=0 exactAllowReason=policy_permission repeatInterval=0 c
+ount=0 flags=0x9
+        policyWhenElapsed: requester=-1m17s100ms app_standby=-4m17s65ms device_idle=-- battery_saver=-- adjustment=+2d2
+3h58m42s900ms
+        whenElapsed=+2d23h58m42s900ms maxWhenElapsed=+2d23h58m42s900ms
+        Alarm clock:
+          triggerTime=2026-05-04 23:56:56.353
+>         showIntent=PendingIntent{5055cab: PendingIntentRecord{cc6bf08 com.codex.streetstrength startActivity}}
+>       operation=PendingIntent{703f6a1: PendingIntentRecord{35b40c6 com.codex.streetstrength broadcastIntent}}
+        idle-options=Bundle[{android.pendingIntent.backgroundActivityAllowed=2, android:broadcast.temporaryAppAllowlist
+ReasonCode=301, android:broadcast.temporaryAppAllowlistDuration=10000, android:broadcast.temporaryAppAllowlistReason=, 
+android:broadcast.temporaryAppAllowlistType=0, android:broadcast.flags=8}]
+      RTC #170: Alarm{41d6c4e type 1 origWhen 1777910400000 whenElapsed 2410220539 com.google.android.gms} uid 10259 wh
+enElapsed 2410220539 windowLength 3600000 maxWhenElapsed 2410220539 repeatInterval 0 action com.google.android.gms.remi
+nders.notification.ACTION_REFRESH_TIME_REMINDERS component ComponentInfo{com.google.android.gms/com.google.android.gms.
+chimera.GmsIntentOperationService} flags 0x8 procName com.google.android.gms
+        tag=*alarm*:com.google.android.gms.reminders.notification.ACTION_REFRESH_TIME_REMINDERS
+        type=RTC origWhen=2026-05-05 00:00:00.000 window=+1h0m0s0ms exactAllowReason=allow-listed repeatInterval=0 coun
+t=0 flags=0x8
+      none
+    
+>   Pending alarms per uid: [1000:2, 1001:3, 1027:1, u0a92:2, u0a94:1, u0a108:3, u0a117:47, u0a120:3, u0a134:7, u0a135:
+1, u0a136:1, u0a139:1, u0a170:1, u0a187:4, u0a188:1, u0a203:2, u0a208:2, u0a218:5, u0a249:1, u0a259:14, u0a297:9, u0a29
+8:1, u0a301:2, u0a304:1, u0a316:1, u0a326:5, u0a345:3, u0a346:2, u0a352:1, u0a380:7, u0a421:2, u999a259:7]
+    
+    Scheduled user wakeups:
+      User wakeup store file path: /data/system/alarms/usersWithAlarmClocks.xml
+      0 user wakeups scheduled: 
+            type=RTC_WAKEUP tag=*walarm*:com.taobao.accs.intent.action.COMMAND 
+            policyWhenElapsed: requester=-12d20h45m58s162ms app_standby=-12d20h50m28s157ms device_idle=-12d11h58m50s324
+ms battery_saver=-12d20h50m27s106ms adjustment=-9d20h45m58s162ms
+>     u0a421:
+        #1: Reason=alarm_cancelled elapsed=-4m17s71ms rtc=2026-05-04 23:53:56.382
+          Snapshot:
+>           type=RTC_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-1m17s99ms app_standby=-4m17s87ms device_idle=-- battery_saver=-- adjustment=-
+-
+        #2: Reason=alarm_cancelled elapsed=-4m17s74ms rtc=2026-05-04 23:53:56.378
+          Snapshot:
+>           type=ELAPSED_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-1m17s100ms app_standby=-4m17s93ms device_idle=-- battery_saver=-4m17s93ms adj
+ustment=--
+        #3: Reason=alarm_cancelled elapsed=-23m52s448ms rtc=2026-05-04 23:34:21.005
+          Snapshot:
+>           type=ELAPSED_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-25m39s554ms app_standby=-28m39s527ms device_idle=-- battery_saver=-28m39s527m
+s adjustment=--
+        #4: Reason=alarm_cancelled elapsed=-28m39s528ms rtc=2026-05-04 23:29:33.925
+          Snapshot:
+>           type=RTC_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-25m39s553ms app_standby=-28m39s548ms device_idle=-- battery_saver=-- adjustme
+nt=--
+        #5: Reason=alarm_cancelled elapsed=-28m39s529ms rtc=2026-05-04 23:29:33.923
+          Snapshot:
+>           type=ELAPSED_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-25m39s554ms app_standby=-28m39s550ms device_idle=-- battery_saver=-28m39s550m
+s adjustment=--
+        #6: Reason=alarm_cancelled elapsed=-29m53s680ms rtc=2026-05-04 23:28:19.772
+          Snapshot:
+>           type=RTC_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-29m43s694ms app_standby=-29m53s681ms device_idle=-- battery_saver=-- adjustme
+nt=--
+        #7: Reason=alarm_cancelled elapsed=-29m53s682ms rtc=2026-05-04 23:28:19.771
+          Snapshot:
+>           type=ELAPSED_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-29m43s694ms app_standby=-29m53s683ms device_idle=-- battery_saver=-29m53s683m
+s adjustment=--
+        #8: Reason=alarm_cancelled elapsed=-39m39s244ms rtc=2026-05-04 23:18:34.209
+          Snapshot:
+>           type=RTC_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-36m39s270ms app_standby=-39m39s262ms device_idle=-- battery_saver=-- adjustme
+nt=--
+        #9: Reason=alarm_cancelled elapsed=-39m39s246ms rtc=2026-05-04 23:18:34.207
+          Snapshot:
+>           type=ELAPSED_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-36m39s270ms app_standby=-39m39s266ms device_idle=-- battery_saver=-39m39s266m
+s adjustment=--
+        #10: Reason=alarm_cancelled elapsed=-49m59s353ms rtc=2026-05-04 23:08:14.100
+          Snapshot:
+>           type=RTC_WAKEUP tag=*walarm*:com.codex.streetstrength.timer.FINISH 
+            policyWhenElapsed: requester=-46m59s376ms app_standby=-49m59s368ms device_idle=-- battery_saver=-- adjustme
+nt=--
+      u0a424:
+        #1: Reason=pi_cancelled elapsed=-8d7h22m49s617ms rtc=2026-04-26 16:35:22.813
+          Snapshot:
+      +734ms 0 wakes 9 alarms, last -32m10s762ms:
+        *alarm*:com.tencent.qqmusic_KcSdk-Main_action.ka.cl
+>   u0a421:com.codex.streetstrength +31ms running, 1 wakeups:
+      +31ms 1 wakes 1 alarms, last -23m52s456ms:
+>       *walarm*:com.codex.streetstrength.timer.FINISH
+    u999a259:com.google.android.gms +7s867ms running, 1 wakeups:
+      +4s146ms 0 wakes 20 alarms, last -5h29m15s949ms:
+        *alarm*:CMAlarm
+      +2s768ms 0 wakes 82 alarms, last -2h45m44s660ms:
+
+

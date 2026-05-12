@@ -40,10 +40,10 @@ class RestTimerService : Service() {
     private val systemNotificationManager by lazy { getSystemService(NotificationManager::class.java) }
 
     private var countdownJob: Job? = null
-    private var prepareTimeoutJob: Job? = null
     private var wakeLock: PowerManager.WakeLock? = null
     private var stopRequested = false
-    private var preparedWithoutTimer = false
+    private var activeTimerId: Long? = null
+    private var finishedAlertTimerId: Long? = null
 
     @Volatile
     private var isFinishingTimer = false
@@ -58,14 +58,6 @@ class RestTimerService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.i(TAG, "onStartCommand action=${intent?.action ?: "RESTORE"} startId=$startId")
         when (intent?.action) {
-            ACTION_PREPARE -> {
-                val endAtWallClockMs = intent.getLongExtra(EXTRA_END_AT_WALL_CLOCK_MS, -1L)
-                prepareTimer(
-                    endAtWallClockMs = endAtWallClockMs.takeIf { it > 0L }
-                        ?: System.currentTimeMillis() + PREPARE_TIMEOUT_MS,
-                )
-            }
-
             ACTION_START -> {
                 val timerId = intent.getLongExtra(EXTRA_TIMER_ID, -1L)
                 val endElapsedMs = intent.getLongExtra(EXTRA_END_ELAPSED_MS, -1L)
@@ -88,36 +80,26 @@ class RestTimerService : Service() {
                     stopSelf()
                     return START_NOT_STICKY
                 }
+                if (RestTimerAlert.isStopRequested(this, timerId)) {
+                    Log.i(TAG, "Ignoring service finish for stopped timer $timerId")
+                    stopTimerService()
+                    return START_NOT_STICKY
+                }
+                runCatching { startFinishedAlert(timerId, vibrate = false) }
+                    .onFailure { Log.w(TAG, "Failed to promote finish service before state check: $timerId", it) }
                 serviceScope.launch { finishTimer(timerId) }
             }
 
-            ACTION_STOP -> stopTimerService()
+            ACTION_STOP -> {
+                val timerId = intent.getLongExtra(EXTRA_TIMER_ID, -1L).takeIf { it > 0L }
+                Log.i(TAG, "Received rest timer service stop action timerId=${timerId ?: "unknown"}")
+                RestTimerAlert.stop(this, timerId)
+                stopTimerService()
+            }
 
             else -> restoreLatestActiveTimer()
         }
         return START_STICKY
-    }
-
-    private fun prepareTimer(endAtWallClockMs: Long) {
-        resetForNewTimer(cancelPersistentAlarm = false)
-        stopRequested = false
-        preparedWithoutTimer = true
-        acquireTimerWakeLock(PREPARE_TIMEOUT_MS + WAKE_LOCK_GRACE_MS)
-        Log.i(TAG, "Preparing rest timer service")
-        ServiceCompat.startForeground(
-            this,
-            NOTIFICATION_ID_FOREGROUND,
-            buildRunningNotification(endAtWallClockMs),
-            foregroundServiceTypeCompat(),
-        )
-        prepareTimeoutJob?.cancel()
-        prepareTimeoutJob = timerScope.launch {
-            delay(PREPARE_TIMEOUT_MS)
-            if (preparedWithoutTimer && !stopRequested) {
-                Log.w(TAG, "Prepared rest timer service timed out before timer start")
-                stopTimerService()
-            }
-        }
     }
 
     private fun startTimer(
@@ -125,12 +107,18 @@ class RestTimerService : Service() {
         endElapsedMs: Long,
         endAtWallClockMs: Long,
     ) {
+        RestTimerAlert.clearStopRequest(this, timerId)
         resetForNewTimer(cancelPersistentAlarm = false)
         stopRequested = false
-        preparedWithoutTimer = false
+        activeTimerId = timerId
+        finishedAlertTimerId = null
         val remaining = (endElapsedMs - SystemClock.elapsedRealtime()).coerceAtLeast(0L)
         acquireTimerWakeLock(remaining + WAKE_LOCK_GRACE_MS)
-        Log.i(TAG, "Starting rest timer $timerId remaining=${remaining}ms")
+        Log.i(
+            TAG,
+            "Starting rest timer timerId=$timerId source=service-start remaining=${remaining}ms " +
+                "endElapsedRealtimeMs=$endElapsedMs endAtWallClockMs=$endAtWallClockMs",
+        )
         ServiceCompat.startForeground(
             this,
             NOTIFICATION_ID_FOREGROUND,
@@ -149,7 +137,12 @@ class RestTimerService : Service() {
             val timer = runCatching { repository.getLatestActiveRestTimer() }.getOrNull()
             when {
                 timer == null -> stopSelf()
-                timer.state == TimerState.FIRED -> startFinishedAlert()
+                timer.state == TimerState.FIRED -> {
+                    Log.i(TAG, "Restoring already fired timer ${timer.id}; refreshing notification without vibration")
+                    if (!startFinishedAlert(timer.id, vibrate = false)) {
+                        stopTimerService()
+                    }
+                }
                 timer.endElapsedRealtimeMs <= SystemClock.elapsedRealtime() -> dispatchFinishThroughReceiver(timer.id)
                 else -> startTimer(
                     timerId = timer.id,
@@ -191,39 +184,82 @@ class RestTimerService : Service() {
     }
 
     private suspend fun finishTimer(timerId: Long) {
-        if (!markTimerAsFinishing()) return
+        if (!markTimerAsFinishing(timerId)) return
         cancelPersistentAlarm()
         countdownJob?.cancel()
         releaseTimerWakeLock()
-        val alertStarted = runCatching { startFinishedAlert() }
+        activeTimerId = timerId
+        val timerState = runCatching { repository.getRestTimer(timerId)?.state }
+            .onFailure { Log.w(TAG, "Failed to inspect rest timer state before finish: $timerId", it) }
+            .getOrNull()
+        if (timerState == TimerState.CANCELLED || timerState == null) {
+            Log.i(TAG, "Skipping finished alert for inactive timer $timerId state=$timerState")
+            stopTimerService()
+            return
+        }
+        val shouldStartVibration = when (timerState) {
+            TimerState.RUNNING -> runCatching { repository.markRestTimerFiredIfRunning(timerId) }
+                .onSuccess { claimed ->
+                    Log.i(
+                        TAG,
+                        "Service finish claim timerId=$timerId state=$timerState source=service claimed=$claimed",
+                    )
+                }
+                .onFailure { Log.w(TAG, "Failed to claim rest timer before service alert: $timerId", it) }
+                .getOrDefault(true)
+            TimerState.FIRED -> {
+                Log.i(TAG, "Timer $timerId already fired before service finish; refreshing notification only")
+                false
+            }
+            else -> false
+        }
+        val alertStarted = runCatching { startFinishedAlert(timerId, vibrate = shouldStartVibration) }
             .onFailure {
                 Log.w(TAG, "Failed to start finished alert for timer: $timerId", it)
                 stopTimerService()
             }
-            .isSuccess
-        if (!alertStarted) return
-        runCatching { repository.markRestTimerFired(timerId) }
-            .onFailure { Log.w(TAG, "Failed to mark rest timer as fired: $timerId", it) }
+            .getOrDefault(false)
+        if (!alertStarted) {
+            stopTimerService()
+            return
+        }
     }
 
-    private fun markTimerAsFinishing(): Boolean {
-        if (isFinishingTimer) return false
+    private fun markTimerAsFinishing(timerId: Long): Boolean {
+        if (isFinishingTimer) {
+            Log.i(TAG, "Duplicate service finish ignored timerId=$timerId activeTimerId=${activeTimerId ?: "unknown"}")
+            return false
+        }
         synchronized(this) {
-            if (isFinishingTimer) return false
+            if (isFinishingTimer) {
+                Log.i(TAG, "Duplicate service finish ignored timerId=$timerId activeTimerId=${activeTimerId ?: "unknown"}")
+                return false
+            }
             isFinishingTimer = true
+            activeTimerId = timerId
         }
         return true
     }
 
     @SuppressLint("MissingPermission")
-    private fun startFinishedAlert() {
+    private fun startFinishedAlert(
+        timerId: Long,
+        vibrate: Boolean = true,
+    ): Boolean {
+        if (RestTimerAlert.isStopRequested(this, timerId)) {
+            Log.i(TAG, "Skipping finished alert for stopped timer $timerId")
+            return false
+        }
+        activeTimerId = timerId
+        finishedAlertTimerId = timerId
+        Log.i(TAG, "Starting finished alert timerId=$timerId source=service vibrate=$vibrate")
         ServiceCompat.startForeground(
             this,
             NOTIFICATION_ID_FOREGROUND,
-            RestTimerAlert.buildFinishedNotification(this),
+            RestTimerAlert.buildFinishedNotification(this, timerId),
             foregroundServiceTypeCompat(),
         )
-        RestTimerAlert.startContinuousVibration(this)
+        return !vibrate || RestTimerAlert.startContinuousVibration(this, timerId)
     }
 
     @SuppressLint("MissingPermission")
@@ -293,11 +329,11 @@ class RestTimerService : Service() {
             cancelPersistentAlarm()
         }
         countdownJob?.cancel()
-        prepareTimeoutJob?.cancel()
-        preparedWithoutTimer = false
         releaseTimerWakeLock()
         cancelVibration()
         notificationManager.cancel(NOTIFICATION_ID_FOREGROUND)
+        activeTimerId = null
+        finishedAlertTimerId = null
         isFinishingTimer = false
     }
 
@@ -338,14 +374,23 @@ class RestTimerService : Service() {
 
     override fun onDestroy() {
         countdownJob?.cancel()
-        prepareTimeoutJob?.cancel()
-        if (stopRequested) {
+        val finishingTimerId = finishedAlertTimerId ?: activeTimerId
+        val finishedAlertWasStopped = finishingTimerId?.let { RestTimerAlert.isStopRequested(this, it) } == true
+        if (stopRequested || finishedAlertWasStopped) {
             cancelPersistentAlarm()
         }
         releaseTimerWakeLock()
-        cancelVibration()
-        notificationManager.cancel(NOTIFICATION_ID_FOREGROUND)
-        stopForeground(STOP_FOREGROUND_REMOVE)
+        if (stopRequested || finishedAlertWasStopped || !isFinishingTimer) {
+            if (finishedAlertWasStopped) {
+                Log.i(TAG, "Destroying service after stopped finished alert timerId=$finishingTimerId")
+            }
+            cancelVibration()
+            notificationManager.cancel(NOTIFICATION_ID_FOREGROUND)
+            stopForeground(STOP_FOREGROUND_REMOVE)
+        } else {
+            Log.i(TAG, "Service destroyed while finished alert is active; keeping alert notification and vibration")
+            stopForeground(STOP_FOREGROUND_DETACH)
+        }
         timerScope.cancel()
         serviceScope.cancel()
         super.onDestroy()
@@ -354,11 +399,9 @@ class RestTimerService : Service() {
     companion object {
         private const val TAG = "RestTimerService"
         private const val FINISH_DISPATCH_GRACE_MS = 500L
-        private const val PREPARE_TIMEOUT_MS = 30_000L
         private const val WAKE_LOCK_GRACE_MS = 60_000L
         private const val MIN_WAKE_LOCK_TIMEOUT_MS = 10_000L
         private const val MAX_WAKE_LOCK_TIMEOUT_MS = 30 * 60 * 1_000L
-        private const val ACTION_PREPARE = "com.codex.streetstrength.timer.PREPARE"
         private const val ACTION_START = "com.codex.streetstrength.timer.START"
         private const val ACTION_STOP = "com.codex.streetstrength.timer.STOP"
         const val ACTION_FINISH = "com.codex.streetstrength.timer.FINISH"
@@ -369,23 +412,6 @@ class RestTimerService : Service() {
         private const val CHANNEL_RUNNING = "rest_running"
         private const val CHANNEL_FINISHED = "rest_finished_silent_v2"
         private const val NOTIFICATION_ID_FOREGROUND = 401
-
-        fun prepare(
-            context: Context,
-            endAtWallClockMs: Long,
-        ) {
-            val intent = Intent(context, RestTimerService::class.java).apply {
-                action = ACTION_PREPARE
-                putExtra(EXTRA_END_AT_WALL_CLOCK_MS, endAtWallClockMs)
-            }
-            runCatching {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    context.startForegroundService(intent)
-                } else {
-                    context.startService(intent)
-                }
-            }.onFailure { Log.w(TAG, "Failed to prepare rest timer service", it) }
-        }
 
         fun start(
             context: Context,
@@ -414,11 +440,21 @@ class RestTimerService : Service() {
             }.onFailure { Log.w(TAG, "Failed to start rest timer service", it) }
         }
 
-        fun stop(context: Context) {
-            val intent = Intent(context, RestTimerService::class.java)
+        fun stop(
+            context: Context,
+            timerId: Long? = null,
+        ) {
+            val intent = Intent(context, RestTimerService::class.java).apply {
+                action = ACTION_STOP
+                timerId?.let { putExtra(EXTRA_TIMER_ID, it) }
+            }
             runCatching {
-                context.stopService(intent)
-            }.onFailure { Log.w(TAG, "Failed to stop rest timer service", it) }
+                context.startService(intent)
+            }.onFailure { error ->
+                Log.w(TAG, "Failed to request rest timer service stop; falling back to stopService", error)
+                runCatching { context.stopService(Intent(context, RestTimerService::class.java)) }
+                    .onFailure { Log.w(TAG, "Failed to stop rest timer service", it) }
+            }
         }
 
         fun startFinishFromAlarm(
@@ -442,5 +478,8 @@ class RestTimerService : Service() {
 
         fun shouldStopAlertFromIntent(intent: Intent?): Boolean =
             intent?.getBooleanExtra(EXTRA_STOP_ALERT, false) == true
+
+        fun stopAlertTimerIdFromIntent(intent: Intent?): Long? =
+            intent?.getLongExtra(EXTRA_TIMER_ID, -1L)?.takeIf { it > 0L }
     }
 }

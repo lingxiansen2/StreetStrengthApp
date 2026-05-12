@@ -275,6 +275,9 @@ interface TrainingDao {
     @Query("SELECT * FROM active_rest_timers WHERE state IN ('RUNNING', 'FIRED') ORDER BY createdAt DESC LIMIT 1")
     suspend fun getLatestActiveRestTimer(): ActiveRestTimerEntity?
 
+    @Query("SELECT * FROM active_rest_timers WHERE state IN ('RUNNING', 'FIRED') ORDER BY createdAt DESC LIMIT 1")
+    fun observeLatestActiveRestTimer(): Flow<ActiveRestTimerEntity?>
+
     @Query("SELECT * FROM set_logs WHERE sessionId = :sessionId AND taskId = :taskId AND setIndex = :setIndex LIMIT 1")
     suspend fun getSetLog(sessionId: Long, taskId: Long, setIndex: Int): SetLogEntity?
 

@@ -12,8 +12,8 @@ android {
         applicationId = "com.codex.streetstrength"
         minSdk = 26
         targetSdk = 34
-        versionCode = 19
-        versionName = "1.1.17"
+        versionCode = 27
+        versionName = "1.1.25"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {

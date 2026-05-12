@@ -1,0 +1,25 @@
+﻿
+com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest:
+Error in backgroundRestFinishThenContinueAndEndDoesNotCrash(com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 45000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:441)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest.waitForText(BackgroundRestTimerUiFlowInstrumentedTest.kt:134)
+	at com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest.waitForText$default(BackgroundRestTimerUiFlowInstrumentedTest.kt:129)
+	at com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest.backgroundRestFinishThenContinueAndEndDoesNotCrash(BackgroundRestTimerUiFlowInstrumentedTest.kt:76)
+
+
+Time: 191.855
+There was 1 failure:
+1) backgroundRestFinishThenContinueAndEndDoesNotCrash(com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 45000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:441)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest.waitForText(BackgroundRestTimerUiFlowInstrumentedTest.kt:134)
+	at com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest.waitForText$default(BackgroundRestTimerUiFlowInstrumentedTest.kt:129)
+	at com.codex.streetstrength.timer.BackgroundRestTimerUiFlowInstrumentedTest.backgroundRestFinishThenContinueAndEndDoesNotCrash(BackgroundRestTimerUiFlowInstrumentedTest.kt:76)
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+

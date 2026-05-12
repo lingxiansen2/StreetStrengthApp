@@ -23,8 +23,12 @@ import com.codex.streetstrength.R
 object RestTimerAlert {
     private const val TAG = "RestTimerAlert"
     const val ACTION_STOP_ALERT = "com.codex.streetstrength.timer.STOP_ALERT"
+
     @Volatile
     private var vibrationActive = false
+
+    @Volatile
+    private var activeAlertTimerId: Long? = null
 
     private val FINISH_VIBRATION_PATTERN = longArrayOf(0, 220, 140, 320, 180, 540)
     private const val CHANNEL_RUNNING = "rest_running"
@@ -32,6 +36,8 @@ object RestTimerAlert {
     private const val NOTIFICATION_ID_FOREGROUND = 401
     private const val REQUEST_CODE_CONTENT = 21
     private const val REQUEST_CODE_STOP = 22
+    private const val ALERT_PREFS = "rest_timer_alert"
+    private const val KEY_STOPPED_TIMER_ID = "stopped_timer_id"
 
     fun ensureChannels(context: Context) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
@@ -57,48 +63,84 @@ object RestTimerAlert {
     }
 
     @SuppressLint("MissingPermission")
-    fun showFinishedNotification(context: Context) {
+    fun showFinishedNotification(
+        context: Context,
+        timerId: Long,
+    ) {
+        if (isStopRequested(context, timerId)) {
+            Log.i(TAG, "Skipping finished notification for stopped timer $timerId")
+            return
+        }
         ensureChannels(context)
         if (canPostNotifications(context)) {
             runCatching {
                 NotificationManagerCompat.from(context).notify(
                     NOTIFICATION_ID_FOREGROUND,
-                    buildFinishedNotification(context),
+                    buildFinishedNotification(context, timerId),
                 )
+            }.onFailure {
+                Log.w(TAG, "Failed to show finished notification for timer $timerId", it)
             }
         }
     }
 
-    fun buildFinishedNotification(context: Context) =
+    fun buildFinishedNotification(
+        context: Context,
+        timerId: Long,
+    ) =
         NotificationCompat.Builder(context, CHANNEL_FINISHED)
             .setSmallIcon(R.drawable.ic_app)
             .setContentTitle("休息结束")
-            .setContentText("回到训练页后手动开始下一项")
+            .setContentText("回到训练页后手动开始下一组")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .setDefaults(0)
             .setSilent(true)
             .setOngoing(true)
             .setAutoCancel(false)
-            .setContentIntent(contentIntent(context, stopAlert = true))
-            .addAction(R.drawable.ic_app, "打开训练", contentIntent(context, stopAlert = true))
-            .addAction(R.drawable.ic_app, "关闭提醒", stopIntent(context))
+            .setContentIntent(contentIntent(context, stopAlert = true, timerId = timerId))
+            .addAction(R.drawable.ic_app, "打开训练", contentIntent(context, stopAlert = true, timerId = timerId))
+            .addAction(R.drawable.ic_app, "关闭提醒", stopIntent(context, timerId))
             .build()
 
-    fun stop(context: Context) {
+    fun stop(
+        context: Context,
+        timerId: Long? = null,
+    ) {
+        val stoppedTimerId = timerId ?: activeAlertTimerId
+        markStopRequested(context, stoppedTimerId)
+        if (stoppedTimerId != null) {
+            Log.i(TAG, "Rest alert stop requested; suppressing future finish for timer $stoppedTimerId")
+        }
         cancelVibration(context)
+        activeAlertTimerId = null
         NotificationManagerCompat.from(context).cancel(NOTIFICATION_ID_FOREGROUND)
     }
 
-    fun startContinuousVibration(context: Context) {
-        if (vibrationActive) {
-            Log.i(TAG, "Continuous rest-finished vibration already active")
-            return
+    @SuppressLint("MissingPermission")
+    fun startContinuousVibration(
+        context: Context,
+        timerId: Long,
+    ): Boolean {
+        if (isStopRequested(context, timerId)) {
+            Log.i(TAG, "Skipping continuous vibration for stopped timer $timerId")
+            return false
         }
-        Log.i(TAG, "Starting continuous rest-finished vibration")
+        if (vibrationActive && activeAlertTimerId == timerId) {
+            Log.i(TAG, "Continuous rest-finished vibration already active for timer $timerId")
+            return true
+        }
+        if (vibrationActive) {
+            Log.i(TAG, "Restarting continuous rest-finished vibration")
+            cancelVibration(context)
+        } else {
+            Log.i(TAG, "Starting continuous rest-finished vibration for timer $timerId")
+        }
+        activeAlertTimerId = timerId
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val vibrator = context.getSystemService(VibratorManager::class.java).defaultVibrator
-            if (!vibrator.hasVibrator()) return
+            val vibratorManager = context.getSystemService(VibratorManager::class.java)
+            val vibrator = vibratorManager.defaultVibrator
+            if (!vibrator.hasVibrator()) return false
             vibrator.vibrate(
                 VibrationEffect.createWaveform(FINISH_VIBRATION_PATTERN, 0),
                 VibrationAttributes.Builder()
@@ -108,7 +150,7 @@ object RestTimerAlert {
         } else {
             @Suppress("DEPRECATION")
             val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as android.os.Vibrator
-            if (!vibrator.hasVibrator()) return
+            if (!vibrator.hasVibrator()) return false
             @Suppress("DEPRECATION")
             vibrator.vibrate(
                 VibrationEffect.createWaveform(FINISH_VIBRATION_PATTERN, 0),
@@ -118,20 +160,55 @@ object RestTimerAlert {
             )
         }
         vibrationActive = true
+        return true
     }
 
     fun cancelVibration(context: Context) {
         Log.i(TAG, "Canceling continuous rest-finished vibration")
         vibrationActive = false
+        activeAlertTimerId = null
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            context.getSystemService(VibratorManager::class.java)?.defaultVibrator?.cancel()
+            val vibratorManager = context.getSystemService(VibratorManager::class.java)
+            runCatching { vibratorManager.cancel() }
+            runCatching { vibratorManager.defaultVibrator.cancel() }
         } else {
             @Suppress("DEPRECATION")
             (context.getSystemService(Context.VIBRATOR_SERVICE) as? android.os.Vibrator)?.cancel()
         }
     }
 
-    private fun contentIntent(context: Context, stopAlert: Boolean): PendingIntent? {
+    fun isStopRequested(
+        context: Context,
+        timerId: Long,
+    ): Boolean = prefs(context).getLong(KEY_STOPPED_TIMER_ID, -1L) == timerId
+
+    fun clearStopRequest(
+        context: Context,
+        timerId: Long,
+    ) {
+        val prefs = prefs(context)
+        if (prefs.getLong(KEY_STOPPED_TIMER_ID, -1L) == timerId) {
+            prefs.edit().remove(KEY_STOPPED_TIMER_ID).apply()
+        }
+    }
+
+    private fun markStopRequested(
+        context: Context,
+        timerId: Long?,
+    ) {
+        if (timerId == null || timerId <= 0L) return
+        Log.i(TAG, "Marked rest alert stopped for timer $timerId")
+        prefs(context).edit().putLong(KEY_STOPPED_TIMER_ID, timerId).apply()
+    }
+
+    private fun prefs(context: Context) =
+        context.applicationContext.getSharedPreferences(ALERT_PREFS, Context.MODE_PRIVATE)
+
+    private fun contentIntent(
+        context: Context,
+        stopAlert: Boolean,
+        timerId: Long,
+    ): PendingIntent? {
         val launchIntent = Intent(context, MainActivity::class.java).apply {
             action = Intent.ACTION_MAIN
             addCategory(Intent.CATEGORY_LAUNCHER)
@@ -139,6 +216,7 @@ object RestTimerAlert {
         }
         if (stopAlert) {
             launchIntent.putExtra(RestTimerService.EXTRA_STOP_ALERT, true)
+            launchIntent.putExtra(RestTimerService.EXTRA_TIMER_ID, timerId)
         }
         return PendingIntent.getActivity(
             context,
@@ -148,9 +226,13 @@ object RestTimerAlert {
         )
     }
 
-    private fun stopIntent(context: Context): PendingIntent {
+    private fun stopIntent(
+        context: Context,
+        timerId: Long,
+    ): PendingIntent {
         val intent = Intent(context, RestTimerReceiver::class.java).apply {
             action = ACTION_STOP_ALERT
+            putExtra(RestTimerService.EXTRA_TIMER_ID, timerId)
         }
         return PendingIntent.getBroadcast(
             context,

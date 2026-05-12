@@ -1,0 +1,3 @@
+﻿VIBRATE: allow; time=+733ms ago; duration=+17ms
+START_FOREGROUND: allow; time=+716ms ago; duration=+61ms
+NO_ISOLATED_STORAGE: deny

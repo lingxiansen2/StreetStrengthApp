@@ -1,0 +1,8 @@
+﻿adb.exe : Can't find service: vibrator
+At E:\Workspace\GitHub\StreetStrengthApp\packages\StreetStrengthApp-source-20260422\scripts\capture-real-device-rest-ti
+mer-evidence.ps1:46 char:19
++         $result = & $adb @AdbArgs 2>&1
++                   ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Can't find service: vibrator:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

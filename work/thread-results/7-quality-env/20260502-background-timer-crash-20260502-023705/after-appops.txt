@@ -1,0 +1,2 @@
+﻿SYSTEM_ALERT_WINDOW: default; rejectTime=+2m17s371ms ago
+NO_ISOLATED_STORAGE: deny

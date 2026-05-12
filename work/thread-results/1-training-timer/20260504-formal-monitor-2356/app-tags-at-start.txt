@@ -1,0 +1,14 @@
+﻿--------- beginning of main
+05-04 23:53:56.354 I/RestTimerAlert(17777): Canceling continuous rest-finished vibration
+05-04 23:53:56.357 I/RestTimerAlarmScheduler(17777): Scheduling rest finish receiver alarm for timer 110 elapsed=2150836891 wall=1777910216353
+05-04 23:53:56.363 I/RestTimerAlarmScheduler(17777): Scheduled exact elapsed rest finish alarm for timer 110
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled alarm clock backup rest finish alarm for timer 110
+05-04 23:53:56.366 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110
+05-04 23:53:56.369 I/RestTimerAlert(17777): Canceling continuous rest-finished vibration
+05-04 23:53:56.375 I/StreetStrengthApp(17777): Scheduling persisted rest timer 110 from app watchdog
+05-04 23:53:56.381 I/RestTimerAlarmScheduler(17777): Cancelled rest finish receiver alarm requestCode=13
+05-04 23:53:56.383 I/RestTimerAlarmScheduler(17777): Cancelled rest finish receiver alarm requestCode=15
+05-04 23:53:56.383 I/RestTimerAlarmScheduler(17777): Scheduling rest finish receiver alarm for timer 110 elapsed=2150836891 wall=1777910216353
+05-04 23:53:56.386 I/RestTimerAlarmScheduler(17777): Scheduled exact elapsed rest finish alarm for timer 110
+05-04 23:53:56.387 I/RestTimerAlarmScheduler(17777): Scheduled alarm clock backup rest finish alarm for timer 110
+05-04 23:53:56.388 I/RestTimerAlarmScheduler(17777): Scheduled rest finish receiver alarm for timer 110

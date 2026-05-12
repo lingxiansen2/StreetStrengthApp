@@ -1,0 +1,39 @@
+﻿--------- beginning of system
+05-08 18:59:09.956  3496  7995 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=62912835
+05-08 18:59:09.957  3496  7995 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=62912835
+05-08 18:59:09.972  3496  8417 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=61798760
+05-08 18:59:09.972  3496  8417 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=61798760
+05-08 18:59:09.996  3496  9048 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=61798760
+05-08 18:59:09.996  3496  9048 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=61798760
+05-08 18:59:09.999  3496  7995 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145
+05-08 18:59:10.000  3496  7995 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145
+05-08 18:59:10.012  3496  9048 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145
+05-08 18:59:10.012  3496  9048 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145
+05-08 18:59:12.423  3496  8721 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.oplus.aiwriter/.entrance.AIKitEntryService
+05-08 18:59:12.424  3496  8721 E ActivityManager: FGS logic changed: [WIU changed] [BFSL changed] Orig WIU:PROC_STATE_PERSISTENT New WIU:DENIED Orig BFSL:PROC_STATE_PERSISTENT New BFSL:DENIED cmp: {com.oplus.aiwriter/com.oplus.aiwriter.entrance.AIKitEntryService} sdk: 35
+05-08 18:59:12.424  3496  8721 W ActivityManager: Background started FGS: Disallowed [callingPackage: com.oplus.aiwriter; callingUid: 10398; uidState: IMPF; uidBFSL: n/a; intent: Intent { act=oplus.exsystemservice.service.action.APP_SWITCH_NOTIFY id=com.ss.android.ugc.aweme.main.MainActivity pkg=com.oplus.aiwriter mCallingUid=1000 }; code:DENIED; tempAllowListReason:<null>; allowWiu:-1; targetSdkVersion:35; callerTargetSdkVersion:35; startForegroundCount:0; bindFromPackage:null: isBindService:false]
+05-08 18:59:12.424  3496  8721 W ActivityManager: Service.startForeground() not allowed due to mAllowStartForeground false: service com.oplus.aiwriter/.entrance.AIKitEntryService
+--------- beginning of main
+05-08 18:59:20.462  9753  9936 I RestTimerService: Countdown fallback dispatching rest finish for timer 30
+05-08 18:59:20.480  9753  9753 I RestTimerReceiver: Received rest finish alarm for timer 30
+05-08 18:59:20.511  3496  7996 W ActivityManager: Permission Denial: getTopApplicationInfo from pid=9753, uid=10429 requires oplus.permission.OPLUS_COMPONENT_SAFE
+05-08 18:59:20.512  9753  9910 I RestTimerAlert: Starting continuous rest-finished vibration
+05-08 18:59:20.512  3496  7996 I VibratorManagerServiceExtImpl: vibrate is uid=10429, pid=9753, opPkg=com.codex.streetstrength, effect=Mono{mEffect=Composed{segments=[Step{amplitude=0.0, frequencyHz=0.0, duration=0}, Step{amplitude=-1.0, frequencyHz=0.0, duration=220}, Step{amplitude=0.0, frequencyHz=0.0, duration=140}, Step{amplitude=-1.0, frequencyHz=0.0, duration=320}, Step{amplitude=0.0, frequencyHz=0.0, duration=180}, Step{amplitude=-1.0, frequencyHz=0.0, duration=540}], repeat=0}}, attributes=VibrationAttributes{mUsage=ALARM, mAudioUsage= USAGE_UNKNOWN, mFlags=0}, reason=null, token=62912835
+05-08 18:59:20.514  9753  9910 I RestTimerService: Started rest finish service for timer 30 from alarm
+05-08 18:59:20.519  9753  9753 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.FINISH startId=3
+05-08 18:59:20.532  9753  9753 I RestTimerAlert: Restarting continuous rest-finished vibration
+05-08 18:59:20.532  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 18:59:20.533  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145
+05-08 18:59:20.534  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145
+05-08 18:59:20.535  3496  8390 I VibratorManagerServiceExtImpl: vibrate is uid=10429, pid=9753, opPkg=com.codex.streetstrength, effect=Mono{mEffect=Composed{segments=[Step{amplitude=0.0, frequencyHz=0.0, duration=0}, Step{amplitude=-1.0, frequencyHz=0.0, duration=220}, Step{amplitude=0.0, frequencyHz=0.0, duration=140}, Step{amplitude=-1.0, frequencyHz=0.0, duration=320}, Step{amplitude=0.0, frequencyHz=0.0, duration=180}, Step{amplitude=-1.0, frequencyHz=0.0, duration=540}], repeat=0}}, attributes=VibrationAttributes{mUsage=ALARM, mAudioUsage= USAGE_UNKNOWN, mFlags=0}, reason=null, token=178895145
+05-08 18:59:25.383  9753  9753 I RestTimerAlert: Marked rest alert stopped for timer 30
+05-08 18:59:25.383  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 18:59:25.383  3496  3658 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=62912835
+05-08 18:59:25.383  3496  3658 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=62912835
+05-08 18:59:25.385  9753  9753 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.STOP startId=4
+05-08 18:59:25.386  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 18:59:25.386  3496  3658 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145
+05-08 18:59:25.387  3496  3658 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145
+05-08 18:59:25.402  9753  9753 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 18:59:25.402  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145
+05-08 18:59:25.402  3496  8390 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=9753, usageFilter=-1, token=178895145

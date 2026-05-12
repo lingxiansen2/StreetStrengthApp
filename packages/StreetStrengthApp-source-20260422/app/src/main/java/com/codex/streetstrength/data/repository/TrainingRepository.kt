@@ -1554,6 +1554,15 @@ class TrainingRepository(
         }
     }
 
+    suspend fun markRestTimerFiredIfRunning(timerId: Long): Boolean {
+        return database.withTransaction {
+            val timer = dao.getRestTimer(timerId) ?: return@withTransaction false
+            if (timer.state != TimerState.RUNNING) return@withTransaction false
+            dao.updateRestTimer(timer.copy(state = TimerState.FIRED))
+            true
+        }
+    }
+
     suspend fun getRestTimer(timerId: Long): ActiveRestTimerEntity? {
         return database.withTransaction {
             dao.getRestTimer(timerId)

@@ -1,0 +1,386 @@
+﻿POWER MANAGER (dumpsys power)
+
+Power Manager State:
+  Settings power_manager_constants:
+    no_cached_wake_locks=true
+  mDirty=0x0
+  mWakefulness=Awake
+  mWakefulnessChanging=false
+  mIsPowered=true
+  mPlugType=1
+  mBatteryLevel=100
+  mDreamsBatteryLevelDrain=0
+  mDockState=0
+  mStayOn=true
+  mProximityPositive=false
+  mBootCompleted=true
+  mSystemReady=true
+  mEnhancedDischargeTimeElapsed=0
+  mLastEnhancedDischargeTimeUpdatedElapsed=0
+  mEnhancedDischargePredictionIsPersonalized=false
+  mHalAutoSuspendModeEnabled=false
+  mHalInteractiveModeEnabled=true
+  mWakeLockSummary=0x23
+  mNotifyLongScheduled=+21s783ms
+  mNotifyLongDispatched=(none)
+  mNotifyLongNextCheck=(none)
+  mRequestWaitForNegativeProximity=false
+  mInterceptedPowerKeyForProximity=false
+  mSandmanScheduled=false
+  mBatteryLevelLow=false
+  mLightDeviceIdleMode=false
+  mDeviceIdleMode=false
+  mDeviceIdleWhitelist=[2000, 10086, 10088, 10092, 10128, 10166, 10181]
+  mDeviceIdleTempWhitelist=[1000, 10168]
+  mLowPowerStandbyActive=false
+  mLastWakeTime=0 (176931 ms ago)
+  mLastSleepTime=0 (176931 ms ago)
+  mLastSleepReason=application
+  mLastGlobalWakeTimeRealtime=0 (176931 ms ago)
+  mLastGlobalSleepTimeRealtime=0 (176931 ms ago)
+  mLastInteractivePowerHintTime=166376 (10555 ms ago)
+  mLastScreenBrightnessBoostTime=0 (176932 ms ago)
+  mScreenBrightnessBoostInProgress=false
+  mHoldingWakeLockSuspendBlocker=true
+  mHoldingDisplaySuspendBlocker=true
+  mLastFlipTime=0
+  mIsFaceDown=false
+
+Settings and Configuration:
+  mDecoupleHalAutoSuspendModeFromDisplayConfig=false
+  mDecoupleHalInteractiveModeFromDisplayConfig=false
+  mWakeUpWhenPluggedOrUnpluggedConfig=false
+  mWakeUpWhenPluggedOrUnpluggedInTheaterModeConfig=false
+  mTheaterModeEnabled=false
+  mKeepDreamingWhenUnplugging=false
+  mSuspendWhenScreenOffDueToProximityConfig=false
+  mDreamsSupportedConfig=true
+  mDreamsEnabledByDefaultConfig=true
+  mDreamsActivatedOnSleepByDefaultConfig=false
+  mDreamsActivatedOnDockByDefaultConfig=true
+  mDreamsEnabledOnBatteryConfig=false
+  mDreamsBatteryLevelMinimumWhenPoweredConfig=-1
+  mDreamsBatteryLevelMinimumWhenNotPoweredConfig=15
+  mDreamsBatteryLevelDrainCutoffConfig=5
+  mDreamsEnabledSetting=true
+  mDreamsActivateOnSleepSetting=false
+  mDreamsActivateOnDockSetting=true
+  mDozeAfterScreenOff=true
+  mMinimumScreenOffTimeoutConfig=10000
+  mMaximumScreenDimDurationConfig=7000
+  mMaximumScreenDimRatioConfig=0.20000005
+  mAttentiveTimeoutConfig=-1
+  mAttentiveTimeoutSetting=-1
+  mAttentiveWarningDurationConfig=30000
+  mScreenOffTimeoutSetting=2147483647
+  mSleepTimeoutSetting=-1
+  mMaximumScreenOffTimeoutFromDeviceAdmin=9223372036854775807 (enforced=false)
+  mStayOnWhilePluggedInSetting=1
+  mScreenBrightnessOverrideFromWindowManager=NaN
+  mUserActivityTimeoutOverrideFromWindowManager=-1
+  mUserInactiveOverrideFromWindowManager=false
+  mDozeScreenStateOverrideFromDreamManager=0
+  mDrawWakeLockOverrideFromSidekick=false
+  mDozeScreenBrightnessOverrideFromDreamManager=-1
+  mScreenBrightnessMinimum=0.035433073
+  mScreenBrightnessMaximum=1.0
+  mScreenBrightnessDefault=0.39763778
+  mDoubleTapWakeEnabled=false
+  mForegroundProfile=0
+  mUserId=0
+
+Attentive timeout: -1 ms
+Sleep timeout: -1 ms
+Screen off timeout: 2147483647 ms
+Screen dim duration: 7000 ms
+
+UID states (changing=false changed=false):
+  UID 1000:   ACTIVE  count=3 state=0
+  UID 1001:   ACTIVE  count=4 state=0
+  UID 1002:   ACTIVE  count=0 state=0
+  UID 1068:   ACTIVE  count=0 state=0
+  UID 1073:   ACTIVE  count=0 state=0
+  UID u0a119:   ACTIVE  count=0 state=5
+  UID u0a142:   ACTIVE  count=0 state=7
+  UID u0a168:   ACTIVE  count=0 state=0
+  UID u0a169:   ACTIVE  count=0 state=5
+  UID u0a170:   ACTIVE  count=0 state=5
+  UID u0a181: INACTIVE  count=0 state=19
+
+Looper state:
+  Looper (PowerManagerService, tid 49) {9d3737e}
+    Message 0: { when=+21s781ms what=4 target=android.os.Handler }
+    Message 1: { when=+24d20h31m6s90ms what=1 target=android.os.Handler }
+    (Total messages: 2, polling=true, quitting=false)
+
+Wake Locks: size=7
+  PARTIAL_WAKE_LOCK              '*telephony-radio*' ACQ=-16s110ms (uid=1001 pid=1054 ws=WorkSource{1001 com.android.phone})
+  PARTIAL_WAKE_LOCK              'RILJ_ACK_WL' ACQ=-15s846ms (uid=1001 pid=1054)
+  SCREEN_BRIGHT_WAKE_LOCK        'WindowManager/displayId:0' ON_AFTER_RELEASE ACQ=-15s623ms (uid=1000 pid=577 ws=WorkSource{1000 com.android.settings})
+  PARTIAL_WAKE_LOCK              'GsmInboundSmsHandler' ACQ=-13s62ms (uid=1001 pid=1054)
+  PARTIAL_WAKE_LOCK              'CdmaInboundSmsHandler' ACQ=-12s921ms (uid=1001 pid=1054)
+  PARTIAL_WAKE_LOCK              '*job*/android/com.android.server.notification.NotificationHistoryJobService#237039804' ACQ=-230ms (uid=1000 pid=577 ws=WorkSource{1000 android})
+  PARTIAL_WAKE_LOCK              '*job*/android/com.android.server.notification.NotificationHistoryJobService#237039804' ACQ=-6ms (uid=1000 pid=577 ws=WorkSource{1000 android})
+
+Suspend Blockers: size=5
+  PowerManagerService.Booting: ref count=0 []
+  PowerManagerService.WakeLocks: ref count=1 [unknown: (05-01 18:39:54.812)]
+  PowerManagerService.Display: ref count=1 [holding display: (05-01 18:38:47.366)]
+  PowerManagerService.Broadcasts: ref count=0 []
+  PowerManagerService.WirelessChargerDetector: ref count=0 []
+
+Display Power: com.android.server.power.PowerManagerService$1@caf498a
+
+Battery saving stats:
+  Battery Saver is currently: OFF
+    Times full enabled: 0
+    Times adaptive enabled: 0
+  
+  Drain stats:
+                     Battery saver OFF                          ON
+  NonDoze NonIntr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+             Intr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+  Deep    NonIntr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+             Intr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+  Light   NonIntr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+             Intr:      0m      0mAh(  0%)      0.0mAh/h          0m      0mAh(  0%)      0.0mAh/h
+
+Battery saver policy (*NOTE* they only apply when battery saver is ON):
+  Settings: battery_saver_constants
+    value: 
+  Settings: (overlay)
+    value: 
+  DeviceConfig: battery_saver
+    location_mode: 
+  mAccessibilityEnabled=false
+  mAutomotiveProjectionActive=false
+  mPolicyLevel=0
+  
+  Policy 'default full'
+    advertise_is_enabled=true
+    disable_vibration=true
+    disable_animation=false
+    defer_full_backup=true
+    defer_keyvalue_backup=true
+    enable_firewall=true
+    enable_datasaver=false
+    disable_launch_boost=true
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=0.5
+    location_mode=3
+    force_all_apps_standby=true
+    force_background_check=true
+    disable_optional_sensors=true
+    disable_aod=true
+    soundtrigger_mode=1
+    enable_quick_doze=true
+    enable_night_mode=true
+  
+  Policy 'current full'
+    advertise_is_enabled=true
+    disable_vibration=true
+    disable_animation=false
+    defer_full_backup=true
+    defer_keyvalue_backup=true
+    enable_firewall=true
+    enable_datasaver=false
+    disable_launch_boost=true
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=0.5
+    location_mode=3
+    force_all_apps_standby=true
+    force_background_check=true
+    disable_optional_sensors=true
+    disable_aod=true
+    soundtrigger_mode=1
+    enable_quick_doze=true
+    enable_night_mode=true
+  
+  Policy 'default adaptive'
+    advertise_is_enabled=false
+    disable_vibration=false
+    disable_animation=false
+    defer_full_backup=false
+    defer_keyvalue_backup=false
+    enable_firewall=false
+    enable_datasaver=false
+    disable_launch_boost=false
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=1.0
+    location_mode=0
+    force_all_apps_standby=false
+    force_background_check=false
+    disable_optional_sensors=false
+    disable_aod=false
+    soundtrigger_mode=0
+    enable_quick_doze=false
+    enable_night_mode=false
+  
+  Policy 'current adaptive'
+    advertise_is_enabled=false
+    disable_vibration=false
+    disable_animation=false
+    defer_full_backup=false
+    defer_keyvalue_backup=false
+    enable_firewall=false
+    enable_datasaver=false
+    disable_launch_boost=false
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=1.0
+    location_mode=0
+    force_all_apps_standby=false
+    force_background_check=false
+    disable_optional_sensors=false
+    disable_aod=false
+    soundtrigger_mode=0
+    enable_quick_doze=false
+    enable_night_mode=false
+  
+  Policy 'effective'
+    advertise_is_enabled=false
+    disable_vibration=false
+    disable_animation=false
+    defer_full_backup=false
+    defer_keyvalue_backup=false
+    enable_firewall=false
+    enable_datasaver=false
+    disable_launch_boost=false
+    enable_brightness_adjustment=false
+    adjust_brightness_factor=1.0
+    location_mode=0
+    force_all_apps_standby=false
+    force_background_check=false
+    disable_optional_sensors=false
+    disable_aod=false
+    soundtrigger_mode=0
+    enable_quick_doze=false
+    enable_night_mode=false
+
+Battery saver state machine:
+  Enabled=false
+    full=false
+    adaptive=false
+  mState=1
+  mLastChangedIntReason=0
+  mLastChangedStrReason=null
+  mBootCompleted=true
+  mSettingsLoaded=true
+  mBatteryStatusSet=true
+  mIsPowered=true
+  mBatteryLevel=100
+  mIsBatteryLevelLow=false
+  mSettingAutomaticBatterySaver=0
+  mSettingBatterySaverEnabled=false
+  mSettingBatterySaverEnabledSticky=false
+  mSettingBatterySaverStickyAutoDisableEnabled=true
+  mSettingBatterySaverStickyAutoDisableThreshold=90
+  mSettingBatterySaverTriggerThreshold=0
+  mBatterySaverStickyBehaviourDisabled=false
+  mDynamicPowerSavingsDefaultDisableThreshold=80
+  mDynamicPowerSavingsDisableThreshold=80
+  mDynamicPowerSavingsEnableBatterySaver=false
+  mLastAdaptiveBatterySaverChangedExternallyElapsed=0
+AttentionDetector:
+ mIsSettingEnabled=false
+ mMaxExtensionMillis=900000
+ mPreDimCheckDurationMillis=2000
+ mEffectivePostDimTimeout=0
+ mLastUserActivityTime(excludingAttention)=166310
+ mAttentionServiceSupported=false
+ mRequested=false
+
+Profile power states: size=0
+Display Group User Activity:
+  displayGroupId=0
+  userActivitySummary=0x1
+  lastUserActivityTime=166376 (10612 ms ago)
+  lastUserActivityTimeNoChangeLights=0 (176988 ms ago)
+  mWakeLockSummary=0x23
+
+Wireless Charger Detector State:
+  mGravitySensor={Sensor name="Gravity Sensor", vendor="AOSP", version=3, type=9, maxRange=19.6133, resolution=2.480159E-4, power=12.7, minDelay=10000}
+  mPoweredWirelessly=false
+  mAtRest=false
+  mRestX=0.0, mRestY=0.0, mRestZ=0.0
+  mDetectionInProgress=false
+  mDetectionStartTime=0 (never)
+  mMustUpdateRestPosition=false
+  mTotalSamples=0
+  mMovingSamples=0
+  mFirstSampleX=0.0, mFirstSampleY=0.0, mFirstSampleZ=0.0
+  mLastSampleX=0.0, mLastSampleY=0.0, mLastSampleZ=0.0
+Wake Lock Log
+  05-01 18:39:32.714 - 1000 - ACQ NetworkStats (partial)
+  05-01 18:39:32.816 - 1000 - REL NetworkStats
+  05-01 18:39:32.837 - 1000 - ACQ NetworkStats (partial)
+  05-01 18:39:32.927 - 1000 - REL NetworkStats
+  05-01 18:39:35.650 - 1000 - ACQ GnssVisibilityControl (partial)
+  05-01 18:39:37.099 - 1000 - REL GnssVisibilityControl
+  05-01 18:39:38.230 - 1000 - ACQ NetworkStats (partial)
+  05-01 18:39:38.290 - 1000 - REL NetworkStats
+  05-01 18:39:38.618 - 1000 - ACQ NetworkStats (partial)
+  05-01 18:39:38.657 - 1000 - ACQ WiredAccessoryManager (partial)
+  05-01 18:39:38.970 - 1000 - REL NetworkStats
+  05-01 18:39:39.268 - 1000 - ACQ NetworkStats (partial)
+  05-01 18:39:39.538 - 1000 - REL NetworkStats
+  05-01 18:39:40.368 - 1000 - ACQ NetworkStats (partial)
+  05-01 18:39:40.585 - 1000 - REL NetworkStats
+  05-01 18:39:40.635 - 1000 - ACQ NetworkStats (partial)
+  05-01 18:39:40.828 - 1000 - REL NetworkStats
+  05-01 18:39:40.833 - 1000 - ACQ NetworkStats (partial)
+  05-01 18:39:40.999 - 1000 - REL NetworkStats
+  05-01 18:39:54.394 - 10168 - ACQ SysUI:BroadcastSender (partial)
+  05-01 18:39:54.444 - 1000 - REL WiredAccessoryManager
+  05-01 18:39:54.728 - 10168 - REL SysUI:BroadcastSender
+  05-01 18:39:54.816 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 18:39:54.823 - 1001 - REL *telephony-radio*
+  05-01 18:39:54.823 - 1001 - ACQ *telephony-radio* (partial)
+  05-01 18:39:55.087 - 1001 - ACQ RILJ_ACK_WL (partial)
+  05-01 18:39:55.182 - 1000 - ACQ NetworkStats (partial)
+  05-01 18:39:55.310 - 1000 - ACQ WindowManager/displayId:0 (screen-bright,on-after-release)
+  05-01 18:39:55.384 - 1000 - REL NetworkStats
+  05-01 18:39:57.872 - 1001 - ACQ GsmInboundSmsHandler (partial)
+  05-01 18:39:58.013 - 1001 - ACQ CdmaInboundSmsHandler (partial)
+  05-01 18:39:58.166 - 1073 - ACQ GsmCellBroadcastHandler (partial)
+  05-01 18:39:58.465 - 1073 - ACQ CellBroadcastHandler (partial)
+  05-01 18:39:58.490 - 1073 - ACQ CdmaServiceCategoryProgramHandler (partial)
+  05-01 18:40:00.020 - 1000 - ACQ *alarm* (partial)
+  05-01 18:40:01.443 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 18:40:01.449 - 1002 - REL bluetooth_timer
+  05-01 18:40:01.525 - 1073 - REL CdmaServiceCategoryProgramHandler
+  05-01 18:40:01.701 - 1073 - REL CellBroadcastHandler
+  05-01 18:40:01.736 - 1073 - REL GsmCellBroadcastHandler
+  05-01 18:40:03.071 - 1002 - ACQ bluetooth_timer (partial)
+  05-01 18:40:03.255 - 1002 - REL bluetooth_timer
+  05-01 18:40:03.583 - 1000 - REL *alarm*
+  05-01 18:40:10.705 - 1000 - ACQ *job*/a/c.a.s.n.NotificationHistoryJobService#237039804 (partial)
+  05-01 18:40:10.929 - 1000 - ACQ *job*/a/c.a.s.n.NotificationHistoryJobService#237039804 (partial)
+  -
+  Events: 45, Time-Resets: 18
+  Buffer, Bytes used: 278
+FaceDownDetector:
+  mFaceDown=false
+  mActive=true
+  mLastFlipTime=0
+  mSensorMaxLatencyMicros=2000000
+  mUserInteractionBackoffMillis=60000
+  mPreviousResultTime=0
+  mPreviousResultType=1
+  mMillisSaved=0
+  mZAccelerationThreshold=-9.5
+  mAccelerationThreshold=0.2
+  mTimeThreshold=PT1S
+AmbientDisplaySuppressionController:
+ ambientDisplaySuppressed=false
+ mSuppressionTokens={}
+
+Low Power Standby Controller:
+  mIsActive=false
+  mIsEnabled=false
+  mSupportedConfig=false
+  mEnabledByDefaultConfig=false
+  mStandbyTimeoutConfig=0
+  mEnableCustomPolicy=false
+  Allowed UIDs=[]
+  
+  UID allowed reasons:

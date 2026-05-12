@@ -1,0 +1,40 @@
+﻿--------- beginning of system
+05-08 19:04:28.571  3496  3775 W ActivityManager: Slow operation: 51ms so far, now at startProcess: returned from zygote!
+05-08 19:04:28.571  3496  3775 W ActivityManager: Slow operation: 51ms so far, now at startProcess: done updating battery stats
+05-08 19:04:28.571  3496  3775 W ActivityManager: Slow operation: 51ms so far, now at startProcess: building log message
+05-08 19:04:28.571  3496  3775 W ActivityManager: Slow operation: 52ms so far, now at startProcess: starting to update pids map
+05-08 19:04:28.571  3496  3775 W ActivityManager: Slow operation: 52ms so far, now at startProcess: done updating pids map
+05-08 19:04:30.670  3496  8722 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=151515054
+05-08 19:04:30.671  3496  8722 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=151515054
+05-08 19:04:30.687  3496  7996 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=107483356
+05-08 19:04:30.687  3496  7996 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=107483356
+05-08 19:04:30.691  3496  7996 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=107483356
+05-08 19:04:30.691  3496  7996 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=107483356
+05-08 19:04:30.726  3496  7996 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=56245595
+05-08 19:04:30.727  3496  7996 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=56245595
+05-08 19:04:30.745  3496  7996 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=56245595
+05-08 19:04:30.746  3496  7996 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=56245595
+05-08 19:04:37.224  3496  8725 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.oplus.aiwriter/.entrance.AIKitEntryService
+05-08 19:04:37.225  3496  8725 E ActivityManager: FGS logic changed: [WIU changed] [BFSL changed] Orig WIU:PROC_STATE_PERSISTENT New WIU:DENIED Orig BFSL:PROC_STATE_PERSISTENT New BFSL:DENIED cmp: {com.oplus.aiwriter/com.oplus.aiwriter.entrance.AIKitEntryService} sdk: 35
+05-08 19:04:37.231  3496  8725 W ActivityManager: Background started FGS: Disallowed [callingPackage: com.oplus.aiwriter; callingUid: 10398; uidState: IMPF; uidBFSL: n/a; intent: Intent { act=oplus.exsystemservice.service.action.APP_SWITCH_NOTIFY id=com.ss.android.ugc.aweme.main.MainActivity pkg=com.oplus.aiwriter mCallingUid=1000 }; code:DENIED; tempAllowListReason:<null>; allowWiu:-1; targetSdkVersion:35; callerTargetSdkVersion:35; startForegroundCount:0; bindFromPackage:null: isBindService:false]
+05-08 19:04:37.231  3496  8725 W ActivityManager: Service.startForeground() not allowed due to mAllowStartForeground false: service com.oplus.aiwriter/.entrance.AIKitEntryService
+--------- beginning of main
+05-08 19:04:40.679 22969 22969 I RestTimerReceiver: Received rest finish alarm for timer 39
+05-08 19:04:40.714  3496  8725 W ActivityManager: Permission Denial: getTopApplicationInfo from pid=22969, uid=10429 requires oplus.permission.OPLUS_COMPONENT_SAFE
+05-08 19:04:40.716 22969 23118 I RestTimerAlert: Starting continuous rest-finished vibration
+05-08 19:04:40.722  3496  8725 I VibratorManagerServiceExtImpl: vibrate is uid=10429, pid=22969, opPkg=com.codex.streetstrength, effect=Mono{mEffect=Composed{segments=[Step{amplitude=0.0, frequencyHz=0.0, duration=0}, Step{amplitude=-1.0, frequencyHz=0.0, duration=220}, Step{amplitude=0.0, frequencyHz=0.0, duration=140}, Step{amplitude=-1.0, frequencyHz=0.0, duration=320}, Step{amplitude=0.0, frequencyHz=0.0, duration=180}, Step{amplitude=-1.0, frequencyHz=0.0, duration=540}], repeat=0}}, attributes=VibrationAttributes{mUsage=ALARM, mAudioUsage= USAGE_UNKNOWN, mFlags=0}, reason=null, token=151515054
+05-08 19:04:40.727 22969 23118 I RestTimerService: Started rest finish service for timer 39 from alarm
+05-08 19:04:40.728 22969 22969 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.FINISH startId=3
+05-08 19:04:40.734 22969 22969 I RestTimerReceiver: Received rest finish alarm for timer 39
+05-08 19:04:40.741 22969 23118 I RestTimerReceiver: Timer 39 already fired; skip duplicate receiver alert
+05-08 19:04:46.080 22969 22969 I RestTimerAlert: Marked rest alert stopped for timer 39
+05-08 19:04:46.082 22969 22969 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 19:04:46.083  3496  8721 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=151515054
+05-08 19:04:46.083  3496  8721 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=151515054
+05-08 19:04:46.099 22969 22969 I RestTimerService: onStartCommand action=com.codex.streetstrength.timer.STOP startId=4
+05-08 19:04:46.100 22969 22969 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 19:04:46.100  3496  8721 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=56245595
+05-08 19:04:46.101  3496  8644 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=56245595
+05-08 19:04:46.111 22969 22969 I RestTimerAlert: Canceling continuous rest-finished vibration
+05-08 19:04:46.111  3496  8721 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=56245595
+05-08 19:04:46.112  3496  8721 I VibratorManagerServiceExtImpl: cancelVibrate uid=10429, pid=22969, usageFilter=-1, token=56245595

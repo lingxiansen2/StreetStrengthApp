@@ -6,7 +6,9 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.os.PowerManager
 import android.provider.Settings
+import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.rememberScrollState
@@ -53,6 +55,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import androidx.core.content.ContextCompat
 import com.codex.streetstrength.StreetStrengthApp
+import com.codex.streetstrength.data.local.ActiveRestTimerEntity
 import com.codex.streetstrength.data.model.MetricType
 import com.codex.streetstrength.data.model.SessionStatus
 import com.codex.streetstrength.data.model.TimerState
@@ -62,6 +65,10 @@ import com.codex.streetstrength.data.preferences.PreferencesRepository
 import com.codex.streetstrength.data.repository.SetCompletionInput
 import com.codex.streetstrength.data.repository.TrainingRepository
 import com.codex.streetstrength.domain.calculateTrainingProgress
+import com.codex.streetstrength.timer.RestTimerAlert
+import com.codex.streetstrength.timer.RestTimerClock
+import com.codex.streetstrength.timer.RestTimerAlarmScheduler
+import com.codex.streetstrength.timer.RestTimerController
 import com.codex.streetstrength.timer.RestTimerService
 import com.codex.streetstrength.ui.components.ValueAdjuster
 import com.codex.streetstrength.ui.formatLoadKg
@@ -87,8 +94,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 sealed interface TrainingEvent {
-    data class StartRestTimer(val timerId: Long, val endElapsedMs: Long) : TrainingEvent
-    data object StopRestTimer : TrainingEvent
+    data class StopRestTimer(val timerId: Long? = null) : TrainingEvent
     data object WorkoutEnded : TrainingEvent
 }
 
@@ -114,11 +120,13 @@ data class TrainingUiState(
     val supportsLoad: Boolean = false,
     val restSeconds: Int = 0,
     val activeTimerId: Long? = null,
-    val activeTimerEndElapsedMs: Long? = null,
+    val activeTimerEndAtMillis: Long? = null,
+    val activeTimerState: TimerState? = null,
     val remainingMs: Long = 0L,
     val elapsedMs: Long = 0L,
     val isResting: Boolean = false,
     val isRestComplete: Boolean = false,
+    val isRestAlertStopped: Boolean = false,
     val isFinished: Boolean = false,
     val isEmpty: Boolean = false,
     val isLastOverallSet: Boolean = false,
@@ -132,11 +140,18 @@ class TrainingViewModel(
     private val repository: TrainingRepository,
     private val preferencesRepository: PreferencesRepository,
     private val date: String,
+    context: Context,
 ) : ViewModel() {
+    private val appContext = context.applicationContext
     private val dayId = MutableStateFlow<Long?>(null)
     private val sessionId = MutableStateFlow<Long?>(null)
-    private val eventsFlow = MutableSharedFlow<TrainingEvent>()
+    private val eventsFlow = MutableSharedFlow<TrainingEvent>(extraBufferCapacity = 16)
     private val finalizedSessionIds = mutableSetOf<Long>()
+    private val compensatedExpiredTimerIds = mutableSetOf<Long>()
+    private var isCompletingSet = false
+    private var isSkippingRest = false
+    private var isEndingWorkout = false
+    private var lastActiveTimerId: Long? = null
 
     val events: Flow<TrainingEvent> = eventsFlow
 
@@ -154,7 +169,7 @@ class TrainingViewModel(
 
     private val tickerFlow = flow {
         while (true) {
-            emit(android.os.SystemClock.elapsedRealtime())
+            emit(System.currentTimeMillis())
             delay(250L)
         }
     }
@@ -163,7 +178,7 @@ class TrainingViewModel(
         val dayPlan: com.codex.streetstrength.data.local.PlanDayWithTasks?,
         val session: com.codex.streetstrength.data.local.WorkoutSessionEntity?,
         val logs: List<com.codex.streetstrength.data.local.SetLogEntity>,
-        val timer: com.codex.streetstrength.data.local.ActiveRestTimerEntity?,
+        val timer: ActiveRestTimerEntity?,
         val preferences: com.codex.streetstrength.data.preferences.UserPreferences,
     )
 
@@ -186,16 +201,24 @@ class TrainingViewModel(
     val uiState = combine(
         trainingBaseFlow,
         tickerFlow,
-    ) { base, now ->
+    ) { base, nowWallClockMs ->
         val orderMode = parseTrainingOrderModeNote(base.dayPlan?.day?.note)
         val progress = calculateTrainingProgress(base.dayPlan, base.logs, orderMode)
         val cursor = progress.cursor
         val activeTimer = base.timer
-        val remainingMs = activeTimer?.let { (it.endElapsedRealtimeMs - now).coerceAtLeast(0L) } ?: 0L
-        val isTimerExpired = activeTimer?.endElapsedRealtimeMs?.let { it <= now } == true
+        val activeTimerEndAtMillis = activeTimer?.let {
+            RestTimerClock.endAtWallClockMs(it.createdAt, it.durationSec)
+        }
+        val remainingMs = activeTimerEndAtMillis
+            ?.let { RestTimerClock.remainingFromWallClock(it, nowWallClockMs) }
+            ?: 0L
+        val isTimerExpired = activeTimerEndAtMillis?.let { it <= nowWallClockMs } == true
         val isRestComplete = activeTimer != null && (activeTimer.state == TimerState.FIRED || isTimerExpired)
         val isResting = activeTimer != null && !isRestComplete
-        val elapsedMs = base.session?.startedAt?.let { (System.currentTimeMillis() - it).coerceAtLeast(0L) } ?: 0L
+        val isRestAlertStopped = activeTimer?.id
+            ?.let { RestTimerAlert.isStopRequested(appContext, it) }
+            ?: false
+        val elapsedMs = base.session?.startedAt?.let { (nowWallClockMs - it).coerceAtLeast(0L) } ?: 0L
 
         TrainingUiState(
             dayId = base.dayPlan?.day?.id,
@@ -219,11 +242,13 @@ class TrainingViewModel(
             supportsLoad = cursor?.task?.template?.supportsExternalLoad ?: false,
             restSeconds = cursor?.task?.task?.restSec ?: 0,
             activeTimerId = activeTimer?.id,
-            activeTimerEndElapsedMs = activeTimer?.endElapsedRealtimeMs,
+            activeTimerEndAtMillis = activeTimerEndAtMillis,
+            activeTimerState = activeTimer?.state,
             remainingMs = remainingMs,
             elapsedMs = elapsedMs,
             isResting = isResting,
             isRestComplete = isRestComplete,
+            isRestAlertStopped = isRestAlertStopped,
             isFinished = progress.isFinished,
             isEmpty = base.dayPlan?.tasks?.isEmpty() != false,
             isLastOverallSet = cursor?.isLastOverallSet ?: false,
@@ -262,7 +287,37 @@ class TrainingViewModel(
                     finalizedSessionIds.add(activeSessionId)
                 ) {
                     repository.completeSession(activeDayId)
-                    eventsFlow.emit(TrainingEvent.StopRestTimer)
+                    stopRestTimerInfrastructure(state.activeTimerId, source = "session-complete")
+                    eventsFlow.emit(TrainingEvent.StopRestTimer(state.activeTimerId))
+                }
+                val timerId = state.activeTimerId
+                if (timerId == null && lastActiveTimerId != null) {
+                    stopRestTimerInfrastructure(lastActiveTimerId, source = "timer-cleared")
+                    eventsFlow.emit(TrainingEvent.StopRestTimer(lastActiveTimerId))
+                    lastActiveTimerId = null
+                } else if (timerId != null) {
+                    lastActiveTimerId = timerId
+                }
+                val endAtMillis = state.activeTimerEndAtMillis
+                if (
+                    timerId != null &&
+                    endAtMillis != null &&
+                    state.activeTimerState == TimerState.RUNNING &&
+                    endAtMillis <= System.currentTimeMillis() &&
+                    compensatedExpiredTimerIds.add(timerId)
+                ) {
+                    Log.i(
+                        TAG,
+                        "Expired rest timer compensation source=ui-compensation timerId=$timerId " +
+                            "session=$activeSessionId endAtWallClockMs=$endAtMillis",
+                    )
+                    val dispatched = RestTimerAlarmScheduler.dispatchFinish(appContext, timerId)
+                    if (!dispatched) {
+                        val serviceStarted = RestTimerService.startFinishFromAlarm(appContext, timerId)
+                        if (!serviceStarted) {
+                            Log.w(TAG, "Failed to dispatch expired rest timer compensation timerId=$timerId")
+                        }
+                    }
                 }
             }
         }
@@ -273,53 +328,163 @@ class TrainingViewModel(
         actualHoldSec: Int?,
         actualLoadKg: Double,
     ) {
+        if (isCompletingSet) return
         val state = uiState.value
+        if (state.sessionStatus != SessionStatus.IN_PROGRESS || state.isResting || state.isRestComplete) return
         val activeSessionId = state.sessionId ?: return
         val taskId = state.currentTaskId ?: return
+        isCompletingSet = true
         viewModelScope.launch {
-            val timer = repository.completeSet(
-                SetCompletionInput(
-                    sessionId = activeSessionId,
-                    taskId = taskId,
-                    setIndex = state.currentSetIndex,
-                    actualReps = actualReps,
-                    actualHoldSec = actualHoldSec,
-                    actualLoadKg = actualLoadKg,
-                    restSec = state.restSeconds,
-                    shouldStartRest = !state.isLastOverallSet,
-                ),
-            )
-            sessionId.value = activeSessionId
-            timer?.let {
-                eventsFlow.emit(TrainingEvent.StartRestTimer(timerId = it.id, endElapsedMs = it.endElapsedRealtimeMs))
+            var scheduledTimerId: Long? = null
+            try {
+                Log.i(
+                    TAG,
+                    "Completing set session=$activeSessionId task=$taskId set=${state.currentSetIndex} " +
+                        "restSec=${state.restSeconds} shouldStartRest=${!state.isLastOverallSet} source=completeSet",
+                )
+                val timer = repository.completeSet(
+                    input = SetCompletionInput(
+                        sessionId = activeSessionId,
+                        taskId = taskId,
+                        setIndex = state.currentSetIndex,
+                        actualReps = actualReps,
+                        actualHoldSec = actualHoldSec,
+                        actualLoadKg = actualLoadKg,
+                        restSec = state.restSeconds,
+                        shouldStartRest = !state.isLastOverallSet,
+                    ),
+                    onRestTimerCreated = { createdTimer ->
+                        runCatching {
+                            Log.i(
+                                TAG,
+                                "Rest timer created source=completeSet-callback timerId=${createdTimer.id} " +
+                                    "session=${createdTimer.sessionId} task=${createdTimer.taskId} " +
+                                    "set=${createdTimer.setIndex} duration=${createdTimer.durationSec}s " +
+                                    "createdAt=${createdTimer.createdAt} " +
+                                    "endElapsedRealtimeMs=${createdTimer.endElapsedRealtimeMs}",
+                            )
+                            startRestTimerInfrastructure(createdTimer, source = "completeSet-callback")
+                        }.onSuccess {
+                            scheduledTimerId = createdTimer.id
+                        }.onFailure { error ->
+                            Log.w(TAG, "Failed to start rest timer immediately after persistence", error)
+                        }
+                    },
+                )
+                sessionId.value = activeSessionId
+                timer?.let {
+                    if (scheduledTimerId != it.id) {
+                        startRestTimerInfrastructure(it, source = "completeSet-return")
+                        scheduledTimerId = it.id
+                    }
+                }
+            } catch (error: Throwable) {
+                Log.w(TAG, "Failed to complete current set", error)
+            } finally {
+                isCompletingSet = false
             }
         }
     }
 
     fun skipCurrentSet() {
         val state = uiState.value
+        if (state.sessionStatus != SessionStatus.IN_PROGRESS || state.isResting || state.isRestComplete) return
         val activeSessionId = state.sessionId ?: return
         val taskId = state.currentTaskId ?: return
         viewModelScope.launch {
-            repository.skipSet(sessionId = activeSessionId, taskId = taskId, setIndex = state.currentSetIndex)
+            runCatching {
+                repository.skipSet(sessionId = activeSessionId, taskId = taskId, setIndex = state.currentSetIndex)
+            }.onFailure { Log.w(TAG, "Failed to skip current set", it) }
         }
     }
 
     fun skipRest() {
+        if (isSkippingRest) return
+        isSkippingRest = true
         viewModelScope.launch {
-            repository.clearRestTimer(uiState.value.activeTimerId)
-            eventsFlow.emit(TrainingEvent.StopRestTimer)
+            val timerId = uiState.value.activeTimerId
+            try {
+                stopRestTimerInfrastructure(timerId, source = "skip-rest")
+                repository.clearRestTimer(timerId)
+                eventsFlow.emit(TrainingEvent.StopRestTimer(timerId))
+            } catch (error: Throwable) {
+                Log.w(TAG, "Failed to skip rest", error)
+            } finally {
+                isSkippingRest = false
+            }
         }
     }
 
     fun endWorkout() {
+        if (isEndingWorkout) return
+        isEndingWorkout = true
         viewModelScope.launch {
-            uiState.value.dayId?.let { activeDayId ->
-                repository.abandonSession(activeDayId)
+            val timerId = uiState.value.activeTimerId
+            try {
+                stopRestTimerInfrastructure(timerId, source = "end-workout")
+                uiState.value.dayId?.let { activeDayId ->
+                    repository.abandonSession(activeDayId)
+                }
+                eventsFlow.emit(TrainingEvent.StopRestTimer(timerId))
+                eventsFlow.emit(TrainingEvent.WorkoutEnded)
+            } catch (error: Throwable) {
+                Log.w(TAG, "Failed to end workout", error)
+            } finally {
+                isEndingWorkout = false
             }
-            eventsFlow.emit(TrainingEvent.StopRestTimer)
-            eventsFlow.emit(TrainingEvent.WorkoutEnded)
         }
+    }
+
+    fun stopFinishedRestAlertOnly() {
+        val state = uiState.value
+        if (!state.isRestComplete) return
+        viewModelScope.launch {
+            val timerId = state.activeTimerId
+            try {
+                stopRestTimerInfrastructure(timerId, source = "close-alert-only")
+                eventsFlow.emit(TrainingEvent.StopRestTimer(timerId))
+            } catch (error: Throwable) {
+                Log.w(TAG, "Failed to close finished rest alert", error)
+            }
+        }
+    }
+
+    fun stopFinishedRestAlertForBack() {
+        val state = uiState.value
+        if (!state.isRestComplete) return
+        stopRestTimerInfrastructure(state.activeTimerId, source = "back")
+    }
+
+    private fun startRestTimerInfrastructure(
+        timer: ActiveRestTimerEntity,
+        source: String,
+    ) {
+        val endAtWallClockMs = RestTimerClock.endAtWallClockMs(timer.createdAt, timer.durationSec)
+        Log.i(
+            TAG,
+            "Starting rest timer infrastructure source=$source timerId=${timer.id} " +
+                "session=${timer.sessionId} task=${timer.taskId} set=${timer.setIndex} " +
+                "duration=${timer.durationSec}s createdAt=${timer.createdAt} " +
+                "endElapsedRealtimeMs=${timer.endElapsedRealtimeMs} endAtWallClockMs=$endAtWallClockMs",
+        )
+        RestTimerService.start(
+            context = appContext,
+            timerId = timer.id,
+            endElapsedMs = timer.endElapsedRealtimeMs,
+            endAtWallClockMs = endAtWallClockMs,
+        )
+    }
+
+    private fun stopRestTimerInfrastructure(
+        timerId: Long? = null,
+        source: String,
+    ) {
+        Log.i(TAG, "Stopping rest timer infrastructure source=$source timerId=${timerId ?: "unknown"}")
+        RestTimerController.stopRestAlert(appContext, timerId)
+    }
+
+    private companion object {
+        const val TAG = "TrainingViewModel"
     }
 }
 
@@ -335,35 +500,36 @@ fun TrainingScreenRoute(
             repository = app.trainingRepository,
             preferencesRepository = app.preferencesRepository,
             date = date,
+            context = app,
         )
     }
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val context = LocalContext.current
+    val appContext = context.applicationContext
 
     LaunchedEffect(Unit) {
         viewModel.events.collect { event ->
             when (event) {
-                is TrainingEvent.StartRestTimer -> RestTimerService.start(context, event.timerId, event.endElapsedMs)
-                TrainingEvent.StopRestTimer -> RestTimerService.stop(context)
+                is TrainingEvent.StopRestTimer -> {
+                    RestTimerController.stopRestAlert(appContext, event.timerId)
+                }
                 TrainingEvent.WorkoutEnded -> onWorkoutEnded()
             }
         }
     }
 
-    LaunchedEffect(uiState.activeTimerId, uiState.activeTimerEndElapsedMs, uiState.isResting) {
-        val timerId = uiState.activeTimerId
-        val endElapsedMs = uiState.activeTimerEndElapsedMs
-        if (uiState.isResting && timerId != null && endElapsedMs != null) {
-            RestTimerService.start(context, timerId, endElapsedMs)
-        }
+    val handleBack = {
+        viewModel.stopFinishedRestAlertForBack()
+        onBack()
     }
 
     TrainingScreen(
         uiState = uiState,
-        onBack = onBack,
+        onBack = handleBack,
         onCompleteSet = viewModel::completeCurrentSet,
         onSkipSet = viewModel::skipCurrentSet,
         onSkipRest = viewModel::skipRest,
+        onStopRestAlert = viewModel::stopFinishedRestAlertOnly,
         onEndWorkout = viewModel::endWorkout,
     )
 }
@@ -375,6 +541,7 @@ fun TrainingScreen(
     onCompleteSet: (Int?, Int?, Double) -> Unit,
     onSkipSet: () -> Unit,
     onSkipRest: () -> Unit,
+    onStopRestAlert: () -> Unit,
     onEndWorkout: () -> Unit,
 ) {
     val view = LocalView.current
@@ -399,6 +566,8 @@ fun TrainingScreen(
     val isActiveTraining = !uiState.isEmpty && !uiState.isFinished && uiState.sessionId != null
     var showDetails by remember(uiState.sessionId) { mutableStateOf(false) }
     var showEndWorkoutConfirm by remember(uiState.sessionId) { mutableStateOf(false) }
+    var restPrimaryActionPending by remember(uiState.activeTimerId) { mutableStateOf(false) }
+    var stopAlertActionPending by remember(uiState.activeTimerId) { mutableStateOf(false) }
     val completeSetWithCurrentValues = {
         onCompleteSet(
             if (uiState.metricType == MetricType.REPS) actualReps else null,
@@ -407,6 +576,42 @@ fun TrainingScreen(
         )
     }
     val requestEndWorkout = { showEndWorkoutConfirm = true }
+    val handleRestAction = {
+        if (uiState.isResting || uiState.isRestComplete) {
+            restPrimaryActionPending = true
+        }
+        onSkipRest()
+    }
+    val handleStopRestAlert = {
+        if (uiState.isRestComplete && !uiState.isRestAlertStopped) {
+            stopAlertActionPending = true
+            onStopRestAlert()
+        }
+    }
+
+    LaunchedEffect(uiState.activeTimerId, uiState.isResting, uiState.isRestComplete, uiState.isRestAlertStopped) {
+        if (!uiState.isResting && !uiState.isRestComplete) {
+            restPrimaryActionPending = false
+            stopAlertActionPending = false
+        }
+        if (uiState.isRestAlertStopped) {
+            stopAlertActionPending = false
+        }
+    }
+
+    LaunchedEffect(restPrimaryActionPending, uiState.activeTimerId) {
+        if (restPrimaryActionPending) {
+            delay(1_200L)
+            restPrimaryActionPending = false
+        }
+    }
+
+    LaunchedEffect(stopAlertActionPending, uiState.activeTimerId) {
+        if (stopAlertActionPending) {
+            delay(800L)
+            stopAlertActionPending = false
+        }
+    }
 
     if (showEndWorkoutConfirm) {
         EndWorkoutConfirmDialog(
@@ -428,9 +633,12 @@ fun TrainingScreen(
                 onBack = onBack,
                 onCompleteSet = completeSetWithCurrentValues,
                 onSkipSet = onSkipSet,
-                onSkipRest = onSkipRest,
+                onSkipRest = handleRestAction,
+                onStopRestAlert = handleStopRestAlert,
                 onEndWorkout = requestEndWorkout,
                 onOpenDetails = { showDetails = true },
+                restPrimaryActionPending = restPrimaryActionPending,
+                stopAlertActionPending = stopAlertActionPending,
             )
             return@Surface
         }
@@ -438,12 +646,16 @@ fun TrainingScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
                 .navigationBarsPadding()
                 .padding(horizontal = 20.dp, vertical = 16.dp),
-            verticalArrangement = Arrangement.spacedBy(18.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            Column(verticalArrangement = Arrangement.spacedBy(18.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState()),
+                verticalArrangement = Arrangement.spacedBy(18.dp),
+            ) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -581,7 +793,7 @@ fun TrainingScreen(
                                     )
                                     if (uiState.isRestComplete) {
                                         Text(
-                                            text = "手动进入下一项后继续",
+                                            text = restCompleteInstruction(uiState),
                                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                                         )
                                     }
@@ -642,14 +854,29 @@ fun TrainingScreen(
                     }
 
                     uiState.isRestComplete -> {
-                        Button(onClick = onSkipRest, modifier = Modifier.fillMaxWidth()) {
-                            Text("开始下一项")
+                        Button(
+                            onClick = handleRestAction,
+                            modifier = Modifier.fillMaxWidth(),
+                            enabled = !restPrimaryActionPending,
+                        ) {
+                            Text(primaryTrainingActionLabel(uiState, restPrimaryActionPending))
+                        }
+                        OutlinedButton(
+                            onClick = handleStopRestAlert,
+                            modifier = Modifier.fillMaxWidth(),
+                            enabled = !uiState.isRestAlertStopped && !stopAlertActionPending && !restPrimaryActionPending,
+                        ) {
+                            Text(restAlertOnlyActionLabel(uiState, stopAlertActionPending))
                         }
                     }
 
                     uiState.isResting -> {
-                        Button(onClick = onSkipRest, modifier = Modifier.fillMaxWidth()) {
-                            Text("跳过休息")
+                        Button(
+                            onClick = handleRestAction,
+                            modifier = Modifier.fillMaxWidth(),
+                            enabled = !restPrimaryActionPending,
+                        ) {
+                            Text(primaryTrainingActionLabel(uiState, restPrimaryActionPending))
                         }
                     }
 
@@ -674,7 +901,10 @@ fun TrainingScreen(
                             Text("跳过本组")
                         }
                         OutlinedButton(onClick = requestEndWorkout, modifier = Modifier.weight(1f)) {
-                            Text("结束训练")
+                            Text(
+                                text = "结束训练",
+                                color = MaterialTheme.colorScheme.error,
+                            )
                         }
                     }
                 }
@@ -692,7 +922,7 @@ private fun EndWorkoutConfirmDialog(
         onDismissRequest = onDismiss,
         title = { Text("结束当前训练？") },
         text = {
-            Text("当前训练会退出并停止休息提醒。已记录的组会保留，未完成的组不会自动补记。")
+            Text("当前训练会退出，并先停止当前休息提醒或震动。已记录的组会保留，未完成的组不会自动补记。")
         },
         confirmButton = {
             TextButton(onClick = onConfirm) {
@@ -717,17 +947,25 @@ private fun TrainingFocusScreen(
     onCompleteSet: () -> Unit,
     onSkipSet: () -> Unit,
     onSkipRest: () -> Unit,
+    onStopRestAlert: () -> Unit,
     onEndWorkout: () -> Unit,
     onOpenDetails: () -> Unit,
+    restPrimaryActionPending: Boolean,
+    stopAlertActionPending: Boolean,
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .navigationBarsPadding()
             .padding(horizontal = 20.dp, vertical = 16.dp),
-        verticalArrangement = Arrangement.SpaceBetween,
+        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        Column(verticalArrangement = Arrangement.spacedBy(24.dp)) {
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(18.dp),
+        ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -747,24 +985,16 @@ private fun TrainingFocusScreen(
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(28.dp),
-                    verticalArrangement = Arrangement.spacedBy(14.dp),
+                        .padding(24.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
                     Text(
-                        text = when {
-                            uiState.isRestComplete -> "\u4f11\u606f\u7ed3\u675f"
-                            uiState.isResting -> "\u4f11\u606f\u4e2d"
-                            else -> "\u8bad\u7ec3\u4e2d"
-                        },
+                        text = trainingPhaseTitle(uiState),
                         style = MaterialTheme.typography.headlineLarge,
                         fontWeight = FontWeight.Bold,
                     )
                     Text(
-                        text = when {
-                            uiState.isRestComplete -> "\u7b49\u5f85\u624b\u52a8\u7ee7\u7eed"
-                            uiState.isResting -> formatRestClock(uiState.remainingMs)
-                            else -> "\u5df2\u5f00\u59cb ${formatElapsedClock(uiState.elapsedMs)}"
-                        },
+                        text = trainingPhaseSubtitle(uiState),
                         style = MaterialTheme.typography.headlineMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -814,15 +1044,22 @@ private fun TrainingFocusScreen(
                     else -> onCompleteSet
                 },
                 modifier = Modifier.fillMaxWidth(),
+                enabled = !restPrimaryActionPending,
                 contentPadding = PaddingValues(vertical = 18.dp),
             ) {
                 Text(
-                    text = when {
-                        uiState.isRestComplete -> "\u5f00\u59cb\u4e0b\u4e00\u9879"
-                        uiState.isResting -> "\u8df3\u8fc7\u4f11\u606f"
-                        else -> "\u5b8c\u6210\u672c\u7ec4"
-                    },
+                    text = primaryTrainingActionLabel(uiState, restPrimaryActionPending),
                 )
+            }
+
+            if (uiState.isRestComplete) {
+                OutlinedButton(
+                    onClick = onStopRestAlert,
+                    modifier = Modifier.fillMaxWidth(),
+                    enabled = !uiState.isRestAlertStopped && !stopAlertActionPending && !restPrimaryActionPending,
+                ) {
+                    Text(restAlertOnlyActionLabel(uiState, stopAlertActionPending))
+                }
             }
 
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -834,7 +1071,10 @@ private fun TrainingFocusScreen(
                     Text("\u8df3\u8fc7\u672c\u7ec4")
                 }
                 OutlinedButton(onClick = onEndWorkout, modifier = Modifier.weight(1f)) {
-                    Text("\u7ed3\u675f\u8bad\u7ec3")
+                    Text(
+                        text = "\u7ed3\u675f\u8bad\u7ec3",
+                        color = MaterialTheme.colorScheme.error,
+                    )
                 }
             }
 
@@ -862,16 +1102,16 @@ private fun TrainingStatusCard(uiState: TrainingUiState) {
             verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             Text(
-                text = when {
-                    uiState.isRestComplete -> "\u4f11\u606f\u7ed3\u675f\uff0c\u7b49\u5f85\u624b\u52a8\u7ee7\u7eed"
-                    uiState.isResting -> "\u4f11\u606f\u4e2d \u00b7 ${formatRestClock(uiState.remainingMs)}"
-                    else -> "\u8bad\u7ec3\u4e2d"
-                },
+                text = trainingStatusSummary(uiState),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
             )
             Text(
-                text = "\u5df2\u5f00\u59cb ${formatElapsedClock(uiState.elapsedMs)}",
+                text = if (uiState.isRestComplete) {
+                    restCompleteInstruction(uiState)
+                } else {
+                    "\u5df2\u5f00\u59cb ${formatElapsedClock(uiState.elapsedMs)}"
+                },
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
@@ -885,7 +1125,8 @@ private fun ReminderPermissionCard(
     val context = LocalContext.current
     val notificationReady = rememberReminderNotificationReady(context)
     val exactAlarmReady = rememberExactAlarmReady(context)
-    if (onlyIfNeedsAttention && notificationReady && exactAlarmReady) return
+    val batteryOptimizationReady = rememberBatteryOptimizationReady(context)
+    if (onlyIfNeedsAttention && notificationReady && exactAlarmReady && batteryOptimizationReady) return
 
     Surface(
         modifier = Modifier.fillMaxWidth(),
@@ -912,6 +1153,12 @@ private fun ReminderPermissionCard(
                 },
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            if (!batteryOptimizationReady) {
+                Text(
+                    text = "\u5f53\u524d\u624b\u673a\u6ca1\u6709\u5141\u8bb8 App \u5ffd\u7565\u7535\u6c60\u4f18\u5316\uff1aColorOS/OPlus \u53ef\u80fd\u4f1a\u5c06\u4f11\u606f\u7ed3\u675f\u95f9\u949f\u5ef6\u540e\uff0c\u5bfc\u81f4\u5207\u540e\u53f0\u540e\u4e0d\u9707\u52a8\u3002",
+                    color = MaterialTheme.colorScheme.error,
+                )
+            }
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 if (!notificationReady) {
                     OutlinedButton(
@@ -929,7 +1176,15 @@ private fun ReminderPermissionCard(
                         Text("\u95f9\u949f\u6743\u9650")
                     }
                 }
-                if (notificationReady && exactAlarmReady) {
+                if (!batteryOptimizationReady) {
+                    OutlinedButton(
+                        onClick = { openBatteryOptimizationSettings(context) },
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Text("\u540e\u53f0\u6743\u9650")
+                    }
+                }
+                if (notificationReady && exactAlarmReady && batteryOptimizationReady) {
                     OutlinedButton(
                         onClick = { openNotificationSettings(context) },
                         modifier = Modifier.weight(1f),
@@ -941,6 +1196,12 @@ private fun ReminderPermissionCard(
                         modifier = Modifier.weight(1f),
                     ) {
                         Text("\u95f9\u949f\u8bbe\u7f6e")
+                    }
+                    OutlinedButton(
+                        onClick = { openBatteryOptimizationSettings(context) },
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Text("\u540e\u53f0\u8bbe\u7f6e")
                     }
                 }
             }
@@ -975,6 +1236,7 @@ private fun TrainingPreview() {
             onCompleteSet = { _, _, _ -> },
             onSkipSet = {},
             onSkipRest = {},
+            onStopRestAlert = {},
             onEndWorkout = {},
         )
     }
@@ -996,6 +1258,55 @@ private fun buildTutorialUrl(taskName: String?, variantName: String?): String? {
     val query = "$keyword 街健 动作教程"
     val encoded = URLEncoder.encode(query, StandardCharsets.UTF_8.toString())
     return "https://search.bilibili.com/all?keyword=$encoded"
+}
+
+private fun trainingPhaseTitle(uiState: TrainingUiState): String = when {
+    uiState.isRestComplete -> "休息结束"
+    uiState.isResting -> "休息倒计时中"
+    else -> "训练中"
+}
+
+private fun trainingPhaseSubtitle(uiState: TrainingUiState): String = when {
+    uiState.isRestComplete && uiState.isRestAlertStopped -> "提醒已关闭，等待进入下一组"
+    uiState.isRestComplete -> "提醒已触发，等待手动确认"
+    uiState.isResting -> "剩余 ${formatRestClock(uiState.remainingMs)}"
+    else -> "已开始 ${formatElapsedClock(uiState.elapsedMs)}"
+}
+
+private fun trainingStatusSummary(uiState: TrainingUiState): String = when {
+    uiState.isRestComplete && uiState.isRestAlertStopped -> "休息结束 · 提醒已关闭，等待进入下一组"
+    uiState.isRestComplete -> "休息结束 · 提醒已触发，等待手动确认"
+    uiState.isResting -> "休息倒计时中 · 剩余 ${formatRestClock(uiState.remainingMs)}"
+    else -> "训练中"
+}
+
+private fun primaryTrainingActionLabel(
+    uiState: TrainingUiState,
+    actionPending: Boolean,
+): String = when {
+    uiState.isRestComplete && actionPending -> "正在进入下一组..."
+    uiState.isResting && actionPending -> "正在跳过休息..."
+    uiState.isRestComplete && uiState.isRestAlertStopped -> "进入下一组"
+    uiState.isRestComplete -> "停止提醒并进入下一组"
+    uiState.isResting -> "跳过休息"
+    else -> "完成本组"
+}
+
+private fun restAlertOnlyActionLabel(
+    uiState: TrainingUiState,
+    actionPending: Boolean,
+): String = when {
+    actionPending -> "正在关闭提醒..."
+    uiState.isRestAlertStopped -> "提醒已关闭"
+    else -> "只关闭提醒，不进入下一组"
+}
+
+private fun restCompleteInstruction(uiState: TrainingUiState): String {
+    return if (uiState.isRestAlertStopped) {
+        "提醒已关闭；点击下方按钮进入下一组"
+    } else {
+        "可只关闭提醒，或直接停止提醒并进入下一组"
+    }
 }
 
 private fun trainingProgressLabel(uiState: TrainingUiState): String = when (uiState.trainingOrderMode) {
@@ -1040,6 +1351,16 @@ private fun rememberExactAlarmReady(context: Context): Boolean {
     }
 }
 
+@Composable
+private fun rememberBatteryOptimizationReady(context: Context): Boolean {
+    return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        true
+    } else {
+        context.getSystemService(PowerManager::class.java)
+            .isIgnoringBatteryOptimizations(context.packageName)
+    }
+}
+
 private fun openNotificationSettings(context: Context) {
     val intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
@@ -1051,6 +1372,27 @@ private fun openNotificationSettings(context: Context) {
         }
     }
     context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+}
+
+private fun openBatteryOptimizationSettings(context: Context) {
+    val packageUri = Uri.parse("package:${context.packageName}")
+    val requestIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+            data = packageUri
+        }
+    } else {
+        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+            data = packageUri
+        }
+    }
+    val fallbackIntent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+        data = packageUri
+    }
+    runCatching {
+        context.startActivity(requestIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+    }.onFailure {
+        context.startActivity(fallbackIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+    }
 }
 
 private fun openExactAlarmSettings(context: Context) {
